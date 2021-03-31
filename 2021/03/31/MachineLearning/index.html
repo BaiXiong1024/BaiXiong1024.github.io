@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="写在前面：学了近一年的AI基础知识 最近在整理AI学习的大框架 整理完思路清晰了很多 分享出来希望可以帮到更多人  内容还会继续继续填充     @TOC  01 前言1.1基础科普1.1.1 人工智能应用场景 商业场景：个性化推荐 精准营销 客户细分&#x2F;用户画像   预测建模模式识别 数据挖掘 统计学习 语音识别  自然语言处理  计算机视觉    1.1.2 人工智能 机器学习 深度学习的关系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2021/03/31/MachineLearning/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="写在前面：学了近一年的AI基础知识 最近在整理AI学习的大框架 整理完思路清晰了很多 分享出来希望可以帮到更多人  内容还会继续继续填充     @TOC  01 前言1.1基础科普1.1.1 人工智能应用场景 商业场景：个性化推荐 精准营销 客户细分&#x2F;用户画像   预测建模模式识别 数据挖掘 统计学习 语音识别  自然语言处理  计算机视觉    1.1.2 人工智能 机器学习 深度学习的关系">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625095523434.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625095812843.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020062510052795.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625100842698.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625093935220.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625093127877.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625092321812.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625094420612.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625102204710.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625112011624.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625112111267.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625112147276.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625112222314.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625112341667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625112520192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625112620238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625112655511.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200625112809152.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="article:published_time" content="2021-03-31T14:30:45.294Z">
+<meta property="article:modified_time" content="2021-03-31T14:32:31.839Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200625095523434.png#pic_center">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-MachineLearning" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+    <div class="article-meta">
+      
+	<a href="/2021/03/31/MachineLearning/" class="article-date">
+	  <time datetime="2021-03-31T14:30:45.294Z" itemprop="datePublished">2021-03-31</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>写在前面：学了近一年的AI基础知识 最近在整理AI学习的大框架 整理完思路清晰了很多 分享出来希望可以帮到更多人  内容还会继续继续填充  </p>
+</blockquote>
+<blockquote>
+<p>@<a href="%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A7%91%E6%99%AE%E7%AF%87">TOC</a></p>
+</blockquote>
+<h1 id="01-前言"><a href="#01-前言" class="headerlink" title="01 前言"></a>01 前言</h1><h2 id="1-1基础科普"><a href="#1-1基础科普" class="headerlink" title="1.1基础科普"></a>1.1基础科普</h2><h3 id="1-1-1-人工智能应用场景"><a href="#1-1-1-人工智能应用场景" class="headerlink" title="1.1.1 人工智能应用场景"></a>1.1.1 人工智能应用场景</h3><blockquote>
+<p>商业场景：个性化推荐 精准营销 客户细分/用户画像   预测建模<br>模式识别 数据挖掘 统计学习 语音识别  自然语言处理  计算机视觉  </p>
+</blockquote>
+<h3 id="1-1-2-人工智能-机器学习-深度学习的关系"><a href="#1-1-2-人工智能-机器学习-深度学习的关系" class="headerlink" title="1.1.2 人工智能 机器学习 深度学习的关系"></a>1.1.2 人工智能 机器学习 深度学习的关系</h3><p><img src="https://img-blog.csdnimg.cn/20200625095523434.png#pic_center" alt="关系"></p>
+<h3 id="1-1-3-机器学习流程"><a href="#1-1-3-机器学习流程" class="headerlink" title="1.1.3 机器学习流程"></a>1.1.3 机器学习流程</h3><p><img src="https://img-blog.csdnimg.cn/20200625095812843.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="1-2-模型评估"><a href="#1-2-模型评估" class="headerlink" title="1.2 模型评估"></a>1.2 模型评估</h2><h3 id="1-2-1-模型评估依据"><a href="#1-2-1-模型评估依据" class="headerlink" title="1.2.1 模型评估依据"></a>1.2.1 模型评估依据</h3><p><img src="https://img-blog.csdnimg.cn/2020062510052795.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200625100842698.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70" alt="模型评估"><br>###</p>
+<h2 id="1-3-数学基础"><a href="#1-3-数学基础" class="headerlink" title="1.3 数学基础"></a>1.3 数学基础</h2><h3 id="1-3-1-函数"><a href="#1-3-1-函数" class="headerlink" title="1.3.1  函数"></a>1.3.1  函数</h3><blockquote>
+<p>常见函数：常函数   一次函数   二次函数  指数函数  对数函数  幂函数<br> 导数、梯度（求导的方式、导数/二阶导数/偏导数/梯度的含义/作用）<br> Taylor公式                                                                                                                   </p>
+</blockquote>
+<h3 id="1-3-2-概率"><a href="#1-3-2-概率" class="headerlink" title="1.3.2 概率"></a>1.3.2 概率</h3><blockquote>
+<p>古典概率、联合概率、条件概率、全概率公式、贝叶斯公式<br> 期望、方差、协方差（ Cov(X,Y) &gt;=&lt;0）<br> 大数定理、中心极限定理<br> 最大似然估计(MLE)</p>
+</blockquote>
+<h3 id="1-3-3-向量"><a href="#1-3-3-向量" class="headerlink" title="1.3.3 向量"></a>1.3.3 向量</h3><blockquote>
+<p>向量、矩阵的运算<br> 向量、矩阵的求导<br> SVD、QR分解</p>
+</blockquote>
+<h1 id="01-工具及框架"><a href="#01-工具及框架" class="headerlink" title="01 工具及框架"></a>01 工具及框架</h1><h2 id="1-1-工具"><a href="#1-1-工具" class="headerlink" title="1.1 工具"></a>1.1 工具</h2><h3 id="1-1-1-numpy"><a href="#1-1-1-numpy" class="headerlink" title="1.1.1 numpy"></a>1.1.1 numpy</h3><blockquote>
+<p>【==数据处理工具==】<a target="_blank" rel="noopener" href="https://numpy.org/">NumPy</a>（Numeric Python）提供了许多高级的数值编程工具，如：矩阵数据类型、矢量处理，以及精密的运算库。专为进行严格的数字处理而产生</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200625093935220.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70" alt="Numpy"></p>
+<h3 id="1-1-2-pandas"><a href="#1-1-2-pandas" class="headerlink" title="1.1.2 pandas"></a>1.1.2 pandas</h3><blockquote>
+<p>【==数据处理工具==】 <a target="_blank" rel="noopener" href="https://pandas.pydata.org/">pandas</a>是基于NumPy 的一种工具，用于解决数据分析任务 ，提供了高效地操作大型数据集所需的工具。提供了大量能使我们快速便捷地处理数据的函数和方法</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200625093127877.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="1-2-框架"><a href="#1-2-框架" class="headerlink" title="1.2 框架"></a>1.2 框架</h2><h3 id="1-2-1-Scikit-Learn"><a href="#1-2-1-Scikit-Learn" class="headerlink" title="1.2.1 Scikit-Learn"></a>1.2.1 Scikit-Learn</h3><blockquote>
+<p>【==机器学习框架==】<a target="_blank" rel="noopener" href="http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html">Scikit-Learn</a>库包含了常见的机器学习算法 作为python机器学习功能强大的支持包，它已经把底层的脏活、累活都默默完成了，使用者能够将宝贵的注意力和精力集中在解决问题上，极大地提高产出效率</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200625092321812.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="1-2-2-Tensorflow"><a href="#1-2-2-Tensorflow" class="headerlink" title="1.2.2 Tensorflow"></a>1.2.2 Tensorflow</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://tensorflow.google.cn/overview?hl=zh-cn">一个端到端开源机器</a></p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200625094420612.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70" alt="Tensorflow"></p>
+<h1 id="02-机器学习"><a href="#02-机器学习" class="headerlink" title="02 机器学习"></a>02 机器学习</h1><blockquote>
+<p>机器学习核心思想：==梯度下降==<br>梯度下降分类：批量梯度下降(BGD)   随机梯度下降(SGD) 小批量梯度下降(MBGD)</p>
+</blockquote>
+<h2 id="2-1-机器学习常用算法总结"><a href="#2-1-机器学习常用算法总结" class="headerlink" title="2.1 机器学习常用算法总结"></a>2.1 机器学习常用算法总结</h2><p><img src="https://img-blog.csdnimg.cn/20200625102204710.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center" alt="机器学习常用算法总结"></p>
+<h2 id="2-2-常用算法原理"><a href="#2-2-常用算法原理" class="headerlink" title="2.2 常用算法原理"></a>2.2 常用算法原理</h2><h4 id="2-2-1-Linear-Regression"><a href="#2-2-1-Linear-Regression" class="headerlink" title="2.2.1 Linear-Regression"></a>2.2.1 Linear-Regression</h4><blockquote>
+<p>历史数据–&gt; 拟合平面计算式–&gt;损失函数（误差）分析–&gt;目标函数最小值参数seita–&gt;回归模型–&gt;   预测值</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200625112011624.png#pic_center" alt="Linear-Regression"></p>
+<h4 id="2-2-2-Loglstic"><a href="#2-2-2-Loglstic" class="headerlink" title="2.2.2 Loglstic"></a>2.2.2 Loglstic</h4><blockquote>
+<p>特征数据–&gt;线性回归方程–&gt;进行sigmoid激活–&gt;输出的得分值–&gt;比较不同预测结果的得分值</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200625112111267.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center" alt="Logistic"></p>
+<h4 id="2-2-3-SVM"><a href="#2-2-3-SVM" class="headerlink" title="2.2.3 SVM"></a>2.2.3 SVM</h4><blockquote>
+<p>两类数据点–&gt;决策方程(w /b)–&gt;最大化点与决策边界的距离–&gt;距离倒数的极小值(拉格朗日乘子/核函数)–&gt;最优决策方程 （找到区分两类的hyper plane 超平面 使得边际margin 最大）</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200625112147276.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center" alt="SVM"></p>
+<h4 id="2-2-4-Decide-Tree"><a href="#2-2-4-Decide-Tree" class="headerlink" title="2.2.4 Decide-Tree"></a>2.2.4 Decide-Tree</h4><blockquote>
+<p>整个数据集(根节点)–&gt; 通过条件(信息增益//信息增益率)–&gt; 判断合适的前进方向–&gt;达到不可再分的节点 –&gt;  最终的决策结果</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200625112222314.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center" alt="Decide-Tree"></p>
+<h5 id="2-2-4-1-C4-5"><a href="#2-2-4-1-C4-5" class="headerlink" title="2.2.4.1 C4.5"></a>2.2.4.1 C4.5</h5><h5 id="2-2-4-1-CART"><a href="#2-2-4-1-CART" class="headerlink" title="2.2.4.1 CART"></a>2.2.4.1 CART</h5><h4 id="2-2-5-Random-Forest"><a href="#2-2-5-Random-Forest" class="headerlink" title="2.2.5 Random-Forest"></a>2.2.5 Random-Forest</h4><blockquote>
+<p>训练数据集–&gt; 随机数据采样 （第一重随机）AND 随机特征采样(第二重随机) –&gt;训练数据集–&gt; 建立决策树模型–&gt;综合（平均/投票/多数结果法）–&gt;最终结果</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200625112341667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center" alt="Random-Forest"></p>
+<h4 id="2-2-6-集成学习"><a href="#2-2-6-集成学习" class="headerlink" title="2.2.6 集成学习"></a>2.2.6 集成学习</h4><p><img src="https://img-blog.csdnimg.cn/20200625112520192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center" alt="Adboost"></p>
+<h5 id="2-2-6-1-Adboost"><a href="#2-2-6-1-Adboost" class="headerlink" title="2.2.6.1 Adboost"></a>2.2.6.1 Adboost</h5><blockquote>
+<p>训练数据集–&gt;一次划分–&gt;更新权重–&gt;二次划分–&gt;更新权重–&gt;三次划分–&gt;更新权重–&gt;对每次预测结果根据准确率（作为权重)乘以a–&gt;综合相加–&gt;最终结果</p>
+</blockquote>
+<h5 id="2-2-6-1-Xgboost"><a href="#2-2-6-1-Xgboost" class="headerlink" title="2.2.6.1 Xgboost"></a>2.2.6.1 Xgboost</h5><blockquote>
+<p>内部决策树用的回归树–&gt;构造出第一棵树–&gt;选择策略–&gt;第二棵树–&gt;选择策略–&gt;第三棵树</p>
+</blockquote>
+<h4 id="2-2-7-K-Means"><a href="#2-2-7-K-Means" class="headerlink" title="2.2.7 K-Means"></a>2.2.7 K-Means</h4><blockquote>
+<p>一堆数据–&gt;初始化 k 个质心点– &gt;按质心算距离 聚类 –&gt; 迭代更新质心–&gt; 依次继续更新</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200625112620238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center" alt="KMeans"></p>
+<h4 id="2-2-8-KNN"><a href="#2-2-8-KNN" class="headerlink" title="2.2.8 KNN"></a>2.2.8 KNN</h4><blockquote>
+<p>带标签的训练数据集和待分类测试数据–&gt;测试对象到训练集中每个对象的距离–&gt;按距离大小排序–&gt;选取K个与测试对象最近的标签数据–&gt;多数表决预测</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200625112655511.png#pic_center" alt="KNN"></p>
+<h4 id="2-2-9-NaiveBayes"><a href="#2-2-9-NaiveBayes" class="headerlink" title="2.2.9 NaiveBayes"></a>2.2.9 NaiveBayes</h4><h4 id="2-2-10-EM"><a href="#2-2-10-EM" class="headerlink" title="2.2.10 EM"></a>2.2.10 EM</h4><h1 id="03-深度学习"><a href="#03-深度学习" class="headerlink" title="03 深度学习"></a>03 深度学习</h1><h2 id="3-1-基础"><a href="#3-1-基础" class="headerlink" title="3.1 基础"></a>3.1 基础</h2><h3 id="3-1-0-Tensorflow"><a href="#3-1-0-Tensorflow" class="headerlink" title="3.1.0 Tensorflow"></a>3.1.0 Tensorflow</h3><p><img src="https://img-blog.csdnimg.cn/20200625112809152.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center" alt="Tensorflow"></p>
+<h3 id="3-1-1-深度学习应用"><a href="#3-1-1-深度学习应用" class="headerlink" title="3.1.1 深度学习应用"></a>3.1.1 深度学习应用</h3><blockquote>
+<p>· 人脸识别，手机解锁和高铁通行验证  扫脸支付<br>· 医疗影像诊断:放射性拍片-提升超分辨率<br>· 工业4.0： 预测性维护是指用连续的数据收集来预测设备故障<br>· 无人零售· 深度强化学习(Alpha zero等)<br>· AUTOML-机器学习自动化<br>· 自动驾驶：（百度Apollo，Google的Waymo）<br>· 自动辅助系统<br>· 跟车系统<br>· 高速自动巡航系统<br>· 自动泊车系统 自动运输卡车<br>· 农作物监测：管理杀虫剂、发现问题，预测天气变化如何影响农业<br>· 药物发现:缩短药物发现周期</p>
+</blockquote>
+<h3 id="3-1-2-基本概念"><a href="#3-1-2-基本概念" class="headerlink" title="3.1.2 基本概念"></a>3.1.2 基本概念</h3><blockquote>
+<ul>
+<li>感知机模型</li>
+<li>反向传播</li>
+<li>正向传播</li>
+<li>多层反向传播</li>
+</ul>
+</blockquote>
+<h2 id="3-2-CNN-convolutional-Neural-Networks"><a href="#3-2-CNN-convolutional-Neural-Networks" class="headerlink" title="3.2 CNN(convolutional Neural Networks)"></a>3.2 CNN(convolutional Neural Networks)</h2><blockquote>
+<p>卷积神经网络</p>
+</blockquote>
+<blockquote>
+<p>==<strong>结构</strong>==</p>
+<ul>
+<li>数据输入层：Input Layer  （图片）</li>
+<li>卷积计算层：CONV Layer</li>
+<li>ReLU激励层：ReLU Incentive  Layer （激活）</li>
+<li>池化层：Pooling Layer  （下采样）</li>
+<li>全连接层：FC Layer   </li>
+</ul>
+</blockquote>
+<h2 id="3-3-RNN-Recurrent-Neural-Network"><a href="#3-3-RNN-Recurrent-Neural-Network" class="headerlink" title="3.3 RNN(Recurrent Neural Network)"></a>3.3 RNN(Recurrent Neural Network)</h2><blockquote>
+<p>循环神经网络</p>
+</blockquote>
+<h2 id="3-4-GANS-Generative-Adversarial-Networks"><a href="#3-4-GANS-Generative-Adversarial-Networks" class="headerlink" title="3.4 GANS(Generative Adversarial Networks)"></a>3.4 GANS(Generative Adversarial Networks)</h2><blockquote>
+<p>生成对抗神经网络</p>
+</blockquote>
+<h1 id="04-计算机视觉"><a href="#04-计算机视觉" class="headerlink" title="04 计算机视觉"></a>04 计算机视觉</h1><blockquote>
+<p>大规模(大数据量)图片识别(聚类/分类)，如人脸识别，车牌识别，OCR<br>以图搜图，图像分割 目标检测，如自动驾驶的行人检测，安防系统的异常人群检测</p>
+</blockquote>
+<blockquote>
+<p><strong>目标检测 图像定位</strong></p>
+<ul>
+<li>Alex Net</li>
+<li>SPP Net</li>
+<li>CNN-VGGNet</li>
+<li>Fast R-CNN</li>
+<li>Fast R-CNN RPN</li>
+<li>Faster RCNN</li>
+<li>R FCN</li>
+<li>YOLO</li>
+<li>YOLO v1</li>
+<li>YOLO v2</li>
+<li>YOLO v3</li>
+<li>SSD</li>
+<li>Cascade R-CNN</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>图像分类</strong></p>
+<ul>
+<li>VGG</li>
+<li>GoogleNet</li>
+<li>RestNet</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>3D目标检测</strong></p>
+<ul>
+<li>Anchor Free</li>
+<li>Anchor Free_UnitBox</li>
+<li>Anchor Free_FSAF</li>
+<li>Anchor Free_FCOS</li>
+<li>Anchor Free_CenterNet</li>
+<li>Anchor Free_CornerNet</li>
+<li>Anchor Free_CornerNet-Lite</li>
+<li>Anchor Free_GA RPN</li>
+</ul>
+</blockquote>
+<h1 id="05-自然语言"><a href="#05-自然语言" class="headerlink" title="05 自然语言"></a>05 自然语言</h1><blockquote>
+<p>语音识别，语音合成自动分词，句法分析，语法纠错，关键词提取，文本分类/聚类，<br>文本自动摘要，信息检索（ES,Solr）知识图谱，机器翻译，人机对话，机器写作<br>推荐系统，高考机器人 信息抽取，网络爬虫，情感分析，问答系统</p>
+</blockquote>
+<blockquote>
+<p><strong>分词</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>词向量</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>常用工具</strong></p>
+<ul>
+<li>Jieba</li>
+<li>HanLP</li>
+<li>Gensim</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>算法</strong></p>
+<ul>
+<li>Seq2Seq</li>
+<li>自编码神经网络</li>
+<li>RNN LSTM</li>
+<li>Attention</li>
+<li>Transformer</li>
+<li>Bert</li>
+</ul>
+</blockquote>
+<h1 id="06-语音识别"><a href="#06-语音识别" class="headerlink" title="06 语音识别"></a>06 语音识别</h1>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>John Doe</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2021/03/31/MachineLearning/" target="_blank" title="">http://example.com/2021/03/31/MachineLearning/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/03/31/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#01-%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">01 前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1%E5%9F%BA%E7%A1%80%E7%A7%91%E6%99%AE"><span class="nav-number">1.1.</span> <span class="nav-text">1.1基础科普</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1 人工智能应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2 人工智能 机器学习 深度学习的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-3-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.1.3 机器学习流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 模型评估</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%BE%9D%E6%8D%AE"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 模型评估依据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 数学基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-%E5%87%BD%E6%95%B0"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1  函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-%E6%A6%82%E7%8E%87"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2 概率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3-%E5%90%91%E9%87%8F"><span class="nav-number">1.3.3.</span> <span class="nav-text">1.3.3 向量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#01-%E5%B7%A5%E5%85%B7%E5%8F%8A%E6%A1%86%E6%9E%B6"><span class="nav-number">2.</span> <span class="nav-text">01 工具及框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E5%B7%A5%E5%85%B7"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-numpy"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1.1 numpy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-pandas"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.1.2 pandas</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E6%A1%86%E6%9E%B6"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-Scikit-Learn"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.2.1 Scikit-Learn</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-Tensorflow"><span class="nav-number">2.2.2.</span> <span class="nav-text">1.2.2 Tensorflow</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#02-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="nav-number">3.</span> <span class="nav-text">02 机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 机器学习常用算法总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 常用算法原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-Linear-Regression"><span class="nav-number">3.2.0.1.</span> <span class="nav-text">2.2.1 Linear-Regression</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-Loglstic"><span class="nav-number">3.2.0.2.</span> <span class="nav-text">2.2.2 Loglstic</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-3-SVM"><span class="nav-number">3.2.0.3.</span> <span class="nav-text">2.2.3 SVM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-4-Decide-Tree"><span class="nav-number">3.2.0.4.</span> <span class="nav-text">2.2.4 Decide-Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-4-1-C4-5"><span class="nav-number">3.2.0.4.1.</span> <span class="nav-text">2.2.4.1 C4.5</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-4-1-CART"><span class="nav-number">3.2.0.4.2.</span> <span class="nav-text">2.2.4.1 CART</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-5-Random-Forest"><span class="nav-number">3.2.0.5.</span> <span class="nav-text">2.2.5 Random-Forest</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-6-%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="nav-number">3.2.0.6.</span> <span class="nav-text">2.2.6 集成学习</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-6-1-Adboost"><span class="nav-number">3.2.0.6.1.</span> <span class="nav-text">2.2.6.1 Adboost</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-6-1-Xgboost"><span class="nav-number">3.2.0.6.2.</span> <span class="nav-text">2.2.6.1 Xgboost</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-7-K-Means"><span class="nav-number">3.2.0.7.</span> <span class="nav-text">2.2.7 K-Means</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-8-KNN"><span class="nav-number">3.2.0.8.</span> <span class="nav-text">2.2.8 KNN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-9-NaiveBayes"><span class="nav-number">3.2.0.9.</span> <span class="nav-text">2.2.9 NaiveBayes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-10-EM"><span class="nav-number">3.2.0.10.</span> <span class="nav-text">2.2.10 EM</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#03-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"><span class="nav-number">4.</span> <span class="nav-text">03 深度学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E5%9F%BA%E7%A1%80"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-0-Tensorflow"><span class="nav-number">4.1.1.</span> <span class="nav-text">3.1.0 Tensorflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%BA%94%E7%94%A8"><span class="nav-number">4.1.2.</span> <span class="nav-text">3.1.1 深度学习应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">4.1.3.</span> <span class="nav-text">3.1.2 基本概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-CNN-convolutional-Neural-Networks"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 CNN(convolutional Neural Networks)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-RNN-Recurrent-Neural-Network"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 RNN(Recurrent Neural Network)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-GANS-Generative-Adversarial-Networks"><span class="nav-number">4.4.</span> <span class="nav-text">3.4 GANS(Generative Adversarial Networks)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#04-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89"><span class="nav-number">5.</span> <span class="nav-text">04 计算机视觉</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#05-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80"><span class="nav-number">6.</span> <span class="nav-text">05 自然语言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#06-%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB"><span class="nav-number">7.</span> <span class="nav-text">06 语音识别</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2021 Hexo All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Hexo
+          </div>
+          <div class="panel-body">
+            Copyright © 2021 John Doe All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
