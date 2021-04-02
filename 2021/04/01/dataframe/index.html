@@ -9,15 +9,15 @@
   
   
   
-  <meta name="description" content="人类大脑中，大约有1000亿个神经元，每个神经元与大约10万个神经元相连。从本质上说，这就是我们想要创造的，在某种程度上，这对机器来说是可行的。深度学习的目的是模仿人类大脑的工作方式。这在神经元，轴突，树突等方面意味着什么？嗯，神经元有胞体，树突和轴突。来自一个神经元的信号沿着轴突传播并转移到下一个神经元的树突。传递信号的那个连接被称为突触。  DataFrame 某一列字母转大写 1df[&amp;#">
+  <meta name="description" content="数据帧(DataFrame)是二维数据结构，即数据以行和列的表格方式排列。数据帧(DataFrame)的功能特点：   潜在的列是不同的类型大小可变标记轴(行和列)可以对行和列执行算术运算https:&#x2F;&#x2F;www.yiibai.com&#x2F;pandas&#x2F;python_pandas_dataframe.html  DataFrame 某一列字母转大写 1df[&#39;列名&#39;] &#x3D; d">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据处理 DataFrame">
 <meta property="og:url" content="http://example.com/2021/04/01/dataframe/index.html">
 <meta property="og:site_name" content="HELLO WORLD">
-<meta property="og:description" content="人类大脑中，大约有1000亿个神经元，每个神经元与大约10万个神经元相连。从本质上说，这就是我们想要创造的，在某种程度上，这对机器来说是可行的。深度学习的目的是模仿人类大脑的工作方式。这在神经元，轴突，树突等方面意味着什么？嗯，神经元有胞体，树突和轴突。来自一个神经元的信号沿着轴突传播并转移到下一个神经元的树突。传递信号的那个连接被称为突触。  DataFrame 某一列字母转大写 1df[&amp;#">
+<meta property="og:description" content="数据帧(DataFrame)是二维数据结构，即数据以行和列的表格方式排列。数据帧(DataFrame)的功能特点：   潜在的列是不同的类型大小可变标记轴(行和列)可以对行和列执行算术运算https:&#x2F;&#x2F;www.yiibai.com&#x2F;pandas&#x2F;python_pandas_dataframe.html  DataFrame 某一列字母转大写 1df[&#39;列名&#39;] &#x3D; d">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-01T15:54:32.652Z">
-<meta property="article:modified_time" content="2021-04-01T23:29:25.375Z">
+<meta property="article:modified_time" content="2021-04-02T00:04:17.112Z">
 <meta property="article:author" content="Bai Xiong">
 <meta name="twitter:card" content="summary">
   
@@ -205,7 +205,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>人类大脑中，大约有1000亿个神经元，每个神经元与大约10万个神经元相连。从本质上说，这就是我们想要创造的，在某种程度上，这对机器来说是可行的。<br>深度学习的目的是模仿人类大脑的工作方式。这在神经元，轴突，树突等方面意味着什么？嗯，神经元有胞体，树突和轴突。来自一个神经元的信号沿着轴突传播并转移到下一个神经元的树突。传递信号的那个连接被称为突触。</p>
+<p>数据帧(DataFrame)是二维数据结构，即数据以行和列的表格方式排列。<br>数据帧(DataFrame)的功能特点：</p>
+</blockquote>
+<blockquote>
+<p>潜在的列是不同的类型大小可变标记轴(行和列)可以对行和列执行算术运算<br><a target="_blank" rel="noopener" href="https://www.yiibai.com/pandas/python_pandas_dataframe.html">https://www.yiibai.com/pandas/python_pandas_dataframe.html</a></p>
 </blockquote>
 <p>DataFrame 某一列字母转大写</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[&#39;列名&#39;] &#x3D; df[&#39;列名&#39;].str.upper()</span><br></pre></td></tr></table></figure>
@@ -236,7 +239,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.loc[~df[‘column_name’].isin(some_values)</span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>DataFrame 横向对应拼接</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df389 &#x3D; pd.merge(df38, df9,     how&#x3D;&#39;left&#39;, on&#x3D;&#39;product_b&#39;)</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df389 &#x3D; pd.merge(df38, df9, how&#x3D;&#39;left&#39;, on&#x3D;&#39;product_b&#39;)</span><br></pre></td></tr></table></figure>
 
 <p>DataFrame 求某列均值</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[col].mean())  </span><br></pre></td></tr></table></figure>
@@ -245,39 +248,40 @@
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Df1 &#x3D; df1[df1[&#39;A&#39;].isin([1])]</span><br><span class="line"></span><br><span class="line">df1[df1[&#39;A&#39;].isin([1])] 选取df1中A列包含数字1的行</span><br></pre></td></tr></table></figure>
 
 <p>DataFrame 前一个和后一个词组成元组</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[(word[i],word[i+1]) for I in     range(len(words)-1)]</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[(word[i],word[i+1]) for I in range(len(words)-1)]</span><br></pre></td></tr></table></figure>
 
 <p>DataFrame merge报错 不同类型不能merge</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">base_df[&#39;article_id&#39;]      &#x3D; base_df[&#39;article_id&#39;].apply(int)</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">base_df[&#39;article_id&#39;] &#x3D; base_df[&#39;article_id&#39;].apply(int)</span><br></pre></td></tr></table></figure>
 
 <p>DataFrame  drop_duplicates()删除重复行</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df389_Lancome &#x3D; df389_Lancome.drop_duplicates()</span><br></pre></td></tr></table></figure>
 
 <p>DataFrame 直接新增列</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data[&#39;d&#39;] &#x3D; [5,6]</span><br><span class="line">append 新增行</span><br><span class="line">res &#x3D; pd.DataFrame(columns&#x3D;(&#39;lib&#39;, &#39;qty1&#39;, &#39;qty2&#39;))</span><br><span class="line">res &#x3D; res.append([&#123;&#39;qty1&#39;:10.0&#125;], ignore_index&#x3D;True)</span><br><span class="line">items_a &#x3D; df9[&#39;product_id_a&#39;].to_list()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data[&#39;d&#39;] &#x3D; [5,6]</span><br><span class="line">append 新增行</span><br><span class="line">res &#x3D; pd.DataFrame(columns&#x3D;(&#39;lib&#39;, &#39;qty1&#39;, &#39;qty2&#39;))</span><br><span class="line">res &#x3D; res.append([&#123;&#39;qty1&#39;:10.0&#125;], ignore_index&#x3D;True)</span><br><span class="line">items_a &#x3D; df9[&#39;product_id_a&#39;].to_list()</span><br></pre></td></tr></table></figure>
 
 <p>DataFrame  读取csv 设置数据类型</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df &#x3D; pd.read_csv(&quot;somefile.csv&quot;, dtype &#x3D; &#123;&#39;column_name&#39; : str&#125;)</span><br></pre></td></tr></table></figure>
 
 
 <p>DataFrame 筛选多项条件</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">some &#x3D; all_data[(all_data[&#39;User_id&#39;] &#x3D;&#x3D; 1439408) &amp; (all_data[&#39;Date&#39;].isna())]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">some &#x3D; all_data[(all_data[&#39;User_id&#39;] &#x3D;&#x3D; 1439408) &amp; (all_data[&#39;Date&#39;].isna())]</span><br></pre></td></tr></table></figure>
 
 <p>DataFrame 取某行某列的value</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[pd.at][i,‘j’]</span><br><span class="line">pd.loc[i,j] &#x3D; value</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[pd.at][i,‘j’]</span><br><span class="line">pd.loc[i,j] &#x3D; value</span><br></pre></td></tr></table></figure>
 
 <p>DataFrame 填充空值的方法</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df3_sum_MakeUp_Fragrance_Oil.fillna(value&#x3D;0)</span><br><span class="line">df.fillna(method&#x3D;&#39;pad&#39;,axis&#x3D;0)  # 用前一行的值填充</span><br><span class="line">df.fillna(method&#x3D;&#39;backfill&#39;,axis&#x3D;1)  # 用后一列的值填充</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df3_sum_MakeUp_Fragrance_Oil.fillna(value&#x3D;0)</span><br><span class="line">df.fillna(method&#x3D;&#39;pad&#39;,axis&#x3D;0)  # 用前一行的值填充</span><br><span class="line">df.fillna(method&#x3D;&#39;backfill&#39;,axis&#x3D;1)  # 用后一列的值填充</span><br></pre></td></tr></table></figure>
 
 <p>DataFrame 根据某列排序</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.sort_values(by&#x3D;[&#39;col1&#39;],na_position&#x3D;&#39;first&#39;))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.sort_values(by&#x3D;[&#39;col1&#39;],na_position&#x3D;&#39;first&#39;))</span><br></pre></td></tr></table></figure>
 
 
 
 <p>DataFrame 计算pd每一列的均值</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for col in  df.columns:</span><br><span class="line">print(&quot;该列数据的均值位%.2f&quot; %df[col].mean())  #计算每列均值</span><br></pre></td></tr></table></figure>
 
-<p>-</p>
+
+
 <p>DataFrame  取dataframe特定行/列</p>
 <ul>
 <li>(<a target="_blank" rel="noopener" href="https://www.cnblogs.com/nxf-rabbit75/p/10105271.html">https://www.cnblogs.com/nxf-rabbit75/p/10105271.html</a>)</li>
@@ -304,8 +308,6 @@
 
 <p>DataFrame  字符串拼接</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df_session01[&#39;user_id&#39;] &#x3D; df_session01[&#39;user_id&#39;].apply(str)</span><br><span class="line">df_session01[&#39;session_id&#39;] &#x3D; df_session01[&#39;session_id&#39;].apply(str)</span><br><span class="line">df_session01[&#39;user_id_session&#39;] &#x3D; df_session01[&#39;user_id&#39;].str.cat(df_session01[&#39;session_id&#39;],sep&#x3D;&quot;_&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>-</p>
 
       
     </div>

@@ -265,6 +265,59 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-sql"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2021/04/02/sql/">数据库操作 Hive / sql sever</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2021/04/02/sql/" class="article-date">
+	  <time datetime="2021-04-01T23:57:41.425Z" itemprop="datePublished">2021-04-02</time>
+	</a>
+
+      
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          
+模型训练需要使用大量的数据 使用python读取数据库再用 pandas 进行操作 占用时间/内存资源 并且处理大量数据时效率较低实际使用时直接在数据库里进行简单的字符串操作/数据简单的加减乘除等 最后把处理后的数据结果表拉近python用于模型训练等操作
+
+hive创建表/新增数据/删除表123456789DROP TABLE IF EXISTS 库名.表名;CREATE TABLE 库名.表名(    字段1 bigint,    字段2 int,    字段3 string,   ...
+        </p>
+        <p class="article-more-link">
+          <a href="/2021/04/02/sql/#more">Read More</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-python"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -348,10 +401,15 @@
       
         <p class="article-excerpt-content">
           
-人类大脑中，大约有1000亿个神经元，每个神经元与大约10万个神经元相连。从本质上说，这就是我们想要创造的，在某种程度上，这对机器来说是可行的。深度学习的目的是模仿人类大脑的工作方式。这在神经元，轴突，树突等方面意味着什么？嗯，神经元有胞体，树突和轴突。来自一个神经元的信号沿着轴突传播并转移到下一个神经元的树突。传递信号的那个连接被称为突触。
+数据帧(DataFrame)是二维数据结构，即数据以行和列的表格方式排列。数据帧(DataFrame)的功能特点：
+
+
+潜在的列是不同的类型大小可变标记轴(行和列)可以对行和列执行算术运算https://www.yiibai.com/pandas/python_pandas_dataframe.html
 
 DataFrame 某一列字母转大写
-1df[&#39;列名&#39;] &#x3D; df[&#39;列名&#39;].str.upper()...
+1df[&#39;列名&#39;] &#x3D; df[&#39;列名&#39;].str.upper()
+
+DataFrame 按指定字符串拼接...
         </p>
         <p class="article-more-link">
           <a href="/2021/04/01/dataframe/#more">Read More</a>

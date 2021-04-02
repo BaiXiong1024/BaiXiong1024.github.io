@@ -17,7 +17,7 @@
 <meta property="og:description" content="人类大脑中，大约有1000亿个神经元，每个神经元与大约10万个神经元相连。从本质上说，这就是我们想要创造的，在某种程度上，这对机器来说是可行的。深度学习的目的是模仿人类大脑的工作方式。这在神经元，轴突，树突等方面意味着什么？嗯，神经元有胞体，树突和轴突。来自一个神经元的信号沿着轴突传播并转移到下一个神经元的树突。传递信号的那个连接被称为突触。  字典 dictpython 字典中根据value获">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-01T23:19:07.222Z">
-<meta property="article:modified_time" content="2021-04-01T23:28:05.899Z">
+<meta property="article:modified_time" content="2021-04-01T23:59:34.832Z">
 <meta property="article:author" content="Bai Xiong">
 <meta name="twitter:card" content="summary">
   
@@ -220,7 +220,28 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">label_list &#x3D; [int(i) for i in label_list]</span><br></pre></td></tr></table></figure>
 
 <p>python list中每个int转换为str</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">在Python中，有时需要将list以字符串的形式输出，此时可以使用如下的形式：</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;</span><br><span class="line">&quot;,&quot;.join(list_sample)1</span><br><span class="line">&#96;&#96;&#96;</span><br><span class="line"></span><br><span class="line">其中，&#96;,&#96;表示的是分隔符</span><br><span class="line"></span><br><span class="line">如需要将&#96;a_list &#x3D; [&quot;h&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;]&#96;转换成字符输出，可以使用如下的形式转换：</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;</span><br><span class="line">a_list &#x3D; [&quot;h&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;]</span><br><span class="line">print &quot;,&quot;.join(a_list)123</span><br><span class="line">&#96;&#96;&#96;</span><br><span class="line"></span><br><span class="line">如果list中不是字符串，而是数字，则不能使用如上的方法，会有如下的错误：</span><br><span class="line"></span><br><span class="line">&gt; TypeError: sequence item 0: expected string, int found</span><br><span class="line"></span><br><span class="line">可以有以下的两种方法：</span><br><span class="line"></span><br><span class="line">- 方法1</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;</span><br><span class="line">num_list &#x3D; [0,1,2,3,4,5,6,7,8,9]</span><br><span class="line">num_list_new &#x3D; [str(x) for x in num_list]</span><br><span class="line"></span><br><span class="line">print &quot;,&quot;.join(num_list_new)1234</span><br><span class="line">&#96;&#96;&#96;</span><br><span class="line"></span><br><span class="line">- 方法2</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;</span><br><span class="line">num_list &#x3D; [0,1,2,3,4,5,6,7,8,9]</span><br><span class="line">num_list_new &#x3D; map(lambda x:str(x), num_list)</span><br><span class="line"></span><br><span class="line">print &quot;,&quot;.join(num_list_new)</span><br><span class="line">&#96;&#96;&#96;</span><br></pre></td></tr></table></figure>
+<p>在Python中，有时需要将list以字符串的形式输出，此时可以使用如下的形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;,&quot;.join(list_sample)1</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>,</code>表示的是分隔符</p>
+<p>如需要将<code>a_list = [&quot;h&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;]</code>转换成字符输出，可以使用如下的形式转换：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a_list &#x3D; [&quot;h&quot;,&quot;e&quot;,&quot;l&quot;,&quot;l&quot;,&quot;o&quot;]</span><br><span class="line">print &quot;,&quot;.join(a_list)123</span><br></pre></td></tr></table></figure>
+
+<p>如果list中不是字符串，而是数字，则不能使用如上的方法，会有如下的错误：</p>
+<blockquote>
+<p>TypeError: sequence item 0: expected string, int found</p>
+</blockquote>
+<p>可以有以下的两种方法：</p>
+<ul>
+<li>方法1</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">num_list &#x3D; [0,1,2,3,4,5,6,7,8,9]</span><br><span class="line">num_list_new &#x3D; [str(x) for x in num_list]</span><br><span class="line"></span><br><span class="line">print &quot;,&quot;.join(num_list_new)1234</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方法2</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">num_list &#x3D; [0,1,2,3,4,5,6,7,8,9]</span><br><span class="line">num_list_new &#x3D; map(lambda x:str(x), num_list)</span><br><span class="line"></span><br><span class="line">print &quot;,&quot;.join(num_list_new)</span><br></pre></td></tr></table></figure>
+
 
 <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><ul>
 <li>python 字符串转大小写</li>
@@ -301,6 +322,15 @@ var a = new Donate({
   
     
 <nav id="article-nav">
+  
+    <a href="/2021/04/02/sql/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数据库操作 Hive / sql sever
+        
+      </div>
+    </a>
   
   
     <a href="/2021/04/01/dataframe/" id="article-nav-older" class="article-nav-link-wrap">
