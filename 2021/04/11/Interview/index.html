@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210411161356526.png">
 <meta property="article:published_time" content="2021-04-11T06:46:04.045Z">
-<meta property="article:modified_time" content="2021-04-11T16:21:22.566Z">
+<meta property="article:modified_time" content="2021-04-11T17:54:35.221Z">
 <meta property="article:author" content="Bai Xiong">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210411161356526.png">
@@ -335,7 +335,191 @@
 <li>召回率（Recall）</li>
 <li>均方根误差（Root Mean Square Error，RMSE）</li>
 </ul>
-<h4 id="ROC曲线"><a href="#ROC曲线" class="headerlink" title="ROC曲线"></a>ROC曲线</h4><h4 id="余弦距离的应用"><a href="#余弦距离的应用" class="headerlink" title="余弦距离的应用"></a>余弦距离的应用</h4><h4 id="A-B测试的陷阱"><a href="#A-B测试的陷阱" class="headerlink" title="A/B测试的陷阱"></a>A/B测试的陷阱</h4><h4 id="模型评估的方法"><a href="#模型评估的方法" class="headerlink" title="模型评估的方法"></a>模型评估的方法</h4><h4 id="超参数调优"><a href="#超参数调优" class="headerlink" title="超参数调优"></a>超参数调优</h4><h4 id="过拟合与欠拟合"><a href="#过拟合与欠拟合" class="headerlink" title="过拟合与欠拟合"></a>过拟合与欠拟合</h4><h3 id="经典算法"><a href="#经典算法" class="headerlink" title="经典算法"></a>经典算法</h3><h3 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h3><h3 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h3><h3 id="概率图模型"><a href="#概率图模型" class="headerlink" title="概率图模型"></a>概率图模型</h3><h3 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h3><h3 id="采样"><a href="#采样" class="headerlink" title="采样"></a>采样</h3><h3 id="前向神经网络"><a href="#前向神经网络" class="headerlink" title="前向神经网络"></a>前向神经网络</h3><h3 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h3><h3 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h3><h3 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h3><h3 id="生成式对抗网络"><a href="#生成式对抗网络" class="headerlink" title="生成式对抗网络"></a>生成式对抗网络</h3><h3 id="人工智能的热门应用"><a href="#人工智能的热门应用" class="headerlink" title="人工智能的热门应用"></a>人工智能的热门应用</h3>
+<h4 id="ROC曲线"><a href="#ROC曲线" class="headerlink" title="ROC曲线"></a>ROC曲线</h4><p>二值分类器（Binary Classifier）是机器学习领域中最常见也是应用最广泛的分类器。评价二值分类器的指标很多，比如precision、recall、F1 score、P-R曲线等。上一小节已对这些指标做了一定的介绍，但也发现这些指标或多或少只能反映模型在某一方面的性能。相比而言，ROC曲线则有很多优点，经常作为评估二值分类器最重要的指标之一</p>
+<ul>
+<li><p>ROC曲线</p>
+<ul>
+<li><p>ROC曲线是Receiver Operating Characteristic Curve的简称，中文名为“受试者工作特征曲线”。ROC曲线源于军事领域，而后在医学领域应用甚广，“受试者工作特征曲线”这一名称也正是来自于医学领域。</p>
+</li>
+<li><p>ROC曲线的横坐标为假阳性率（False Positive Rate，FPR）；纵坐标为真阳性率（True Positive Rate，TPR）。FPR和TPR的计算方法分别为<br>$$<br>FPR=\frac{FP}{N}<br>$$</p>
+<p>$$<br>TPR = \frac{TP}{P}<br>$$</p>
+<ul>
+<li><p>P是真实的正样本的数量</p>
+</li>
+<li><p>N是真实的负样本的数量</p>
+</li>
+<li><p>TP是P个正样本中被分类器预测为正样本的个数</p>
+</li>
+<li><p>FP是N个负样本中被分类器预测为正样本的个数</p>
+<p>EG.假设有10位疑似癌症患者，其中有3位很不幸确实患了癌症（P=3），另外7位不是癌症患者（N=7）。医院对这10位疑似患者做了诊断，诊断出3位癌症患者，其中有2位确实是真正的患者（TP=2）。那么真阳性率TPR=TP/P=2/3。对于7位非癌症患者来说，有一位很不幸被误诊为癌症患者（FP=1），那么假阳性率FPR=FP/N=1/7。对于“该医院”这个分类器来说，这组分类结果就对应ROC曲线上的一个点（1/7，2/3）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>曲线下的面积（Aera Under Curve，AUC）</p>
+<ul>
+<li>如何计算AUC<ul>
+<li>AUC指的是ROC曲线下的面积大小，该值能够量化地反映基于ROC曲线衡量出的模型性能。计算AUC值只需要沿着ROC横轴做积分就可以了。由于ROC曲线一般都处于y=x这条直线的上方（如果不是的话，只要把模型预测的概率反转成1−p就可以得到一个更好的分类器），所以AUC的取值一般在0.5～1之间。AUC越大，说明分类器越可能把真正的正样本排在前面，分类性能越好</li>
+</ul>
+</li>
+<li>ROC曲线相比P-R曲线有什么特点？<ul>
+<li>同样被经常用来评估分类和排序模型的还有P-R曲线。相比P-R曲线，ROC曲线有一个特点，当正负样本的分布发生变化时，ROC曲线的形状能够基本保持不变，而P-R曲线的形状一般会发生较剧烈的变化而ROC曲线形状基本不变。这个特点让ROC曲线能够尽量降低不同测试集带来的干扰，更加客观地衡量模型本身的性能。</li>
+<li>在很多实际问题中，正负样本数量往往很不均衡。比如，计算广告领域经常涉及转化率模型，正样本的数量往往是负样本数量的1/1000甚至1/10000。若选择不同的测试集，P-R曲线的变化就会非常大，而ROC曲线则能够更加稳定地反映模型本身的好坏。所以，ROC曲线的适用场景更多，被广泛<br>用于排序、推荐、广告等领域。但需要注意的是，选择P-R曲线还是ROC曲线是因实际问题而异的，如果研究者希望更多地看到模型在特定数据集上的表现，P-R曲线则能够更直观地反映其性能。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>P-R曲线</p>
+</li>
+</ul>
+<h4 id="余弦距离的应用"><a href="#余弦距离的应用" class="headerlink" title="余弦距离的应用"></a>余弦距离的应用</h4><p>机器学习问题中，通常将特征表示为向量的形式，所以在分析两个特征向量之间的相似性时，常使用余弦相似度来表示。余弦相似度的取值范围是[−1,1]，相同的两个向量之间的相似度为1。如果希望得到类似于距离的表示，将1减去余弦相似度即为余弦距离。因此，余弦距离的取值范围为[0,2]，相同的两个向量余弦距离为0。</p>
+<ul>
+<li><p>余弦相似度</p>
+<ul>
+<li><p>为什么在一些场景中要使用余弦相似度而不是欧氏距离？</p>
+</li>
+<li><p>对于两个向量A和B，其余弦相似度定义为<br>$$<br>cos(A,B) = \frac{A·B}{||A||_2||B||_2}<br>$$<br>即两个向量夹角的余弦，关注的是向量之间的角度关系，并不关心它们的绝对大小，其取值范围是[−1,1]。当一对文本相似度的长度差距很大、但内容相近时，如果使用词频或词向量作为特征，它们在特征空间中的的欧氏距离通常很大；而如果使用余弦相似度的话，它们之间的夹角可能很小，因而相似度高。此外，在文本、图像、视频等领域，研究的对象的特征维度往往很高，余弦相似度在高维情况下依然保持“相同时为1，正交时为0，相反时为−1”的性质，而欧氏距离的数值则受维度的影响，范围不固定，并且含义也比较模糊</p>
+</li>
+</ul>
+</li>
+<li><p>余弦距离</p>
+</li>
+<li><p>欧氏距离</p>
+<p>在一些场景，例如Word2Vec中，其向量的模长是经过归一化的，此时欧氏距离与余弦距离有着单调的关系<br>$$<br>||A-B||_2 = \sqrt{2(1-cos(A,B))}<br>$$</p>
+<ul>
+<li><p>|| A−B || 2 表示欧氏距离</p>
+</li>
+<li><p>cos(A,B)表示余弦相似度</p>
+</li>
+<li><p>(1−cos(A,B))表示余弦距离</p>
+</li>
+</ul>
+<p>在此场景下，如果选择距离最小（相似度最大）的近邻，那么使用余弦相似度和欧氏距离的结果是相同的</p>
+<p>总体来说，欧氏距离体现数值上的绝对差异，而余弦距离体现方向上的相对差异。例如，统计两部剧的用户观看行为，用户A的观看向量为(0,1)，用户B为(1,0)；此时二者的余弦距离很大，而欧氏距离很小；我们分析两个用户对于不同视频的偏好，更关注相对差异，显然应当使用余弦距离。而当我们分析用户活跃度，以登陆次数(单位：次)和平均观看时长(单位：分钟)作为特征时，余弦距离会认为(1,10)、(10,100)两个用户距离很近；但显然这两个用户活跃度是有着极大差异的，此时我们更关注数值绝对差异，应当使用欧氏距离</p>
+</li>
+<li><p>距离的定义：在一个集合中，如果每一对元素均可唯一确定一个实数，使得三条距离公理（正定性，对称性，三角不等式）成立，则该实数可称为这对元素之间的距离</p>
+<ul>
+<li><p>余弦距离是否是一个严格定义的距离？</p>
+<ul>
+<li><p>余弦距离满足正定性和对称性，但是不满足三角不等式，因此它并不是严格定义的距离</p>
+</li>
+<li><p>正定性<br>根据余弦距离的定义：<br>$$<br>dist(A,B)=1-cos\theta=\frac{||A||_2||B||_2-AB}{||A||_2||B||_2}<br>$$</p>
+<p>$$<br>考虑到||A||_2||B||_2\geq0因此有dist(A,B)\geq0恒成立 特别的 有：<br>$$</p>
+<p>$$<br>dist(A,B)=0 \leftrightarrow||A||_2||B||_2=AB\leftrightarrow A=B<br>$$</p>
+<p>因此余弦距离满足正定性</p>
+</li>
+<li><p>对称性</p>
+<p>根据余弦距离的定义：<br>$$<br>dist(A,B)=\frac{||A||_2||B||_2-AB}{||A||_2||B||_2}=\frac{||B||_2||A||_2-AB}{||B||_2||A||_2}=dist(B,A)<br>$$</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>  因此余弦距离满足对称性
+
+- 三角不等式
+
+  不成立 反例：
+  $$
+  dist(A,B)=1-\frac&#123;\sqrt&#123;2&#125;&#125;&#123;2&#125;
+  $$
+
+  $$
+  dist(B,C)=1-\frac&#123;\sqrt&#123;2&#125;&#125;&#123;2&#125;
+  $$
+
+  $$
+  dist(A,C)=1
+  $$
+
+  $$
+  dist(A,B)+dist(B,C)=2-\sqrt&#123;2&#125;&lt;1=dist(A,C)
+  $$
+</code></pre>
+<h4 id="A-B测试的陷阱"><a href="#A-B测试的陷阱" class="headerlink" title="A/B测试的陷阱"></a>A/B测试的陷阱</h4><p>在互联网公司中，A/B 测试是验证新模块、新功能、新产品是否有效，新算法、新模型的效果是否有提升，新设计是否受到用户欢迎，新更改是否影响用户体验的主要测试方法。在机器学习领域中，A/B 测试是验证模型最终效果的主要手段</p>
+<ul>
+<li><p>A/B测试</p>
+<ul>
+<li>在对模型进行过充分的离线评估之后，为什么还要进行在线A/B测试？<ul>
+<li>离线评估无法完全消除模型过拟合的影响，因此，得出的离线评估结果无法完全替代线上评估结果</li>
+<li>离线评估无法完全还原线上的工程环境。一般来讲，离线评估往往不会考虑线上环境的延迟、数据丢失、标签数据缺失等情况。因此，离线评估的结果是理想工程环境下的结果</li>
+<li>线上系统的某些商业指标在离线评估中无法计算。离线评估一般是针对模型本身进行评估，而与模型相关的其他指标，特别是商业指标，往往无法直接获得。比如，上线了新的推荐算法，离线评估往往关注的是ROC曲线、P-R曲线等的改进，而线上评估可以全面了解该推荐算法带来的用户点击率、留存时长、PV访问量等的变化。这些都要由A/B测试来进行全面的评估</li>
+</ul>
+</li>
+<li>如何进行线上A/B测试？<ul>
+<li>进行A/B测试的主要手段是进行用户分桶，即将用户分成实验组和对照组，对实验组的用户施以新模型，对对照组的用户施以旧模型。在分桶的过程中，要注意<strong>样本的独立性</strong>和<strong>采样方式的无偏性</strong>，确保同一个用户每次只能分到同一个桶中，在分桶过程中所选取的user_id需要是一个随机数，这样才能保证桶中的样本是无偏的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>实验组</p>
+</li>
+<li><p>对照组</p>
+</li>
+</ul>
+<h4 id="模型评估的方法"><a href="#模型评估的方法" class="headerlink" title="模型评估的方法"></a>模型评估的方法</h4><p>在机器学习中，我们通常把样本分为训练集和测试集，训练集用于训练模型，测试集用于评估模型。在样本划分和模型验证的过程中，存在着不同的抽样方法和验证方法</p>
+<h4 id="超参数调优"><a href="#超参数调优" class="headerlink" title="超参数调优"></a>超参数调优</h4><ul>
+<li><p>超参数有哪些调优方法</p>
+<p>为了进行超参数调优，我们一般会采用网格搜索、随机搜索、贝叶斯优化等算法。在具体介绍算法之前，需要明确超参数搜索算法一般包括哪几个要素。一是目标函数，即算法需要最大化/最小化的目标；二是搜索范围，一般通过上限和下限来确定；三是算法的其他参数，如搜索步长</p>
+<ul>
+<li>网格搜索<ul>
+<li>网格搜索可能是最简单、应用最广泛的超参数搜索算法，它通过查找搜索范围内的所有的点来确定最优值。如果采用较大的搜索范围以及较小的步长，网格搜索有很大概率找到全局最优值</li>
+<li>然而，这种搜索方案十分消耗计算资源和时间，特别是需要调优的超参数比较多的时候</li>
+<li>因此，在实际应用中，网格搜索法一般会先使用较广的搜索范围和较大的步长，来寻找全局最优值可能的位置；然后会逐渐缩小搜索范围和步长，来寻找更精确的最优值</li>
+<li>这种操作方案可以降低所需的时间和计算量，但由于目标函数一般是非凸的，所以很可能会错过全局最优值</li>
+</ul>
+</li>
+<li>随机搜索<ul>
+<li>随机搜索的思想与网格搜索比较相似，只是不再测试上界和下界之间的所有值，而是在搜索范围中随机选取样本点</li>
+<li>它的理论依据是，如果样本点集足够大，那么通过随机采样也能大概率地找到全局最优值，或其近似值。随机搜索一般会比网格搜索要快一些，但是和网格搜索的快速版一样，它的结果也是没法保证的</li>
+</ul>
+</li>
+<li>贝尔斯优化算法<ul>
+<li>贝叶斯优化算法通过对目标函数形状进行学习，找到使目标函数向全局最优值提升的参数。具体来说，它学习目标函数形状的方法是，首先根据先验分布，假设一个搜集函数</li>
+<li>然后，每一次使用新的采样点来测试目标函数时，利用这个信息来更新目标函数的先验分布</li>
+<li>最后，算法测试由后验分布给出的全局最值最可能出现的位置的点</li>
+<li>一旦找到了一个局部最优值，它会在该区域不断采样，所以很容易陷入局部最优值。为了弥补这个缺陷，贝叶斯优化算法会在探索和利用之间找到一个平衡点，“探索”就是在还未取样的区域获取采样点；而“利用”则是根据后验分布在最可能出现全局最值的区域进行采样</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="过拟合与欠拟合"><a href="#过拟合与欠拟合" class="headerlink" title="过拟合与欠拟合"></a>过拟合与欠拟合</h4><p>在模型评估与调整的过程中，我们往往会遇到“过拟合”或“欠拟合”的情况。如何有效地识别“过拟合”和“欠拟合”现象，并有针对性地进行模型调整，是不断改进机器学习模型的关键。特别是在实际项目中，采用多种方法、从多个角度降低“过拟合”和“欠拟合”的风险是算法工程师应当具备的领域知识。</p>
+<ul>
+<li><p>模型评估过程中，过拟合和欠拟合具体是指什么现象</p>
+<ul>
+<li>过拟合是指模型对于训练数据拟合呈过当的情况，反映到评估指标上，就是模型在训练集上的表现很好，但在测试集和新数据上的表现较差</li>
+<li>欠拟合指的是模型在训练和预测时表现都不好的情况</li>
+</ul>
+</li>
+<li><p><strong>能否说出几种降低过拟合和欠拟合风险的方法</strong></p>
+<ul>
+<li><p><strong>降低“过拟合”风险的方法</strong></p>
+<ul>
+<li><p>从数据入手，获得更多的训练数据。使用更多的训练数据是解决过拟合问题最有效的手段，因为更多的样本能够让模型学习到更多更有效的特征，减小噪声的影响。当然，直接增加实验数据一般是很困难的，但是可以通过一定的规则来扩充训练数据。比如，在图像分类的问题上，可以通过图像的平移、旋转、缩放等方式扩充数据；更进一步地，可以使用生成式对抗网络来合成大量的新训练数据。</p>
+</li>
+<li><p>降低模型复杂度。在数据较少时，模型过于复杂是产生过拟合的主要因素，适当降低模型复杂度可以避免模型拟合过多的采样噪声。例如，在神经网络模型中减少网络层数、神经元个数等；在决策树模型中降低树的深度、进行剪枝等。</p>
+</li>
+<li><p>正则化方法。给模型的参数加上一定的正则约束，比如将权值的大小加入到损失函数中。以L2正则化为例：<br>$$<br>C = C_0 +\frac{\lambda}{2n}*\sum_iw_i^2<br>$$<br>这样，在优化原来的目标函数C 0 的同时，也能避免权值过大带来的过拟合风险</p>
+</li>
+<li><p>集成学习方法。集成学习是把多个模型集成在一起，来降低单一模型的过拟合风险，如Bagging方法经典算法</p>
+</li>
+</ul>
+</li>
+<li><p> <strong>降低“欠拟合”风险的方法</strong></p>
+</li>
+<li><p>添加新特征。当特征不足或者现有特征与样本标签的相关性不强时，模型容易出现欠拟合。通过挖掘“上下文特征”“ID类特征”“组合特征”等新的特征，往往能够取得更好的效果。在深度学习潮流中，有很多模型可以帮助完成特征工程，如因子分解机、梯度提升决策树、Deep-crossing等都可以成为丰富特征的方法。</p>
+</li>
+<li><p>增加模型复杂度。简单模型的学习能力较差，通过增加模型的复杂度可以使模型拥有更强的拟合能力。例如，在线性模型中添加高次项，在神经网络模型中增加网络层数或神经元个数等。</p>
+</li>
+<li><p>减小正则化系数。正则化是用来防止过拟合的，但当模型出现欠拟合现象时，则需要有针对性地减小正则化系数。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h3><h3 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h3><h3 id="概率图模型"><a href="#概率图模型" class="headerlink" title="概率图模型"></a>概率图模型</h3><h3 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h3><h3 id="采样"><a href="#采样" class="headerlink" title="采样"></a>采样</h3><h3 id="前向神经网络"><a href="#前向神经网络" class="headerlink" title="前向神经网络"></a>前向神经网络</h3><h3 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h3><h3 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h3><h3 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h3><h3 id="生成式对抗网络"><a href="#生成式对抗网络" class="headerlink" title="生成式对抗网络"></a>生成式对抗网络</h3><h3 id="人工智能的热门应用"><a href="#人工智能的热门应用" class="headerlink" title="人工智能的热门应用"></a>人工智能的热门应用</h3>
       
     </div>
     <footer class="article-footer">
@@ -428,7 +612,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">特征工程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-number">1.1.</span> <span class="nav-text">特征归一化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%88%AB%E7%89%B9%E5%BE%81"><span class="nav-number">1.2.</span> <span class="nav-text">类别特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E7%BB%B4%E7%BB%84%E5%90%88%E7%89%B9%E5%BE%81%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">高维组合特征的处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E8%A1%A8%E7%A4%BA%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">文本表示模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Word2Vec"><span class="nav-number">1.5.</span> <span class="nav-text">Word2Vec</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE%E4%B8%8D%E8%B6%B3%E6%97%B6%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">1.6.</span> <span class="nav-text">图像数据不足时的处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0"><span class="nav-number">2.</span> <span class="nav-text">模型评估</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">评估指标的局限性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ROC%E6%9B%B2%E7%BA%BF"><span class="nav-number">2.2.</span> <span class="nav-text">ROC曲线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%99%E5%BC%A6%E8%B7%9D%E7%A6%BB%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">2.3.</span> <span class="nav-text">余弦距离的应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A-B%E6%B5%8B%E8%AF%95%E7%9A%84%E9%99%B7%E9%98%B1"><span class="nav-number">2.4.</span> <span class="nav-text">A&#x2F;B测试的陷阱</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.5.</span> <span class="nav-text">模型评估的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E4%BC%98"><span class="nav-number">2.6.</span> <span class="nav-text">超参数调优</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E4%B8%8E%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-number">2.7.</span> <span class="nav-text">过拟合与欠拟合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">经典算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%8D%E7%BB%B4"><span class="nav-number">4.</span> <span class="nav-text">降维</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-number">5.</span> <span class="nav-text">非监督学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="nav-number">6.</span> <span class="nav-text">概率图模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95"><span class="nav-number">7.</span> <span class="nav-text">优化算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%87%E6%A0%B7"><span class="nav-number">8.</span> <span class="nav-text">采样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E5%90%91%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-number">9.</span> <span class="nav-text">前向神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-number">10.</span> <span class="nav-text">循环神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="nav-number">11.</span> <span class="nav-text">强化学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="nav-number">12.</span> <span class="nav-text">集成学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C"><span class="nav-number">13.</span> <span class="nav-text">生成式对抗网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E7%83%AD%E9%97%A8%E5%BA%94%E7%94%A8"><span class="nav-number">14.</span> <span class="nav-text">人工智能的热门应用</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">特征工程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-number">1.1.</span> <span class="nav-text">特征归一化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%88%AB%E7%89%B9%E5%BE%81"><span class="nav-number">1.2.</span> <span class="nav-text">类别特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E7%BB%B4%E7%BB%84%E5%90%88%E7%89%B9%E5%BE%81%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">高维组合特征的处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E8%A1%A8%E7%A4%BA%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">文本表示模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Word2Vec"><span class="nav-number">1.5.</span> <span class="nav-text">Word2Vec</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE%E4%B8%8D%E8%B6%B3%E6%97%B6%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">1.6.</span> <span class="nav-text">图像数据不足时的处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0"><span class="nav-number">2.</span> <span class="nav-text">模型评估</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">评估指标的局限性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ROC%E6%9B%B2%E7%BA%BF"><span class="nav-number">2.2.</span> <span class="nav-text">ROC曲线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%99%E5%BC%A6%E8%B7%9D%E7%A6%BB%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">2.3.</span> <span class="nav-text">余弦距离的应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A-B%E6%B5%8B%E8%AF%95%E7%9A%84%E9%99%B7%E9%98%B1"><span class="nav-number">2.4.</span> <span class="nav-text">A&#x2F;B测试的陷阱</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.5.</span> <span class="nav-text">模型评估的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E4%BC%98"><span class="nav-number">2.6.</span> <span class="nav-text">超参数调优</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E4%B8%8E%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-number">2.7.</span> <span class="nav-text">过拟合与欠拟合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%8D%E7%BB%B4"><span class="nav-number">3.</span> <span class="nav-text">降维</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-number">4.</span> <span class="nav-text">非监督学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">概率图模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">优化算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%87%E6%A0%B7"><span class="nav-number">7.</span> <span class="nav-text">采样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E5%90%91%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-number">8.</span> <span class="nav-text">前向神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-number">9.</span> <span class="nav-text">循环神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="nav-number">10.</span> <span class="nav-text">强化学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="nav-number">11.</span> <span class="nav-text">集成学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C"><span class="nav-number">12.</span> <span class="nav-text">生成式对抗网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E7%83%AD%E9%97%A8%E5%BA%94%E7%94%A8"><span class="nav-number">13.</span> <span class="nav-text">人工智能的热门应用</span></a></li></ol>
     
     </div>
   </aside>
