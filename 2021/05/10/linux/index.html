@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>常用开发环境 linux | HELLO WORLD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="linuxlinux操作12345678910111213141516171819202122d:    													剪切p:    													粘贴^C    													输入中断mkdir 													创建文件夹cd     													打开文件夹cd ~ 													回到根目录cd xx&#x2F;xx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用开发环境 Linux">
+<meta property="og:url" content="http://example.com/2021/05/10/linux/index.html">
+<meta property="og:site_name" content="HELLO WORLD">
+<meta property="og:description" content="linuxlinux操作12345678910111213141516171819202122d:    													剪切p:    													粘贴^C    													输入中断mkdir 													创建文件夹cd     													打开文件夹cd ~ 													回到根目录cd xx&#x2F;xx">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-05-10T00:31:54.011Z">
+<meta property="article:modified_time" content="2021-05-10T00:33:08.994Z">
+<meta property="article:author" content="Bai Xiong">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-linux" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      常用开发环境 Linux
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2021/05/10/linux/" class="article-date">
+	  <time datetime="2021-05-10T00:31:54.011Z" itemprop="datePublished">2021-05-10</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><h3 id="linux操作"><a href="#linux操作" class="headerlink" title="linux操作"></a>linux操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">d:    													剪切</span><br><span class="line">p:    													粘贴</span><br><span class="line">^C    													输入中断</span><br><span class="line">mkdir 													创建文件夹</span><br><span class="line">cd     													打开文件夹</span><br><span class="line">cd ~ 													回到根目录</span><br><span class="line">cd xx&#x2F;xx  												打开xx 下的xxx文件夹</span><br><span class="line">cd  ..&#x2F;.. 												返回两层文件夹</span><br><span class="line">cd .. 													返回一层文件夹</span><br><span class="line">df -h 												    列出当前磁盘占用情况</span><br><span class="line">ln -s &#x2F;home9&#x2F;luna.xiong&#x2F;test&#x2F;jen&#x2F; &#x2F;home9&#x2F;luna.xiong&#x2F;cmtool&#x2F;aaa..doc      创建软连接</span><br><span class="line">ln -s&lt;空格&gt;目标文件夹&lt;空格&gt;快捷方式文件名                                   创建软连接</span><br><span class="line">cp abc abc.sh               								 把abc 拷贝为abc.sh文件</span><br><span class="line">cat abc.sh                  								 打开查看abc.sh文件</span><br><span class="line">vi  abc.sh                  								 编辑abc.sh文件</span><br><span class="line">touch text1.pl 												 在本目录下创建名为 test1 的perl文件</span><br><span class="line">echo aaaa                   								 打印aaaa</span><br><span class="line">echo bbb &gt;&gt;&#x2F;tmp&#x2F;abc         								 重定向 输入</span><br><span class="line">grep a &lt;&#x2F;tmp&#x2F;abc            								 </span><br><span class="line">fg                			 将后台任务进程调至前台继续运行，如果后台中有多个任务进程，可以用 fg %num 将选中的任务进程调至前台</span><br><span class="line">tail -f ~&#x2F;test.log           从指定点开始将文件写到标准输出.使用tail命令的-f选项可以方便的查阅正在改变的日志文件,tail -f filename会把filename里最尾部的内容显示在屏幕上,并且不但刷新,使你看到最新的文件内容.</span><br><span class="line">deactivate    退出虚拟python环境</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="linux-ls"><a href="#linux-ls" class="headerlink" title="linux-ls"></a>linux-ls</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ls -l  				 									列出文件夹目录</span><br><span class="line">ls -ls               									列出当前目录下的所有文件和子目录，包括隐藏文文件 (.git文件)</span><br><span class="line">ls -la               									列出当前目录下的所有文件和子目录，不包括隐藏文文件</span><br><span class="line">ls -l |grep &quot;^-&quot;|wc -l或find .&#x2F;company -type f | wc -l  查看某文件夹下文件的个数，包括子文件夹里的。</span><br><span class="line">ls -lR|grep &quot;^-&quot;|wc -l   								查看某文件夹下文件夹的个数，包括子文件夹里的。</span><br><span class="line">ls -lR|grep &quot;^d&quot;|wc -l   								将长列表输出信息过滤一部分只保留目录就是 ^d</span><br></pre></td></tr></table></figure>
+
+<h3 id="linux-du"><a href="#linux-du" class="headerlink" title="linux-du"></a>linux-du</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">-a 显示目录中个别文件的大小，每个文件或目录的大小都要显示出来，目录的大小是指的该目录下文件和子目录的总和；</span><br><span class="line">-S 显示目录大小的时候，不包含子目录的大小，只包含该目录下文件的总和；</span><br><span class="line">-s 仅显示该目录或者文件的总计，不显示其他子目录信息；</span><br><span class="line">-h 输出的大小按照人类可读的方式，例如K M G</span><br><span class="line">-t 设置阈值，+20M大于20M的文件，-20M小于20M的文件；</span><br><span class="line">du [-abcDhHklmsSx] file_path</span><br><span class="line">df -lh 															查看当前磁盘的使用情况</span><br><span class="line">du -sh 															显示当前文件夹总计内存占用情况</span><br><span class="line">du -sh xxxx&#x2F; 													xxxx文件夹的内存占用情况</span><br><span class="line">du -lh --max-depth&#x3D;1  											查看当前目录下一级子文件和子目录占用的磁盘容量。</span><br><span class="line">du -sh 															查看当前目录总共占的容量。而不单独列出各子项占用的容量</span><br><span class="line">du -sh * | sort -n 												统计当前文件夹(目录)大小，并按文件大小排序</span><br><span class="line">du -s * | sort -nr | head 										选出排在前面的10个</span><br><span class="line">du -s * | sort -nr | tail 										选出排在后面的10个</span><br><span class="line">du -sk filename											    	查看指定文件大小</span><br><span class="line">du --max-depth&#x3D;1 -h 											查看当前目录下文件大小</span><br><span class="line">du -ahS test_dir 											    显示test_dir文件夹下的文件（包含目录）的大小；</span><br><span class="line">du -aS -t -4K file_path  </span><br></pre></td></tr></table></figure>
+
+<h3 id="linux-sort"><a href="#linux-sort" class="headerlink" title="linux-sort"></a>linux-sort</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-r 以相反的顺序进行排序；（默认是升序）</span><br><span class="line">-n 按照数值的大小进行排序；（默认是ASCII码值）</span><br><span class="line">-u 忽略相同的行；</span><br><span class="line">-h 按照人类可读的方式排序，例如100K &lt; 2M &lt; 1G</span><br><span class="line">sort [-bcdfimMnr] file</span><br><span class="line">sort testfile</span><br><span class="line">sort -rnu testfile 												按照数值大小逆序且去重复项输出</span><br></pre></td></tr></table></figure>
+
+<h3 id="linux-find"><a href="#linux-find" class="headerlink" title="linux-find"></a>linux-find</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">find path -option [-print ] [ -exec -ok command ] &#123;&#125; [\]</span><br><span class="line">find . -print  														列出给定目录下所有的文件和子目录</span><br><span class="line">-print选项使用\n（换行符）分隔输出的每个文件或目录名。</span><br><span class="line">-print0选项则使用空字符’\0’来分隔。</span><br><span class="line">find &#x2F; &#39;*.txt&#39; -print 												查找所有扩展名为txt的文件</span><br><span class="line">find . -type f -atime -3 -print 									打印出在最近3天内被访问过的所有文件</span><br><span class="line">find . -type f -atime 3 -print  									打印出恰好在3天前被访问过的所有文件。</span><br><span class="line">find . -type f -atime +3 -print                                     打印出访问时间超过3天的所有文件</span><br><span class="line">find . -name &quot;*.c&quot;												    查找当前目录及其子目录下所有延伸的文件名称是 c 的文件</span><br><span class="line">find . -name &quot;tmp_pack_*&quot; 											查找当前及子目录下以tmp_pack_开头的文件</span><br><span class="line">find . -type f -name &quot;tmp_*&quot; | cut -c3- | xargs du -sh              查找当前文件夹下及子文件夹内某个名字的文件名及路径及大小</span><br><span class="line">find . -type f -name &quot;tmp_*&quot; | cut -c3- | xargs du -sh | sort -nr   查找当前文件夹下及子文件夹内文件名及路径及大小 按数字排序</span><br><span class="line">find . -type f -name &quot;tmp_*&quot; | cut -c3- | xargs du -s | sort -nr    查找当前文件夹下及子文件夹内文件名及路径及大小 按大小排序 大到小</span><br><span class="line">find . -type f -name &quot;tmp_*&quot; | cut -c3- | xargs du -s | sort -n     查找当前文件夹下及子文件夹内文件名及路径及大小  按大小排序 小到大</span><br><span class="line">find .&#x2F; -name &quot;*.so&quot; -exec ls -l &#123;&#125; \                   			实现在当前目录以及所有子目录下找出后缀名为so的文件，并显示其详细信息</span><br><span class="line">find &#x2F;root -size -5557c -size +5555c -exec ls -ld &#123;&#125; \; 			查找大于5555字节小于5557字节的文件，以上查找的是&#x2F;root 目录</span><br><span class="line">find &#x2F;root -size -500k -size +50k -exec ls -ld &#123;&#125; \;    			查找 小于500K，大于50K的文件</span><br><span class="line">find . -type f|xargs du -ahS 2&gt;&#x2F;dev&#x2F;null|sort -rh|head -1   		找到当前文件夹下最大的文件</span><br><span class="line">find . -name builds -prune -o -name &#39;config.xml&#39; -print | xargs grep -nr --color &quot;UpdateKey.sh&quot;    查找文件UpdateKey.sh在jenkins里面哪个job用到了</span><br><span class="line">find .&#x2F; -type d -ok ls &#123;&#125; \ 										查找目录并列出目录下的文件</span><br><span class="line">																	为找到的每一个目录单独执行ls命令,执行命令前需要确认</span><br><span class="line">find . -ctime -20													将目前目录及其子目录下所有最近 20 天内更新过的文件列出</span><br><span class="line">find . -type f -size +10M -exec ls -l &#123;&#125; \                          查找当前目录以及子目录中所有文件大于10M的普通文件，并列出它们的完整路径</span><br><span class="line">find &#x2F;var&#x2F;logs -type f -mtime +7 -ok rm &#123;&#125; \                        查找&#x2F;var&#x2F;logs目录中更改时间在7日以前的普通文件，并在删除之前询问它们</span><br><span class="line">find . -type f -name &quot;*.log&quot; -print0 | xargs -0 rm -f         			rm 删除太多的文件时候 解决&#x2F;bin&#x2F;rm Argument list too long.</span><br><span class="line">find . -type f -name &quot;*.php&quot; -print0 | xargs -0 wc -l   				统计一个源代码目录中所有php文件的行数</span><br><span class="line">find . -type f -name &quot;*.jpg&quot; -print | xargs tar -czvf images.tar.gz     查找所有的jpg 文件，并且压缩它们</span><br><span class="line">find . -type f|xargs du -ahS 2&gt;&#x2F;dev&#x2F;null|sort -rh|head -1               找到当前文件夹下最大的文件</span><br><span class="line">find . -name &quot;*.log&quot;|xargs grep -o Exception|wc -l                      统计当前文件夹下面的所有日志文件（.log文件）中Exception出现的次数</span><br></pre></td></tr></table></figure>
+
+<h3 id="linux-xargs"><a href="#linux-xargs" class="headerlink" title="linux-xargs"></a>linux-xargs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">xargs -0 												  将\0作为定界符。</span><br><span class="line">cat test.txt | xargs              	     				  将多行的test.txt文件转换为单行输出</span><br><span class="line">cat test.txt | xargs -n3 				 				  将多行的test.txt文件转换为3列多行输出</span><br><span class="line">echo &quot;nameXnameXnameXname&quot; | xargs -dX   				  定义界定符号X 输出 name name name name  </span><br><span class="line">echo &quot;nameXnameXnameXname&quot; | xargs -dX -n2                定义界定符号X 2列多行输出 name name name name  </span><br><span class="line">cat arg.txt | xargs -I &#123;&#125; .&#x2F;sk.sh -p &#123;&#125; -l 				  ---------</span><br><span class="line">ls *.jpg | xargs -n1 -I cp &#123;&#125; &#x2F;data&#x2F;images				  复制所有图片文件到 &#x2F;data&#x2F;images 目录下</span><br><span class="line">cat url-list.txt | xargs wget -c                          有一个文件包含了很多你希望下载的URL，使用xargs下载所有链接</span><br></pre></td></tr></table></figure>
+
+<h3 id="linux-wc"><a href="#linux-wc" class="headerlink" title="linux-wc"></a>linux-wc</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-c 或 –bytes 只显示bytes数</span><br><span class="line">-l 或者 –lines 只显示行数</span><br><span class="line">-w 或者 –words 只显示单词数</span><br><span class="line">wc [-clw] [file…]</span><br><span class="line">wc testfile 											缺省参数将输出 指定文件的 行数、单词数、字节（符）数</span><br><span class="line">wc -l testfile  										统计指定文件的行数</span><br><span class="line"></span><br><span class="line">linux-cut</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>Bai Xiong</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2021/05/10/linux/" target="_blank" title="常用开发环境 Linux">http://example.com/2021/05/10/linux/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/05/10/git/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">版本管理工具 Git</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux"><span class="nav-number">1.</span> <span class="nav-text">linux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.</span> <span class="nav-text">linux操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-ls"><span class="nav-number">1.2.</span> <span class="nav-text">linux-ls</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-du"><span class="nav-number">1.3.</span> <span class="nav-text">linux-du</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-sort"><span class="nav-number">1.4.</span> <span class="nav-text">linux-sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-find"><span class="nav-number">1.5.</span> <span class="nav-text">linux-find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-xargs"><span class="nav-number">1.6.</span> <span class="nav-text">linux-xargs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-wc"><span class="nav-number">1.7.</span> <span class="nav-text">linux-wc</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2021 HELLO WORLD All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HELLO WORLD
+          </div>
+          <div class="panel-body">
+            Copyright © 2021 Bai Xiong All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
