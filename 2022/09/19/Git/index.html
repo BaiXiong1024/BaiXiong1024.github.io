@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>版本管理工具 git | HELLO WORLD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="一切开始的地方作为目前最流行的分布式版本管理工具，git从诞生伊始就备受关注。虽然这与它的作者Linus（大名鼎鼎的Linux操作系统的作者）的个人影响力有一定的关系，但更重要的是，git无论是在设计理念、性能、安全性还是易用性等方面都有着传统的版本管理工具无可比拟的优势。除此之外，它还是完全开源和免费的。很多对Git完全不了解的同学可能会误以为Git和Github是一个概念，但其实两者有着本质">
+<meta property="og:type" content="article">
+<meta property="og:title" content="版本管理工具 Git">
+<meta property="og:url" content="http://example.com/2022/09/19/Git/index.html">
+<meta property="og:site_name" content="HELLO WORLD">
+<meta property="og:description" content="一切开始的地方作为目前最流行的分布式版本管理工具，git从诞生伊始就备受关注。虽然这与它的作者Linus（大名鼎鼎的Linux操作系统的作者）的个人影响力有一定的关系，但更重要的是，git无论是在设计理念、性能、安全性还是易用性等方面都有着传统的版本管理工具无可比拟的优势。除此之外，它还是完全开源和免费的。很多对Git完全不了解的同学可能会误以为Git和Github是一个概念，但其实两者有着本质">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-09-19T06:28:54.137Z">
+<meta property="article:modified_time" content="2021-05-13T00:34:07.000Z">
+<meta property="article:author" content="Bai Xiong">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Git" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      版本管理工具 Git
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/09/19/Git/" class="article-date">
+	  <time datetime="2022-09-19T06:28:54.137Z" itemprop="datePublished">2022-09-19</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>一切开始的地方<br>作为目前最流行的分布式版本管理工具，git从诞生伊始就备受关注。虽然这与它的作者Linus（大名鼎鼎的Linux操作系统的作者）的个人影响力有一定的关系，<br>但更重要的是，git无论是在设计理念、性能、安全性还是易用性等方面都有着传统的版本管理工具无可比拟的优势。除此之外，它还是完全开源和免费的。<br>很多对Git完全不了解的同学可能会误以为Git和Github是一个概念，但其实两者有着本质的区别：<br>前者是一个版本管理工具，而后者是一个项目托管平台。在英文中hub的意思是“中心，核心”，<br>所以Github意为它是以Git作为版本管理工具的项目托管平台</p>
+</blockquote>
+<h3 id="git-Basic"><a href="#git-Basic" class="headerlink" title="git Basic"></a>git Basic</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"># 1.获得git仓库</span><br><span class="line">git  init:执行之后 仅仅在项目目录多出了一个.git目录，关于版本等的所有信息都在这个目录里面</span><br><span class="line">git  clone  &lt;url&gt;:克隆远程目录，由于是将远程服务器上的仓库完全镜像一份至本地，而不是取某一个特定版本，所以用clone而不是checkout        </span><br><span class="line"></span><br><span class="line"># 2.git中版本的保存:</span><br><span class="line">记录版本信息的方式主要有两种:记录文件每个版本的快照/</span><br><span class="line">记录文件每个版本之间的差异:Subversion和Perforce等版本控制系统都是记录文件每个版本之间的差异，这就需要对比文件两版本之间的具体差异</span><br><span class="line">记录文件每个版本的快照:git:不关心文件两个版本之间的具体差别，而是关心文件的整体是否有改变，若文件被改变，在添加提交时就生成文件新版本的快照，</span><br><span class="line">(实现方法:而判断文件整体是否改变的方法就是用SHA-1算法计算文件的校验和)</span><br><span class="line">(实现原理:当一个文件被改变时，它的校验和一定会被改变（理论上存在两个文件校验和相同，但机率小到可以忽略不计），GIT就以此判断文件是否被修改，及以些记录不同版本</span><br><span class="line">(文件状态概念的引入：在工作目录的文件可以处于不同的状态，比如说新添加了一个文件，GIT发觉了这个文件，但这个文件是否要纳入GIT的版本控制还是要由我们自己决定，比如编译生成的中间文件，不想纳入版本控制  所以引入文件状态</span><br><span class="line"></span><br><span class="line"># 3.1 git 的三个工作区：</span><br><span class="line">git directory::本地数据（仓库）目录:就是我们的本地仓库.git目录，里面保存了所有的版本信息等内容</span><br><span class="line">working driectory::工作目录:就是我们的工作目录，其中包括未跟踪文件及已跟踪文件，而已跟踪文件都是从git directory取出来的文件的某一个版本或新跟踪的文件。</span><br><span class="line">staging area::暂存区:不对应一个具体目录，其时只是git directory中的一个特殊文件</span><br><span class="line">当我们修改了一些文件后，要将其放入暂存区然后才能提交，每次提交时其实都是提交暂存区的文件--&gt;git仓库，然后清除暂存区。</span><br><span class="line">而checkout某一版本时，这一版本的文件就从git仓库取出来--&gt;我们的工作目录。</span><br><span class="line"></span><br><span class="line">3.2 git文件操作</span><br><span class="line">版本控制就是对文件的版本控制，对于Linux来说，设备，目录等全是文件，要对文件进行修改、提交等操作，首先要知道文件当前在什么状态，不然可能会提交了现在还不想提交的文件，或者要提交的文件没提交上</span><br><span class="line">工作目录中的文件被分为两种状态，一种是已跟踪状态(tracked)，另一种是未跟踪状态(untracked):只有处于已跟踪状态的文件才被纳入GIT的版本控制</span><br><span class="line">git add &lt;file&gt; : 跟踪文件::当我们往工作目录添加一个文件的时候，这个文件默认是未跟踪状态的，不希望编译生成的一大堆临时文件默认被跟踪每次手动将这些文件清除出去。</span><br><span class="line"></span><br><span class="line">staged状态:在输出每个文件状态的同时还说明了怎么操作，像上图就有怎么暂存、怎么跟踪文件、怎么取消暂存的说明。</span><br><span class="line">git status  : 文档状态查看::当前工作目录中所有文件目前的状态::哪些文件已被暂存::有哪些未跟踪的文件::哪些文件被修改了::</span><br><span class="line">changes to be committed:已被暂存</span><br><span class="line">Untracked files:未跟踪</span><br><span class="line">changes not staged for  commit:暂存此文件时，暂存的是那一文件当时的版本，当暂存后再次修改了这个文件后就会提示这个文件暂存后的修改是未被暂存的</span><br><span class="line">git add &lt;file&gt;... :暂存文件:use &quot;git add &lt;file&gt;...&quot; to update what will be committed</span><br><span class="line">                        (可以使用glob模式匹配，比如&quot;file[ab]&quot;，也可以使用&quot;git add .&quot;添加当前目录下的所有文件。)</span><br><span class="line">git reset HEAD &lt;file&gt;... :取消暂存文件</span><br><span class="line">git checkout -- &lt;file&gt;... :修改了一个文件想还原修改</span><br><span class="line">git diff : ---a表示修改之前的文件，+++b表示修改后的文件 ::显示的是文件修改后还没有暂存起来的内容</span><br><span class="line">git diff --cached:---/dev/null:之前没有提交过这一个文件，这是将是第一次提交:比较暂存区的文件与之前已经提交过的文件:提交的是暂存区的内容</span><br><span class="line">git diff --staged:与上面操作等效(GIT的版本要大于1.6.1)</span><br><span class="line">再次执行&quot;git add&quot;将覆盖暂存区的内容----------???  </span><br><span class="line"></span><br><span class="line"># 4.git提交和提交历史：</span><br><span class="line">提交：</span><br><span class="line">git commit:第一行填简单说明，隔一行填写详细说明</span><br><span class="line">git commit -a:跳过暂存区直接提交修改的文件，可以使用&quot;-a&quot;参数，但要慎重，别一不小心提交了不想提交的文件</span><br><span class="line">git commit -m &#x27;commit message&#x27;:需要快捷地填写提交说明可使用&quot;-m&quot;参数</span><br><span class="line">查看提交历史：</span><br><span class="line">git log:显示commit的哈希编码/作者ID/时间Date/第几次提交</span><br><span class="line">git log -1:显示最新的一次提交</span><br><span class="line">git log -n:</span><br><span class="line">git log  --pretty=oneline --addrev-commit: 显示简单的SHA-1值与简单提交说明  (oneline仅显示提交的第一行)</span><br><span class="line">git log --graph:以图形化的方式显示提交历史的关系，这就可以方便地查看提交历史的分支信息，当然是控制台用字符画出来的图形  </span><br></pre></td></tr></table></figure>
+
+<h3 id="git-操作"><a href="#git-操作" class="headerlink" title="git 操作"></a>git 操作</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">git status 									查看事实文件的状态--是否修改</span><br><span class="line">git diff									打印修改的内容</span><br><span class="line">git add xxx.sh 								把修改后的文件暂存到仓库</span><br><span class="line">git add .   								把当前目录修改后的所有文件暂存到仓库</span><br><span class="line">git commit -m &#x27;modify hook&#x27;  				记录修改的内容</span><br><span class="line">git commit  --amend							提交到上次的修改 / 修改上次提交的注释</span><br><span class="line">git  commit  --amend  -C  HEAD</span><br><span class="line">git push origin HEAD:refs/for/develop 		提交最新版本 develop:分支名</span><br><span class="line">git branch									在哪个分支</span><br><span class="line">git log										历史修改记录</span><br><span class="line">git reflog									几乎所有本地仓库的改变</span><br><span class="line">git checkout:</span><br><span class="line">git HEAD:</span><br><span class="line">git reset --hard HEAD~1						返回上一个HEAD</span><br><span class="line">git reset --hard origin/develop       		Your branch and &#x27;origin/develop&#x27; have diverged,</span><br><span class="line">											and have 2 and 2 different commits each, respectively.解决方式</span><br><span class="line">git clone ssh://luna.xiong@review.source.unisoc.com:29418/scm/bin/jen -b develop   克隆某个仓库的某个分支到本地当前文件夹</span><br><span class="line">gitdir=$(git rev-parse --git-dir); scp -p -P 29418 luna.xiong@rev   iew.source.unisoc.com:hooks/commit-msg $&#123;gitdir&#125;/hooks/commit-msg</span><br><span class="line">git commit --amend							删除所有hook后---缺少change-ID 时的解决方案</span><br><span class="line">git pull --rebase							与服务器上的最新版本自动合并</span><br><span class="line">git rebase --abort							取消当前合并操作</span><br></pre></td></tr></table></figure>
+
+<h3 id="repo-sync"><a href="#repo-sync" class="headerlink" title="repo sync"></a>repo sync</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">更新服务器最新版本的文件到本地</span><br><span class="line">chmod g=rx hello.sh 						设置 同组人权限</span><br><span class="line">chmod 0755 hello.sh 						设置文件可执行权限</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>Bai Xiong</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2022/09/19/Git/" target="_blank" title="版本管理工具 Git">http://example.com/2022/09/19/Git/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/09/19/NLP/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          自然语言 NLP
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/19/CV/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">计算机视觉 CV</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-Basic"><span class="nav-number">1.</span> <span class="nav-text">git Basic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">git 操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repo-sync"><span class="nav-number">3.</span> <span class="nav-text">repo sync</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2022 HELLO WORLD All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HELLO WORLD
+          </div>
+          <div class="panel-body">
+            Copyright © 2022 Bai Xiong All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

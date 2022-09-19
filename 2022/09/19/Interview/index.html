@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>面试基础 interview | HELLO WORLD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="通往机器学习算法工程师的进阶之路是崎岖险阻的。《线性代数》 《统计学习方法》《机器学习》《模式识别》《深度学习》，以及《颈椎病康复指南》，这些书籍将长久地伴随着你的工作生涯。除了拥有全面、有条理的知识储备，想成为一名优秀的算法工程师，更重要的是对算法模型有着发自心底的热忱，对研究工作有一种匠心精神。这种匠心精神，直白来讲，可以概括为：发现问题的眼光、解决问题的探索精神，以及对问题究原竟委的执着追">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试基础 interview">
+<meta property="og:url" content="http://example.com/2022/09/19/Interview/index.html">
+<meta property="og:site_name" content="HELLO WORLD">
+<meta property="og:description" content="通往机器学习算法工程师的进阶之路是崎岖险阻的。《线性代数》 《统计学习方法》《机器学习》《模式识别》《深度学习》，以及《颈椎病康复指南》，这些书籍将长久地伴随着你的工作生涯。除了拥有全面、有条理的知识储备，想成为一名优秀的算法工程师，更重要的是对算法模型有着发自心底的热忱，对研究工作有一种匠心精神。这种匠心精神，直白来讲，可以概括为：发现问题的眼光、解决问题的探索精神，以及对问题究原竟委的执着追">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210411161356526.png">
+<meta property="article:published_time" content="2022-09-19T06:28:54.188Z">
+<meta property="article:modified_time" content="2021-04-13T23:55:39.000Z">
+<meta property="article:author" content="Bai Xiong">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210411161356526.png">
+  
+    <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Interview" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      面试基础 interview
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/09/19/Interview/" class="article-date">
+	  <time datetime="2022-09-19T06:28:54.188Z" itemprop="datePublished">2022-09-19</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>通往机器学习算法工程师的进阶之路是崎岖险阻的。《线性代数》 《统计学习方法》《机器学习》《模式识别》《深度学习》，以及《颈椎病康复指南》，这些书籍将长久地伴随着你的工作生涯。<br>除了拥有全面、有条理的知识储备，想成为一名优秀的算法工程师，更重要的是对算法模型有着发自心底的热忱，对研究工作有一种匠心精神。这种匠心精神，直白来讲，可以概括为：发现问题的眼光、解决问题的探索精神，以及对问题究原竟委的执着追求</p>
+</blockquote>
+<h3 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h3><ul>
+<li><p>结构化数据</p>
+<p>结构化数据类型可以看作关系型数据库的一张表，每列都有清晰的定义，包含了数值型、类别型两种基本类型；每一行数据表示一个样本的信息</p>
+</li>
+<li><p>非结构化数据。</p>
+<p>非结构化数据主要包括文本、图像、音频、视频数据，其包含的信息无法用一个简单的数值表示，也没有清晰的类别定义，并且每条数据的大小各不相同</p>
+</li>
+</ul>
+<h4 id="特征归一化"><a href="#特征归一化" class="headerlink" title="特征归一化"></a>特征归一化</h4><p>为了消除数据特征之间的量纲影响，我们需要对特征进行归一化处理，使得不同指标之间具有可比性。例如，分析一个人的身高和体重对健康的影响，如果使用米（m）和千克（kg）作为单位，那么身高特征会在1.6～1.8m的数值范围内，体重特征会在50～100kg的范围内，分析出来的结果显然会倾向于数值差别比较大的体重特征。想要得到更为准确的结果，就需要进行特征归一化（Normalization）处理，使各指标处于同一数值量级，以便进行分析</p>
+<ul>
+<li><p>数字特征归一化</p>
+<ul>
+<li><p>线性函数归一化（Min-Max Scaling）</p>
+<p>它对原始数据进行线性变换，使结果映射到[0, 1]的范围，实现对原始数据的等比缩放<br>$$<br>X_{norm} = \frac{X-X_{min}}{X_{max}-X_{min}}<br>$$</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">其中X为原始数据，X max 、X min 分别为数据最大值和最小值</span><br></pre></td></tr></table></figure></li>
+<li><p>零均值归一化（Z-Score Normalization）</p>
+<p>它会将原始数据映射到均值为0、标准差为1的分布上。具体来说，假设原始特征的均值为μ、标准差为σ<br>$$<br>z=\frac{x-\mu}{\sigma}<br>$$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="类别特征"><a href="#类别特征" class="headerlink" title="类别特征"></a>类别特征</h4><p>类别型特征（Categorical Feature）主要是指性别（男、女）、血型（A、B、AB、O）等只在有限选项内取值的特征。类别型特征原始输入通常是字符串形式，除了决策树等少数模型能直接处理字符串形式的输入，对于逻辑回归、支持向量机等模型来说，类别型特征必须经过处理转换成数值型特征才能正确工作</p>
+<ul>
+<li><p>序号编码（Ordinal Encoding）</p>
+<p>序号编码通常用于处理类别间具有大小关系的数据。例如成绩，可以分为低、中、高三档，并且存在“高&gt;中&gt;低”的排序关系。序号编码会按照大小关系对类别型特征赋予一个数值ID，例如高表示为3、中表示为2、低表示为1，转换后依然保留了大小关系</p>
+</li>
+<li><p>独热编码（One-hot Encoding）</p>
+<p>独热编码通常用于处理类别间不具有大小关系的特征。例如血型，一共有4个取值（A型血、B型血、AB型血、O型血），独热编码会把血型变成一个4维稀疏向量，A型血表示为（1, 0, 0, 0），B型血表示为（0, 1, 0, 0），AB型表示为（0, 0,1, 0），O型血表示为（0, 0, 0, 1）。对于类别取值较多的情况下使用独热编码需要注意以下问题</p>
+<ul>
+<li><strong>使用稀疏向量来节省空间</strong>。在独热编码下，特征向量只有某一维取值为1，其他位置取值均为0。因此可以利用向量的稀疏表示有效地节省空间，并且目前大部分的算法均接受稀疏向量形式的输入</li>
+<li><strong>配合特征选择来降低维度</strong>。高维度特征会带来几方面的问题。一是在K近邻算法中，高维空间下两点之间的距离很难得到有效的衡量；二是在逻辑回归模型中，参数的数量会随着维度的增高而增加，容易引起过拟合问题；三是通常只有部分维度是对分类、预测有帮助，因此可以考虑配合特征选择来降低维度</li>
+</ul>
+</li>
+<li><p>二进制编码（Binary Encoding）</p>
+<ul>
+<li><p>二进制编码主要分为两步，<strong>先用序号编码给每个类别赋予一个类别ID</strong>，<strong>然后将类别ID对应的二进制编码作为结果</strong>。</p>
+</li>
+<li><p>以A、B、AB、O血型为例，表1.1是二进制编码的过程。A型血的ID为1，二进制表示为001；B型血的ID为2，二进制表示为010；以此类推可以得到AB型血和O型血的二进制表示。可以看出，二进制编码本质上是利用二进制对ID进行哈希映射，最终得到0/1特征向量，且维数少于独热编码，节省了存储空间</p>
+</li>
+</ul>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210411161356526.png" alt="二进制编码和独热编码"></p>
+</li>
+</ul>
+<h4 id="高维组合特征的处理"><a href="#高维组合特征的处理" class="headerlink" title="高维组合特征的处理"></a>高维组合特征的处理</h4><ul>
+<li><p>什么是组合特征</p>
+<p>为了提高复杂关系的拟合能力，在特征工程中经常会把一阶离散特征两两组合，构成高阶组合特征。以广告点击预估问题为例，原始数据有语言和类型两种离散特征，已知语言和类型对点击的影响 为了提高拟合能力，语言和类型可以组成二阶特征</p>
+</li>
+</ul>
+<p>  以逻辑回归为例，假设数据的特征向量为X=(x 1 ,x 2 ,…,x k )，则有<br>  $$<br>  Y=sigmoid(\sum_i\sum_jw_{ij}&lt;x_i,xj&gt;)<br>  $$</p>
+<ul>
+<li><p>其中&lt;x i , x j &gt;表示x i 和x j 的组合特征，w_ij 的维度等于|x i |·|x j |，|x i |和|x j |分别代表第i个特征<br>和第j个特征不同取值的个数。在表1.3的广告点击预测问题中，w的维度是2×2=4（语言取值为中文或英文两种、类型的取值为电影或电视剧两种）。这种特征组合看起来是没有任何问题的，但当引入ID类型的特征时，问题就出现了。以推荐问题为例 可以由用户ID和物品ID对点击的影响得出用户ID和物品ID的组合特征对点击的影响</p>
+</li>
+<li><p>若用户的数量为m、物品的数量为n，那么需要学习的参数的规模为m×n。在互联网环境下，用户数量和物品数量都可以达到千万量级，几乎无法学习m×n规模的参数。在这种情况下，一种行之有效的方法是将用户和物品分别用k维的低维向量表示（k&lt;&lt;m,k&lt;&lt;n）<br>$$<br>Y=sigmoid(\sum_i\sum_jw_{ij}&lt;x_i,xj&gt;)<br>$$</p>
+</li>
+<li><p>其中<br>$$<br>w_{ij} = x’_i*x’_j<br>$$<br>x’分别表示x i 和x j 对应的低维向量。推荐问题中，需要学习的参数的规模变为m×k+n×k。熟悉推荐算法的同学很快可以看出来，这其实等价于矩阵分解。所以，这里也提供了另一个理解推荐系统中矩阵分解的思路</p>
+</li>
+</ul>
+<h4 id="文本表示模型"><a href="#文本表示模型" class="headerlink" title="文本表示模型"></a>文本表示模型</h4><p>文本是一类非常重要的非结构化数据，如何表示文本数据一直是机器学习领<br>域的一个重要研究方向</p>
+<ul>
+<li><p>词袋模型（Bag of Words）TF - IDF（Term Frequency-Inverse Document Frequency）</p>
+<ul>
+<li>最基础的文本表示模型是词袋模型。顾名思义，就是将每篇文章看成一袋子词，并忽略每个词出现的顺序。具体地说，就是将整段文本以词为单位切分开，然后每篇文章可以表示成一个长向量，向量中的每一维代表一个单词，而该维对应的权重则反映了这个词在原文章中的重要程度。常用TF-IDF来计算权重</li>
+</ul>
+<p>$$<br>TF-IDF(t,d)=TF(t,d)*IDF(t)<br>$$</p>
+<ul>
+<li>其中TF(t,d)为单词t在文档d中出现的频率，IDF(t)是逆文档频率，用来衡量单词t对表达语义所起的重要性，表示为</li>
+</ul>
+<p>$$<br>IDF(t)=log\frac{文章总数}{包含单词t的文章总数+1}<br>$$</p>
+<ul>
+<li>直观的解释是，如果一个单词在非常多的文章里面都出现，那么它可能是一个比较通用的词汇，对于区分某篇文章特殊语义的贡献较小，因此对权重做一定惩罚</li>
+<li>将文章进行单词级别的划分有时候并不是一种好的做法，比如英文中的natural language processing（自然语言处理）一词，如果将natural，language，processing这3个词拆分开来，所表达的含义与三个词连续出现时大相径庭。通常，可以将连续出现的n个词（n≤N）组成的词组（N-gram）也作为一个单独的特征放到向量表示中去，构成N-gram模型。另外，同一个词可能有多种词性变化，却具有相似的含义。在实际应用中，一般会对单词进行词干抽取（Word Stemming）处理，即将不同词性的单词统一成为同一词干的形式</li>
+</ul>
+</li>
+<li><p>主题模型（Topic Model）</p>
+<ul>
+<li>主题模型用于从文本库中发现有代表性的主题（得到每个主题上面词的分布特性），并且能够计算出每篇文章的主题分布</li>
+</ul>
+</li>
+<li><p>词嵌入模型（Word Embedding）</p>
+<ul>
+<li>词嵌入是一类将词向量化的模型的统称，核心思想是将每个词都映射成低维空间（通常K=50～300维）上的一个稠密向量（Dense Vector）。K维空间的每一维也可以看作一个隐含的主题，只不过不像主题模型中的主题那样直观。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Word2Vec"><a href="#Word2Vec" class="headerlink" title="Word2Vec"></a>Word2Vec</h4><p>谷歌2013年提出的Word2Vec是目前最常用的词嵌入模型之一。Word2Vec实际是一种浅层的神经网络模型，它有两种网络结构，分别是CBOW（Continues Bag of Words）和Skip-gram</p>
+<ul>
+<li><p>Word2Vec</p>
+</li>
+<li><p>隐狄利克雷模型（LDA）</p>
+</li>
+<li><p>CBOW</p>
+</li>
+<li><p>Skip-gram</p>
+</li>
+</ul>
+<h4 id="图像数据不足时的处理"><a href="#图像数据不足时的处理" class="headerlink" title="图像数据不足时的处理"></a>图像数据不足时的处理</h4><p>在机器学习中，绝大部分模型都需要大量的数据进行训练和学习（包括有监督学习和无监督学习），然而在实际应用中经常会遇到训练数据不足的问题。比如图像分类，作为计算机视觉最基本的任务之一，其目标是将每幅图像划分到指定类别集合中的一个或多个类别中。当训练一个图像分类模型时，如果训练样本比较少，该如何处理呢</p>
+<ul>
+<li><p>迁移学习（Transfer Learning），生成对抗网络，图像处理，上采样技术，数据扩充</p>
+</li>
+<li><p><strong>在图像分类任务中，训练数据不足会带来什么问题？如何缓解数据量不足带来的问题？</strong></p>
+<ul>
+<li><p>一定程度内的随机旋转、平移、缩放、裁剪、填充、左右翻转等，这些变换对应着同一个目标在不同角度的观察结果</p>
+</li>
+<li><p>对图像中的像素添加噪声扰动，比如椒盐噪声、高斯白噪声等</p>
+</li>
+<li><p>颜色变换。例如，在图像的RGB颜色空间上进行主成分分析，得到3个主成分的特征向量p 1 ,p 2 ,p 3 及其对应的特征值 λ 1 ,λ 2 ,λ 3 ，然后在每个像素的RGB值上添加增量[p 1 ,p 2 ,p 3 ]•[α 1 λ 1 ,α 2 λ 2 ,α 3 λ 3 ] T ，其中 α 1 ,α 2 ,α 3 是均值为0、方差较小的高斯分布随机数</p>
+</li>
+<li><p>改变图像的亮度、清晰度、对比度、锐度等</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h3><h4 id="评估指标的局限性"><a href="#评估指标的局限性" class="headerlink" title="评估指标的局限性"></a>评估指标的局限性</h4><p>在模型评估过程中，分类问题、排序问题、回归问题往往需要使用不同的指标进行评估。在诸多的评估指标中，大部分指标只能片面地反映模型的一部分性能。如果不能合理地运用评估指标，不仅不能发现模型本身的问题，而且会得出错误的结论</p>
+<ul>
+<li>准确率（Accuracy）<ul>
+<li>准确率的局限性</li>
+<li>准确率是分类问题中最简单也是最直观的评价指标，但存在明显的缺陷。比如，当负样本占99%时，分类器把所有样本都预测为负样本也可以获得99%的准确率。所以，<strong>当不同类别的样本比例非常不均衡时，占比大的类别往往成为影响准确率的最主要因素</strong>   可以使用更为有效的平均准确率（每个类别下的样本准确率的算术平均）作为模型评估的指标</li>
+</ul>
+</li>
+<li>精确率（Precision）<ul>
+<li>精确率与召回率的权衡</li>
+</ul>
+</li>
+<li>召回率（Recall）</li>
+<li>均方根误差（Root Mean Square Error，RMSE）</li>
+</ul>
+<h4 id="ROC曲线"><a href="#ROC曲线" class="headerlink" title="ROC曲线"></a>ROC曲线</h4><p>二值分类器（Binary Classifier）是机器学习领域中最常见也是应用最广泛的分类器。评价二值分类器的指标很多，比如precision、recall、F1 score、P-R曲线等。上一小节已对这些指标做了一定的介绍，但也发现这些指标或多或少只能反映模型在某一方面的性能。相比而言，ROC曲线则有很多优点，经常作为评估二值分类器最重要的指标之一</p>
+<ul>
+<li><p>ROC曲线</p>
+<ul>
+<li><p>ROC曲线是Receiver Operating Characteristic Curve的简称，中文名为“受试者工作特征曲线”。ROC曲线源于军事领域，而后在医学领域应用甚广，“受试者工作特征曲线”这一名称也正是来自于医学领域。</p>
+</li>
+<li><p>ROC曲线的横坐标为假阳性率（False Positive Rate，FPR）；纵坐标为真阳性率（True Positive Rate，TPR）。FPR和TPR的计算方法分别为<br>$$<br>FPR=\frac{FP}{N}<br>$$</p>
+<p>$$<br>TPR = \frac{TP}{P}<br>$$</p>
+<ul>
+<li><p>P是真实的正样本的数量</p>
+</li>
+<li><p>N是真实的负样本的数量</p>
+</li>
+<li><p>TP是P个正样本中被分类器预测为正样本的个数</p>
+</li>
+<li><p>FP是N个负样本中被分类器预测为正样本的个数</p>
+<p>EG.假设有10位疑似癌症患者，其中有3位很不幸确实患了癌症（P=3），另外7位不是癌症患者（N=7）。医院对这10位疑似患者做了诊断，诊断出3位癌症患者，其中有2位确实是真正的患者（TP=2）。那么真阳性率TPR=TP/P=2/3。对于7位非癌症患者来说，有一位很不幸被误诊为癌症患者（FP=1），那么假阳性率FPR=FP/N=1/7。对于“该医院”这个分类器来说，这组分类结果就对应ROC曲线上的一个点（1/7，2/3）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>曲线下的面积（Aera Under Curve，AUC）</p>
+<ul>
+<li>如何计算AUC<ul>
+<li>AUC指的是ROC曲线下的面积大小，该值能够量化地反映基于ROC曲线衡量出的模型性能。计算AUC值只需要沿着ROC横轴做积分就可以了。由于ROC曲线一般都处于y=x这条直线的上方（如果不是的话，只要把模型预测的概率反转成1−p就可以得到一个更好的分类器），所以AUC的取值一般在0.5～1之间。AUC越大，说明分类器越可能把真正的正样本排在前面，分类性能越好</li>
+</ul>
+</li>
+<li>ROC曲线相比P-R曲线有什么特点？<ul>
+<li>同样被经常用来评估分类和排序模型的还有P-R曲线。相比P-R曲线，ROC曲线有一个特点，当正负样本的分布发生变化时，ROC曲线的形状能够基本保持不变，而P-R曲线的形状一般会发生较剧烈的变化而ROC曲线形状基本不变。这个特点让ROC曲线能够尽量降低不同测试集带来的干扰，更加客观地衡量模型本身的性能。</li>
+<li>在很多实际问题中，正负样本数量往往很不均衡。比如，计算广告领域经常涉及转化率模型，正样本的数量往往是负样本数量的1/1000甚至1/10000。若选择不同的测试集，P-R曲线的变化就会非常大，而ROC曲线则能够更加稳定地反映模型本身的好坏。所以，ROC曲线的适用场景更多，被广泛<br>用于排序、推荐、广告等领域。但需要注意的是，选择P-R曲线还是ROC曲线是因实际问题而异的，如果研究者希望更多地看到模型在特定数据集上的表现，P-R曲线则能够更直观地反映其性能。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>P-R曲线</p>
+</li>
+</ul>
+<h4 id="余弦距离的应用"><a href="#余弦距离的应用" class="headerlink" title="余弦距离的应用"></a>余弦距离的应用</h4><p>机器学习问题中，通常将特征表示为向量的形式，所以在分析两个特征向量之间的相似性时，常使用余弦相似度来表示。余弦相似度的取值范围是[−1,1]，相同的两个向量之间的相似度为1。如果希望得到类似于距离的表示，将1减去余弦相似度即为余弦距离。因此，余弦距离的取值范围为[0,2]，相同的两个向量余弦距离为0。</p>
+<ul>
+<li><p>余弦相似度</p>
+<ul>
+<li><p>为什么在一些场景中要使用余弦相似度而不是欧氏距离？</p>
+</li>
+<li><p>对于两个向量A和B，其余弦相似度定义为<br>$$<br>cos(A,B) = \frac{A·B}{||A||_2||B||_2}<br>$$<br>即两个向量夹角的余弦，关注的是向量之间的角度关系，并不关心它们的绝对大小，其取值范围是[−1,1]。当一对文本相似度的长度差距很大、但内容相近时，如果使用词频或词向量作为特征，它们在特征空间中的的欧氏距离通常很大；而如果使用余弦相似度的话，它们之间的夹角可能很小，因而相似度高。此外，在文本、图像、视频等领域，研究的对象的特征维度往往很高，余弦相似度在高维情况下依然保持“相同时为1，正交时为0，相反时为−1”的性质，而欧氏距离的数值则受维度的影响，范围不固定，并且含义也比较模糊</p>
+</li>
+</ul>
+</li>
+<li><p>余弦距离</p>
+</li>
+<li><p>欧氏距离</p>
+<p>在一些场景，例如Word2Vec中，其向量的模长是经过归一化的，此时欧氏距离与余弦距离有着单调的关系<br>$$<br>||A-B||_2 = \sqrt{2(1-cos(A,B))}<br>$$</p>
+<ul>
+<li><p>|| A−B || 2 表示欧氏距离</p>
+</li>
+<li><p>cos(A,B)表示余弦相似度</p>
+</li>
+<li><p>(1−cos(A,B))表示余弦距离</p>
+</li>
+</ul>
+<p>在此场景下，如果选择距离最小（相似度最大）的近邻，那么使用余弦相似度和欧氏距离的结果是相同的</p>
+<p>总体来说，欧氏距离体现数值上的绝对差异，而余弦距离体现方向上的相对差异。例如，统计两部剧的用户观看行为，用户A的观看向量为(0,1)，用户B为(1,0)；此时二者的余弦距离很大，而欧氏距离很小；我们分析两个用户对于不同视频的偏好，更关注相对差异，显然应当使用余弦距离。而当我们分析用户活跃度，以登陆次数(单位：次)和平均观看时长(单位：分钟)作为特征时，余弦距离会认为(1,10)、(10,100)两个用户距离很近；但显然这两个用户活跃度是有着极大差异的，此时我们更关注数值绝对差异，应当使用欧氏距离</p>
+</li>
+<li><p>距离的定义：在一个集合中，如果每一对元素均可唯一确定一个实数，使得三条距离公理（正定性，对称性，三角不等式）成立，则该实数可称为这对元素之间的距离</p>
+<ul>
+<li><p>余弦距离是否是一个严格定义的距离？</p>
+<ul>
+<li><p>余弦距离满足正定性和对称性，但是不满足三角不等式，因此它并不是严格定义的距离</p>
+</li>
+<li><p>正定性<br>根据余弦距离的定义：<br>$$<br>dist(A,B)=1-cos\theta=\frac{||A||_2||B||_2-AB}{||A||_2||B||_2}<br>$$</p>
+<p>$$<br>考虑到||A||_2||B||_2\geq0因此有dist(A,B)\geq0恒成立 特别的 有：<br>$$</p>
+<p>$$<br>dist(A,B)=0 \leftrightarrow||A||_2||B||_2=AB\leftrightarrow A=B<br>$$</p>
+<p>因此余弦距离满足正定性</p>
+</li>
+<li><p>对称性</p>
+<p>根据余弦距离的定义：<br>$$<br>dist(A,B)=\frac{||A||_2||B||_2-AB}{||A||_2||B||_2}=\frac{||B||_2||A||_2-AB}{||B||_2||A||_2}=dist(B,A)<br>$$</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>  因此余弦距离满足对称性
+
+- 三角不等式
+
+  不成立 反例：
+  $$
+  dist(A,B)=1-\frac&#123;\sqrt&#123;2&#125;&#125;&#123;2&#125;
+  $$
+
+  $$
+  dist(B,C)=1-\frac&#123;\sqrt&#123;2&#125;&#125;&#123;2&#125;
+  $$
+
+  $$
+  dist(A,C)=1
+  $$
+
+  $$
+  dist(A,B)+dist(B,C)=2-\sqrt&#123;2&#125;&lt;1=dist(A,C)
+  $$
+</code></pre>
+<h4 id="A-B测试的陷阱"><a href="#A-B测试的陷阱" class="headerlink" title="A/B测试的陷阱"></a>A/B测试的陷阱</h4><p>在互联网公司中，A/B 测试是验证新模块、新功能、新产品是否有效，新算法、新模型的效果是否有提升，新设计是否受到用户欢迎，新更改是否影响用户体验的主要测试方法。在机器学习领域中，A/B 测试是验证模型最终效果的主要手段</p>
+<ul>
+<li><p>A/B测试</p>
+<ul>
+<li>在对模型进行过充分的离线评估之后，为什么还要进行在线A/B测试？<ul>
+<li>离线评估无法完全消除模型过拟合的影响，因此，得出的离线评估结果无法完全替代线上评估结果</li>
+<li>离线评估无法完全还原线上的工程环境。一般来讲，离线评估往往不会考虑线上环境的延迟、数据丢失、标签数据缺失等情况。因此，离线评估的结果是理想工程环境下的结果</li>
+<li>线上系统的某些商业指标在离线评估中无法计算。离线评估一般是针对模型本身进行评估，而与模型相关的其他指标，特别是商业指标，往往无法直接获得。比如，上线了新的推荐算法，离线评估往往关注的是ROC曲线、P-R曲线等的改进，而线上评估可以全面了解该推荐算法带来的用户点击率、留存时长、PV访问量等的变化。这些都要由A/B测试来进行全面的评估</li>
+</ul>
+</li>
+<li>如何进行线上A/B测试？<ul>
+<li>进行A/B测试的主要手段是进行用户分桶，即将用户分成实验组和对照组，对实验组的用户施以新模型，对对照组的用户施以旧模型。在分桶的过程中，要注意<strong>样本的独立性</strong>和<strong>采样方式的无偏性</strong>，确保同一个用户每次只能分到同一个桶中，在分桶过程中所选取的user_id需要是一个随机数，这样才能保证桶中的样本是无偏的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>实验组</p>
+</li>
+<li><p>对照组</p>
+</li>
+</ul>
+<h4 id="模型评估的方法"><a href="#模型评估的方法" class="headerlink" title="模型评估的方法"></a>模型评估的方法</h4><p>在机器学习中，我们通常把样本分为训练集和测试集，训练集用于训练模型，测试集用于评估模型。在样本划分和模型验证的过程中，存在着不同的抽样方法和验证方法</p>
+<h4 id="超参数调优"><a href="#超参数调优" class="headerlink" title="超参数调优"></a>超参数调优</h4><ul>
+<li><p>超参数有哪些调优方法</p>
+<p>为了进行超参数调优，我们一般会采用网格搜索、随机搜索、贝叶斯优化等算法。在具体介绍算法之前，需要明确超参数搜索算法一般包括哪几个要素。一是目标函数，即算法需要最大化/最小化的目标；二是搜索范围，一般通过上限和下限来确定；三是算法的其他参数，如搜索步长</p>
+<ul>
+<li>网格搜索<ul>
+<li>网格搜索可能是最简单、应用最广泛的超参数搜索算法，它通过查找搜索范围内的所有的点来确定最优值。如果采用较大的搜索范围以及较小的步长，网格搜索有很大概率找到全局最优值</li>
+<li>然而，这种搜索方案十分消耗计算资源和时间，特别是需要调优的超参数比较多的时候</li>
+<li>因此，在实际应用中，网格搜索法一般会先使用较广的搜索范围和较大的步长，来寻找全局最优值可能的位置；然后会逐渐缩小搜索范围和步长，来寻找更精确的最优值</li>
+<li>这种操作方案可以降低所需的时间和计算量，但由于目标函数一般是非凸的，所以很可能会错过全局最优值</li>
+</ul>
+</li>
+<li>随机搜索<ul>
+<li>随机搜索的思想与网格搜索比较相似，只是不再测试上界和下界之间的所有值，而是在搜索范围中随机选取样本点</li>
+<li>它的理论依据是，如果样本点集足够大，那么通过随机采样也能大概率地找到全局最优值，或其近似值。随机搜索一般会比网格搜索要快一些，但是和网格搜索的快速版一样，它的结果也是没法保证的</li>
+</ul>
+</li>
+<li>贝尔斯优化算法<ul>
+<li>贝叶斯优化算法通过对目标函数形状进行学习，找到使目标函数向全局最优值提升的参数。具体来说，它学习目标函数形状的方法是，首先根据先验分布，假设一个搜集函数</li>
+<li>然后，每一次使用新的采样点来测试目标函数时，利用这个信息来更新目标函数的先验分布</li>
+<li>最后，算法测试由后验分布给出的全局最值最可能出现的位置的点</li>
+<li>一旦找到了一个局部最优值，它会在该区域不断采样，所以很容易陷入局部最优值。为了弥补这个缺陷，贝叶斯优化算法会在探索和利用之间找到一个平衡点，“探索”就是在还未取样的区域获取采样点；而“利用”则是根据后验分布在最可能出现全局最值的区域进行采样</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="过拟合与欠拟合"><a href="#过拟合与欠拟合" class="headerlink" title="过拟合与欠拟合"></a>过拟合与欠拟合</h4><p>在模型评估与调整的过程中，我们往往会遇到“过拟合”或“欠拟合”的情况。如何有效地识别“过拟合”和“欠拟合”现象，并有针对性地进行模型调整，是不断改进机器学习模型的关键。特别是在实际项目中，采用多种方法、从多个角度降低“过拟合”和“欠拟合”的风险是算法工程师应当具备的领域知识。</p>
+<ul>
+<li><p>模型评估过程中，过拟合和欠拟合具体是指什么现象</p>
+<ul>
+<li>过拟合是指模型对于训练数据拟合呈过当的情况，反映到评估指标上，就是模型在训练集上的表现很好，但在测试集和新数据上的表现较差</li>
+<li>欠拟合指的是模型在训练和预测时表现都不好的情况</li>
+</ul>
+</li>
+<li><p><strong>能否说出几种降低过拟合和欠拟合风险的方法</strong></p>
+<ul>
+<li><p><strong>降低“过拟合”风险的方法</strong></p>
+<ul>
+<li><p>从数据入手，获得更多的训练数据。使用更多的训练数据是解决过拟合问题最有效的手段，因为更多的样本能够让模型学习到更多更有效的特征，减小噪声的影响。当然，直接增加实验数据一般是很困难的，但是可以通过一定的规则来扩充训练数据。比如，在图像分类的问题上，可以通过图像的平移、旋转、缩放等方式扩充数据；更进一步地，可以使用生成式对抗网络来合成大量的新训练数据。</p>
+</li>
+<li><p>降低模型复杂度。在数据较少时，模型过于复杂是产生过拟合的主要因素，适当降低模型复杂度可以避免模型拟合过多的采样噪声。例如，在神经网络模型中减少网络层数、神经元个数等；在决策树模型中降低树的深度、进行剪枝等。</p>
+</li>
+<li><p>正则化方法。给模型的参数加上一定的正则约束，比如将权值的大小加入到损失函数中。以L2正则化为例：<br>$$<br>C = C_0 +\frac{\lambda}{2n}*\sum_iw_i^2<br>$$<br>这样，在优化原来的目标函数C 0 的同时，也能避免权值过大带来的过拟合风险</p>
+</li>
+<li><p>集成学习方法。集成学习是把多个模型集成在一起，来降低单一模型的过拟合风险，如Bagging方法经典算法</p>
+</li>
+</ul>
+</li>
+<li><p> <strong>降低“欠拟合”风险的方法</strong></p>
+</li>
+<li><p>添加新特征。当特征不足或者现有特征与样本标签的相关性不强时，模型容易出现欠拟合。通过挖掘“上下文特征”“ID类特征”“组合特征”等新的特征，往往能够取得更好的效果。在深度学习潮流中，有很多模型可以帮助完成特征工程，如因子分解机、梯度提升决策树、Deep-crossing等都可以成为丰富特征的方法。</p>
+</li>
+<li><p>增加模型复杂度。简单模型的学习能力较差，通过增加模型的复杂度可以使模型拥有更强的拟合能力。例如，在线性模型中添加高次项，在神经网络模型中增加网络层数或神经元个数等。</p>
+</li>
+<li><p>减小正则化系数。正则化是用来防止过拟合的，但当模型出现欠拟合现象时，则需要有针对性地减小正则化系数。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h3><h3 id="非监督学习"><a href="#非监督学习" class="headerlink" title="非监督学习"></a>非监督学习</h3><h3 id="概率图模型"><a href="#概率图模型" class="headerlink" title="概率图模型"></a>概率图模型</h3><h3 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h3><h3 id="采样"><a href="#采样" class="headerlink" title="采样"></a>采样</h3><h3 id="前向神经网络"><a href="#前向神经网络" class="headerlink" title="前向神经网络"></a>前向神经网络</h3><h3 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h3><h3 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h3><h3 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h3><h3 id="生成式对抗网络"><a href="#生成式对抗网络" class="headerlink" title="生成式对抗网络"></a>生成式对抗网络</h3><h3 id="人工智能的热门应用"><a href="#人工智能的热门应用" class="headerlink" title="人工智能的热门应用"></a>人工智能的热门应用</h3>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/WeChanQR.png',
+  alipayImage: 'https://raw.githubusercontent.com/iTimeTraveler/iTimeTraveler.github.io/site/source/about/donate/images/AliPayQR.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>Bai Xiong</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2022/09/19/Interview/" target="_blank" title="面试基础 interview">http://example.com/2022/09/19/Interview/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/09/19/AI-Science/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          人工智能 AI Science
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/19/Database/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数据库操作 Hive / sql sever</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">特征工程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-number">1.1.</span> <span class="nav-text">特征归一化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB%E5%88%AB%E7%89%B9%E5%BE%81"><span class="nav-number">1.2.</span> <span class="nav-text">类别特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E7%BB%B4%E7%BB%84%E5%90%88%E7%89%B9%E5%BE%81%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">高维组合特征的处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E8%A1%A8%E7%A4%BA%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">文本表示模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Word2Vec"><span class="nav-number">1.5.</span> <span class="nav-text">Word2Vec</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE%E4%B8%8D%E8%B6%B3%E6%97%B6%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">1.6.</span> <span class="nav-text">图像数据不足时的处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0"><span class="nav-number">2.</span> <span class="nav-text">模型评估</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">评估指标的局限性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ROC%E6%9B%B2%E7%BA%BF"><span class="nav-number">2.2.</span> <span class="nav-text">ROC曲线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%99%E5%BC%A6%E8%B7%9D%E7%A6%BB%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">2.3.</span> <span class="nav-text">余弦距离的应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A-B%E6%B5%8B%E8%AF%95%E7%9A%84%E9%99%B7%E9%98%B1"><span class="nav-number">2.4.</span> <span class="nav-text">A&#x2F;B测试的陷阱</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.5.</span> <span class="nav-text">模型评估的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B6%85%E5%8F%82%E6%95%B0%E8%B0%83%E4%BC%98"><span class="nav-number">2.6.</span> <span class="nav-text">超参数调优</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%87%E6%8B%9F%E5%90%88%E4%B8%8E%E6%AC%A0%E6%8B%9F%E5%90%88"><span class="nav-number">2.7.</span> <span class="nav-text">过拟合与欠拟合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%8D%E7%BB%B4"><span class="nav-number">3.</span> <span class="nav-text">降维</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="nav-number">4.</span> <span class="nav-text">非监督学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">概率图模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">优化算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%87%E6%A0%B7"><span class="nav-number">7.</span> <span class="nav-text">采样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E5%90%91%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-number">8.</span> <span class="nav-text">前向神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-number">9.</span> <span class="nav-text">循环神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="nav-number">10.</span> <span class="nav-text">强化学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="nav-number">11.</span> <span class="nav-text">集成学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C"><span class="nav-number">12.</span> <span class="nav-text">生成式对抗网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E7%83%AD%E9%97%A8%E5%BA%94%E7%94%A8"><span class="nav-number">13.</span> <span class="nav-text">人工智能的热门应用</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2022 HELLO WORLD All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HELLO WORLD
+          </div>
+          <div class="panel-body">
+            Copyright © 2022 Bai Xiong All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
