@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>随机森林 randomforest | HELLO WORLD</title>
+  <title>机器学习-随机森林 randomforest | HELLO WORLD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="MachineLearning" />
@@ -13,14 +13,14 @@
   
   <meta name="description" content="机器学习是一类算法的总称，这些算法企图从大量历史数据中挖掘出其中隐含的规律，并用于预测或者分类，更具体的说，机器学习可以看作是寻找一个函数，输入是样本数据，输出是期望的结果，只是这个函数过于复杂，以至于不太方便形式化表达。需要注意的是，机器学习的目标是使学到的函数很好地适用于“新样本”，而不仅仅是在训练样本上表现很好。学到的函数适用于新样本的能力，称为泛化（Generalization）能力。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="随机森林 RandomForest">
-<meta property="og:url" content="http://example.com/2022/09/28/ML-RandomForest/index.html">
+<meta property="og:title" content="机器学习-随机森林 RandomForest">
+<meta property="og:url" content="http://example.com/2021/10/01/ML-RandomForest/index.html">
 <meta property="og:site_name" content="HELLO WORLD">
 <meta property="og:description" content="机器学习是一类算法的总称，这些算法企图从大量历史数据中挖掘出其中隐含的规律，并用于预测或者分类，更具体的说，机器学习可以看作是寻找一个函数，输入是样本数据，输出是期望的结果，只是这个函数过于复杂，以至于不太方便形式化表达。需要注意的是，机器学习的目标是使学到的函数很好地适用于“新样本”，而不仅仅是在训练样本上表现很好。学到的函数适用于新样本的能力，称为泛化（Generalization）能力。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200625112341667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="article:published_time" content="2022-09-28T07:09:12.000Z">
-<meta property="article:modified_time" content="2023-02-16T11:38:16.373Z">
+<meta property="article:published_time" content="2021-10-01T07:06:12.000Z">
+<meta property="article:modified_time" content="2023-02-16T14:43:24.484Z">
 <meta property="article:author" content="Bai Xiong">
 <meta property="article:tag" content="MachineLearning">
 <meta name="twitter:card" content="summary">
@@ -186,7 +186,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      随机森林 RandomForest
+      机器学习-随机森林 RandomForest
     </h1>
   
 
@@ -194,12 +194,12 @@
     
     <div class="article-meta">
       
-	<a href="/2022/09/28/ML-RandomForest/" class="article-date">
-	  <time datetime="2022-09-28T07:09:12.000Z" itemprop="datePublished">2022-09-28</time>
+	<a href="/2021/10/01/ML-RandomForest/" class="article-date">
+	  <time datetime="2021-10-01T07:06:12.000Z" itemprop="datePublished">2021-10-01</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
+    <a class="article-category-link" href="/categories/Code/">Code</a>
 
       
 	<a class="article-views">
@@ -216,12 +216,8 @@
         <p>机器学习是一类算法的总称，这些算法企图从大量历史数据中挖掘出其中隐含的规律，并用于预测或者分类，更具体的说，机器学习可以看作是寻找一个函数，输入是样本数据，输出是期望的结果，只是这个函数过于复杂，以至于不太方便形式化表达。<br>需要注意的是，机器学习的目标是使学到的函数很好地适用于“新样本”，而不仅仅是在训练样本上表现很好。学到的函数适用于新样本的能力，称为泛化（Generalization）能力。</p>
 <span id="more"></span>
 
-<h4 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h4><blockquote>
-<p>随机森林是最流行和最强大的机器学习算法之一。它是 Bootstrap Aggregation（又称 bagging）集成机器学习算法的一种。<br>bootstrap 是从数据样本中估算数量的一种强大的统计方法。例如平均数。你从数据中抽取大量样本，计算平均值，然后平均所有的平均值以便更好的估计真实的平均值。</p>
-</blockquote>
-<blockquote>
-<p>bagging 使用相同的方法，但是它估计整个统计模型，最常见的是决策树。在训练数据中抽取多个样本，然后对每个数据样本建模。当你需要对新数据进行预测时，每个模型都进行预测，并将所有的预测值平均以便更好的估计真实的输出值。<br>随机森林是对这种方法的一种调整，在随机森林的方法中决策树被创建以便于通过引入随机性来进行次优分割，而不是选择最佳分割点。<br>因此，针对每个数据样本创建的模型将会与其他方式得到的有所不同，不过虽然方法独特且不同，它们仍然是准确的。结合它们的预测可以更好的估计真实的输出值。<br>如果用方差较高的算法（如决策树）得到了很好的结果，那么通常可以通过 bagging 该算法来获得更好的结果。<br>训练数据集–&gt; 随机数据采样 （第一重随机）AND 随机特征采样(第二重随机) –&gt;训练数据集–&gt; 建立决策树模型–&gt;综合（平均/投票/多数结果法）–&gt;最终结果</p>
-</blockquote>
+<h4 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h4><p>随机森林是最流行和最强大的机器学习算法之一。它是 Bootstrap Aggregation（又称 bagging）集成机器学习算法的一种。<br>bootstrap 是从数据样本中估算数量的一种强大的统计方法。例如平均数。你从数据中抽取大量样本，计算平均值，然后平均所有的平均值以便更好的估计真实的平均值。</p>
+<p>bagging 使用相同的方法，但是它估计整个统计模型，最常见的是决策树。在训练数据中抽取多个样本，然后对每个数据样本建模。当你需要对新数据进行预测时，每个模型都进行预测，并将所有的预测值平均以便更好的估计真实的输出值。<br>随机森林是对这种方法的一种调整，在随机森林的方法中决策树被创建以便于通过引入随机性来进行次优分割，而不是选择最佳分割点。<br>因此，针对每个数据样本创建的模型将会与其他方式得到的有所不同，不过虽然方法独特且不同，它们仍然是准确的。结合它们的预测可以更好的估计真实的输出值。<br>如果用方差较高的算法（如决策树）得到了很好的结果，那么通常可以通过 bagging 该算法来获得更好的结果。<br>算法思想: 训练数据集–&gt; 随机数据采样 （第一重随机）AND 随机特征采样(第二重随机) –&gt;训练数据集–&gt; 建立决策树模型–&gt;综合（平均/投票/多数结果法）–&gt;最终结果</p>
 <p><img src="https://img-blog.csdnimg.cn/20200625112341667.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk4ODEzMQ==,size_16,color_FFFFFF,t_70#pic_center" alt="Random-Forest"></p>
 <h5 id="随机森林模型调参方法"><a href="#随机森林模型调参方法" class="headerlink" title="随机森林模型调参方法"></a>随机森林模型调参方法</h5><p>随机森林学习器的默认参数配置：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. bootstrap=True</span></span><br><span class="line"><span class="comment"># 2. criterion=&#x27;mse&#x27;</span></span><br><span class="line"><span class="comment"># 3. max_depth=None</span></span><br><span class="line"><span class="comment"># 4. max_features=&#x27;auto&#x27;</span></span><br><span class="line"><span class="comment"># 5. max_leaf_nodes=None</span></span><br><span class="line"><span class="comment"># 6. min_impurity_decrease=0.0</span></span><br><span class="line"><span class="comment"># 7. min_impurity_split=None</span></span><br><span class="line"><span class="comment"># 8. min_samples_leaf=1</span></span><br><span class="line"><span class="comment"># 9. min_samples_split=2</span></span><br><span class="line"><span class="comment"># 10. min_weight_fraction_leaf=0.0</span></span><br><span class="line"><span class="comment"># 11. n_estimators=10</span></span><br><span class="line"><span class="comment"># 12. n_jobs=1</span></span><br><span class="line"><span class="comment"># 13. oob_score=False</span></span><br><span class="line"><span class="comment"># 14. random_state=None</span></span><br><span class="line"><span class="comment"># 15. verbose=0</span></span><br><span class="line"><span class="comment"># 16. warm_start=False</span></span><br></pre></td></tr></table></figure>
@@ -261,7 +257,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2022/09/28/ML-RandomForest/" target="_blank" title="随机森林 RandomForest">http://example.com/2022/09/28/ML-RandomForest/</a>
+          <a href="/2021/10/01/ML-RandomForest/" target="_blank" title="机器学习-随机森林 RandomForest">http://example.com/2021/10/01/ML-RandomForest/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -311,19 +307,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2022/09/28/AWS_Sagemaker/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/10/01/ML-KMeans/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          AWS使用笔记 Sagemaker
+          机器学习-K均值 KMeans
         
       </div>
     </a>
   
   
-    <a href="/2022/09/28/CV-ObjectDetection/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/09/28/AI-Science/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">目标检测 ObjectDetection</div>
+      <div class="article-nav-title">人工智能 AI Science</div>
     </a>
   
 </nav>
