@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>基础操作 shell | HELLO WORLD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="ToolsShell" />
+  
+  
+  
+  
+  <meta name="description" content="人类大脑中，大约有1000亿个神经元，每个神经元与大约10万个神经元相连。从本质上说，这就是我们想要创造的，在某种程度上，这对机器来说是可行的。深度学习的目的是模仿人类大脑的工作方式。这在神经元，轴突，树突等方面意味着什么？嗯，神经元有胞体，树突和轴突。来自一个神经元的信号沿着轴突传播并转移到下一个神经元的树突。传递信号的那个连接被称为突触。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基础操作 Shell">
+<meta property="og:url" content="http://example.com/2020/08/28/Tools-Shell/index.html">
+<meta property="og:site_name" content="HELLO WORLD">
+<meta property="og:description" content="人类大脑中，大约有1000亿个神经元，每个神经元与大约10万个神经元相连。从本质上说，这就是我们想要创造的，在某种程度上，这对机器来说是可行的。深度学习的目的是模仿人类大脑的工作方式。这在神经元，轴突，树突等方面意味着什么？嗯，神经元有胞体，树突和轴突。来自一个神经元的信号沿着轴突传播并转移到下一个神经元的树突。传递信号的那个连接被称为突触。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-28T00:08:08.000Z">
+<meta property="article:modified_time" content="2022-09-30T09:41:39.726Z">
+<meta property="article:author" content="Bai Xiong">
+<meta property="article:tag" content="Tools">
+<meta property="article:tag" content="Shell">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/collection">collection</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Tools-Shell" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      基础操作 Shell
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/08/28/Tools-Shell/" class="article-date">
+	  <time datetime="2020-08-28T00:08:08.000Z" itemprop="datePublished">2020-08-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>人类大脑中，大约有1000亿个神经元，每个神经元与大约10万个神经元相连。从本质上说，这就是我们想要创造的，在某种程度上，这对机器来说是可行的。<br>深度学习的目的是模仿人类大脑的工作方式。这在神经元，轴突，树突等方面意味着什么？嗯，神经元有胞体，树突和轴突。来自一个神经元的信号沿着轴突传播并转移到下一个神经元的树突。传递信号的那个连接被称为突触。</p>
+<span id="more"></span>
+
+<h2 id="Shell"><a href="#Shell" class="headerlink" title="Shell"></a>Shell</h2><h3 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a>shell脚本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">shell:shell脚本加密：https://blog.csdn.net/qq_35603331/article/details/83793475</span><br><span class="line">用一个SHELL保存多台SSH账号密码，一个参数就能登录指定服务器 ：https://blog.csdn.net/daisho/details/89467916  </span><br><span class="line">关联多个shell脚本文件：https://jingyan.baidu.com/a17d5285fd05d88098c8f2df.html                       </span><br><span class="line">shell菜鸟教程：https://www.runoob.com/linux/linux-shell-array.html</span><br><span class="line">shell读取文件某行内容：https://blog.csdn.net/sxf_123456/article/details/70739127</span><br><span class="line">shell脚本之间的变量传递：https://blog.csdn.net/dreamcoding/article/details/8519708</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="shell-echo"><a href="#shell-echo" class="headerlink" title="shell echo"></a>shell echo</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-n 		 输出之后不换行   </span><br><span class="line">-e 		 对于转义字符按相应的方式处理</span><br><span class="line">\b		 表示删除前面的空格</span><br><span class="line">\n		 表示换行</span><br><span class="line">\t		 表示水平制表符</span><br><span class="line">\v		 表示垂直制表符</span><br><span class="line">\c		 \c后面的字符将不会输出，同时，输出完成后也不会换行</span><br><span class="line">\r		 输出回车符（但是你会发现\r前面的字符没有了）</span><br><span class="line">\a		 表示输出一个警告声音</span><br><span class="line">&gt;        echo &quot;hello world!&quot; &gt; test1.tmp  把内容输出到文件中而不是标准输出</span><br><span class="line">echo &quot;&quot;	 打印空行</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="shell"><a href="#shell" class="headerlink" title="shell $"></a>shell $</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$&#123;变量名&#125;     调用定义过的变量</span><br><span class="line">$# 			 传给脚本的参数个数</span><br><span class="line">$0 			 脚本本身的名字</span><br><span class="line">$1 			 传递给该shell脚本的第1个参数</span><br><span class="line">$2 			 传递给该shell脚本的第2个参数</span><br><span class="line">$@ 			 传给脚本的所有参数的列表</span><br><span class="line">$* 			 以一个单字符串显示所有向脚本传递的参数，与位置变量不同，参数可超过9个</span><br><span class="line">$$ 			 脚本运行的当前进程ID号</span><br><span class="line">$? 			 命令执行结果反馈，0表示执行成功，其余数字表示执行不成功</span><br><span class="line">$() 		 做命令替换用(commandsubstitution) ———— 并不是所有shell都支持</span><br><span class="line">` ` 		 做命令替换用(commandsubstitution) ———— 基本上可用在全部的 unix shell 中使用</span><br><span class="line">$&#123; &#125;		 用于变量替换 $var 与$&#123;var&#125;一样</span><br><span class="line">$[]  		 进行数学运算 支持+ - * / %：分别为 “加、减、乘、除、取模”</span><br><span class="line">$(())        进行数学运算 支持+ - * / %：分别为 “加、减、乘、除、取模”</span><br><span class="line">$((16#2a))   结果为 42 (16进位转十进制)  作不同进位(如二进制、八进位、十六进制)作运算  输出结果皆为十进制</span><br><span class="line">$&#123;&#125; 		 参数替换</span><br><span class="line">$*,$@ 		 位置参数</span><br><span class="line">$? 			 退出状态</span><br><span class="line">$$ 			 进程ID</span><br></pre></td></tr></table></figure>
+
+<h3 id="shell-符号"><a href="#shell-符号" class="headerlink" title="shell 符号"></a>shell 符号</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">#			 				注释  #！除外</span><br><span class="line">echo $&#123;PATH#*:&#125; 			这里不表示注释, 数制转换, 不表示注释</span><br><span class="line">echo $((2#101011))			</span><br><span class="line">[]  		 				test命令的另一种形式  // 数组元素, 例如 array[1]=abc // 字符范围, 在正则表达式中使用</span><br><span class="line">(( ))        				[ ]的针对数学比较表达式的加强版</span><br><span class="line">[[ ]]  		 				[ ]的针对字符串表达式的加强版  test 表达式本身放在[] 里</span><br><span class="line">;  						    命令行分隔符, 可以在一行中写多个命令. echo hello; echo there</span><br><span class="line">;;  						终止 case 选项</span><br><span class="line">.							隐藏文件前缀 // .命令等价于source // . 表示当前目录 .. 表示上一级目录 // 正则表达式中作为单个字符匹配</span><br><span class="line">&quot;&quot;							组织特殊字符  双引号中可以引用变量</span><br><span class="line">&#x27;&#x27;							组织特殊字符  单引号中不能引用变量</span><br><span class="line">\							转义字符</span><br><span class="line">/							文件名分隔符 // 除法</span><br><span class="line">`							后置引用 命令替换</span><br><span class="line">:							空命令  等价于 “NOP” // 也可被认为是 shell 内建命令 true 作用相同, 例如: 死循环 //在 if/then 语句中做占位符</span><br><span class="line">!							取反操作符 != 不等于</span><br><span class="line">?							测试操作 // 正则表达式中, ? 匹配任意单个字符							</span><br><span class="line">*							万能匹配符, 正则表达式中  数学乘法 // ** 幂运算</span><br><span class="line">$							变量符号 // 正则表达式中 行结束符</span><br><span class="line">()							</span><br><span class="line">&#123;xxx,yyy,zzz&#125;      </span><br><span class="line">cat &#123;file1,file2,file3&#125; &gt; combined_file   将file1,file2,file3合并在一起并重定向到commbined_file中. 大括号中不能有空格</span><br><span class="line">&#123;&#125;							</span><br><span class="line">&#123;&#125;\;						路径名, 一般都是在 find 命令中使用, 注意; 用来结束find 命令序列的 –exec</span><br><span class="line">&gt;&amp; &gt;&gt;&amp; &gt;&gt; &lt;  				重定向</span><br><span class="line">scriptname &gt; filename 		重定向脚本的输出到文件中, 覆盖原有内容</span><br><span class="line">command &amp;&gt; filename 		重定向 stdout 和 stderr 到文件中</span><br><span class="line">command &gt;&amp;2 				重定向 stdout 和 stderr</span><br><span class="line">scriptname &gt;&gt; filename 		重定向脚本输出到文件中, 添加到文件尾端, 如果没有文件, 则创建这个文件.</span><br><span class="line">&lt;&lt; &lt;&lt;&lt;    					重定向, &lt;&lt; 用在“here document”, &lt;&lt;&lt; 用在“here string”</span><br><span class="line">\&lt;, \&gt;    					正则表达式中的单词边界 grep ‘\&#x27; testfile</span><br><span class="line">|  							管道, 分析前边命令的输出, 并将输出作为后边命令的输入</span><br><span class="line">&gt;| 							强制重定向</span><br><span class="line">||							逻辑或</span><br><span class="line">&amp;  							后台运行命令, 一个命令后边跟一个&amp;, 将表示在后台运行</span><br><span class="line">&amp;&amp;							逻辑与</span><br></pre></td></tr></table></figure>
+
+<h3 id="shell-运算符"><a href="#shell-运算符" class="headerlink" title="shell 运算符"></a>shell 运算符</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-eq      					 //equal  等于</span><br><span class="line">-ne      					 //no equal 不等于</span><br><span class="line">-gt      					 //great than 大于</span><br><span class="line">-lt      					 // low than  小于</span><br><span class="line">ge       					 // great and equal 大于等于，注意没有&quot;-&quot;</span><br><span class="line">le       					 //low and equal 小于等于，注意没有“-”</span><br><span class="line"></span><br><span class="line">case ... esac</span><br><span class="line">export</span><br><span class="line">pre_check</span><br><span class="line">查看用户群组：      echo $(ssh -n cmadmin@review.source.unisoc.com -p29418 gerrit ls-groups --user luna.xiong)</span><br></pre></td></tr></table></figure>
+
+<h3 id="shell-if"><a href="#shell-if" class="headerlink" title="shell if"></a>shell if</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">if fi       	   		  		定义判断https://www.cnblogs.com/myitm/archive/2012/07/05/2577416.html</span><br><span class="line">if [ -f  file ]    		  		如果文件存在</span><br><span class="line">if [ -d ...   ]    		  		如果目录存在</span><br><span class="line">if [ -s file  ]    		  		如果文件存在且非空</span><br><span class="line">if [ -r file  ]    		  		如果文件存在且可读</span><br><span class="line">if [ -w file  ]    		  		如果文件存在且可写</span><br><span class="line">if [ -x file  ]    		  		如果文件存在且可执行</span><br><span class="line">if [ int1 -eq int2 ]   	  		如果int1等于int2   </span><br><span class="line">if [ int1 -ne int2 ]   	  		如果不等于    </span><br><span class="line">if [ int1 -ge int2 ]      		如果&gt;=</span><br><span class="line">if [ int1 -gt int2 ]      		如果&gt;</span><br><span class="line">if [ int1 -le int2 ]      		如果&lt;=</span><br><span class="line">if [ int1 -lt int2 ]      		如果&lt;</span><br><span class="line">If  [ $a = $b ]                 如果string1等于string2 字符串允许使用赋值号做等号</span><br><span class="line">if  [ $string1 !=  $string2 ]   如果string1不等于string2       </span><br><span class="line">if  [ -n $string  ]             如果string 非空(非0），返回0(true)  </span><br><span class="line">if  [ -z $string  ]             如果string 为空</span><br><span class="line">if  [ $sting ]                  如果string 非空，返回0 (和-n类似)   </span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://img-blog.csdnimg.cn/45fab0bf94d24c89baae32b47ec22f8a.png',
+  alipayImage: 'https://img-blog.csdnimg.cn/857f2fcb134d46a18ab90f8abd742b4e.png'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>Bai Xiong</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2020/08/28/Tools-Shell/" target="_blank" title="基础操作 Shell">http://example.com/2020/08/28/Tools-Shell/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/28/Python-utils/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          常用工具 Python
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/20/Python-Dataframe/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数据处理 DataFrame</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell"><span class="nav-number">1.</span> <span class="nav-text">Shell</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shell%E8%84%9A%E6%9C%AC"><span class="nav-number">1.1.</span> <span class="nav-text">shell脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell-echo"><span class="nav-number">1.2.</span> <span class="nav-text">shell echo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell"><span class="nav-number">1.3.</span> <span class="nav-text">shell $</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell-%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.4.</span> <span class="nav-text">shell 符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.5.</span> <span class="nav-text">shell 运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell-if"><span class="nav-number">1.6.</span> <span class="nav-text">shell if</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2023 HELLO WORLD All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/collection" class="mobile-nav-link">Collection</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HELLO WORLD
+          </div>
+          <div class="panel-body">
+            Copyright © 2023 Bai Xiong All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

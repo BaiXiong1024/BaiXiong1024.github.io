@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>高阶使用 python | HELLO WORLD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="PythonFunction" />
+  
+  
+  
+  
+  <meta name="description" content="人类大脑中，大约有1000亿个神经元，每个神经元与大约10万个神经元相连。从本质上说，这就是我们想要创造的，在某种程度上，这对机器来说是可行的。深度学习的目的是模仿人类大脑的工作方式。这在神经元，轴突，树突等方面意味着什么？嗯，神经元有胞体，树突和轴突。来自一个神经元的信号沿着轴突传播并转移到下一个神经元的树突。传递信号的那个连接被称为突触。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高阶使用 Python">
+<meta property="og:url" content="http://example.com/2020/08/28/Python-imp/index.html">
+<meta property="og:site_name" content="HELLO WORLD">
+<meta property="og:description" content="人类大脑中，大约有1000亿个神经元，每个神经元与大约10万个神经元相连。从本质上说，这就是我们想要创造的，在某种程度上，这对机器来说是可行的。深度学习的目的是模仿人类大脑的工作方式。这在神经元，轴突，树突等方面意味着什么？嗯，神经元有胞体，树突和轴突。来自一个神经元的信号沿着轴突传播并转移到下一个神经元的树突。传递信号的那个连接被称为突触。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-28T00:08:08.000Z">
+<meta property="article:modified_time" content="2022-09-30T08:25:02.247Z">
+<meta property="article:author" content="Bai Xiong">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Function">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/collection">collection</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Python-imp" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      高阶使用 Python
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/08/28/Python-imp/" class="article-date">
+	  <time datetime="2020-08-28T00:08:08.000Z" itemprop="datePublished">2020-08-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Code/">Code</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>人类大脑中，大约有1000亿个神经元，每个神经元与大约10万个神经元相连。从本质上说，这就是我们想要创造的，在某种程度上，这对机器来说是可行的。<br>深度学习的目的是模仿人类大脑的工作方式。这在神经元，轴突，树突等方面意味着什么？嗯，神经元有胞体，树突和轴突。来自一个神经元的信号沿着轴突传播并转移到下一个神经元的树突。传递信号的那个连接被称为突触。</p>
+<span id="more"></span>
+
+<p>原文地址: <a target="_blank" rel="noopener" href="https://blog.csdn.net/hebtu666/article/details/114872611">CSDN-兔兔RabbitMQ</a></p>
+<h3 id="原地交换"><a href="#原地交换" class="headerlink" title="原地交换"></a>原地交换</h3><p>Python 提供了一个直观的在一行代码中赋值与交换（变量值）的方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x, y = <span class="number">10</span>, <span class="number">20</span></span><br><span class="line"><span class="built_in">print</span>(x, y)</span><br><span class="line"></span><br><span class="line">x, y = y, x</span><br><span class="line"><span class="built_in">print</span>(x, y)</span><br><span class="line"></span><br><span class="line"><span class="comment">#1 (10, 20)</span></span><br><span class="line"><span class="comment">#2 (20, 10)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="链状比较操作符"><a href="#链状比较操作符" class="headerlink" title="链状比较操作符"></a>链状比较操作符</h3><p>Python不用很多条件一个一个写，比较操作符可以聚合</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">10</span></span><br><span class="line">result = <span class="number">1</span> &lt; n &lt; <span class="number">20</span></span><br><span class="line"><span class="built_in">print</span>(result)    <span class="comment"># True</span></span><br><span class="line"></span><br><span class="line">result = <span class="number">1</span> &gt; n &lt;= <span class="number">9</span></span><br><span class="line"><span class="built_in">print</span>(result)    <span class="comment"># False</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="三元操作符进行条件赋值"><a href="#三元操作符进行条件赋值" class="headerlink" title="三元操作符进行条件赋值"></a>三元操作符进行条件赋值</h3><p>三元操作符是 if-else 语句也就是条件操作符的一个快捷方式：[表达式为真的返回值] if [表达式] else [表达式为假的返回值]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 给出一个你可以用来使代码紧凑简洁的例子。下面的语句是说“如果 y 是 9，给 x 赋值 10，不然赋值为 20“</span></span><br><span class="line">x = <span class="number">10</span> <span class="keyword">if</span> (y==<span class="number">9</span>) <span class="keyword">else</span> <span class="number">20</span></span><br><span class="line"><span class="comment"># 在列表推导中</span></span><br><span class="line">[m**<span class="number">2</span> <span class="keyword">if</span> m &gt; <span class="number">10</span> <span class="keyword">else</span> m**<span class="number">4</span> <span class="keyword">for</span> m <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">50</span>)]</span><br><span class="line"><span class="comment"># 判断最小值</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">small</span>(<span class="params">a, b, c</span>):</span><br><span class="line">    <span class="keyword">return</span> a <span class="keyword">if</span> a &lt;= b <span class="keyword">and</span> a &lt;= c <span class="keyword">else</span> (b <span class="keyword">if</span> b &lt;= a <span class="keyword">and</span> b &lt;= c <span class="keyword">else</span> c)</span><br><span class="line"><span class="comment"># 类中</span></span><br><span class="line">x = (classA <span class="keyword">if</span> y == <span class="number">1</span> <span class="keyword">else</span> classB)(param1, param2)</span><br></pre></td></tr></table></figure>
+
+<h3 id="多行字符串"><a href="#多行字符串" class="headerlink" title="多行字符串"></a>多行字符串</h3><p>直接多行注释</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">&#x27;&#x27;&#x27;dvfssd</span></span><br><span class="line"><span class="string">fsdfdsfsd</span></span><br><span class="line"><span class="string">dsdsfbfdfasf</span></span><br><span class="line"><span class="string">afasfaf&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+
+<h3 id="in判断"><a href="#in判断" class="headerlink" title="in判断"></a>in判断</h3><p>可以直接用来判断某个变量是否在列表中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">可以使用下面的方式来验证多个值：</span><br><span class="line">if m in [1,3,5,7]:</span><br><span class="line"># 而不是：</span><br><span class="line">if m==1 or m==3 or m==5 or m==7:</span><br></pre></td></tr></table></figure>
+
+<h3 id="四种翻转字符串-列表的方式"><a href="#四种翻转字符串-列表的方式" class="headerlink" title="四种翻转字符串/列表的方式"></a>四种翻转字符串/列表的方式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 翻转列表本身</span><br><span class="line">testList = [1, 3, 5]</span><br><span class="line">testList.reverse()</span><br><span class="line">print(testList)</span><br><span class="line">#-&gt; [5, 3, 1]</span><br><span class="line"></span><br><span class="line"># 在一个循环中翻转并迭代输出</span><br><span class="line">for element in reversed([1,3,5]):</span><br><span class="line">    print(element)</span><br><span class="line"></span><br><span class="line">#1-&gt; 5</span><br><span class="line">#2-&gt; 3</span><br><span class="line">#3-&gt; 1</span><br><span class="line"></span><br><span class="line"># 一行代码翻转字符串</span><br><span class="line">&quot;Test Python&quot;[::-1]</span><br><span class="line"># 输出 “nohtyP tseT”</span><br><span class="line"></span><br><span class="line"># 使用切片翻转列表</span><br><span class="line">[1, 3, 5][::-1]</span><br><span class="line">#输出 [5,3,1]</span><br></pre></td></tr></table></figure>
+
+<h3 id="一次初始化多个变量"><a href="#一次初始化多个变量" class="headerlink" title="一次初始化多个变量"></a>一次初始化多个变量</h3><p>可以直接赋值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a,b,c,d=1,2,3,4</span><br></pre></td></tr></table></figure>
+<p>可以利用列表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List = [1,2,3]</span><br><span class="line">x,y,z=List</span><br><span class="line">print(x, y, z)</span><br><span class="line">#-&gt; 1 2 3</span><br></pre></td></tr></table></figure>
+
+<h3 id="打印模块路径"><a href="#打印模块路径" class="headerlink" title="打印模块路径"></a>打印模块路径</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import socket</span><br><span class="line">print(socket)</span><br><span class="line">#&lt;module &#x27;socket&#x27; from &#x27;/usr/lib/python2.7/socket.py&#x27;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="字典推导"><a href="#字典推导" class="headerlink" title="字典推导"></a>字典推导</h3><p>python不光有列表推导式 字典/集合也有</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#列表</span><br><span class="line">l=[[0 for i in range(4)] for i in range(4)]#生成二维列表</span><br><span class="line">print(l)</span><br><span class="line">#  [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]</span><br><span class="line">#字典</span><br><span class="line">testDict = &#123;i: i * i for i in range(10)&#125;</span><br><span class="line">testSet = &#123;i * 2 for i in range(10)&#125;</span><br><span class="line"></span><br><span class="line">print(testSet)</span><br><span class="line">print(testDict)</span><br><span class="line"></span><br><span class="line">#set([0, 2, 4, 6, 8, 10, 12, 14, 16, 18])</span><br><span class="line">#&#123;0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="拼接字符串"><a href="#拼接字符串" class="headerlink" title="拼接字符串"></a>拼接字符串</h3><p>python中字符串可以相加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=&quot;i &quot;</span><br><span class="line">b=&quot;love &quot;</span><br><span class="line">c=&quot;you&quot;</span><br><span class="line">print(a+b+c)</span><br></pre></td></tr></table></figure>
+<p>拼接列表中的所有元素为一个字符串</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">l=[&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]</span><br><span class="line">print(&#x27;&#x27;join(l))</span><br><span class="line">#以join左边的字符做分割</span><br></pre></td></tr></table></figure>
+
+<h3 id="循环枚举索引"><a href="#循环枚举索引" class="headerlink" title="循环枚举索引"></a>循环枚举索引</h3><p>方便找到下标和对应元素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list = [10, 20, 30]</span><br><span class="line">for i, value in enumerate(list):</span><br><span class="line">    print(i, &#x27;: &#x27;, value)</span><br><span class="line"></span><br><span class="line">#1-&gt; 0 : 10</span><br><span class="line">#2-&gt; 1 : 20</span><br><span class="line">#3-&gt; 2 : 30</span><br></pre></td></tr></table></figure>
+
+<h3 id="返回多个值"><a href="#返回多个值" class="headerlink" title="返回多个值"></a>返回多个值</h3><p>并没有太多编程语言支持这个特性，然而 Python 中的方法确实（可以）返回多个值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def a():</span><br><span class="line">    return 1,2,3,4,5</span><br></pre></td></tr></table></figure>
+
+<h3 id="开启文件分享-这条还不是很理解-没具体用过"><a href="#开启文件分享-这条还不是很理解-没具体用过" class="headerlink" title="开启文件分享(这条还不是很理解 没具体用过)"></a>开启文件分享(这条还不是很理解 没具体用过)</h3><p>Python 允许运行一个 HTTP 服务器来从根路径共享文件，下面是开启服务器的命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m http.server</span><br></pre></td></tr></table></figure>
+<p>上面的命令会在默认端口也就是 8000 开启一个服务器，你可以将一个自定义的端口号以最后一个参数的方式传递到上面的命令中。</p>
+<h3 id="调试脚本"><a href="#调试脚本" class="headerlink" title="调试脚本"></a>调试脚本</h3><p>可以在 <pdb> 模块的帮助下在 Python 脚本中设置断点，例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import pdb</span><br><span class="line">pdb.set_trace()</span><br></pre></td></tr></table></figure>
+
+<h3 id="直接迭代序列元素"><a href="#直接迭代序列元素" class="headerlink" title="直接迭代序列元素"></a>直接迭代序列元素</h3><p>对序列（str、list、tuple等），直接迭代序列元素，比迭代元素的索引速度要更快。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; l=[0,1,2,3,4,5]</span><br><span class="line">&gt;&gt;&gt; for i in l:</span><br><span class="line">	print(i)</span><br><span class="line">#快</span><br><span class="line">&gt;&gt;&gt; for i in range(len(l)):</span><br><span class="line">	print(l[i])</span><br><span class="line">#慢</span><br></pre></td></tr></table></figure>
+
+<h3 id="巧用else语句（重要）"><a href="#巧用else语句（重要）" class="headerlink" title="巧用else语句（重要）"></a>巧用else语句（重要）</h3><p>python的else 子句不仅能在 if 语句中使用，还能在 for、while 和 try 等语句中使用，这个语言特性不是什么秘密，但却没有得到重视。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"># for</span><br><span class="line">l=[1,2,3,4,5]</span><br><span class="line">for i in l:</span><br><span class="line">    if i==&#x27;6&#x27;:</span><br><span class="line">        print(666)</span><br><span class="line">        break</span><br><span class="line">else:</span><br><span class="line">    print(999)</span><br><span class="line"></span><br><span class="line"># 如果不这么实现，只能设置一个变量来记录：</span><br><span class="line">l=[1,2,3,4,5]</span><br><span class="line">a = 1</span><br><span class="line">for i in l:</span><br><span class="line">    if i==&#x27;6&#x27;:</span><br><span class="line">        print(666)</span><br><span class="line">        a = 0</span><br><span class="line">        break</span><br><span class="line">if a:</span><br><span class="line">    print(999)</span><br><span class="line"></span><br><span class="line"># while和for类似</span><br><span class="line">try:</span><br><span class="line">    a()</span><br><span class="line">except OSError:</span><br><span class="line">    #语句1</span><br><span class="line">else:</span><br><span class="line">    #语句2</span><br><span class="line"></span><br><span class="line"># for: 仅当 for 循环运行完毕时（即 for 循环没有被 break 语句中止）才运行 else 块。</span><br><span class="line"># while: 仅当 while 循环因为条件为假值而退出时（即 while 循环没有被break 语句中止）才运行 else 块。</span><br><span class="line"># try:仅当 try 块中没有异常抛出时才运行 else 块。</span><br><span class="line"># 如果异常或者 return、break 或 continue 语句导致控制权跳到了复合语句的主块之外，那么else 子句也会被跳过。</span><br><span class="line"># 按正常的理解应该是“要么运行这个循环，要么做那件事”。可是，在循环中，else 的语义恰好相反：“运行这个循环，然后做那件事。”</span><br></pre></td></tr></table></figure>
+
+<h3 id="except的用法和作用"><a href="#except的用法和作用" class="headerlink" title="except的用法和作用"></a>except的用法和作用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">try/except: 捕捉由PYTHON自身或写程序过程中引发的异常并恢复</span><br><span class="line">except: 捕捉所有其他异常</span><br><span class="line">except name: 只捕捉特定的异常</span><br><span class="line">except name, value: 捕捉异常及格外的数据(实例)</span><br><span class="line">except (name1,name2) 捕捉列出来的异常</span><br><span class="line">except (name1,name2),value: 捕捉任何列出的异常，并取得额外数据</span><br><span class="line">else: 如果没有引发异常就运行</span><br><span class="line">finally: 总是会运行此处代码</span><br></pre></td></tr></table></figure>
+
+<h3 id="python自省"><a href="#python自省" class="headerlink" title="python自省"></a>python自省</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这个也是python彪悍的特性.自省就是面向对象的语言所写的程序在运行时,</span><br><span class="line">所能知道对象的类型.简单一句就是运行时能够获得对象的类型.</span><br><span class="line">比如type(),dir(),getattr(),hasattr(),isinstance().</span><br></pre></td></tr></table></figure>
+
+<h3 id="python容器"><a href="#python容器" class="headerlink" title="python容器"></a>python容器</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">列表：元素可变（任何数据类型），有序（可索引），append/insert/pop；</span><br><span class="line">元组：元素不可变，但元素中的可变元素是可变的；有序（可索引）；而且元组可以被散列，例如作为字典的键。</span><br><span class="line">集合：无序（不可被索引）、互异</span><br><span class="line">字典：无序，键值对（key：value），key唯一不可重复</span><br></pre></td></tr></table></figure>
+
+<h3 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h3><p>map()函数接收两个参数，一个是函数，一个是Iterable，map将传入的函数依次作用到序列的每个元素，并把结果作为新的Iterator返回。（重点理解）<br>比如有一个函数f(x)=x2，要把这个函数作用在一个list [1, 2, 3, 4, 5, 6, 7, 8, 9]上，就可以用map()实现如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def f(x):</span><br><span class="line">    return x * x</span><br><span class="line"></span><br><span class="line">r = map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])</span><br><span class="line">list(r)</span><br><span class="line">[1, 4, 9, 16, 25, 36, 49, 64, 81]</span><br></pre></td></tr></table></figure>
+<p>map()作为高阶函数，事实上它把运算规则抽象了，因此，我们不但可以计算简单的f(x)=x2，还可以计算任意复杂的函数，比如，把这个list所有数字转为字符串：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list(map(str, [1, 2, 3, 4, 5, 6, 7, 8, 9]))</span><br><span class="line">[&#x27;1&#x27;, &#x27;2&#x27;, &#x27;3&#x27;, &#x27;4&#x27;, &#x27;5&#x27;, &#x27;6&#x27;, &#x27;7&#x27;, &#x27;8&#x27;, &#x27;9&#x27;]</span><br></pre></td></tr></table></figure>
+
+<h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h3><p>reduce把一个函数作用在一个序列[x1, x2, x3, …]上，这个函数必须接收两个参数，reduce把结果继续和序列的下一个元素做累积计算</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from functools import reduce</span><br><span class="line">def fn(x,y):</span><br><span class="line">    return x * 10 +y</span><br><span class="line"></span><br><span class="line">reduce(fn,[1,3,5,7,9])</span><br><span class="line">13579</span><br></pre></td></tr></table></figure>
+<p>结合一下，我们可以自己写出int（）函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from functools import reduce</span><br><span class="line">a=&#123;&#x27;0&#x27;: 0, &#x27;1&#x27;: 1, &#x27;2&#x27;: 2, &#x27;3&#x27;: 3, &#x27;4&#x27;: 4, &#x27;5&#x27;: 5, &#x27;6&#x27;: 6, &#x27;7&#x27;: 7, &#x27;8&#x27;: 8, &#x27;9&#x27;: 9&#125;</span><br><span class="line"></span><br><span class="line">def charnum(s):</span><br><span class="line">    return a[s]</span><br><span class="line"></span><br><span class="line">def strint(s):</span><br><span class="line">    return reduce(lambda x, y: x * 10 + y, map(charnum, s))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="split"><a href="#split" class="headerlink" title="split"></a>split</h3><p>Python split() 通过指定分隔符对字符串进行切片，如果参数 num 有指定值，则仅分隔 num 个子字符串。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str.split(str=&quot;&quot;, num=string.count(str))</span><br><span class="line">str.split(&quot;&quot;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p>Python内建的filter()函数用于过滤序列。</p>
+<p>和map()类似，filter()也接收一个函数和一个序列。和map()不同的是，filter()把传入的函数依次作用于每个元素，然后根据返回值是True还是False决定保留还是丢弃该元素</p>
+<p>简单例子，删掉偶数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def is_odd(n):</span><br><span class="line">    return n % 2 == 1</span><br><span class="line"></span><br><span class="line">list(filter(is_odd, [1, 2, 4, 5, 6, 9, 10, 15]))</span><br><span class="line"># 结果: [1, 5, 9, 15]</span><br></pre></td></tr></table></figure>
+<p>利用filter()不断产生筛选后的新的序列<br>Iterator是惰性计算的序列，所以我们可以用Python表示“全体自然数”，“全体素数”这样的序列，而代码非常简洁。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#先构造一个从3开始的奇数序列：</span><br><span class="line">def _odd_iter():</span><br><span class="line">    n = 1</span><br><span class="line">    while True:</span><br><span class="line">        n = n + 2</span><br><span class="line">        yield n</span><br><span class="line">#这是一个生成器，并且是一个无限序列。</span><br><span class="line"></span><br><span class="line">#筛选函数</span><br><span class="line">def _not_divisible(n):</span><br><span class="line">    return lambda x: x % n &gt; 0</span><br><span class="line">#生成器</span><br><span class="line">def primes():</span><br><span class="line">    yield 2</span><br><span class="line">    it = _odd_iter() # 初始序列</span><br><span class="line">    while True:</span><br><span class="line">        n = next(it) # 返回序列的第一个数</span><br><span class="line">        yield n</span><br><span class="line">        it = filter(_not_divisible(n), it) # 构造新序列</span><br></pre></td></tr></table></figure>
+
+<h3 id="sorted"><a href="#sorted" class="headerlink" title="sorted"></a>sorted</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sorted([36, 5, -12, 9, -21])</span><br><span class="line">#[-21, -12, 5, 9, 36]</span><br><span class="line">#可以接收一个key函数来实现自定义的排序，例如按绝对值大小排序：</span><br><span class="line">sorted([36, 5, -12, 9, -21], key=abs)</span><br><span class="line">#[5, 9, -12, -21, 36]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>再看一个字符串排序的例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">orted([&#x27;bob&#x27;, &#x27;about&#x27;, &#x27;Zoo&#x27;, &#x27;Credit&#x27;])</span><br><span class="line"># [&#x27;Credit&#x27;, &#x27;Zoo&#x27;, &#x27;about&#x27;, &#x27;bob&#x27;]</span><br></pre></td></tr></table></figure>
+<p>默认情况下，对字符串排序，是按照ASCII的大小比较的，由于’Z’ &lt; ‘a’，结果，大写字母Z会排在小写字母a的前面。</p>
+<p>现在，我们提出排序应该忽略大小写，按照字母序排序。要实现这个算法，不必对现有代码大加改动，只要我们能用一个key函数把字符串映射为忽略大小写排序即可。忽略大小写来比较两个字符串，实际上就是先把字符串都变成大写（或者都变成小写），再比较。</p>
+<p>这样，我们给sorted传入key函数，即可实现忽略大小写的排序：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sorted([&#x27;bob&#x27;, &#x27;about&#x27;, &#x27;Zoo&#x27;, &#x27;Credit&#x27;], key=str.lower)</span><br><span class="line">#[&#x27;about&#x27;, &#x27;bob&#x27;, &#x27;Credit&#x27;, &#x27;Zoo&#x27;</span><br></pre></td></tr></table></figure>
+<p>要进行反向排序，不必改动key函数，可以传入第三个参数reverse=True：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sorted([&#x27;bob&#x27;, &#x27;about&#x27;, &#x27;Zoo&#x27;, &#x27;Credit&#x27;], key=str.lower, reverse=True)</span><br><span class="line">[&#x27;Zoo&#x27;, &#x27;Credit&#x27;, &#x27;bob&#x27;, &#x27;about&#x27;</span><br></pre></td></tr></table></figure>
+<p>从上述例子可以看出，高阶函数的抽象能力是非常强大的，而且，核心代码可以保持得非常简洁。</p>
+<p>sorted()也是一个高阶函数。用sorted()排序的关键在于实现一个映射函数。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://img-blog.csdnimg.cn/45fab0bf94d24c89baae32b47ec22f8a.png',
+  alipayImage: 'https://img-blog.csdnimg.cn/857f2fcb134d46a18ab90f8abd742b4e.png'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>Bai Xiong</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2020/08/28/Python-imp/" target="_blank" title="高阶使用 Python">http://example.com/2020/08/28/Python-imp/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Function/" rel="tag">Function</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/28/Python-basic/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          基础操作 Python
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/28/Python-pands/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数据处理 python pandas</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9C%B0%E4%BA%A4%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">原地交换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E7%8A%B6%E6%AF%94%E8%BE%83%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-number">2.</span> <span class="nav-text">链状比较操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E5%85%83%E6%93%8D%E4%BD%9C%E7%AC%A6%E8%BF%9B%E8%A1%8C%E6%9D%A1%E4%BB%B6%E8%B5%8B%E5%80%BC"><span class="nav-number">3.</span> <span class="nav-text">三元操作符进行条件赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">4.</span> <span class="nav-text">多行字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#in%E5%88%A4%E6%96%AD"><span class="nav-number">5.</span> <span class="nav-text">in判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E7%A7%8D%E7%BF%BB%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%88%97%E8%A1%A8%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">四种翻转字符串&#x2F;列表的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E6%AC%A1%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A4%9A%E4%B8%AA%E5%8F%98%E9%87%8F"><span class="nav-number">7.</span> <span class="nav-text">一次初始化多个变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%8D%B0%E6%A8%A1%E5%9D%97%E8%B7%AF%E5%BE%84"><span class="nav-number">8.</span> <span class="nav-text">打印模块路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E5%85%B8%E6%8E%A8%E5%AF%BC"><span class="nav-number">9.</span> <span class="nav-text">字典推导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">10.</span> <span class="nav-text">拼接字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E6%9E%9A%E4%B8%BE%E7%B4%A2%E5%BC%95"><span class="nav-number">11.</span> <span class="nav-text">循环枚举索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%A4%9A%E4%B8%AA%E5%80%BC"><span class="nav-number">12.</span> <span class="nav-text">返回多个值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E6%96%87%E4%BB%B6%E5%88%86%E4%BA%AB-%E8%BF%99%E6%9D%A1%E8%BF%98%E4%B8%8D%E6%98%AF%E5%BE%88%E7%90%86%E8%A7%A3-%E6%B2%A1%E5%85%B7%E4%BD%93%E7%94%A8%E8%BF%87"><span class="nav-number">13.</span> <span class="nav-text">开启文件分享(这条还不是很理解 没具体用过)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E8%84%9A%E6%9C%AC"><span class="nav-number">14.</span> <span class="nav-text">调试脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E8%BF%AD%E4%BB%A3%E5%BA%8F%E5%88%97%E5%85%83%E7%B4%A0"><span class="nav-number">15.</span> <span class="nav-text">直接迭代序列元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A7%E7%94%A8else%E8%AF%AD%E5%8F%A5%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">16.</span> <span class="nav-text">巧用else语句（重要）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#except%E7%9A%84%E7%94%A8%E6%B3%95%E5%92%8C%E4%BD%9C%E7%94%A8"><span class="nav-number">17.</span> <span class="nav-text">except的用法和作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python%E8%87%AA%E7%9C%81"><span class="nav-number">18.</span> <span class="nav-text">python自省</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python%E5%AE%B9%E5%99%A8"><span class="nav-number">19.</span> <span class="nav-text">python容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-number">20.</span> <span class="nav-text">map()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reduce"><span class="nav-number">21.</span> <span class="nav-text">reduce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#split"><span class="nav-number">22.</span> <span class="nav-text">split</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter"><span class="nav-number">23.</span> <span class="nav-text">filter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sorted"><span class="nav-number">24.</span> <span class="nav-text">sorted</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2023 HELLO WORLD All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/collection" class="mobile-nav-link">Collection</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HELLO WORLD
+          </div>
+          <div class="panel-body">
+            Copyright © 2023 Bai Xiong All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

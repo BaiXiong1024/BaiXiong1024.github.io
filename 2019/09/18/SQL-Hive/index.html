@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>数据处理 hive sql | HELLO WORLD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="SQLHive" />
+  
+  
+  
+  
+  <meta name="description" content="Hive Sql Sample">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据处理 Hive Sql">
+<meta property="og:url" content="http://example.com/2019/09/18/SQL-Hive/index.html">
+<meta property="og:site_name" content="HELLO WORLD">
+<meta property="og:description" content="Hive Sql Sample">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-09-18T07:09:12.000Z">
+<meta property="article:modified_time" content="2022-09-30T07:39:58.704Z">
+<meta property="article:author" content="Bai Xiong">
+<meta property="article:tag" content="SQL">
+<meta property="article:tag" content="Hive">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/collection">collection</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-SQL-Hive" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      数据处理 Hive Sql
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/09/18/SQL-Hive/" class="article-date">
+	  <time datetime="2019-09-18T07:09:12.000Z" itemprop="datePublished">2019-09-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Code/">Code</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Hive Sql Sample</p>
+<span id="more"></span>
+
+<h4 id="建表语句样例"><a href="#建表语句样例" class="headerlink" title="建表语句样例"></a>建表语句样例</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> dev.trans_temp;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> dev.trans_temp(</span><br><span class="line">    account_id <span class="type">bigint</span>,</span><br><span class="line">    trans_id <span class="type">int</span>,</span><br><span class="line">    product_id string,</span><br><span class="line">    sales <span class="type">float</span></span><br><span class="line">);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> dev.trans_temp</span><br></pre></td></tr></table></figure>
+
+<h4 id="时间格式化"><a href="#时间格式化" class="headerlink" title="时间格式化"></a>时间格式化</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">year</span>(place_time) <span class="keyword">as</span> order_year</span><br><span class="line"><span class="keyword">month</span>(place_time) <span class="keyword">as</span> order_month</span><br></pre></td></tr></table></figure>
+
+<h4 id="计算两时间之间的时间差"><a href="#计算两时间之间的时间差" class="headerlink" title="计算两时间之间的时间差"></a>计算两时间之间的时间差</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datediff(<span class="built_in">current_date</span>,last_purchase_date)</span><br></pre></td></tr></table></figure>
+
+<h4 id="求recency"><a href="#求recency" class="headerlink" title="求recency"></a>求recency</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datediff(<span class="built_in">current_date</span>,<span class="built_in">max</span>(to_date(place_time))) <span class="keyword">as</span> recency</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="时间筛选"><a href="#时间筛选" class="headerlink" title="时间筛选"></a>时间筛选</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 最近5天</span></span><br><span class="line"><span class="keyword">where</span> to_date(sap_time) <span class="keyword">between</span> date_sub(<span class="built_in">current_date</span>,<span class="number">5</span>) <span class="keyword">and</span> date_sub(<span class="built_in">current_date</span>,<span class="number">1</span>)</span><br><span class="line"><span class="comment">-- 最近30天</span></span><br><span class="line"><span class="keyword">where</span> to_date(dt) <span class="operator">&gt;=</span> date_sub(<span class="built_in">current_date</span>,<span class="number">30</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="判断某订单是否在大促期间购买"><a href="#判断某订单是否在大促期间购买" class="headerlink" title="判断某订单是否在大促期间购买"></a>判断某订单是否在大促期间购买</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 即订单发生时间在大促开始之后 大促结束之前</span></span><br><span class="line"><span class="keyword">case</span> <span class="keyword">when</span> ((unix_timestamp(place_time)<span class="operator">-</span>unix_timestamp(promotion_start_time))<span class="operator">/</span><span class="number">3600</span>) <span class="operator">&lt;=</span> promotion_hours </span><br><span class="line"><span class="keyword">and</span> ((unix_timestamp(place_time)<span class="operator">-</span>unix_timestamp(promotion_start_time))<span class="operator">/</span><span class="number">3600</span>) <span class="operator">&gt;=</span><span class="number">0</span> <span class="keyword">then</span> <span class="string">&#x27;大促时购买&#x27;</span> <span class="keyword">else</span> <span class="keyword">null</span> <span class="keyword">end</span> <span class="keyword">as</span> promotion_behavior</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">,<span class="keyword">case</span> <span class="keyword">when</span> array_contains(collect_set(promotion_behavior) <span class="keyword">over</span> (<span class="keyword">partition</span> <span class="keyword">by</span> sales_member_id,sales_order_number),<span class="string">&#x27;大促时购买&#x27;</span>) <span class="keyword">then</span> <span class="string">&#x27;private&#x27;</span> <span class="keyword">else</span> <span class="string">&#x27;normal&#x27;</span> <span class="keyword">end</span> <span class="keyword">as</span> promotion_behavior</span><br><span class="line"></span><br><span class="line">,<span class="keyword">case</span> <span class="keyword">when</span> array_contains(collect_set(promotion_behavior),<span class="string">&#x27;private&#x27;</span>) <span class="keyword">and</span> <span class="operator">!</span>array_contains(collect_set(promotion_behavior),<span class="string">&#x27;normal&#x27;</span>) <span class="keyword">then</span> <span class="string">&#x27;只在大促购买&#x27;</span></span><br><span class="line">        <span class="keyword">when</span> array_contains(collect_set(promotion_behavior),<span class="string">&#x27;normal&#x27;</span>) <span class="keyword">and</span> <span class="operator">!</span>array_contains(collect_set(promotion_behavior),<span class="string">&#x27;private&#x27;</span>) <span class="keyword">then</span> <span class="string">&#x27;只在非大促购买&#x27;</span> <span class="keyword">else</span> <span class="string">&#x27;大促及非大促都购买&#x27;</span> <span class="keyword">end</span> <span class="keyword">as</span> private_sale_sensitivity</span><br></pre></td></tr></table></figure>
+
+<h4 id="节日"><a href="#节日" class="headerlink" title="节日"></a>节日</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">where</span> to_date(place_time) <span class="keyword">between</span> date_sub(concat(<span class="keyword">year</span>(<span class="built_in">current_date</span>),<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;01-01&#x27;</span>),<span class="number">7</span>) <span class="keyword">and</span> date_add(concat(<span class="keyword">year</span>(<span class="built_in">current_date</span>),<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;01-01&#x27;</span>),<span class="number">7</span>)<span class="comment">--New Year</span></span><br><span class="line">                <span class="keyword">or</span> to_date(place_time) <span class="keyword">between</span> date_sub(concat(<span class="keyword">year</span>(<span class="built_in">current_date</span>),<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;02-14&#x27;</span>),<span class="number">7</span>) <span class="keyword">and</span> date_add(concat(<span class="keyword">year</span>(<span class="built_in">current_date</span>),<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;02-14&#x27;</span>),<span class="number">7</span>)<span class="comment">--Valentine</span></span><br><span class="line">                <span class="keyword">or</span> to_date(place_time)  <span class="keyword">between</span> date_sub(concat(<span class="keyword">year</span>(<span class="built_in">current_date</span>),<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;&#123;Qixi&#125;&#x27;</span>),<span class="number">7</span>) <span class="keyword">and</span> date_add(concat(<span class="keyword">year</span>(<span class="built_in">current_date</span>),<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;&#123;Qixi&#125;&#x27;</span>),<span class="number">7</span>)<span class="comment">--Qixi</span></span><br><span class="line">                <span class="keyword">or</span> to_date(place_time) <span class="keyword">between</span> date_sub(concat(<span class="keyword">year</span>(<span class="built_in">current_date</span>)<span class="number">-1</span>,<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;12-25&#x27;</span>),<span class="number">7</span>) <span class="keyword">and</span> date_add(concat(<span class="keyword">year</span>(<span class="built_in">current_date</span>)<span class="number">-1</span>,<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;12-25&#x27;</span>),<span class="number">7</span>)<span class="comment">--Christmas</span></span><br></pre></td></tr></table></figure>
+<h4 id="case-when-判断时间"><a href="#case-when-判断时间" class="headerlink" title="case when 判断时间"></a>case when 判断时间</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="keyword">hour</span>(sap_time) <span class="keyword">when</span> <span class="number">0</span> <span class="keyword">then</span> <span class="string">&#x27;[0-1)&#x27;</span> <span class="keyword">when</span> <span class="number">1</span> <span class="keyword">then</span> <span class="string">&#x27;[1-2)&#x27;</span> <span class="keyword">when</span> <span class="number">2</span> <span class="keyword">then</span> <span class="string">&#x27;[2-3)&#x27;</span> <span class="keyword">when</span> <span class="number">3</span> <span class="keyword">then</span> <span class="string">&#x27;[3-4)&#x27;</span> <span class="keyword">when</span> <span class="number">4</span> <span class="keyword">then</span> <span class="string">&#x27;[4-5)&#x27;</span></span><br><span class="line">            <span class="keyword">when</span> <span class="number">5</span> <span class="keyword">then</span> <span class="string">&#x27;[5-6)&#x27;</span> <span class="keyword">when</span> <span class="number">6</span> <span class="keyword">then</span> <span class="string">&#x27;[6-7)&#x27;</span> <span class="keyword">when</span> <span class="number">7</span> <span class="keyword">then</span> <span class="string">&#x27;[7-8)&#x27;</span> <span class="keyword">when</span> <span class="number">8</span> <span class="keyword">then</span> <span class="string">&#x27;[8-9)&#x27;</span> <span class="keyword">when</span> <span class="number">9</span> <span class="keyword">then</span> <span class="string">&#x27;[9-10)&#x27;</span></span><br><span class="line">            <span class="keyword">when</span> <span class="number">10</span> <span class="keyword">then</span> <span class="string">&#x27;[10-11)&#x27;</span> <span class="keyword">when</span> <span class="number">11</span> <span class="keyword">then</span> <span class="string">&#x27;[11-12)&#x27;</span> <span class="keyword">when</span> <span class="number">12</span> <span class="keyword">then</span> <span class="string">&#x27;[12-13)&#x27;</span> <span class="keyword">when</span> <span class="number">13</span> <span class="keyword">then</span> <span class="string">&#x27;[13-14)&#x27;</span> <span class="keyword">when</span> <span class="number">14</span> <span class="keyword">then</span> <span class="string">&#x27;[14-15)&#x27;</span></span><br><span class="line">            <span class="keyword">when</span> <span class="number">15</span> <span class="keyword">then</span> <span class="string">&#x27;[15-16)&#x27;</span> <span class="keyword">when</span> <span class="number">16</span> <span class="keyword">then</span> <span class="string">&#x27;[16-17)&#x27;</span> <span class="keyword">when</span> <span class="number">17</span> <span class="keyword">then</span> <span class="string">&#x27;[17-18)&#x27;</span> <span class="keyword">when</span> <span class="number">18</span> <span class="keyword">then</span> <span class="string">&#x27;[18-19)&#x27;</span> <span class="keyword">when</span> <span class="number">19</span> <span class="keyword">then</span> <span class="string">&#x27;[19-20)&#x27;</span></span><br><span class="line">            <span class="keyword">when</span> <span class="number">20</span> <span class="keyword">then</span> <span class="string">&#x27;[20-21)&#x27;</span> <span class="keyword">when</span> <span class="number">21</span> <span class="keyword">then</span> <span class="string">&#x27;[21-22)&#x27;</span> <span class="keyword">when</span> <span class="number">22</span> <span class="keyword">then</span> <span class="string">&#x27;[22-23)&#x27;</span> <span class="keyword">when</span> <span class="number">23</span> <span class="keyword">then</span> <span class="string">&#x27;[23-0)&#x27;</span> <span class="keyword">end</span> <span class="keyword">as</span> hour_name</span><br></pre></td></tr></table></figure>
+
+<h4 id="hive-判断星期几"><a href="#hive-判断星期几" class="headerlink" title="hive 判断星期几"></a>hive 判断星期几</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="keyword">when</span> pmod(datediff(place_time, <span class="string">&#x27;1920-01-01&#x27;</span>) <span class="operator">-</span> <span class="number">3</span>, <span class="number">7</span>) <span class="operator">=</span> <span class="number">1</span> <span class="keyword">then</span> <span class="string">&#x27;Monday&#x27;</span></span><br><span class="line">                    <span class="keyword">when</span> pmod(datediff(place_time, <span class="string">&#x27;1920-01-01&#x27;</span>) <span class="operator">-</span> <span class="number">3</span>, <span class="number">7</span>) <span class="operator">=</span> <span class="number">2</span> <span class="keyword">then</span> <span class="string">&#x27;Tuesday&#x27;</span></span><br><span class="line">                    <span class="keyword">when</span> pmod(datediff(place_time, <span class="string">&#x27;1920-01-01&#x27;</span>) <span class="operator">-</span> <span class="number">3</span>, <span class="number">7</span>) <span class="operator">=</span> <span class="number">3</span> <span class="keyword">then</span> <span class="string">&#x27;Wednesday&#x27;</span></span><br><span class="line">                    <span class="keyword">when</span> pmod(datediff(place_time, <span class="string">&#x27;1920-01-01&#x27;</span>) <span class="operator">-</span> <span class="number">3</span>, <span class="number">7</span>) <span class="operator">=</span> <span class="number">4</span> <span class="keyword">then</span> <span class="string">&#x27;Thursday&#x27;</span></span><br><span class="line">                    <span class="keyword">when</span> pmod(datediff(place_time, <span class="string">&#x27;1920-01-01&#x27;</span>) <span class="operator">-</span> <span class="number">3</span>, <span class="number">7</span>) <span class="operator">=</span> <span class="number">5</span> <span class="keyword">then</span> <span class="string">&#x27;Friday&#x27;</span></span><br><span class="line">                    <span class="keyword">when</span> pmod(datediff(place_time, <span class="string">&#x27;1920-01-01&#x27;</span>) <span class="operator">-</span> <span class="number">3</span>, <span class="number">7</span>) <span class="operator">=</span> <span class="number">6</span> <span class="keyword">then</span> <span class="string">&#x27;Saturday&#x27;</span></span><br><span class="line">                    <span class="keyword">else</span> <span class="string">&#x27;Sunday&#x27;</span> <span class="keyword">end</span> <span class="keyword">as</span> wd_name</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">,<span class="built_in">row_number</span>() <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> account_id <span class="keyword">order</span> <span class="keyword">by</span> sap_time <span class="keyword">desc</span>) <span class="keyword">as</span> rn</span><br><span class="line">,<span class="built_in">row_number</span>() <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> account_id <span class="keyword">order</span> <span class="keyword">by</span> sales <span class="keyword">desc</span>) <span class="keyword">as</span> rn</span><br><span class="line">,<span class="keyword">case</span> <span class="keyword">when</span> casales<span class="operator">=</span><span class="built_in">max</span>(casales) <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> sales_member_id) <span class="keyword">then</span> category <span class="keyword">else</span> <span class="keyword">null</span> <span class="keyword">end</span> preferred_category <span class="comment">--偏好</span></span><br><span class="line">,sort_array(<span class="keyword">array</span>(seasonal_share,festival_share,promotion_share,gifting_share,exclusive_share)) <span class="keyword">as</span> sort_arr</span><br></pre></td></tr></table></figure>
+
+<h4 id="返回第一个非空值"><a href="#返回第一个非空值" class="headerlink" title="返回第一个非空值"></a>返回第一个非空值</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">,<span class="built_in">COALESCE</span>(preferred_Subcategory,<span class="built_in">LAST_VALUE</span>(preferred_Subcategory,<span class="literal">true</span>) <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> sales_member_id <span class="keyword">order</span> <span class="keyword">by</span> preferred_subcategory <span class="keyword">desc</span> )) preferred_Subcategory</span><br></pre></td></tr></table></figure>
+
+<h4 id="数学运算"><a href="#数学运算" class="headerlink" title="数学运算"></a>数学运算</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sum()</span><br><span class="line">avg()</span><br><span class="line">std()</span><br><span class="line">max()</span><br><span class="line">min()</span><br></pre></td></tr></table></figure>
+
+<h4 id="分位数"><a href="#分位数" class="headerlink" title="分位数"></a>分位数</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">percentile_approx(price_sensitivity,<span class="number">0.3</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="百分比"><a href="#百分比" class="headerlink" title="百分比"></a>百分比</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> sku_cd,category,sap_price</span><br><span class="line">,<span class="keyword">case</span> <span class="keyword">when</span> rn<span class="operator">&gt;=</span><span class="number">0</span> <span class="keyword">and</span> rn<span class="operator">&lt;</span><span class="number">0.3</span> <span class="keyword">then</span> N<span class="string">&#x27;低价&#x27;</span></span><br><span class="line"><span class="keyword">when</span> rn<span class="operator">&gt;=</span><span class="number">0.3</span> <span class="keyword">and</span> rn<span class="operator">&lt;</span><span class="number">0.7</span> <span class="keyword">then</span> N<span class="string">&#x27;中价&#x27;</span></span><br><span class="line"><span class="keyword">when</span> rn<span class="operator">&gt;=</span><span class="number">0.7</span> <span class="keyword">and</span> rn<span class="operator">&lt;=</span><span class="number">1</span> <span class="keyword">then</span> N<span class="string">&#x27;高价&#x27;</span> <span class="keyword">else</span> <span class="keyword">null</span> <span class="keyword">end</span> <span class="keyword">as</span>  price_tier_type</span><br><span class="line"><span class="keyword">into</span> #sku_price_tier</span><br><span class="line"><span class="keyword">from</span>(</span><br><span class="line">    <span class="keyword">select</span> sku_cd,category,sap_price</span><br><span class="line">    ,round(<span class="built_in">PERCENT_RANK</span>() <span class="keyword">OVER</span>( <span class="keyword">partition</span> <span class="keyword">by</span> category <span class="keyword">ORDER</span> <span class="keyword">BY</span> sap_price), <span class="number">5</span>) <span class="keyword">as</span> rn</span><br><span class="line">    <span class="keyword">from</span> #sku_price</span><br><span class="line">    <span class="keyword">where</span> category <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span></span><br><span class="line">)t1</span><br></pre></td></tr></table></figure>
+
+<h4 id="取下一行"><a href="#取下一行" class="headerlink" title="取下一行"></a>取下一行</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">,<span class="built_in">lead</span>(channel,<span class="number">1</span>,<span class="keyword">null</span>) <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> account_id <span class="keyword">order</span> <span class="keyword">by</span> sap_time) <span class="keyword">as</span> next_channel</span><br></pre></td></tr></table></figure>
+
+<h4 id="取上一行"><a href="#取上一行" class="headerlink" title="取上一行"></a>取上一行</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">,<span class="built_in">lag</span>(channel,<span class="number">1</span>,<span class="keyword">null</span>) <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> account_id <span class="keyword">order</span> <span class="keyword">by</span> sap_time) <span class="keyword">as</span> next_channel</span><br></pre></td></tr></table></figure>
+
+<h4 id="like"><a href="#like" class="headerlink" title="like"></a>like</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="keyword">when</span> XX <span class="keyword">like</span> <span class="string">&#x27;%礼盒%&#x27;</span> <span class="keyword">then</span> <span class="number">1</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span> <span class="keyword">as</span> if_gift</span><br></pre></td></tr></table></figure>
+
+<h4 id="转数字类型-文本格式化"><a href="#转数字类型-文本格式化" class="headerlink" title="转数字类型+ 文本格式化"></a>转数字类型+ 文本格式化</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cast</span>(regexp_replace(member_card,<span class="string">&#x27;JD&#x27;</span>,<span class="string">&#x27;&#x27;</span>) <span class="keyword">as</span> <span class="type">bigint</span>) <span class="keyword">as</span> member_card</span><br></pre></td></tr></table></figure>
+
+<h4 id="hive-首字母大写"><a href="#hive-首字母大写" class="headerlink" title="hive 首字母大写"></a>hive 首字母大写</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">,<span class="keyword">case</span> <span class="keyword">when</span> member_card_grade <span class="keyword">in</span> (<span class="string">&#x27;PINK&#x27;</span>,<span class="string">&#x27;WHITE&#x27;</span>,<span class="string">&#x27;BLACK&#x27;</span>,<span class="string">&#x27;GOLD&#x27;</span>) </span><br><span class="line"><span class="keyword">then</span> concat(substr(member_card_grade, <span class="number">1</span>, <span class="number">1</span>), <span class="built_in">lower</span>(substr(member_card_grade, <span class="number">2</span>)))</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">null</span> <span class="keyword">end</span> <span class="keyword">as</span> member_card_grade</span><br></pre></td></tr></table></figure>
+
+<h4 id="文本筛选-判断是数字并且不为空"><a href="#文本筛选-判断是数字并且不为空" class="headerlink" title="文本筛选 判断是数字并且不为空"></a>文本筛选 判断是数字并且不为空</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">where</span>  (user_id rlike <span class="string">&#x27;^\\d+$&#x27;</span> <span class="keyword">or</span> user_id <span class="keyword">is</span> <span class="keyword">null</span> <span class="keyword">or</span> user_id <span class="keyword">in</span> (<span class="string">&#x27;null&#x27;</span>,<span class="string">&#x27;NULL&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;&#x27;</span>))</span><br><span class="line"><span class="keyword">and</span>  (card_no rlike <span class="string">&#x27;^\\d+$&#x27;</span> <span class="keyword">or</span> card_no <span class="keyword">is</span> <span class="keyword">null</span> <span class="keyword">or</span> card_no <span class="keyword">in</span> (<span class="string">&#x27;null&#x27;</span>,<span class="string">&#x27;NULL&#x27;</span>,<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;&#x27;</span>)) </span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">,<span class="keyword">case</span> <span class="keyword">when</span> chcnt <span class="operator">=</span> <span class="number">1</span> <span class="keyword">then</span> concat(store,<span class="string">&#x27;新客&#x27;</span>) <span class="keyword">when</span> chcnt <span class="operator">&gt;</span> <span class="number">1</span> <span class="keyword">then</span> concat(store,<span class="string">&#x27;老客&#x27;</span>) <span class="keyword">else</span> concat(store,<span class="string">&#x27;未购买过&#x27;</span>) <span class="keyword">end</span> <span class="keyword">as</span> channel_status</span><br><span class="line"></span><br><span class="line">,CONCAT(t3.brand_name <span class="keyword">collate</span> Chinese_PRC_CS_AI_WS,<span class="string">&#x27;   &#x27;</span> <span class="keyword">collate</span> Chinese_PRC_CS_AI_WS</span><br><span class="line">        ,t1.item_product_id <span class="keyword">collate</span> Chinese_PRC_CS_AI_WS,<span class="string">&#x27;   &#x27;</span> <span class="keyword">collate</span> Chinese_PRC_CS_AI_WS</span><br><span class="line">        ,t3.product_name_cn <span class="keyword">collate</span> Chinese_PRC_CS_AI_WS) <span class="keyword">as</span> prod</span><br></pre></td></tr></table></figure>
+
+<h4 id="hive-行转列"><a href="#hive-行转列" class="headerlink" title="hive 行转列"></a>hive 行转列</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> sales_member_id </span><br><span class="line">   ,<span class="built_in">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> item_brand_name <span class="operator">=</span> <span class="string">&#x27;Lancome&#x27;</span> <span class="keyword">then</span> sales <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> lancome_sales</span><br><span class="line">   ,<span class="built_in">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> item_brand_name <span class="operator">=</span> <span class="string">&#x27;Lauder&#x27;</span> <span class="keyword">then</span> sales <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> lauder_sales</span><br><span class="line">   ,<span class="built_in">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> item_brand_name <span class="operator">=</span> <span class="string">&#x27;Guerlain&#x27;</span> <span class="keyword">then</span> sales <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> guerlain_sales</span><br><span class="line">   ,<span class="built_in">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> item_brand_name <span class="operator">=</span> <span class="string">&#x27;Skii&#x27;</span> <span class="keyword">then</span> sales <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> skll_sales</span><br><span class="line">   ,<span class="built_in">max</span>(<span class="keyword">case</span> <span class="keyword">when</span> item_brand_name <span class="operator">=</span> <span class="string">&#x27;Shiseido&#x27;</span> <span class="keyword">then</span> sales <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">end</span>) <span class="keyword">as</span> shiseido_sales</span><br><span class="line">   <span class="keyword">from</span> (</span><br><span class="line">       <span class="keyword">select</span> sales_member_id,item_brand_name</span><br><span class="line">             ,<span class="built_in">sum</span>(item_apportion_amount) <span class="keyword">as</span> sales</span><br><span class="line">       <span class="keyword">from</span> da_dev.tagging_system_sales_order_vb_temp</span><br><span class="line">       <span class="keyword">group</span> <span class="keyword">by</span> sales_member_id,item_brand_name </span><br><span class="line">   ) t1</span><br><span class="line">   <span class="keyword">group</span> <span class="keyword">by</span> sales_member_id</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="分组-列拼接"><a href="#分组-列拼接" class="headerlink" title="分组 列拼接"></a>分组 列拼接</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> sales_member_id,concat_ws(<span class="string">&#x27;,&#x27;</span>,collect_set(item_category)) <span class="keyword">as</span> dragon_registered_category</span><br><span class="line"><span class="keyword">from</span>(</span><br><span class="line">    <span class="keyword">select</span> sales_member_id,item_category</span><br><span class="line">    <span class="keyword">from</span> (</span><br><span class="line">        <span class="keyword">select</span> sales_member_id,sales_order_number,item_category</span><br><span class="line">        ,<span class="built_in">row_number</span>() <span class="keyword">over</span>(<span class="keyword">partition</span> <span class="keyword">by</span> sales_member_id,sales_order_number <span class="keyword">order</span> <span class="keyword">by</span> place_time) <span class="keyword">as</span> rn</span><br><span class="line">        <span class="keyword">from</span> DA.tagging_system_sales_order_basic_temp</span><br><span class="line">        <span class="keyword">where</span> store<span class="operator">=</span><span class="string">&#x27;丝芙兰官网&#x27;</span></span><br><span class="line">    ) t1  <span class="keyword">where</span> rn<span class="operator">=</span><span class="number">1</span> </span><br><span class="line">) tt1 <span class="keyword">group</span> <span class="keyword">by</span> sales_member_id</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h4><p>hive 不能用 update</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- insert overwrite (aaa, bbb, ccc, ddd)</span></span><br><span class="line"><span class="keyword">select</span> aaa, </span><br><span class="line"><span class="keyword">null</span> <span class="keyword">as</span> bbb, </span><br><span class="line"><span class="keyword">null</span> <span class="keyword">as</span> ccc, </span><br><span class="line"><span class="keyword">null</span> <span class="keyword">as</span> ddd</span><br><span class="line"><span class="keyword">from</span> <span class="keyword">Table</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="服务器-hive-sql-常用语句"><a href="#服务器-hive-sql-常用语句" class="headerlink" title="服务器 hive sql 常用语句"></a>服务器 hive sql 常用语句</h4><h5 id="开启服务器jupyter"><a href="#开启服务器jupyter" class="headerlink" title="开启服务器jupyter"></a>开启服务器jupyter</h5><p>nohup jupyter notebook –ip=xx.xx.xxx.xxx –port=8888 &amp;(现已开不用运行)</p>
+<h5 id="打开hive环境："><a href="#打开hive环境：" class="headerlink" title="打开hive环境："></a>打开hive环境：</h5><p>hive</p>
+<h5 id="数据库里有哪些Schema："><a href="#数据库里有哪些Schema：" class="headerlink" title="数据库里有哪些Schema："></a>数据库里有哪些Schema：</h5><p>show databases;</p>
+<h5 id="使用xxSchema："><a href="#使用xxSchema：" class="headerlink" title="使用xxSchema："></a>使用xxSchema：</h5><p>use u_analysis_app</p>
+<h5 id="显示这个Schema里有哪些表："><a href="#显示这个Schema里有哪些表：" class="headerlink" title="显示这个Schema里有哪些表："></a>显示这个Schema里有哪些表：</h5><p>show tables;</p>
+<h5 id="显示xx信息："><a href="#显示xx信息：" class="headerlink" title="显示xx信息："></a>显示xx信息：</h5><p>desc tagging_daily;</p>
+<h5 id="按符号拆分字符串"><a href="#按符号拆分字符串" class="headerlink" title="按符号拆分字符串"></a>按符号拆分字符串</h5><p>split_part(product_articleid,’&amp;’,1)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://img-blog.csdnimg.cn/45fab0bf94d24c89baae32b47ec22f8a.png',
+  alipayImage: 'https://img-blog.csdnimg.cn/857f2fcb134d46a18ab90f8abd742b4e.png'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>Bai Xiong</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/09/18/SQL-Hive/" target="_blank" title="数据处理 Hive Sql">http://example.com/2019/09/18/SQL-Hive/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/" rel="tag">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/18/SQL-MySql/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数据处理 MySql
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/18/SQL-PostgreSQL/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数据处理 PostgreSQL</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BB%BA%E8%A1%A8%E8%AF%AD%E5%8F%A5%E6%A0%B7%E4%BE%8B"><span class="nav-number">1.</span> <span class="nav-text">建表语句样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">时间格式化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E4%B8%A4%E6%97%B6%E9%97%B4%E4%B9%8B%E9%97%B4%E7%9A%84%E6%97%B6%E9%97%B4%E5%B7%AE"><span class="nav-number">3.</span> <span class="nav-text">计算两时间之间的时间差</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B1%82recency"><span class="nav-number">4.</span> <span class="nav-text">求recency</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E7%AD%9B%E9%80%89"><span class="nav-number">5.</span> <span class="nav-text">时间筛选</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E6%9F%90%E8%AE%A2%E5%8D%95%E6%98%AF%E5%90%A6%E5%9C%A8%E5%A4%A7%E4%BF%83%E6%9C%9F%E9%97%B4%E8%B4%AD%E4%B9%B0"><span class="nav-number">6.</span> <span class="nav-text">判断某订单是否在大促期间购买</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8A%82%E6%97%A5"><span class="nav-number">7.</span> <span class="nav-text">节日</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#case-when-%E5%88%A4%E6%96%AD%E6%97%B6%E9%97%B4"><span class="nav-number">8.</span> <span class="nav-text">case when 判断时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hive-%E5%88%A4%E6%96%AD%E6%98%9F%E6%9C%9F%E5%87%A0"><span class="nav-number">9.</span> <span class="nav-text">hive 判断星期几</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-number">10.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%9D%9E%E7%A9%BA%E5%80%BC"><span class="nav-number">11.</span> <span class="nav-text">返回第一个非空值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97"><span class="nav-number">12.</span> <span class="nav-text">数学运算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E4%BD%8D%E6%95%B0"><span class="nav-number">13.</span> <span class="nav-text">分位数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%99%BE%E5%88%86%E6%AF%94"><span class="nav-number">14.</span> <span class="nav-text">百分比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%96%E4%B8%8B%E4%B8%80%E8%A1%8C"><span class="nav-number">15.</span> <span class="nav-text">取下一行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%96%E4%B8%8A%E4%B8%80%E8%A1%8C"><span class="nav-number">16.</span> <span class="nav-text">取上一行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#like"><span class="nav-number">17.</span> <span class="nav-text">like</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AC%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B-%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-number">18.</span> <span class="nav-text">转数字类型+ 文本格式化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hive-%E9%A6%96%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%86%99"><span class="nav-number">19.</span> <span class="nav-text">hive 首字母大写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E7%AD%9B%E9%80%89-%E5%88%A4%E6%96%AD%E6%98%AF%E6%95%B0%E5%AD%97%E5%B9%B6%E4%B8%94%E4%B8%8D%E4%B8%BA%E7%A9%BA"><span class="nav-number">20.</span> <span class="nav-text">文本筛选 判断是数字并且不为空</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5"><span class="nav-number">21.</span> <span class="nav-text">字符串拼接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hive-%E8%A1%8C%E8%BD%AC%E5%88%97"><span class="nav-number">22.</span> <span class="nav-text">hive 行转列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%BB%84-%E5%88%97%E6%8B%BC%E6%8E%A5"><span class="nav-number">23.</span> <span class="nav-text">分组 列拼接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hive"><span class="nav-number">24.</span> <span class="nav-text">Hive</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8-hive-sql-%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5"><span class="nav-number">25.</span> <span class="nav-text">服务器 hive sql 常用语句</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E6%9C%8D%E5%8A%A1%E5%99%A8jupyter"><span class="nav-number">25.1.</span> <span class="nav-text">开启服务器jupyter</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%93%E5%BC%80hive%E7%8E%AF%E5%A2%83%EF%BC%9A"><span class="nav-number">25.2.</span> <span class="nav-text">打开hive环境：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%87%8C%E6%9C%89%E5%93%AA%E4%BA%9BSchema%EF%BC%9A"><span class="nav-number">25.3.</span> <span class="nav-text">数据库里有哪些Schema：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8xxSchema%EF%BC%9A"><span class="nav-number">25.4.</span> <span class="nav-text">使用xxSchema：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E8%BF%99%E4%B8%AASchema%E9%87%8C%E6%9C%89%E5%93%AA%E4%BA%9B%E8%A1%A8%EF%BC%9A"><span class="nav-number">25.5.</span> <span class="nav-text">显示这个Schema里有哪些表：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%98%BE%E7%A4%BAxx%E4%BF%A1%E6%81%AF%EF%BC%9A"><span class="nav-number">25.6.</span> <span class="nav-text">显示xx信息：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%89%E7%AC%A6%E5%8F%B7%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">25.7.</span> <span class="nav-text">按符号拆分字符串</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2023 HELLO WORLD All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/collection" class="mobile-nav-link">Collection</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HELLO WORLD
+          </div>
+          <div class="panel-body">
+            Copyright © 2023 Bai Xiong All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

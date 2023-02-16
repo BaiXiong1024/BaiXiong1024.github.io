@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>aws使用笔记 sagemaker | HELLO WORLD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="AWSSagemakerPython" />
+  
+  
+  
+  
+  <meta name="description" content="AWS 全称Amazon web service(亚马逊网络服务)，是亚马逊公司旗下云计算服务平台，为全世界各个国家和地区的客户提供一整套基础设施和云解决方案。AWS面向用户提供包括弹性计算、存储、数据库、物联网在内的一整套云计算服务，帮助企业降低IT投入和维护成本，轻松上云从概念是来看，AWS提供了一系列的托管产品，帮助我们在没有物理服务器的情况下，照样可以正常完成软件开发中的各种需求，也就是我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS使用笔记 Sagemaker">
+<meta property="og:url" content="http://example.com/2022/09/28/AWS_Sagemaker/index.html">
+<meta property="og:site_name" content="HELLO WORLD">
+<meta property="og:description" content="AWS 全称Amazon web service(亚马逊网络服务)，是亚马逊公司旗下云计算服务平台，为全世界各个国家和地区的客户提供一整套基础设施和云解决方案。AWS面向用户提供包括弹性计算、存储、数据库、物联网在内的一整套云计算服务，帮助企业降低IT投入和维护成本，轻松上云从概念是来看，AWS提供了一系列的托管产品，帮助我们在没有物理服务器的情况下，照样可以正常完成软件开发中的各种需求，也就是我">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images.unsplash.com/photo-1663657473556-a8928dc06be9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2064&q=80">
+<meta property="article:published_time" content="2022-09-28T07:09:12.000Z">
+<meta property="article:modified_time" content="2022-10-01T17:49:17.906Z">
+<meta property="article:author" content="Bai Xiong">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="Sagemaker">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1663657473556-a8928dc06be9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2064&q=80">
+  
+    <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/collection">collection</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-AWS_Sagemaker" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" target="_blank" href="https://images.unsplash.com/photo-1663657473556-a8928dc06be9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2064&q=80" rel="gallery_cle754ell0003e0otc33w645a noopener">
+        <img src="https://images.unsplash.com/photo-1663657473556-a8928dc06be9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2064&q=80" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      AWS使用笔记 Sagemaker
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/09/28/AWS_Sagemaker/" class="article-date">
+	  <time datetime="2022-09-28T07:09:12.000Z" itemprop="datePublished">2022-09-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Code/">Code</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://itimetraveler.github.io/hexo-theme-hiker/gallery/shoes.jpg"><br>AWS 全称Amazon web service(亚马逊网络服务)，是亚马逊公司旗下云计算服务平台，为全世界各个国家和地区的客户提供一整套基础设施和云解决方案。<br>AWS面向用户提供包括弹性计算、存储、数据库、物联网在内的一整套云计算服务，帮助企业降低IT投入和维护成本，轻松上云<br>从概念是来看，AWS提供了一系列的托管产品，帮助我们在没有物理服务器的情况下，照样可以正常完成软件开发中的各种需求，也就是我们常说的云服务。</p>
+<span id="more"></span>
+
+
+<h3 id="AWS使用学习笔记"><a href="#AWS使用学习笔记" class="headerlink" title="AWS使用学习笔记"></a>AWS使用学习笔记</h3><h4 id="Sagemaker操作S3文件-列出S3文件列表"><a href="#Sagemaker操作S3文件-列出S3文件列表" class="headerlink" title="Sagemaker操作S3文件: 列出S3文件列表"></a>Sagemaker操作S3文件: 列出S3文件列表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="comment"># 递归列出文件夹及文件，recursive=True</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">list_s3_dir</span>(<span class="params">s3_uri, recursive=<span class="literal">False</span></span>):</span><br><span class="line">    cmd = <span class="string">f&#x27;aws s3 ls <span class="subst">&#123;s3_uri&#125;</span> --recursive&#x27;</span> <span class="keyword">if</span> recursive <span class="keyword">else</span> <span class="string">f&#x27;aws s3 ls <span class="subst">&#123;s3_uri&#125;</span>&#x27;</span></span><br><span class="line">    result = os.popen(cmd)</span><br><span class="line">    res_list = result.readlines()</span><br><span class="line">    r = []</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> res_list:</span><br><span class="line">        file = x[x.rfind(<span class="string">&#x27; &#x27;</span>)+<span class="number">1</span>:-<span class="number">1</span>]</span><br><span class="line">        r.append(file)</span><br><span class="line">    result.close()</span><br><span class="line">    <span class="keyword">return</span> r</span><br><span class="line"></span><br><span class="line">r = list_s3_dir(<span class="string">&quot;s3://xxxxx/&quot;</span>, <span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(r)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Sagemaker操作S3文件-删除S3文件"><a href="#Sagemaker操作S3文件-删除S3文件" class="headerlink" title="Sagemaker操作S3文件: 删除S3文件"></a>Sagemaker操作S3文件: 删除S3文件</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rm_s3_dir</span>(<span class="params">s3_uri, recursive=<span class="literal">False</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">     删除文件，recursive=False</span></span><br><span class="line"><span class="string">     删除文件夹 recursive=True</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    cmd = <span class="string">f&#x27;aws s3 rm <span class="subst">&#123;s3_uri&#125;</span> --recursive&#x27;</span> <span class="keyword">if</span> recursive <span class="keyword">else</span> <span class="string">f&#x27;aws s3 rm <span class="subst">&#123;s3_uri&#125;</span>&#x27;</span></span><br><span class="line">    result = os.system(cmd)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="Sagemaker操作Athena数据库-将df上传到数据表"><a href="#Sagemaker操作Athena数据库-将df上传到数据表" class="headerlink" title="Sagemaker操作Athena数据库 将df上传到数据表"></a>Sagemaker操作Athena数据库 将df上传到数据表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> awswrangler <span class="keyword">as</span> wr</span><br><span class="line"></span><br><span class="line"><span class="comment"># 排除时区造成的时间差</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">datetime_beijing</span>(<span class="params">datetime_</span>):</span><br><span class="line">    beijing_time = datetime_ + datetime.timedelta(hours=<span class="number">8</span>)</span><br><span class="line">    <span class="keyword">return</span> beijing_time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将df存为分区表</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_part_parquet</span>(<span class="params">df: <span class="built_in">str</span>,path: <span class="built_in">str</span>,part: <span class="built_in">list</span>,table: <span class="built_in">str</span>,dtype: <span class="built_in">dict</span></span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(df)&gt;<span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(datetime_beijing(datetime.datetime.now()), <span class="string">&#x27;###### generate &#123;type&#125; parquet start...&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">type</span>=table))</span><br><span class="line">        wr.s3.to_parquet(</span><br><span class="line">                df = df, path= path, dataset=<span class="literal">True</span>, mode=<span class="string">&quot;overwrite_partitions&quot;</span>, partition_cols=part, sanitize_columns=<span class="literal">True</span>,</span><br><span class="line">                database=<span class="string">&quot;xxx&quot;</span>, table=table, dtype=dtype</span><br><span class="line">            )</span><br><span class="line">        <span class="built_in">print</span>(datetime_beijing(datetime.datetime.now()), <span class="string">&#x27;###### generate &#123;type&#125; parquet end...&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">type</span>=table))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(df,<span class="string">&quot; is empty....&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将df存为非分区表</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_s3_parquet</span>(<span class="params">df: <span class="built_in">str</span>,path: <span class="built_in">str</span>,table: <span class="built_in">str</span>, dtype=<span class="literal">None</span></span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(df)&gt;<span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(datetime_beijing(datetime.datetime.now()), <span class="string">&#x27;###### generate &#123;type&#125; start...&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">type</span>=table))</span><br><span class="line">        wr.s3.to_parquet(</span><br><span class="line">                df = df, path= path, dataset=<span class="literal">True</span>, mode=<span class="string">&quot;overwrite&quot;</span>,</span><br><span class="line">                sanitize_columns=<span class="literal">True</span>, database=<span class="string">&quot;xxx&quot;</span>, table=table, dtype=dtype</span><br><span class="line">            )</span><br><span class="line">        <span class="built_in">print</span>(datetime_beijing(datetime.datetime.now()), <span class="string">&#x27;###### generate &#123;type&#125; end...&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">type</span>=table))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(df,<span class="string">&quot; is empty....&quot;</span>)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://img-blog.csdnimg.cn/45fab0bf94d24c89baae32b47ec22f8a.png',
+  alipayImage: 'https://img-blog.csdnimg.cn/857f2fcb134d46a18ab90f8abd742b4e.png'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>Bai Xiong</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2022/09/28/AWS_Sagemaker/" target="_blank" title="AWS使用笔记 Sagemaker">http://example.com/2022/09/28/AWS_Sagemaker/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sagemaker/" rel="tag">Sagemaker</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/01/01/Data%20structures&%20algorithms/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数据结构和算法 Data Structures&amp; Algorothms
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/28/ML-RandomForest/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">随机森林 RandomForest</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#AWS%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">AWS使用学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sagemaker%E6%93%8D%E4%BD%9CS3%E6%96%87%E4%BB%B6-%E5%88%97%E5%87%BAS3%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8"><span class="nav-number">1.1.</span> <span class="nav-text">Sagemaker操作S3文件: 列出S3文件列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sagemaker%E6%93%8D%E4%BD%9CS3%E6%96%87%E4%BB%B6-%E5%88%A0%E9%99%A4S3%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.</span> <span class="nav-text">Sagemaker操作S3文件: 删除S3文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sagemaker%E6%93%8D%E4%BD%9CAthena%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%B0%86df%E4%B8%8A%E4%BC%A0%E5%88%B0%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="nav-number">1.3.</span> <span class="nav-text">Sagemaker操作Athena数据库 将df上传到数据表</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2023 HELLO WORLD All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/collection" class="mobile-nav-link">Collection</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HELLO WORLD
+          </div>
+          <div class="panel-body">
+            Copyright © 2023 Bai Xiong All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

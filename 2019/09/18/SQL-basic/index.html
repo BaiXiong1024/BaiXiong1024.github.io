@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>数据处理 sql basic | HELLO WORLD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="SQL" />
+  
+  
+  
+  
+  <meta name="description" content="SQL Basic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据处理 Sql Basic">
+<meta property="og:url" content="http://example.com/2019/09/18/SQL-basic/index.html">
+<meta property="og:site_name" content="HELLO WORLD">
+<meta property="og:description" content="SQL Basic">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-09-18T07:09:12.000Z">
+<meta property="article:modified_time" content="2022-09-30T07:39:58.850Z">
+<meta property="article:author" content="Bai Xiong">
+<meta property="article:tag" content="SQL">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/collection">collection</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-SQL-basic" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      数据处理 Sql Basic
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/09/18/SQL-basic/" class="article-date">
+	  <time datetime="2019-09-18T07:09:12.000Z" itemprop="datePublished">2019-09-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Code/">Code</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="SQL-Basic"><a href="#SQL-Basic" class="headerlink" title="SQL Basic"></a>SQL Basic</h2><span id="more"></span>
+
+<h3 id="sql正则-查找"><a href="#sql正则-查找" class="headerlink" title="sql正则 查找"></a>sql正则 查找</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT name FROM person_tbl WHERE name REGEXP &#x27;^st&#x27;  			查找name字段中以&#x27;st&#x27;为开头的所有数据</span><br><span class="line">SELECT name FROM person_tbl WHERE name REGEXP &#x27;ok$&#x27;  			查找name字段中以&#x27;ok&#x27;为结尾的所有数据</span><br><span class="line">SELECT name FROM person_tbl WHERE name REGEXP &#x27;mar&#x27;  			查找name字段中包含&#x27;mar&#x27;字符串的所有数据</span><br><span class="line">SELECT name FROM person_tbl WHERE name REGEXP &#x27;^[aeiou]|ok$&#x27;  	查找name字段中以元音字符开头或以&#x27;ok&#x27;字符串结尾的所有数据</span><br><span class="line">SELECT DISTINCT TABLE_NAME FROM information_schema.COLUMNS WHERE COLUMN_NAME = &#x27;description&#x27; AND TABLE_SCHEMA=&#x27;bugs&#x27; ;  										 </span><br><span class="line">从整个数据库查找某个字段</span><br></pre></td></tr></table></figure>
+
+<h1 id="基本条件查找"><a href="#基本条件查找" class="headerlink" title="基本条件查找"></a>基本条件查找</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*一般性where语句*/</span></span><br><span class="line"><span class="keyword">SELECT</span> population <span class="keyword">FROM</span> world <span class="keyword">WHERE</span> name <span class="operator">=</span> <span class="string">&#x27;France&#x27;</span>；</span><br><span class="line"><span class="keyword">SELECT</span> name, population <span class="keyword">FROM</span> world <span class="keyword">WHERE</span> name <span class="keyword">IN</span> (<span class="string">&#x27;Brazil&#x27;</span>, <span class="string">&#x27;Russia&#x27;</span>, <span class="string">&#x27;India&#x27;</span>, <span class="string">&#x27;China&#x27;</span>);</span><br><span class="line"><span class="keyword">SELECT</span> name, area <span class="keyword">FROM</span> world <span class="keyword">WHERE</span> area <span class="keyword">BETWEEN</span> <span class="number">250000</span> <span class="keyword">AND</span> <span class="number">300000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*字符串模式匹配*/</span></span><br><span class="line"><span class="keyword">SELECT</span> name <span class="keyword">FROM</span> world <span class="keyword">WHERE</span> name <span class="keyword">LIKE</span> <span class="string">&#x27;Y%&#x27;</span>  				<span class="comment">/*以y开头*/</span></span><br><span class="line"><span class="keyword">SELECT</span> name <span class="keyword">FROM</span> world <span class="keyword">WHERE</span> name <span class="keyword">LIKE</span> <span class="string">&#x27;C%ia&#x27;</span>				<span class="comment">/*以C开头ia结尾*/</span></span><br><span class="line"><span class="keyword">SELECT</span> name <span class="keyword">FROM</span> world <span class="keyword">WHERE</span> name <span class="keyword">LIKE</span> <span class="string">&#x27;_n%&#x27;</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> name  <span class="comment">/*第二个字符是n，下划线是字母通配符*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> name <span class="keyword">FROM</span> world <span class="keyword">WHERE</span> name <span class="keyword">LIKE</span> <span class="string">&#x27;%a%&#x27;</span> <span class="keyword">AND</span> name <span class="keyword">LIKE</span> <span class="string">&#x27;%e%&#x27;</span> <span class="keyword">AND</span> name <span class="keyword">LIKE</span> <span class="string">&#x27;%i%&#x27;</span> <span class="keyword">AND</span> name <span class="keyword">LIKE</span> <span class="string">&#x27;%o%&#x27;</span> <span class="keyword">AND</span> name <span class="keyword">LIKE</span> <span class="string">&#x27;%u%&#x27;</span> <span class="keyword">AND</span> name <span class="keyword">NOT</span> <span class="keyword">LIKE</span> <span class="string">&#x27;% %&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*ROUND(*, n), n为正则精确到小数点位数，n为负则精确到相应位数*/</span></span><br><span class="line"><span class="keyword">SELECT</span> name, ROUND(population<span class="operator">/</span><span class="number">1000000</span>,<span class="number">2</span>) <span class="keyword">FROM</span> world <span class="keyword">WHERE</span> continent<span class="operator">=</span><span class="string">&#x27;South America&#x27;</span></span><br><span class="line"><span class="keyword">SELECT</span> name, ROUND(gdp<span class="operator">/</span>population,<span class="number">-3</span>) <span class="keyword">FROM</span> world <span class="keyword">WHERE</span> gdp<span class="operator">&gt;</span><span class="number">1000000000000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* LENGTH()*/</span></span><br><span class="line"><span class="keyword">SELECT</span> name, capital <span class="keyword">FROM</span> world <span class="keyword">WHERE</span> LENGTH(name)<span class="operator">=</span>LENGTH(capital)</span><br><span class="line"><span class="comment">/* LEFT(*,n)前n个字符，&lt;&gt;,或!=不等于*/</span></span><br><span class="line"><span class="keyword">SELECT</span> name,capital <span class="keyword">FROM</span> world <span class="keyword">WHERE</span> <span class="keyword">LEFT</span>(name,<span class="number">1</span>)<span class="operator">=</span><span class="keyword">LEFT</span>(capital,<span class="number">1</span>) <span class="keyword">AND</span> name<span class="operator">&lt;&gt;</span>capital</span><br><span class="line"><span class="comment">/* SUBSTR(str, -2) str最后两个字符 */</span></span><br><span class="line"><span class="keyword">select</span> first_name <span class="keyword">from</span> employees <span class="keyword">order</span> <span class="keyword">by</span> substr(first_name, <span class="number">-2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*LIMIT n从0开始取n个数据，LIMIT m,n从m开始取n个数据*/</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> employees <span class="keyword">order</span> <span class="keyword">by</span> hire_date <span class="keyword">desc</span> limit <span class="number">2</span>,<span class="number">1</span> <span class="comment">/*取第三个数据*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* ||连接符 */</span></span><br><span class="line"><span class="keyword">select</span> last_name <span class="operator">||</span> <span class="string">&#x27; &#x27;</span> <span class="operator">||</span> first_name <span class="keyword">from</span> employees</span><br><span class="line"></span><br><span class="line"><span class="comment">/* distinct去重，常用去重计算和去重得到值唯一表 */</span></span><br><span class="line"><span class="keyword">SELECT</span> title, <span class="built_in">COUNT</span>(<span class="keyword">DISTINCT</span> emp_no) <span class="keyword">AS</span> t <span class="keyword">FROM</span> titles</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> title <span class="keyword">HAVING</span> t <span class="operator">&gt;=</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* CAST()改变数据类型 */</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">CAST</span>(f.population <span class="keyword">AS</span> <span class="type">FLOAT</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> CONCAT(<span class="string">&#x27;王&#x27;</span>,<span class="string">&#x27;(&#x27;</span>,<span class="string">&#x27;ni&#x27;</span>,<span class="string">&#x27;)&#x27;</span>)</span><br><span class="line"><span class="keyword">FROM</span> hr.ods_employee_delta_1d <span class="keyword">AS</span> e</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> CONCAT(name,<span class="string">&#x27;(&#x27;</span>,ename,<span class="string">&#x27;)&#x27;</span>)</span><br><span class="line"><span class="keyword">FROM</span> user_list</span><br></pre></td></tr></table></figure>
+
+<h3 id="join-语句"><a href="#join-语句" class="headerlink" title="join 语句"></a>join 语句</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">select s.*, d.dept_no from salaries as s</span><br><span class="line">inner join dept_manager as d on d.emp_no=s.emp_no</span><br><span class="line">where d.to_date=&#x27;9999-01-01&#x27; and s.to_date=&#x27;9999-01-01&#x27;</span><br><span class="line"></span><br><span class="line">/* ，号也可以查询两张表，效果同inner join连接两张表*/</span><br><span class="line">SELECT e.emp_no, s.salary FROM employees AS e, salaries AS s</span><br><span class="line">WHERE e.emp_no = s.emp_no AND e.hire_date = s.from_date</span><br><span class="line">ORDER BY e.emp_no DESC</span><br><span class="line"></span><br><span class="line">/* GROUP BY聚合后MAX(), MIN(), AVG()，SUM(), COUNT() 等操作*/</span><br><span class="line">select de.dept_no, de.emp_no, max(s.salary)</span><br><span class="line">from dept_emp as de</span><br><span class="line">inner join salaries as s</span><br><span class="line">on s.emp_no = de.emp_no</span><br><span class="line">where de.to_date = &#x27;9999-01-01&#x27;</span><br><span class="line">group by de.dept_no</span><br><span class="line"></span><br><span class="line">/*多层连接*/</span><br><span class="line">select e.emp_no, (s1.salary-s2.salary) growth</span><br><span class="line">from employees as e</span><br><span class="line">inner join salaries as s1</span><br><span class="line">on e.emp_no = s1.emp_no and s1.to_date = &#x27;9999-01-01&#x27;</span><br><span class="line">inner join salaries as s2</span><br><span class="line">on e.emp_no = s2.emp_no and e.hire_date = s2.from_date</span><br><span class="line">order by growth asc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://img-blog.csdnimg.cn/45fab0bf94d24c89baae32b47ec22f8a.png',
+  alipayImage: 'https://img-blog.csdnimg.cn/857f2fcb134d46a18ab90f8abd742b4e.png'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>Bai Xiong</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/09/18/SQL-basic/" target="_blank" title="数据处理 Sql Basic">http://example.com/2019/09/18/SQL-basic/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/18/SQL-PostgreSQL/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数据处理 PostgreSQL
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/18/SQL-Redis/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数据处理 Redis</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-Basic"><span class="nav-number">1.</span> <span class="nav-text">SQL Basic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sql%E6%AD%A3%E5%88%99-%E6%9F%A5%E6%89%BE"><span class="nav-number">1.1.</span> <span class="nav-text">sql正则 查找</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%9D%A1%E4%BB%B6%E6%9F%A5%E6%89%BE"><span class="nav-number"></span> <span class="nav-text">基本条件查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#join-%E8%AF%AD%E5%8F%A5"><span class="nav-number">0.1.</span> <span class="nav-text">join 语句</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2023 HELLO WORLD All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/collection" class="mobile-nav-link">Collection</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HELLO WORLD
+          </div>
+          <div class="panel-body">
+            Copyright © 2023 Bai Xiong All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>数据挖掘 dataanalysis | HELLO WORLD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="PythonDataFrame" />
+  
+  
+  
+  
+  <meta name="description" content="一个优秀的数据分析师不仅要掌握基本的统计、数据库、数据分析方法、思维、数据分析工具和技能，还要掌握一些数据挖掘的思路，帮助我们挖掘出有价值的数据，这也是数据分析专家和一般数据分析师的差距之一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据挖掘 DataAnalysis">
+<meta property="og:url" content="http://example.com/2023/01/01/Data-Analysis/index.html">
+<meta property="og:site_name" content="HELLO WORLD">
+<meta property="og:description" content="一个优秀的数据分析师不仅要掌握基本的统计、数据库、数据分析方法、思维、数据分析工具和技能，还要掌握一些数据挖掘的思路，帮助我们挖掘出有价值的数据，这也是数据分析专家和一般数据分析师的差距之一">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-01-01T07:09:12.000Z">
+<meta property="article:modified_time" content="2023-02-16T12:28:19.648Z">
+<meta property="article:author" content="Bai Xiong">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="DataFrame">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/collection">collection</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Data-Analysis" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      数据挖掘 DataAnalysis
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2023/01/01/Data-Analysis/" class="article-date">
+	  <time datetime="2023-01-01T07:09:12.000Z" itemprop="datePublished">2023-01-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一个优秀的数据分析师不仅要掌握基本的统计、数据库、数据分析方法、思维、数据分析工具和技能，还要掌握一些数据挖掘的思路，帮助我们挖掘出有价值的数据，这也是数据分析专家和一般数据分析师的差距之一</p>
+<span id="more"></span>
+
+<p>潜在的列是不同的类型大小可变标记轴(行和列)可以对行和列执行算术运算<br><a target="_blank" rel="noopener" href="https://www.yiibai.com/pandas/python_pandas_dataframe.html">https://www.yiibai.com/pandas/python_pandas_dataframe.html</a></p>
+<h4 id="数据挖掘主要分为三类："><a href="#数据挖掘主要分为三类：" class="headerlink" title="数据挖掘主要分为三类："></a>数据挖掘主要分为三类：</h4><p>分类算法、聚类算法和相关规则，基本涵盖了当前商业市场对算法的所有需求。这三类包含了许多经典算法</p>
+<h4 id="数据挖掘算法分类"><a href="#数据挖掘算法分类" class="headerlink" title="数据挖掘算法分类"></a>数据挖掘算法分类</h4><p>1、连接分析：PageRank。<br>2、相关分析：Apriori。<br>3、分类算法：C4.5，简单的贝叶斯，SVM，KNN，Adaboost，CART。<br>4、聚类算法：K-Means，EM。</p>
+<h5 id="PageRank"><a href="#PageRank" class="headerlink" title="PageRank"></a>PageRank</h5><p>论文被引用的次数越多，其影响就越大。<br>网页入口越多，入链质量越高，网页质量越高。</p>
+<h6 id="PageRank原理"><a href="#PageRank原理" class="headerlink" title="PageRank原理"></a>PageRank原理</h6><p>网页的影响=阻尼影响+所有入链集合页面的加权影响之和。<br>一个网页的影响：所有进入链的页面的加权影响之和。<br>一个网页对其他网页的影响是：自身影响/链接数量。<br>并非所有用户都是通过跳转链接来上网的，还有其他方式，比如直接输入网站访问。<br>因此需要设置阻尼因子，代表用户根据跳转链接上网的概率。</p>
+<h6 id="PageRank比喻说明"><a href="#PageRank比喻说明" class="headerlink" title="PageRank比喻说明"></a>PageRank比喻说明</h6><p>1、微博<br>一个人的微博粉丝数量不一定等于他的实际影响力，还要看粉丝的质量。<br>如果是僵尸粉没用，但是如果是很多大V或者明星关注的话，影响力很大。<br>2、店铺经营<br>顾客较多的店铺质量较好，但要看顾客是否是托。<br>3、兴趣<br>对感兴趣的人或事投入相对较多的时间，对其相关的人和事也投入一定的时间。被关注的人或事越多，其影响力/受众就越大。<br>关于阻尼因子<br>1、通过邻居的影响来判断你的影响，但是如果你不能通过邻居来访问你，并不意味着你没有影响力，因为可以直接访问你，所以引入了阻尼因子的概念。<br>2、海洋除了河流流经外，还有雨水，但下雨是随机的。<br>3、提出阻尼系数，或者解决一些网站显然有大量的链（链），但影响很大。<br>出链例子：hao123导航网页，出链多，入链少。<br>入链例子：百度谷歌等搜索引擎，入链很多，出链很少。</p>
+<h5 id="Apriori-相关分析"><a href="#Apriori-相关分析" class="headerlink" title="Apriori(相关分析)"></a>Apriori(相关分析)</h5><p>关联挖掘关系，从消费者交易记录中发现商品之间的关系。</p>
+<h6 id="Apriori原理"><a href="#Apriori原理" class="headerlink" title="Apriori原理"></a>Apriori原理</h6><p>1、支持度<br>商品组合出现的次数与总次数之比。<br>五次购买，四次购买牛奶，牛奶支持度为4/5=0.8。<br>五次购买，三次购买牛奶+面包，牛奶+面包支持3/5=0.6。</p>
+<p>2、置信度<br>购买商品A，购买商品B的概率有多大，发生A时发生B的概率有多大。<br>买了四次牛奶，其中两次买了啤酒，(牛奶-&gt;啤酒)的可信度是2/4=0.5。<br>三次买啤酒，其中两次买牛奶，(啤酒-&gt;牛奶)的可信度为2/3-0.67。</p>
+<p>3、提升度<br>衡量商品A的出现，提高商品B出现概率的程度。<br>提升度(A-&gt;B)=置信度(A-&gt;B)/支持度(B)。<br>提升度&gt;1，有提升；提升度=1，无变化；提升度1，下降。</p>
+<p>4、项集频繁<br>项集：可以是单一商品，也可以是商品组合。<br>频繁的项集是支持度大于最小支持度的项集(MinSupport)。</p>
+<h6 id="计算过程"><a href="#计算过程" class="headerlink" title="计算过程"></a>计算过程</h6><p>（1）从K=1开始，经常筛选项集。<br>（2）在结果中，组合K+1项集，重新筛选。<br>（3）循环1,2步。K-1项集的结果是最终结果，直到找不到结果。</p>
+<h6 id="扩展：FP-Growth算法。"><a href="#扩展：FP-Growth算法。" class="headerlink" title="扩展：FP-Growth算法。"></a>扩展：FP-Growth算法。</h6><p>Apriori算法需要多次扫描数据库，性能低，不适合大数据量。<br>FP-growth算法，通过构建FP树的数据结构，将数据存储在FP树中，只需在构建FP树时扫描数据库两次，后续处理就不需要再访问数据库。<br>比喻：啤酒和纸尿裤一起卖。<br>沃尔玛通过数据分析发现，在美国有婴儿的家庭中，母亲通常在家照顾孩子，父亲去超市买尿布。<br>父亲在买纸尿裤的时候，经常会搭配几瓶啤酒来奖励自己。因此，超市试图推出一种将啤酒和纸尿裤放在一起的促销手段，这实际上大大增加了纸尿裤和啤酒的销量。</p>
+<h5 id="数据挖掘算法：AdaBoost"><a href="#数据挖掘算法：AdaBoost" class="headerlink" title="数据挖掘算法：AdaBoost"></a>数据挖掘算法：AdaBoost</h5><h6 id="AdaBoost原理"><a href="#AdaBoost原理" class="headerlink" title="AdaBoost原理"></a>AdaBoost原理</h6><p>简单来说，多个弱分类器训练成强分类器。<br>将一系列弱分类器作为不同权重比组合的最终分类选择。</p>
+<h6 id="计算过程-1"><a href="#计算过程-1" class="headerlink" title="计算过程"></a>计算过程</h6><p>1、基本权重初始化。<br>2、奖励权重矩阵，通过现有的分类器计算错误率，选择错误率最低的分类器。<br>3、通过分类器权重公式，减少正确的样本分布，增加错误的样本分布，获得新的权重矩阵和当前k轮的分类器权重。<br>4、将新的权重矩阵带入上述步骤2和3，重新计算权重矩阵。<br>5、迭代N轮，记录每轮最终分类器的权重，获得强分类器。</p>
+<h6 id="AdaBoost算法比喻说明"><a href="#AdaBoost算法比喻说明" class="headerlink" title="AdaBoost算法比喻说明"></a>AdaBoost算法比喻说明</h6><p>1、利用错题提高学习效率<br>做对的题，下次少做点，反正都会。<br>下次多做错题，集中在错题上。<br>随着学习的深入，错题会越来越少。<br>2、合理跨境提高利润<br>苹果公司，软硬件结合，占据了手机市场的大部分利润，两个领域的知识结合产生了新的收益。</p>
+<h5 id="数据挖掘算法：C4-5-决策树"><a href="#数据挖掘算法：C4-5-决策树" class="headerlink" title="数据挖掘算法：C4.5(决策树)"></a>数据挖掘算法：C4.5(决策树)</h5><p>决策就是对一个问题有多个答案，选择答案的过程就是决策。<br>C4.5算法用于产生决策树，主要用于分类。<br>C4.5计算信息增益率(ID3算法计算信息增益)。</p>
+<h6 id="C4-5算法原理"><a href="#C4-5算法原理" class="headerlink" title="C4.5算法原理"></a>C4.5算法原理</h6><p>C4.5算法选择最有效的方法对样本集进行分裂，分裂规则是分析所有属性的信息增益率。</p>
+<p>信息增益率越大，意味着这个特征分类的能力越强，我们应该优先选择这个特征进行分类。<br>比喻说明：挑西瓜。<br>拿到一个西瓜，先判断它的线条。如果很模糊，就觉得不是好瓜。如果很清楚，就觉得是好瓜。如果稍微模糊一点，就考虑它的密度。如果密度大于一定值，就认为是好瓜，否则就是坏瓜。</p>
+<h5 id="数据挖掘算法：CART-决策树"><a href="#数据挖掘算法：CART-决策树" class="headerlink" title="数据挖掘算法：CART(决策树)"></a>数据挖掘算法：CART(决策树)</h5><p>CART：Clasification And Regresion Tree，中文叫分类回归树，可以分类也可以回归。<br>什么是分类树？回归树？<br>分类树：处理离散数据，即数据类型有限的数据，输出样本类别。<br>回归树：可以预测连续值，输出一个值，值可以在一定范围内获得。<br>回归问题和分类问题的本质是一样的，就是对一个输入做一个输出预测，其区别在于输出变量的类型。</p>
+<h6 id="CART算法原理"><a href="#CART算法原理" class="headerlink" title="CART算法原理"></a>CART算法原理</h6><p>CART分类树<br>类似于C4.5算法，但属性选择的指标是基尼系数。<br>基尼系数反映了样本的不确定性。基尼系数越小，样本之间的差异越小，不确定性越低。<br>分类是一个降低不确定性的过程。CART在构建分类树时，会选择基尼系数最小的属性作为属性划分。<br>回归树的CART<br>以均方误差或绝对值误差为标准，选择均方误差或绝对值误差最小的特征。<br>分类和回归数的比喻说明<br>分类：预测明天是阴、晴还是雨。<br>回归：预测明天的温度。</p>
+<h5 id="数据挖掘算法：简单贝叶斯-条件概率"><a href="#数据挖掘算法：简单贝叶斯-条件概率" class="headerlink" title="数据挖掘算法：简单贝叶斯(条件概率)"></a>数据挖掘算法：简单贝叶斯(条件概率)</h5><p>简单贝叶斯是一种简单有效的常用分类算法，在未知物体出现的情况下，计算各类出现的概率，取概率最大的分类。</p>
+<h6 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h6><p>假设输入的不同特征是独立的，基于概率论原理，通过先验概率P(A)、P(B)和条件概率计算出P(A|B)。<br>P(A):先验概率，即在B事件发生前判断A事件概率。<br>P(B|A):条件概率，事件B在另一个事件A已经发生的条件下发生的概率。<br>P(A|B):后验概率，即B事件发生后重新评估A事件概率。<br>比喻说明:对患者进行分类<br>给定一个新病人，一个打喷嚏的建筑工人，计算他感冒的概率。</p>
+<h5 id="数据挖掘算法：SVM"><a href="#数据挖掘算法：SVM" class="headerlink" title="数据挖掘算法：SVM"></a>数据挖掘算法：SVM</h5><p>SVM：SupportVectorMachine，中文名为支持向量机，是一种常见的分类方法，最初是为二分类问题设计的，在机器学习中，SVM是一种有监督的学习模式。</p>
+<h6 id="什么是监督学习和无监督学习？"><a href="#什么是监督学习和无监督学习？" class="headerlink" title="什么是监督学习和无监督学习？"></a>什么是监督学习和无监督学习？</h6><p>监督学习：即在现有类别标签的情况下，对样本数据进行分类。</p>
+<p>无监督学习:即在没有类别标签的情况下，样本数据按照一定的方法进行分类，即聚类。分类好的类别需要进一步分析，才能知道每个类别的特点。</p>
+<h6 id="SVM算法原理"><a href="#SVM算法原理" class="headerlink" title="SVM算法原理"></a>SVM算法原理</h6><p>找到间隔最小的样本点，然后拟合到这些样本点的距离和最大的线段/平面。<br>硬间隔：数据线性分布，直接给出分类。<br>软间隔：允许一定量的样本分类错误。<br>核函数：非线性分布的数据映射为线性分布的数据。</p>
+<h6 id="SVM算法比喻说明"><a href="#SVM算法比喻说明" class="headerlink" title="SVM算法比喻说明"></a>SVM算法比喻说明</h6><p>1、分隔桌上的一堆红球和篮球。<br>桌上的红球和蓝球用一根线分成两部分。<br>2、分隔盒子里的一堆红球和篮球。<br>盒子里的红球和蓝球用平面分成两部分。</p>
+<h5 id="数据挖掘算法：KNN-聚类"><a href="#数据挖掘算法：KNN-聚类" class="headerlink" title="数据挖掘算法：KNN(聚类)"></a>数据挖掘算法：KNN(聚类)</h5><p>机器学习算法中最基本、最简单的算法之一，可以通过测量不同特征值之间的距离来分类。</p>
+<h6 id="KNN算法原理"><a href="#KNN算法原理" class="headerlink" title="KNN算法原理"></a>KNN算法原理</h6><p>计算待分类物体与其他物体之间的距离，预测K最近邻居数量最多的类别是该分类物体的类别。</p>
+<h6 id="计算步骤。"><a href="#计算步骤。" class="headerlink" title="计算步骤。"></a>计算步骤。</h6><p>1.根据场景选择距离计算方法，计算待分类物体与其他物体之间的距离。<br>2.统计最近的K邻居。<br>3.对于K最近的邻居，最多的类别被预测为分类对象的类别。</p>
+<h6 id="KNN算法比喻：近朱者赤，近墨者黑。"><a href="#KNN算法比喻：近朱者赤，近墨者黑。" class="headerlink" title="KNN算法比喻：近朱者赤，近墨者黑。"></a>KNN算法比喻：近朱者赤，近墨者黑。</h6><h5 id="数据挖掘算法：K-Means-聚类"><a href="#数据挖掘算法：K-Means-聚类" class="headerlink" title="数据挖掘算法：K-Means(聚类)"></a>数据挖掘算法：K-Means(聚类)</h5><p>K-means是一种无监督学习、生成指定K类的聚类算法，将每个对象分配到最近的聚类中心。</p>
+<h6 id="K-Means算法原理"><a href="#K-Means算法原理" class="headerlink" title="K-Means算法原理"></a>K-Means算法原理</h6><p>1.随机选择K点作为分类中心点。<br>2.将每个点分配到最近的类，从而形成K类。<br>3.重新计算每个类别的中心点。比如同一类别有10个点，那么新的中心点就是这10个点的中心点，一个简单的方法就是取平均值。</p>
+<h6 id="K-Means算法比喻说明"><a href="#K-Means算法比喻说明" class="headerlink" title="K-Means算法比喻说明"></a>K-Means算法比喻说明</h6><p>1、选组长<br>每个人都随机选择K个组长，谁离得近，就是那个队列的人(计算距离，近的人聚在一起)。<br>随着时间的推移，组长的位置在变化(根据算法重新计算中心点)，直到选择真正的中心组长(重复，直到准确率最高)。<br>2、Kmeans和Knn的区别<br>Kmeans开班选组长，风水轮流转，直到选出最佳中心组长。<br>Knn小弟加队，离那个班比较近，就是那个班。</p>
+<h5 id="数据挖掘算法：EM-聚类"><a href="#数据挖掘算法：EM-聚类" class="headerlink" title="数据挖掘算法：EM(聚类)"></a>数据挖掘算法：EM(聚类)</h5><p>EM的英语是ExpectationMaximization，因此EM算法又称最大期望算法，也是一种聚类算法。<br>EM和K-Means的区别:<br>EM是计算概率，KMeans是计算距离。<br>EM属于软聚类，同一样本可能属于多个类别；K-Means属于硬聚类，一个样本只能属于一个类别。因此，前者可以发现一些隐藏的数据。</p>
+<h6 id="EM算法原理"><a href="#EM算法原理" class="headerlink" title="EM算法原理"></a>EM算法原理</h6><p>先估计一个大概率的可能参数，然后根据数据不断调整，直到找到最终确认参数。<br>EM算法比喻说明：菜称重<br>很少有人用称重菜肴，然后计算一半的重量来平分。<br>大多数人的方法是：<br>1、先把一部分分成菜A，然后把剩下的分成菜B。<br>2、观察菜A和B里的菜是否一样多，哪个多就匀一点到少。<br>3、然后观察碟子里的A和B是否一样多，重复，直到重量没有变化。</p>
+<p>其中，数据挖掘之后就需要把收集的有用的数据进行可视化处理方便人们直观感受数据的变化和重要性，通常数据分析师都会选择一些可视化辅助工具帮助自己更好的完成数据分析工作，比如基础的可视化工具有Excel、PPT和Xmind，但是对于企业来说，这些可视化工具提供的功能都太单一了，不能很好的满足可视化效果，很多数据分析师会选择Smartbi这款可视化工具，集齐数据挖掘、数据分析、数据可视化功能于一体的数据可视化工具，有着更方便的拖拉拽操作，能处理亿级的数据量，还有着可视化效果更好的自助仪表盘，能更好的满足现代企业报表需求。</p>
+<p>搬运链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_49346511/article/details/120759087">https://blog.csdn.net/weixin_49346511/article/details/120759087</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://img-blog.csdnimg.cn/45fab0bf94d24c89baae32b47ec22f8a.png',
+  alipayImage: 'https://img-blog.csdnimg.cn/857f2fcb134d46a18ab90f8abd742b4e.png'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>Bai Xiong</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2023/01/01/Data-Analysis/" target="_blank" title="数据挖掘 DataAnalysis">http://example.com/2023/01/01/Data-Analysis/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DataFrame/" rel="tag">DataFrame</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/01/01/Data%20structures&%20algorithms/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数据结构和算法 Data Structures&amp; Algorothms</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E4%B8%BB%E8%A6%81%E5%88%86%E4%B8%BA%E4%B8%89%E7%B1%BB%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">数据挖掘主要分为三类：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">数据挖掘算法分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#PageRank"><span class="nav-number">2.1.</span> <span class="nav-text">PageRank</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#PageRank%E5%8E%9F%E7%90%86"><span class="nav-number">2.1.1.</span> <span class="nav-text">PageRank原理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#PageRank%E6%AF%94%E5%96%BB%E8%AF%B4%E6%98%8E"><span class="nav-number">2.1.2.</span> <span class="nav-text">PageRank比喻说明</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Apriori-%E7%9B%B8%E5%85%B3%E5%88%86%E6%9E%90"><span class="nav-number">2.2.</span> <span class="nav-text">Apriori(相关分析)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Apriori%E5%8E%9F%E7%90%86"><span class="nav-number">2.2.1.</span> <span class="nav-text">Apriori原理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B"><span class="nav-number">2.2.2.</span> <span class="nav-text">计算过程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%EF%BC%9AFP-Growth%E7%AE%97%E6%B3%95%E3%80%82"><span class="nav-number">2.2.3.</span> <span class="nav-text">扩展：FP-Growth算法。</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%AE%97%E6%B3%95%EF%BC%9AAdaBoost"><span class="nav-number">2.3.</span> <span class="nav-text">数据挖掘算法：AdaBoost</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#AdaBoost%E5%8E%9F%E7%90%86"><span class="nav-number">2.3.1.</span> <span class="nav-text">AdaBoost原理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B-1"><span class="nav-number">2.3.2.</span> <span class="nav-text">计算过程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#AdaBoost%E7%AE%97%E6%B3%95%E6%AF%94%E5%96%BB%E8%AF%B4%E6%98%8E"><span class="nav-number">2.3.3.</span> <span class="nav-text">AdaBoost算法比喻说明</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%AE%97%E6%B3%95%EF%BC%9AC4-5-%E5%86%B3%E7%AD%96%E6%A0%91"><span class="nav-number">2.4.</span> <span class="nav-text">数据挖掘算法：C4.5(决策树)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#C4-5%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">2.4.1.</span> <span class="nav-text">C4.5算法原理</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%AE%97%E6%B3%95%EF%BC%9ACART-%E5%86%B3%E7%AD%96%E6%A0%91"><span class="nav-number">2.5.</span> <span class="nav-text">数据挖掘算法：CART(决策树)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#CART%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">2.5.1.</span> <span class="nav-text">CART算法原理</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%AE%97%E6%B3%95%EF%BC%9A%E7%AE%80%E5%8D%95%E8%B4%9D%E5%8F%B6%E6%96%AF-%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87"><span class="nav-number">2.6.</span> <span class="nav-text">数据挖掘算法：简单贝叶斯(条件概率)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">2.6.1.</span> <span class="nav-text">算法原理</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%AE%97%E6%B3%95%EF%BC%9ASVM"><span class="nav-number">2.7.</span> <span class="nav-text">数据挖掘算法：SVM</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E5%92%8C%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%EF%BC%9F"><span class="nav-number">2.7.1.</span> <span class="nav-text">什么是监督学习和无监督学习？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#SVM%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">2.7.2.</span> <span class="nav-text">SVM算法原理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#SVM%E7%AE%97%E6%B3%95%E6%AF%94%E5%96%BB%E8%AF%B4%E6%98%8E"><span class="nav-number">2.7.3.</span> <span class="nav-text">SVM算法比喻说明</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%AE%97%E6%B3%95%EF%BC%9AKNN-%E8%81%9A%E7%B1%BB"><span class="nav-number">2.8.</span> <span class="nav-text">数据挖掘算法：KNN(聚类)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#KNN%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">2.8.1.</span> <span class="nav-text">KNN算法原理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%AD%A5%E9%AA%A4%E3%80%82"><span class="nav-number">2.8.2.</span> <span class="nav-text">计算步骤。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#KNN%E7%AE%97%E6%B3%95%E6%AF%94%E5%96%BB%EF%BC%9A%E8%BF%91%E6%9C%B1%E8%80%85%E8%B5%A4%EF%BC%8C%E8%BF%91%E5%A2%A8%E8%80%85%E9%BB%91%E3%80%82"><span class="nav-number">2.8.3.</span> <span class="nav-text">KNN算法比喻：近朱者赤，近墨者黑。</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%AE%97%E6%B3%95%EF%BC%9AK-Means-%E8%81%9A%E7%B1%BB"><span class="nav-number">2.9.</span> <span class="nav-text">数据挖掘算法：K-Means(聚类)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#K-Means%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">2.9.1.</span> <span class="nav-text">K-Means算法原理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#K-Means%E7%AE%97%E6%B3%95%E6%AF%94%E5%96%BB%E8%AF%B4%E6%98%8E"><span class="nav-number">2.9.2.</span> <span class="nav-text">K-Means算法比喻说明</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%AE%97%E6%B3%95%EF%BC%9AEM-%E8%81%9A%E7%B1%BB"><span class="nav-number">2.10.</span> <span class="nav-text">数据挖掘算法：EM(聚类)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#EM%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">2.10.1.</span> <span class="nav-text">EM算法原理</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2023 HELLO WORLD All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/collection" class="mobile-nav-link">Collection</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HELLO WORLD
+          </div>
+          <div class="panel-body">
+            Copyright © 2023 Bai Xiong All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

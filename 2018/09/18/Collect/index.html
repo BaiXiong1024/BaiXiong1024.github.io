@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>收藏从未停止 复习从未开始 collect | HELLO WORLD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Tools" />
+  
+  
+  
+  
+  <meta name="description" content="Perlperl操作12system(&quot;python xxx.py arg1 arg2&quot;)       perl调用python脚本$output&#x3D;&#96;python xxx.py arg1 arg2&#96;		perl调用python脚本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="收藏从未停止 复习从未开始 Collect">
+<meta property="og:url" content="http://example.com/2018/09/18/Collect/index.html">
+<meta property="og:site_name" content="HELLO WORLD">
+<meta property="og:description" content="Perlperl操作12system(&quot;python xxx.py arg1 arg2&quot;)       perl调用python脚本$output&#x3D;&#96;python xxx.py arg1 arg2&#96;		perl调用python脚本">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://images.unsplash.com/photo-1567584233388-21c3b14c2f9a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1811&q=80">
+<meta property="article:published_time" content="2018-09-18T07:09:12.000Z">
+<meta property="article:modified_time" content="2022-09-30T09:41:39.798Z">
+<meta property="article:author" content="Bai Xiong">
+<meta property="article:tag" content="Tools">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1567584233388-21c3b14c2f9a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1811&q=80">
+  
+    <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/collection">collection</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Collect" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      收藏从未停止 复习从未开始 Collect
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2018/09/18/Collect/" class="article-date">
+	  <time datetime="2018-09-18T07:09:12.000Z" itemprop="datePublished">2018-09-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://images.unsplash.com/photo-1567584233388-21c3b14c2f9a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1811&q=80"></p>
+<h2 id="Perl"><a href="#Perl" class="headerlink" title="Perl"></a>Perl</h2><h3 id="perl操作"><a href="#perl操作" class="headerlink" title="perl操作"></a>perl操作</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">system(&quot;python xxx.py arg1 arg2&quot;)       perl调用python脚本</span><br><span class="line">$output=`python xxx.py arg1 arg2`		perl调用python脚本</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<p>AI 人工智能<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/dingyahui123/article/details/82343829">AI面试必备</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/fanyun_01/article/details/83505856">AI 常用算法</a><br>[blog-2<del>all</del>first_rank_v2<del>rank_v25-2)<br>[sult.none-task-blog-2</del>all<del>first_rank_v2</del>rank_v25-1)</p>
+<p><a target="_blank" rel="noopener" href="http://i.xiaoi.com/">机器人</a><br><a target="_blank" rel="noopener" href="https://aotu.io/notes/2017/10/13/make-a-chain-class/">链表</a><br>[ibute.pc_search_result.none-task-blog-2<del>all</del>sobaiduweb~default-0-88853533)<br><a target="_blank" rel="noopener" href="https://www.runoob.com/perl/perl-tutorial.html">perl:Perl 教程 </a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/thomson-fred/p/10198528.html#top">django:    Django数据库–事务及事务回滚 </a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/cfa03c784a14">Django Q 对象</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_36571185/article/details/74280102">TemplateView , ListView ，DetailView三种常用类视图用法</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/learn/Server-side/Django/Generic_views">Django 教程 6: 通用列表和详细信息视图 </a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/up1012/article/details/81032368">django中写form表单时csrf_token的作用 </a><br><a target="_blank" rel="noopener" href="https://www.guhei.net/forum.php?mod=viewthread&tid=1449&extra=page=1&filter=typeid&typeid=38">XSS和CSRF的原理</a><br><a target="_blank" rel="noopener" href="https://www.runoob.com/django/django-template.html">Django 模板 </a><br><a target="_blank" rel="noopener" href="https://ehlxr.me/2017/01/18/Linux-%E4%B8%AD-fg%E3%80%81bg%E3%80%81jobs%E3%80%81-%E6%8C%87%E4%BB%A4/">linux:Linux 中 fg、bg、jobs 等指令</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/peida/archive/2012/11/07/2758084.html">每天一个linux命令（15）：tail 命令</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35603331/article/details/83793475">shell:shell脚本加密</a><br><a target="_blank" rel="noopener" href="https://github.com/DuGuQiuBai/Java">Java</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/L15519543837/article/details/106823082?utm_medium=distribute.pc_feed.none-task-blog-alirecmd-1.nonecase&depth_1-utm_source=distribute.pc_feed.none-task-blog-alirecmd-1.nonecase&request_id=">画图 流程图</a></p>
+<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="前端学习笔记"><a href="#前端学习笔记" class="headerlink" title="前端学习笔记"></a>前端学习笔记</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">style=&quot;background:url(https://img.tukuppt.com//ad_preview/00/03/30/5c98a556e3a89.jpg!/fw/980)&quot;</span><br><span class="line">左边栏固定： &lt;div id=&quot;pageHeader&quot; style=&quot;position: fixed; top: 0px; left: 0px; z-index: 9999; width: 100%;&quot;&gt;</span><br><span class="line">顶栏固定：&lt;div class=&quot;row border-bottom&quot; style=&quot;position: fixed; z-index: 9999; width: 100%;&quot;&gt;</span><br><span class="line">设置页面背景图片或颜色</span><br><span class="line">background-image: url(bgimage.gif);  </span><br><span class="line">background-color: #000000;s</span><br></pre></td></tr></table></figure>
+
+<p>SVG</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">意为可缩放矢量图形（Scalable Vector Graphics）。</span><br><span class="line">使用 XML 格式定义图像。</span><br><span class="line">art原背景色设置</span><br><span class="line">style=&quot;background-color: #ffffff</span><br><span class="line">深蓝色背景颜色</span><br><span class="line">#00162D</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="HTML-1"><a href="#HTML-1" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;col-md-4&quot; style=&quot;border-left: 2px solid #eee;font-size: 13px;margin-top: 10px&quot;&gt;</span><br><span class="line">style=&quot;VISIBILITY: hidden&quot;              							隐藏</span><br><span class="line">&#123;% if isadmin %&#125;  &#123;% endif %&#125;           							判断符合条件才展示</span><br><span class="line">&lt;style type=&quot;text/css&quot;&gt;div&#123;margin:5px;border:0;padding:0;&#125;&lt;/style&gt;  </span><br><span class="line">&lt;span style=&quot;display:none;&quot;&gt;&amp;nbsp;获取中&lt;/span&gt; 						隐藏不占空间</span><br><span class="line">&lt;span style=&quot;visibility:hidden;&quot;&gt;&amp;nbsp;获取中&lt;/span&gt;					隐藏占用空间</span><br><span class="line">approve&lt;input type=&quot;checkbox&quot; class=&quot;mycheck&quot; &#123;%  if approved %&#125; checked readonly&#123;% endif %&#125; id=&quot;approve_check&quot; &gt;</span><br><span class="line">&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;默认按钮&lt;/button&gt;     &lt;!-- 标准的按钮 --&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;原始按钮&lt;/button&gt;     &lt;!-- 提供额外的视觉效果，标识一组按钮中的原始动作 --&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;成功按钮&lt;/button&gt;     &lt;!-- 表示一个成功的或积极的动作 --&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot;&gt;信息按钮&lt;/button&gt;        &lt;!-- 信息警告消息的上下文按钮 --&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; class=&quot;btn btn-warning&quot;&gt;警告按钮&lt;/button&gt;     &lt;!-- 表示应谨慎采取的动作 --&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;危险按钮&lt;/button&gt;      &lt;!-- 表示一个危险的或潜在的负面动作 --&gt;</span><br><span class="line">&lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot;&gt;链接按钮&lt;/button&gt;        &lt;!-- 并不强调是一个按钮，看起来像一个链接，但同时保持按钮的行为&gt;</span><br><span class="line">class=&quot;col-md-4&quot;  											定义 列 占用4个像素</span><br><span class="line">margin-top:15px&quot;  											距离上方空出15个像素</span><br><span class="line">&lt;div class=&quot;col-md-4&quot; style=&quot;border-left: 2px solid #eee ;font-size: 13px ;margin-top:15px&quot; &gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="bootstrap-栅栏系统"><a href="#bootstrap-栅栏系统" class="headerlink" title="bootstrap 栅栏系统"></a>bootstrap 栅栏系统</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">col 														列</span><br><span class="line">xs-maxsmall，												超小</span><br><span class="line">sm-small，	 												小</span><br><span class="line">md-medium，	 												中等</span><br><span class="line">-*															表示占列，即占自动每行row分12列栅格系统比；</span><br><span class="line">col-xs-*													超小屏幕 手机 (&lt;768px),</span><br><span class="line">col-sm-*													小屏幕   平板 (≥768px),</span><br><span class="line">col-md-*													中等屏幕 桌面显示器 (≥992px)(栅格参数).</span><br></pre></td></tr></table></figure>
+
+
+
+<p>震惊于刚入行时的学习热情</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://img-blog.csdnimg.cn/45fab0bf94d24c89baae32b47ec22f8a.png',
+  alipayImage: 'https://img-blog.csdnimg.cn/857f2fcb134d46a18ab90f8abd742b4e.png'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>Bai Xiong</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2018/09/18/Collect/" target="_blank" title="收藏从未停止 复习从未开始 Collect">http://example.com/2018/09/18/Collect/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tools/" rel="tag">Tools</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/18/SQL-SqlServer/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数据处理 Sql Server
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/18/ML/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">机器学习 Machine Learning</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Perl"><span class="nav-number">1.</span> <span class="nav-text">Perl</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#perl%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.</span> <span class="nav-text">perl操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">2.</span> <span class="nav-text">HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="nav-number">2.1.</span> <span class="nav-text">前端学习笔记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-1"><span class="nav-number">2.2.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bootstrap-%E6%A0%85%E6%A0%8F%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.3.</span> <span class="nav-text">bootstrap 栅栏系统</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2023 HELLO WORLD All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/collection" class="mobile-nav-link">Collection</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HELLO WORLD
+          </div>
+          <div class="panel-body">
+            Copyright © 2023 Bai Xiong All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

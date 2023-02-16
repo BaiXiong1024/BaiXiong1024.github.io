@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>数据处理 python pandas | HELLO WORLD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="PythonFunctionPandas" />
+  
+  
+  
+  
+  <meta name="description" content="通往机器学习算法工程师的进阶之路是崎岖险阻的。《线性代数》 《统计学习方法》《机器学习》《模式识别》《深度学习》，以及《颈椎病康复指南》，这些书籍将长久地伴随着你的工作生涯。除了拥有全面、有条理的知识储备，想成为一名优秀的算法工程师，更重要的是对算法模型有着发自心底的热忱，对研究工作有一种匠心精神。这种匠心精神，直白来讲，可以概括为：发现问题的眼光、解决问题的探索精神，以及对问题究原竟委的执着追求">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据处理 python pandas">
+<meta property="og:url" content="http://example.com/2020/08/28/Python-pands/index.html">
+<meta property="og:site_name" content="HELLO WORLD">
+<meta property="og:description" content="通往机器学习算法工程师的进阶之路是崎岖险阻的。《线性代数》 《统计学习方法》《机器学习》《模式识别》《深度学习》，以及《颈椎病康复指南》，这些书籍将长久地伴随着你的工作生涯。除了拥有全面、有条理的知识储备，想成为一名优秀的算法工程师，更重要的是对算法模型有着发自心底的热忱，对研究工作有一种匠心精神。这种匠心精神，直白来讲，可以概括为：发现问题的眼光、解决问题的探索精神，以及对问题究原竟委的执着追求">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-28T00:08:08.000Z">
+<meta property="article:modified_time" content="2022-09-30T08:25:02.416Z">
+<meta property="article:author" content="Bai Xiong">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Function">
+<meta property="article:tag" content="Pandas">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/collection">collection</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Python-pands" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      数据处理 python pandas
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/08/28/Python-pands/" class="article-date">
+	  <time datetime="2020-08-28T00:08:08.000Z" itemprop="datePublished">2020-08-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Code/">Code</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通往机器学习算法工程师的进阶之路是崎岖险阻的。《线性代数》 《统计学习方法》《机器学习》《模式识别》《深度学习》，以及《颈椎病康复指南》，这些书籍将长久地伴随着你的工作生涯。<br>除了拥有全面、有条理的知识储备，想成为一名优秀的算法工程师，更重要的是对算法模型有着发自心底的热忱，对研究工作有一种匠心精神。这种匠心精神，直白来讲，可以概括为：发现问题的眼光、解决问题的探索精神，以及对问题究原竟委的执着追求</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在使用之前，需要导入pandas库</span><br><span class="line">import pandas as pd</span><br></pre></td></tr></table></figure>
+
+<h2 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">pd.DataFrame() <span class="comment"># 自己创建数据框，用于练习</span></span><br><span class="line">pd.read_csv(filename) <span class="comment"># 从CSV⽂件导⼊数据</span></span><br><span class="line">pd.read_table(filename) <span class="comment"># 从限定分隔符的⽂本⽂件导⼊数据</span></span><br><span class="line">pd.read_excel(filename) <span class="comment"># 从Excel⽂件导⼊数据</span></span><br><span class="line">pd.read_sql(query,connection_object) <span class="comment"># 从SQL表/库导⼊数据</span></span><br><span class="line">pd.read_json(json_string) <span class="comment"># 从JSON格式的字符串导⼊数据</span></span><br><span class="line">pd.read_html(url) <span class="comment"># 解析URL、字符串或者HTML⽂件，抽取其中的tables表格</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="导出数据"><a href="#导出数据" class="headerlink" title="导出数据"></a>导出数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df.to_csv(filename) <span class="comment">#导出数据到CSV⽂件</span></span><br><span class="line">df.to_excel(filename) <span class="comment">#导出数据到Excel⽂件</span></span><br><span class="line">df.to_sql(table_name,connection_object) <span class="comment">#导出数据到SQL表</span></span><br><span class="line">df.to_json(filename) <span class="comment">#以Json格式导出数据到⽂本⽂件</span></span><br><span class="line">writer=pd.ExcelWriter(<span class="string">&#x27;test.xlsx&#x27;</span>,index=<span class="literal">False</span>)</span><br><span class="line">df1.to_excel(writer,sheet_name=<span class="string">&#x27;单位&#x27;</span>)和writer.save()，将多个数据帧写⼊同⼀个⼯作簿的多个sheet(⼯作表)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="查看数据"><a href="#查看数据" class="headerlink" title="查看数据"></a>查看数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">df.head(n) <span class="comment"># 查看DataFrame对象的前n⾏</span></span><br><span class="line">df.tail(n) <span class="comment"># 查看DataFrame对象的最后n⾏</span></span><br><span class="line">df.shape() <span class="comment"># 查看⾏数和列数</span></span><br><span class="line">df.info() <span class="comment"># 查看索引、数据类型和内存信息</span></span><br><span class="line">df.columns() <span class="comment"># 查看字段（⾸⾏）名称</span></span><br><span class="line">df.describe() <span class="comment"># 查看数值型列的汇总统计</span></span><br><span class="line">s.value_counts(dropna=<span class="literal">False</span>) <span class="comment"># 查看Series对象的唯⼀值和计数</span></span><br><span class="line">df.apply(pd.Series.value_counts) <span class="comment"># 查看DataFrame对象中每⼀列的唯⼀值和计数</span></span><br><span class="line">df.isnull().<span class="built_in">any</span>() <span class="comment"># 查看是否有缺失值</span></span><br><span class="line">df[df[column_name].duplicated()] <span class="comment"># 查看column_name字段数据重复的数据信息</span></span><br><span class="line">df[df[column_name].duplicated()].count() <span class="comment"># 查看column_name字段数据重复的个数</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="数据选取"><a href="#数据选取" class="headerlink" title="数据选取"></a>数据选取</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">df[col] <span class="comment"># 根据列名，并以Series的形式返回列</span></span><br><span class="line">df[[col1,col2]] <span class="comment"># 以DataFrame形式返回多列</span></span><br><span class="line">s.iloc[<span class="number">0</span>] <span class="comment"># 按位置选取数据</span></span><br><span class="line">s.loc[<span class="string">&#x27;index_one&#x27;</span>] <span class="comment"># 按索引选取数据</span></span><br><span class="line">df.iloc[<span class="number">0</span>,:] <span class="comment"># 返回第⼀⾏</span></span><br><span class="line">df.iloc[<span class="number">0</span>,<span class="number">0</span>] <span class="comment"># 返回第⼀列的第⼀个元素</span></span><br><span class="line">df.loc[<span class="number">0</span>,:] <span class="comment"># 返回第⼀⾏（索引为默认的数字时，⽤法同df.iloc），但需要注意的是loc是按索引,iloc参数只接受数字参数</span></span><br><span class="line">df.ix[[:<span class="number">5</span>],[<span class="string">&quot;col1&quot;</span>,<span class="string">&quot;col2&quot;</span>]] <span class="comment"># 返回字段为col1和col2的前5条数据，可以理解为loc和</span></span><br><span class="line">iloc的结合体。</span><br><span class="line">df.at[<span class="number">5</span>,<span class="string">&quot;col1&quot;</span>] <span class="comment"># 选择索引名称为5，字段名称为col1的数据</span></span><br><span class="line">df.iat[<span class="number">5</span>,<span class="number">0</span>] <span class="comment"># 选择索引排序为5，字段排序为0的数据</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">df.columns= [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>] <span class="comment"># 重命名列名（需要将所有列名列出，否则会报错）</span></span><br><span class="line">pd.isnull() <span class="comment"># 检查DataFrame对象中的空值，并返回⼀个Boolean数组</span></span><br><span class="line">pd.notnull() <span class="comment"># 检查DataFrame对象中的⾮空值，并返回⼀个Boolean数组</span></span><br><span class="line">df.dropna() <span class="comment"># 删除所有包含空值的⾏</span></span><br><span class="line">df.dropna(axis=<span class="number">1</span>) <span class="comment"># 删除所有包含空值的列</span></span><br><span class="line">df.dropna(axis=<span class="number">1</span>,thresh=n) <span class="comment"># 删除所有⼩于n个⾮空值的⾏</span></span><br><span class="line">df.fillna(value=x) <span class="comment"># ⽤x替换DataFrame对象中所有的空值，⽀持</span></span><br><span class="line">df[column_name].fillna(x)</span><br><span class="line">s.astype(<span class="built_in">float</span>) <span class="comment"># 将Series中的数据类型更改为float类型</span></span><br><span class="line">s.replace(<span class="number">1</span>,<span class="string">&#x27;one&#x27;</span>) <span class="comment"># ⽤‘one’代替所有等于1的值</span></span><br><span class="line">s.replace([<span class="number">1</span>,<span class="number">3</span>],[<span class="string">&#x27;one&#x27;</span>,<span class="string">&#x27;three&#x27;</span>]) <span class="comment"># ⽤&#x27;one&#x27;代替1，⽤&#x27;three&#x27;代替3</span></span><br><span class="line">df.rename(columns=lambdax:x+<span class="number">1</span>) <span class="comment"># 批量更改列名</span></span><br><span class="line">df.rename(columns=&#123;<span class="string">&#x27;old_name&#x27;</span>:<span class="string">&#x27;new_ name&#x27;</span>&#125;) <span class="comment"># 选择性更改列名</span></span><br><span class="line">df.set_index(<span class="string">&#x27;column_one&#x27;</span>) <span class="comment"># 将某个字段设为索引，可接受列表参数，即设置多个索引</span></span><br><span class="line">df.reset_index(<span class="string">&quot;col1&quot;</span>) <span class="comment"># 将索引设置为col1字段，并将索引新设置为0,1,2...</span></span><br><span class="line">df.rename(index=lambdax:x+<span class="number">1</span>) <span class="comment"># 批量重命名索引</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="数据分组、排序、透视"><a href="#数据分组、排序、透视" class="headerlink" title="数据分组、排序、透视"></a>数据分组、排序、透视</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">df.sort_index().loc[:<span class="number">5</span>] <span class="comment"># 对前5条数据进⾏索引排序</span></span><br><span class="line">df.sort_values(col1) <span class="comment"># 按照列col1排序数据，默认升序排列</span></span><br><span class="line">df.sort_values(col2,ascending=<span class="literal">False</span>) <span class="comment"># 按照列col1降序排列数据</span></span><br><span class="line">df.sort_values([col1,col2],ascending=[<span class="literal">True</span>,<span class="literal">False</span>]) <span class="comment"># 先按列col1升序排列，后按col2降序排列数据</span></span><br><span class="line">df.groupby(col) <span class="comment"># 返回⼀个按列col进⾏分组的Groupby对象</span></span><br><span class="line">df.groupby([col1,col2]) <span class="comment"># 返回⼀个按多列进⾏分组的Groupby对象</span></span><br><span class="line">df.groupby(col1)[col2].agg(mean) <span class="comment"># 返回按列col1进⾏分组后，列col2的均值,agg可以接受列表参数，agg([len,np.mean])</span></span><br><span class="line">df.pivot_table(index=col1,values=[col2,col3],aggfunc=&#123;col2:<span class="built_in">max</span>,col3:[ma,<span class="built_in">min</span>]&#125;) <span class="comment"># 创建⼀个按列col1进⾏分组，计算col2的最⼤值和col3的最⼤值、最⼩值的数据透视表</span></span><br><span class="line">df.groupby(col1).agg(np.mean) <span class="comment"># 返回按列col1分组的所有列的均值,⽀持</span></span><br><span class="line">df.groupby(col1).col2.agg([<span class="string">&#x27;min&#x27;</span>,<span class="string">&#x27;max&#x27;</span>])</span><br><span class="line">data.apply(np.mean) <span class="comment"># 对DataFrame中的每⼀列应⽤函数np.mean</span></span><br><span class="line">data.apply(np.<span class="built_in">max</span>,axis=<span class="number">1</span>) <span class="comment"># 对DataFrame中的每⼀⾏应⽤函数np.max</span></span><br><span class="line">df.groupby(col1).col2.transform(<span class="string">&quot;sum&quot;</span>) <span class="comment"># 通常与groupby连⽤，避免索引更改</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="数据合并"><a href="#数据合并" class="headerlink" title="数据合并"></a>数据合并</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df1.append(df2) <span class="comment"># 将df2中的⾏添加到df1的尾部</span></span><br><span class="line">df.concat([df1,df2],axis=<span class="number">1</span>,join=<span class="string">&#x27;inner&#x27;</span>) <span class="comment"># 将df2中的列添加到df1的尾部,值为空的对应⾏与对应列都不要</span></span><br><span class="line">df1.join(df2.set_index(col1),on=col1,how=<span class="string">&#x27;inner&#x27;</span>) <span class="comment"># 对df1的列和df2的列执⾏SQL形式的join，默认按照索引来进⾏合并，如果df1和df2有共同字段时，会报错，可通过设置lsuffix,rsuffix来进⾏解决，如果需要按照共同列进⾏合并，就要⽤到set_index(col1)</span></span><br><span class="line">pd.merge(df1,df2,on=<span class="string">&#x27;col1&#x27;</span>,how=<span class="string">&#x27;outer&#x27;</span>) <span class="comment"># 对df1和df2合并，按照col1，⽅式为outer</span></span><br><span class="line">pd.merge(df1,df2,left_index=<span class="literal">True</span>,right_index=<span class="literal">True</span>,how=<span class="string">&#x27;outer&#x27;</span>) <span class="comment">#与 df1.join(df2, how=&#x27;outer&#x27;)效果相同</span></span><br></pre></td></tr></table></figure>
+
+<p>参考链接 [<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41261833/article/details/115598697]">https://blog.csdn.net/weixin_41261833/article/details/115598697]</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://img-blog.csdnimg.cn/45fab0bf94d24c89baae32b47ec22f8a.png',
+  alipayImage: 'https://img-blog.csdnimg.cn/857f2fcb134d46a18ab90f8abd742b4e.png'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>Bai Xiong</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2020/08/28/Python-pands/" target="_blank" title="数据处理 python pandas">http://example.com/2020/08/28/Python-pands/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Function/" rel="tag">Function</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/28/Python-imp/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          高阶使用 Python
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/28/Python-utils/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">常用工具 Python</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">导入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE"><span class="nav-number">2.</span> <span class="nav-text">导出数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE"><span class="nav-number">3.</span> <span class="nav-text">查看数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%80%89%E5%8F%96"><span class="nav-number">4.</span> <span class="nav-text">数据选取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="nav-number">5.</span> <span class="nav-text">数据处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E7%BB%84%E3%80%81%E6%8E%92%E5%BA%8F%E3%80%81%E9%80%8F%E8%A7%86"><span class="nav-number">6.</span> <span class="nav-text">数据分组、排序、透视</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6"><span class="nav-number">7.</span> <span class="nav-text">数据合并</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2023 HELLO WORLD All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/collection" class="mobile-nav-link">Collection</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HELLO WORLD
+          </div>
+          <div class="panel-body">
+            Copyright © 2023 Bai Xiong All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
