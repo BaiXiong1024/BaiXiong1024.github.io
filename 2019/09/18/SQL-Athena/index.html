@@ -11,15 +11,15 @@
   
   
   
-  <meta name="description" content="AWS数据查询工具-Athena">
+  <meta name="description" content="AWS数据查询工具-AthenaAmazon Athena 是一种交互式查询服务，让您能够轻松使用标准 SQL 直接分析 Amazon Simple Storage Service (Amazon S3) 中的数据。只需在 AWS Management Console 中执行几项操作，即可将 Athena 指向 Amazon S3 中存储的数据，并开始使用标准 SQL 运行临时查询，然后在几秒钟内">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据处理 Athena">
 <meta property="og:url" content="http://example.com/2019/09/18/SQL-Athena/index.html">
 <meta property="og:site_name" content="HELLO WORLD">
-<meta property="og:description" content="AWS数据查询工具-Athena">
+<meta property="og:description" content="AWS数据查询工具-AthenaAmazon Athena 是一种交互式查询服务，让您能够轻松使用标准 SQL 直接分析 Amazon Simple Storage Service (Amazon S3) 中的数据。只需在 AWS Management Console 中执行几项操作，即可将 Athena 指向 Amazon S3 中存储的数据，并开始使用标准 SQL 运行临时查询，然后在几秒钟内">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-09-18T07:09:12.000Z">
-<meta property="article:modified_time" content="2023-02-16T15:04:04.738Z">
+<meta property="article:modified_time" content="2023-02-16T15:40:08.727Z">
 <meta property="article:author" content="Bai Xiong">
 <meta property="article:tag" content="SQL">
 <meta property="article:tag" content="Athena">
@@ -212,7 +212,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>AWS数据查询工具-Athena</p>
+        <p>AWS数据查询工具-Athena<br>Amazon Athena 是一种交互式查询服务，让您能够轻松使用标准 SQL 直接分析 Amazon Simple Storage Service (Amazon S3) 中的数据。只需在 AWS Management Console 中执行几项操作，即可将 Athena 指向 Amazon S3 中存储的数据，并开始使用标准 SQL 运行临时查询，然后在几秒钟内获得结果。<br>Amazon Athena 还可使用 Apache Spark 以交互方式轻松运行数据分析，无需规划、配置或管理资源。在 Athena 上运行 Apache Spark 应用程序时，您需要提交 Spark 代码以进行处理并直接接收结果。使用 Amazon Athena 控制台中简化的笔记本体验，以通过 Python 或 Athena 笔记本 API 开发 Apache Spark 应用程序。<br>Athena SQL 和 Amazon Athena 上的 Apache Spark 无服务器，因此您无需设置或管理任何基础设施，只需为运行的查询付费。Athena 可自动扩展（并行执行查询），因此，即使在数据集很大、查询很复杂的情况下也能很快获得结果。<br>官方文档地址: <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/athena/latest/ug/using-athena-sql.html">https://docs.aws.amazon.com/zh_cn/athena/latest/ug/using-athena-sql.html</a></p>
 <span id="more"></span>
 
 <h3 id="备份分区表"><a href="#备份分区表" class="headerlink" title="备份分区表"></a>备份分区表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">table</span> xxx.test</span><br><span class="line"><span class="keyword">WITH</span> (external_location <span class="operator">=</span><span class="string">&#x27;s3://xxx/xxx/test&#x27;</span>,</span><br><span class="line">partitioned_by <span class="operator">=</span> <span class="keyword">ARRAY</span>[<span class="string">&#x27;dt&#x27;</span>])</span><br><span class="line"><span class="keyword">as</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> xxx</span><br></pre></td></tr></table></figure>
@@ -226,6 +226,7 @@
 
 
 <h3 id="python操作Athena数据库-将df上传到数据表"><a href="#python操作Athena数据库-将df上传到数据表" class="headerlink" title="python操作Athena数据库 将df上传到数据表"></a>python操作Athena数据库 将df上传到数据表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> awswrangler <span class="keyword">as</span> wr</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">datetime_beijing</span>(<span class="params">datetime_</span>):</span><br><span class="line">    beijing_time = datetime_ + datetime.timedelta(hours=<span class="number">8</span>)</span><br><span class="line">    <span class="keyword">return</span> beijing_time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_part_parquet</span>(<span class="params">df: <span class="built_in">str</span>,path: <span class="built_in">str</span>,part: <span class="built_in">list</span>,table: <span class="built_in">str</span>,dtype: <span class="built_in">dict</span></span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(df)&gt;<span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(datetime_beijing(datetime.datetime.now()), <span class="string">&#x27;###### generate &#123;type&#125; parquet start...&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">type</span>=table))</span><br><span class="line">        wr.s3.to_parquet(</span><br><span class="line">                df = df, path= path, dataset=<span class="literal">True</span>, mode=<span class="string">&quot;overwrite_partitions&quot;</span>, partition_cols=part, sanitize_columns=<span class="literal">True</span>,</span><br><span class="line">                database=<span class="string">&quot;xxx&quot;</span>, table=table, dtype=dtype</span><br><span class="line">            )</span><br><span class="line">        <span class="built_in">print</span>(datetime_beijing(datetime.datetime.now()), <span class="string">&#x27;###### generate &#123;type&#125; parquet end...&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">type</span>=table))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(df,<span class="string">&quot; is empty....&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_s3_parquet</span>(<span class="params">df: <span class="built_in">str</span>,path: <span class="built_in">str</span>,table: <span class="built_in">str</span>, dtype=<span class="literal">None</span></span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(df)&gt;<span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(datetime_beijing(datetime.datetime.now()), <span class="string">&#x27;###### generate &#123;type&#125; start...&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">type</span>=table))</span><br><span class="line">        wr.s3.to_parquet(</span><br><span class="line">                df = df, path= path, dataset=<span class="literal">True</span>, mode=<span class="string">&quot;overwrite&quot;</span>,</span><br><span class="line">                sanitize_columns=<span class="literal">True</span>, database=<span class="string">&quot;xxx&quot;</span>, table=table, dtype=dtype</span><br><span class="line">            )</span><br><span class="line">        <span class="built_in">print</span>(datetime_beijing(datetime.datetime.now()), <span class="string">&#x27;###### generate &#123;type&#125; end...&#x27;</span>.<span class="built_in">format</span>(<span class="built_in">type</span>=table))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(df,<span class="string">&quot; is empty....&quot;</span>)</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
@@ -303,19 +304,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/09/18/SQL-MySql/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/18/SQL-EXASOL/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          数据处理 MySql
+          数据处理 EXASOL
         
       </div>
     </a>
   
   
-    <a href="/2019/09/18/SQL-PostgreSQL/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/09/18/SQL-Hive/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">数据处理 PostgreSQL</div>
+      <div class="article-nav-title">数据处理 Hive Sql</div>
     </a>
   
 </nav>
