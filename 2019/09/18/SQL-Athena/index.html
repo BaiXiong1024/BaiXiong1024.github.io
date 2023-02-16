@@ -19,7 +19,7 @@
 <meta property="og:description" content="AWS数据查询工具-Athena">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-09-18T07:09:12.000Z">
-<meta property="article:modified_time" content="2022-09-30T07:39:58.512Z">
+<meta property="article:modified_time" content="2023-02-16T15:04:04.738Z">
 <meta property="article:author" content="Bai Xiong">
 <meta property="article:tag" content="SQL">
 <meta property="article:tag" content="Athena">
@@ -215,7 +215,7 @@
         <p>AWS数据查询工具-Athena</p>
 <span id="more"></span>
 
-<h3 id="备份分区表"><a href="#备份分区表" class="headerlink" title="备份分区表"></a>备份分区表</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE table xxx.test</span><br><span class="line">WITH (external_location =&#x27;s3://xxx/xxx/test&#x27;,</span><br><span class="line">partitioned_by = ARRAY[&#x27;dt&#x27;])</span><br><span class="line">as</span><br><span class="line">SELECT * FROM xxx</span><br></pre></td></tr></table></figure>
+<h3 id="备份分区表"><a href="#备份分区表" class="headerlink" title="备份分区表"></a>备份分区表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">table</span> xxx.test</span><br><span class="line"><span class="keyword">WITH</span> (external_location <span class="operator">=</span><span class="string">&#x27;s3://xxx/xxx/test&#x27;</span>,</span><br><span class="line">partitioned_by <span class="operator">=</span> <span class="keyword">ARRAY</span>[<span class="string">&#x27;dt&#x27;</span>])</span><br><span class="line"><span class="keyword">as</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> xxx</span><br></pre></td></tr></table></figure>
 
 
 <h3 id="查询字符串字段-endwith-‘-‘"><a href="#查询字符串字段-endwith-‘-‘" class="headerlink" title="查询字符串字段 endwith ‘ ‘"></a>查询字符串字段 endwith ‘ ‘</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> product_type <span class="keyword">from</span> prod</span><br><span class="line"><span class="keyword">where</span> <span class="built_in">substring</span>(product_type,<span class="number">-1</span>,<span class="number">1</span>)<span class="operator">=</span><span class="string">&#x27; &#x27;</span></span><br></pre></td></tr></table></figure>
@@ -303,19 +303,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/09/18/Mathematics/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/18/SQL-MySql/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          高等数学 Mathematics
+          数据处理 MySql
         
       </div>
     </a>
   
   
-    <a href="/2019/09/18/SQL-Database/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/09/18/SQL-PostgreSQL/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">数据库操作 Hive / sql sever</div>
+      <div class="article-nav-title">数据处理 PostgreSQL</div>
     </a>
   
 </nav>
