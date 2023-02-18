@@ -20,7 +20,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://images.pexels.com/photos/3184451/pexels-photo-3184451.jpeg?cs=srgb&dl=pexels-fauxels-3184451.jpg&fm=jpg">
 <meta property="article:published_time" content="2023-01-01T08:09:12.000Z">
-<meta property="article:modified_time" content="2023-02-16T14:27:48.686Z">
+<meta property="article:modified_time" content="2023-02-18T04:02:01.522Z">
 <meta property="article:author" content="Bai Xiong">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="DataStructures&amp;Algorothms">
@@ -363,6 +363,316 @@
 <h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>数据是一个抽象的概念，将其进行分类后得到程序设计语言中的基本类型。如：int，float，char等。数据元素之间不是独立的，存在特定的关系，这些关系便是结构。数据结构指数据对象中数据元素之间的关系。<br>Python给我们提供了很多现成的数据结构类型，这些系统自己定义好的，不需要我们自己去定义的数据结构叫做Python的内置数据结构，比如列表、元组、字典。而有些数据组织方式，Python系统里面没有直接定义，需要我们自己去定义实现这些数据的组织方式，这些数据组织方式称之为Python的扩展数据结构，比如栈，队列等。</p>
 <h4 id="算法与数据结构的区别"><a href="#算法与数据结构的区别" class="headerlink" title="算法与数据结构的区别"></a>算法与数据结构的区别</h4><p>数据结构只是静态的描述了数据元素之间的关系。<br>高效的程序需要在数据结构的基础上设计和选择算法。<br>程序 = 数据结构 + 算法<br>总结：算法是为了解决实际问题而设计的，数据结构是算法需要处理的问题载体</p>
 <h4 id="抽象数据类型-Abstract-Data-Type"><a href="#抽象数据类型-Abstract-Data-Type" class="headerlink" title="抽象数据类型(Abstract Data Type)"></a>抽象数据类型(Abstract Data Type)</h4><p>抽象数据类型(ADT)的含义是指一个数学模型以及定义在此数学模型上的一组操作。即把数据类型和数据类型上的运算捆在一起，进行封装。引入抽象数据类型的目的是把数据类型的表示和数据类型上运算的实现与这些数据类型和运算在程序中的引用隔开，使它们相互独立。<br>最常用的数据运算有五种：<br>插入<br>删除<br>修改<br>查找<br>排序</p>
+<h4 id="附表-数据结构和算法专业术语中英文对照"><a href="#附表-数据结构和算法专业术语中英文对照" class="headerlink" title="附表-数据结构和算法专业术语中英文对照"></a>附表-数据结构和算法专业术语中英文对照</h4><table>
+<thead>
+<tr>
+<th>English</th>
+<th align="center">中文</th>
+<th></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Abstract Data Type</td>
+<td align="center">抽象数据类型</td>
+<td>Hashtable</td>
+<td align="center">哈希表，映射</td>
+</tr>
+<tr>
+<td>ADT</td>
+<td align="center">抽象数据类型</td>
+<td>Heap</td>
+<td align="center">堆</td>
+</tr>
+<tr>
+<td>Algorithm</td>
+<td align="center">算法</td>
+<td>Index</td>
+<td align="center">索引</td>
+</tr>
+<tr>
+<td>Array</td>
+<td align="center">数组</td>
+<td>“Insertion    Sort”</td>
+<td align="center">插入排序</td>
+</tr>
+<tr>
+<td>ArrayList</td>
+<td align="center">动态数组</td>
+<td>Interface</td>
+<td align="center">接口</td>
+</tr>
+<tr>
+<td>Average Case</td>
+<td align="center">平均情况</td>
+<td>Iteration</td>
+<td align="center">迭代</td>
+</tr>
+<tr>
+<td>Balance Tree</td>
+<td align="center">平衡树</td>
+<td>Linear</td>
+<td align="center">线性级别</td>
+</tr>
+<tr>
+<td>BAT</td>
+<td align="center">百度，阿里，腾讯</td>
+<td>“Linked    List”</td>
+<td align="center">链表</td>
+</tr>
+<tr>
+<td>Best Case</td>
+<td align="center">最好情况</td>
+<td>Logarithmic</td>
+<td align="center">对数级别</td>
+</tr>
+<tr>
+<td>BFS</td>
+<td align="center">广度优先搜索</td>
+<td>Lookup</td>
+<td align="center">查找</td>
+</tr>
+<tr>
+<td>Big O 大 O</td>
+<td align="center">符号</td>
+<td>“Lower    Bounds”</td>
+<td align="center">下限</td>
+</tr>
+<tr>
+<td>Binary Search</td>
+<td align="center">二分搜索</td>
+<td>“Master    Theorem”</td>
+<td align="center">主项定理</td>
+</tr>
+<tr>
+<td>Binary Search Tree</td>
+<td align="center">二叉搜索树</td>
+<td>Math</td>
+<td align="center">数学</td>
+</tr>
+<tr>
+<td>Binary Tree</td>
+<td align="center">二叉树</td>
+<td>Memorization</td>
+<td align="center">记忆化</td>
+</tr>
+<tr>
+<td>Bit Manipulation</td>
+<td align="center">二进制处理</td>
+<td>“Merge    Sort”</td>
+<td align="center">归并排序</td>
+</tr>
+<tr>
+<td>Bit Operation</td>
+<td align="center">微操作</td>
+<td>Module</td>
+<td align="center">模块</td>
+</tr>
+<tr>
+<td>Bottom-up</td>
+<td align="center">从下往上</td>
+<td>N-Log-N</td>
+<td align="center">线性对数级别</td>
+</tr>
+<tr>
+<td>Boundary Check</td>
+<td align="center">边界检查</td>
+<td>“Non-Deterministic    Polynomial”</td>
+<td align="center">非确定多项式问题</td>
+</tr>
+<tr>
+<td>Breath First Search</td>
+<td align="center">广度优先搜索</td>
+<td>“Object    Oriented”</td>
+<td align="center">面向对象</td>
+</tr>
+<tr>
+<td>Brute Force</td>
+<td align="center">暴力破解</td>
+<td>“Open    Addressing”</td>
+<td align="center">开发寻址</td>
+</tr>
+<tr>
+<td>Bubble Sort</td>
+<td align="center">冒泡排序</td>
+<td>Partition</td>
+<td align="center">分组</td>
+</tr>
+<tr>
+<td>Collision</td>
+<td align="center">冲突</td>
+<td>Pivot</td>
+<td align="center">枢纽</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td align="center">复杂度</td>
+<td>Polynomial</td>
+<td align="center">多项式</td>
+</tr>
+<tr>
+<td>Constant</td>
+<td align="center">常数级别</td>
+<td>Quadratic</td>
+<td align="center">平方级别</td>
+</tr>
+<tr>
+<td>Continuous</td>
+<td align="center">连续的</td>
+<td>Queue</td>
+<td align="center">队列</td>
+</tr>
+<tr>
+<td>Count Sort</td>
+<td align="center">计数排序</td>
+<td>“Quick    Sort”</td>
+<td align="center">快速排序</td>
+</tr>
+<tr>
+<td>Cubic</td>
+<td align="center">立方级别</td>
+<td>Recursion</td>
+<td align="center">递归</td>
+</tr>
+<tr>
+<td>Customized Hash Object</td>
+<td align="center">自定义哈希类</td>
+<td>“Red    Black    Tree”</td>
+<td align="center">红黑树</td>
+</tr>
+<tr>
+<td>Data Engineer</td>
+<td align="center">数据工程师</td>
+<td>Rehash</td>
+<td align="center">重新配置</td>
+</tr>
+<tr>
+<td>Data Scientist</td>
+<td align="center">数据科学家</td>
+<td>“Rolling    Hash”</td>
+<td align="center">滚动哈希</td>
+</tr>
+<tr>
+<td>Data Structure</td>
+<td align="center">数据结构</td>
+<td>“Running    Time”</td>
+<td align="center">运行时间</td>
+</tr>
+<tr>
+<td>Depth First Search</td>
+<td align="center">深度优先搜索</td>
+<td>Search</td>
+<td align="center">搜索</td>
+</tr>
+<tr>
+<td>Deque</td>
+<td align="center">双向队列</td>
+<td>“Selection    Sort”</td>
+<td align="center">选择排序</td>
+</tr>
+<tr>
+<td>DFS</td>
+<td align="center">深度优先搜索</td>
+<td>“Separate    Chain”</td>
+<td align="center">独立链表</td>
+</tr>
+<tr>
+<td>Dijkstra Algorithm</td>
+<td align="center">迪杰斯特拉算法</td>
+<td>“Shell    Sort”</td>
+<td align="center">希尔排序</td>
+</tr>
+<tr>
+<td>Divide</td>
+<td align="center">拆分</td>
+<td>“Shortest    Path”</td>
+<td align="center">最短路径</td>
+</tr>
+<tr>
+<td>Divide and Conquer</td>
+<td align="center">分治算法</td>
+<td>“Sliding    Windows”</td>
+<td align="center">滑动窗口算法</td>
+</tr>
+<tr>
+<td>Double Hash</td>
+<td align="center">双重哈希</td>
+<td>“Software    Engineer”</td>
+<td align="center">软件工程师</td>
+</tr>
+<tr>
+<td>Doubly Linked List</td>
+<td align="center">双向链表</td>
+<td>Sort</td>
+<td align="center">排序</td>
+</tr>
+<tr>
+<td>DP</td>
+<td align="center">动态规划</td>
+<td>“Space    Complexity”</td>
+<td align="center">空间复杂度</td>
+</tr>
+<tr>
+<td>Dynamic Array</td>
+<td align="center">动态数组</td>
+<td>Stack</td>
+<td align="center">栈</td>
+</tr>
+<tr>
+<td>Dynamic Programming</td>
+<td align="center">动态规划</td>
+<td>Streaming</td>
+<td align="center">流</td>
+</tr>
+<tr>
+<td>Efficiency</td>
+<td align="center">效率</td>
+<td>String</td>
+<td align="center">字符串</td>
+</tr>
+<tr>
+<td>Exponential</td>
+<td align="center">指数级别</td>
+<td>“Time    Complexity”</td>
+<td align="center">时间复杂度</td>
+</tr>
+<tr>
+<td>FLAG</td>
+<td align="center">脸书，领英，亚马逊，谷歌</td>
+<td>Top-Down</td>
+<td align="center">从上往下</td>
+</tr>
+<tr>
+<td>Graph</td>
+<td align="center">图论</td>
+<td>“Topology    Sort”</td>
+<td align="center">拓扑排序</td>
+</tr>
+<tr>
+<td>Greedy Algorithm</td>
+<td align="center">贪婪算法</td>
+<td>Tree</td>
+<td align="center">树</td>
+</tr>
+<tr>
+<td>Hash Function</td>
+<td align="center">哈希函数</td>
+<td>“Two    Pointers”</td>
+<td align="center">双指针算法</td>
+</tr>
+<tr>
+<td>Hashcode</td>
+<td align="center">哈希码</td>
+<td>Union Find</td>
+<td align="center">并查集</td>
+</tr>
+<tr>
+<td>Worst Case</td>
+<td align="center">最差情况</td>
+<td>“Upper    Bounds”</td>
+<td align="center">上限</td>
+</tr>
+</tbody></table>
 
       
     </div>
@@ -458,7 +768,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">算法的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E4%BA%94%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">算法的五大特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4%E5%8F%8D%E5%BA%94%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87"><span class="nav-number">3.</span> <span class="nav-text">执行时间反应算法效率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E9%9D%A0%E6%97%B6%E9%97%B4%E5%80%BC%E7%BB%9D%E5%AF%B9%E5%8F%AF%E4%BF%A1%E5%90%97%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">单靠时间值绝对可信吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8E%E2%80%9C%E5%A4%A7O%E8%AE%B0%E6%B3%95%E2%80%9D"><span class="nav-number">5.</span> <span class="nav-text">时间复杂度与“大O记法”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E2%80%9C%E5%A4%A7O%E8%AE%B0%E6%B3%95%E2%80%9D"><span class="nav-number">6.</span> <span class="nav-text">如何理解“大O记法”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E5%9D%8F%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">7.</span> <span class="nav-text">最坏时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%9A%84%E5%87%A0%E6%9D%A1%E5%9F%BA%E6%9C%AC%E8%AE%A1%E7%AE%97%E8%A7%84%E5%88%99"><span class="nav-number">8.</span> <span class="nav-text">时间复杂度的几条基本计算规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">9.</span> <span class="nav-text">常见时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%80%E6%B6%88%E8%80%97%E7%9A%84%E6%97%B6%E9%97%B4%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7"><span class="nav-number">10.</span> <span class="nav-text">所消耗的时间从小到大</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python-list%E5%86%85%E7%BD%AE%E6%93%8D%E4%BD%9C%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">11.</span> <span class="nav-text">python list内置操作的时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">12.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">13.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">14.</span> <span class="nav-text">算法与数据结构的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-Abstract-Data-Type"><span class="nav-number">15.</span> <span class="nav-text">抽象数据类型(Abstract Data Type)</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">算法的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E4%BA%94%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">算法的五大特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4%E5%8F%8D%E5%BA%94%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87"><span class="nav-number">3.</span> <span class="nav-text">执行时间反应算法效率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E9%9D%A0%E6%97%B6%E9%97%B4%E5%80%BC%E7%BB%9D%E5%AF%B9%E5%8F%AF%E4%BF%A1%E5%90%97%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">单靠时间值绝对可信吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8E%E2%80%9C%E5%A4%A7O%E8%AE%B0%E6%B3%95%E2%80%9D"><span class="nav-number">5.</span> <span class="nav-text">时间复杂度与“大O记法”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E2%80%9C%E5%A4%A7O%E8%AE%B0%E6%B3%95%E2%80%9D"><span class="nav-number">6.</span> <span class="nav-text">如何理解“大O记法”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E5%9D%8F%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">7.</span> <span class="nav-text">最坏时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%9A%84%E5%87%A0%E6%9D%A1%E5%9F%BA%E6%9C%AC%E8%AE%A1%E7%AE%97%E8%A7%84%E5%88%99"><span class="nav-number">8.</span> <span class="nav-text">时间复杂度的几条基本计算规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">9.</span> <span class="nav-text">常见时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%80%E6%B6%88%E8%80%97%E7%9A%84%E6%97%B6%E9%97%B4%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7"><span class="nav-number">10.</span> <span class="nav-text">所消耗的时间从小到大</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python-list%E5%86%85%E7%BD%AE%E6%93%8D%E4%BD%9C%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">11.</span> <span class="nav-text">python list内置操作的时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">12.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">13.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">14.</span> <span class="nav-text">算法与数据结构的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-Abstract-Data-Type"><span class="nav-number">15.</span> <span class="nav-text">抽象数据类型(Abstract Data Type)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%99%84%E8%A1%A8-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AF%B9%E7%85%A7"><span class="nav-number">16.</span> <span class="nav-text">附表-数据结构和算法专业术语中英文对照</span></a></li></ol>
     
     </div>
   </aside>
