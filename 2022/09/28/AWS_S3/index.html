@@ -3,30 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>计算机视觉人像抠图 semanticsegmentation | HELLO WORLD</title>
+  <title>aws使用笔记 s3 | HELLO WORLD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="AIPythonCV" />
+  <meta name="keywords" content="AWSSagemakerPythonS3Athena" />
   
   
   
   
-  <meta name="description" content="人像动态抠图 实现视频背景替换">
+  <meta name="description" content="AWS 全称Amazon web service(亚马逊网络服务)，是亚马逊公司旗下云计算服务平台，为全世界各个国家和地区的客户提供一整套基础设施和云解决方案。AWS面向用户提供包括弹性计算、存储、数据库、物联网在内的一整套云计算服务，帮助企业降低IT投入和维护成本，轻松上云从概念是来看，AWS提供了一系列的托管产品，帮助我们在没有物理服务器的情况下，照样可以正常完成软件开发中的各种需求，也就是我">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机视觉人像抠图 SemanticSegmentation">
-<meta property="og:url" content="http://example.com/2022/09/28/CV-SelfiSegmentation/index.html">
+<meta property="og:title" content="AWS使用笔记 S3">
+<meta property="og:url" content="http://example.com/2022/09/28/AWS_S3/index.html">
 <meta property="og:site_name" content="HELLO WORLD">
-<meta property="og:description" content="人像动态抠图 实现视频背景替换">
+<meta property="og:description" content="AWS 全称Amazon web service(亚马逊网络服务)，是亚马逊公司旗下云计算服务平台，为全世界各个国家和地区的客户提供一整套基础设施和云解决方案。AWS面向用户提供包括弹性计算、存储、数据库、物联网在内的一整套云计算服务，帮助企业降低IT投入和维护成本，轻松上云从概念是来看，AWS提供了一系列的托管产品，帮助我们在没有物理服务器的情况下，照样可以正常完成软件开发中的各种需求，也就是我">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2022/09/28/CV-SelfiSegmentation/pic/cv_beijing.png">
-<meta property="article:published_time" content="2022-09-28T00:08:08.000Z">
-<meta property="article:modified_time" content="2022-09-30T10:04:52.000Z">
+<meta property="article:published_time" content="2022-09-28T07:09:12.000Z">
+<meta property="article:modified_time" content="2023-05-26T09:26:54.444Z">
 <meta property="article:author" content="Bai Xiong">
-<meta property="article:tag" content="AI">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="Sagemaker">
 <meta property="article:tag" content="Python">
-<meta property="article:tag" content="CV">
+<meta property="article:tag" content="S3">
+<meta property="article:tag" content="Athena">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/09/28/CV-SelfiSegmentation/pic/cv_beijing.png">
   
     <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
   
@@ -180,7 +180,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-CV-SelfiSegmentation" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-AWS_S3" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -188,7 +188,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      计算机视觉人像抠图 SemanticSegmentation
+      AWS使用笔记 S3
     </h1>
   
 
@@ -196,8 +196,8 @@
     
     <div class="article-meta">
       
-	<a href="/2022/09/28/CV-SelfiSegmentation/" class="article-date">
-	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
+	<a href="/2022/09/28/AWS_S3/" class="article-date">
+	  <time datetime="2022-09-28T07:09:12.000Z" itemprop="datePublished">2022-09-28</time>
 	</a>
 
       
@@ -215,10 +215,14 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="pic/cv_beijing.png"></p>
-<h3 id="人像动态抠图-实现视频背景替换"><a href="#人像动态抠图-实现视频背景替换" class="headerlink" title="人像动态抠图 实现视频背景替换"></a>人像动态抠图 实现视频背景替换</h3><span id="more"></span>
+        <p>AWS 全称Amazon web service(亚马逊网络服务)，是亚马逊公司旗下云计算服务平台，为全世界各个国家和地区的客户提供一整套基础设施和云解决方案。<br>AWS面向用户提供包括弹性计算、存储、数据库、物联网在内的一整套云计算服务，帮助企业降低IT投入和维护成本，轻松上云<br>从概念是来看，AWS提供了一系列的托管产品，帮助我们在没有物理服务器的情况下，照样可以正常完成软件开发中的各种需求，也就是我们常说的云服务。</p>
+<span id="more"></span>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> cvzone</span><br><span class="line"><span class="keyword">from</span> cvzone.SelfiSegmentationModule <span class="keyword">import</span> SelfiSegmentation</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cap = cv2.VideoCapture(<span class="number">0</span>)</span><br><span class="line">cap.<span class="built_in">set</span>(<span class="number">3</span>, <span class="number">1280</span>)</span><br><span class="line">cap.<span class="built_in">set</span>(<span class="number">4</span>, <span class="number">720</span>)</span><br><span class="line"></span><br><span class="line">cap.<span class="built_in">set</span>(cv2.CAP_PROP_FPS, <span class="number">30</span>)</span><br><span class="line">segmentor = SelfiSegmentation()</span><br><span class="line">fpsReader = cvzone.FPS()</span><br><span class="line">saveVideoPath = <span class="string">&#x27;output.avi&#x27;</span></span><br><span class="line">fourcc = cv2.VideoWriter_fourcc(*<span class="string">&#x27;XVID&#x27;</span>)</span><br><span class="line">out = cv2.VideoWriter(saveVideoPath, fourcc, <span class="number">30.0</span>, (<span class="number">2560</span>, <span class="number">720</span>))</span><br><span class="line">ListImg = os.listdir(<span class="string">&quot;Images&quot;</span>)</span><br><span class="line">imgList = []</span><br><span class="line"><span class="keyword">for</span> imgPath <span class="keyword">in</span> ListImg:</span><br><span class="line">    img = cv2.imread(<span class="string">f&#x27;Images/<span class="subst">&#123;imgPath&#125;</span>&#x27;</span>)</span><br><span class="line">    imgList.append(img)</span><br><span class="line">indexImg = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    success, img = cap.read()</span><br><span class="line">    <span class="keyword">if</span> success == <span class="literal">True</span>:</span><br><span class="line">        imgOut = segmentor.removeBG(img, imgList[indexImg], threshold=<span class="number">0.80</span>)</span><br><span class="line">        imgStacked = cvzone.stackImages([img, imgOut], <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">        _, imgStacked = fpsReader.update(imgStacked, color=(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>))</span><br><span class="line">        out.write(imgStacked)</span><br><span class="line">        cv2.imshow(<span class="string">&quot;Image&quot;</span>, imgStacked)</span><br><span class="line"></span><br><span class="line">        key = cv2.waitKey(<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> key == <span class="built_in">ord</span>(<span class="string">&#x27;a&#x27;</span>):</span><br><span class="line">            <span class="keyword">if</span> indexImg &gt; <span class="number">0</span>:</span><br><span class="line">                indexImg -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                indexImg = <span class="built_in">len</span>(imgList)-<span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> key == <span class="built_in">ord</span>(<span class="string">&#x27;d&#x27;</span>):</span><br><span class="line">            <span class="keyword">if</span> indexImg &lt; <span class="built_in">len</span>(imgList)-<span class="number">1</span>:</span><br><span class="line">                indexImg += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                indexImg = <span class="number">0</span></span><br><span class="line">        <span class="keyword">elif</span> key == <span class="built_in">ord</span>(<span class="string">&#x27;q&#x27;</span>):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Release everything if job is finished</span></span><br><span class="line">cap.release()</span><br><span class="line">out.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+<p>S3：Amazon Simple Storage Service，是一种云上的简单存储，是一种基于对象的存储。我们可以把我们的数据作为一个个对象存储在S3中。</p>
+<p>并且，S3可以被AWS中其他的服务所访问，甚至我们部署的Hadoop、Spark等程序都可以正常的访问S3的数据。</p>
+<p>S3作为存储，和服务器进行了隔离，原本我们做分布式存储如HDFS，都是依赖具体的服务器硬件的，但是使用S3，就不再需要了，它就相当于AWS提供的一款分布式、超大容量的网盘程序</p>
+<p>使用S3，我们可以将存储的计算资源进行分离，比如我们可以在需要计算的时候，临时创建几个EC2，去加载S3数据，运行程序计算结果，得到结果后，就可以删除EC2了，最大程度提供资源利用率，不需要计算的时候，让计算资源不再闲置，或者说，需要计算资源的时候再去创建即可。</p>
+
       
     </div>
     <footer class="article-footer">
@@ -246,7 +250,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2022/09/28/CV-SelfiSegmentation/" target="_blank" title="计算机视觉人像抠图 SemanticSegmentation">http://example.com/2022/09/28/CV-SelfiSegmentation/</a>
+          <a href="/2022/09/28/AWS_S3/" target="_blank" title="AWS使用笔记 S3">http://example.com/2022/09/28/AWS_S3/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -286,7 +290,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Athena/" rel="tag">Athena</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/S3/" rel="tag">S3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sagemaker/" rel="tag">Sagemaker</a></li></ul>
 
       
 
@@ -296,19 +300,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2022/09/28/AWS_Sagemaker/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/09/28/AWS_Athena/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          AWS使用笔记 Sagemaker
+          AWS使用笔记 Athena
         
       </div>
     </a>
   
   
-    <a href="/2022/09/28/CV-SemanticSegmentation/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/09/28/AWS_Sagemaker/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">语义分割 semantic segmentation</div>
+      <div class="article-nav-title">AWS使用笔记 Sagemaker</div>
     </a>
   
 </nav>
@@ -322,7 +326,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%BA%E5%83%8F%E5%8A%A8%E6%80%81%E6%8A%A0%E5%9B%BE-%E5%AE%9E%E7%8E%B0%E8%A7%86%E9%A2%91%E8%83%8C%E6%99%AF%E6%9B%BF%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">人像动态抠图 实现视频背景替换</span></a></li></ol>
+        <ol class="nav">None</ol>
     
     </div>
   </aside>

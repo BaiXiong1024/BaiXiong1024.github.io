@@ -3,30 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>计算机视觉人像抠图 semanticsegmentation | HELLO WORLD</title>
+  <title>联邦学习 federated learning | HELLO WORLD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="AIPythonCV" />
+  <meta name="keywords" content="AWSSagemakerPythonS3Athena" />
   
   
   
   
-  <meta name="description" content="人像动态抠图 实现视频背景替换">
+  <meta name="description" content="联邦学习背景:近年来人工智能可谓风风火火，掀起一波又一波浪潮，从人脸识别、活体检验发现刑事案件报警到阿尔法狗大战人类围棋手李世石、再到无人驾驶、以及已被普遍应用的精准营销，AI逐步进入人们生活的方方面面。当然也不免出现部分过度吹捧，导致对AI的误解–AI无所不能，既然这么好用，为啥我不能拿来用一下？在追逐AI的同时却忽略了一点，AI是靠数据来喂的，而且是大量优质数据。 现实生活中，除了少数巨头公司">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机视觉人像抠图 SemanticSegmentation">
-<meta property="og:url" content="http://example.com/2022/09/28/CV-SelfiSegmentation/index.html">
+<meta property="og:title" content="联邦学习 Federated Learning">
+<meta property="og:url" content="http://example.com/2023/03/01/Federated_Learning/index.html">
 <meta property="og:site_name" content="HELLO WORLD">
-<meta property="og:description" content="人像动态抠图 实现视频背景替换">
+<meta property="og:description" content="联邦学习背景:近年来人工智能可谓风风火火，掀起一波又一波浪潮，从人脸识别、活体检验发现刑事案件报警到阿尔法狗大战人类围棋手李世石、再到无人驾驶、以及已被普遍应用的精准营销，AI逐步进入人们生活的方方面面。当然也不免出现部分过度吹捧，导致对AI的误解–AI无所不能，既然这么好用，为啥我不能拿来用一下？在追逐AI的同时却忽略了一点，AI是靠数据来喂的，而且是大量优质数据。 现实生活中，除了少数巨头公司">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2022/09/28/CV-SelfiSegmentation/pic/cv_beijing.png">
-<meta property="article:published_time" content="2022-09-28T00:08:08.000Z">
-<meta property="article:modified_time" content="2022-09-30T10:04:52.000Z">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-2f90ef909f950e2e83e5bd9aad4f5432_1440w.webp">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-ee8292d033fc88148a030765dd18918d_1440w.webp">
+<meta property="article:published_time" content="2023-02-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-26T09:58:16.238Z">
 <meta property="article:author" content="Bai Xiong">
-<meta property="article:tag" content="AI">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="Sagemaker">
 <meta property="article:tag" content="Python">
-<meta property="article:tag" content="CV">
+<meta property="article:tag" content="S3">
+<meta property="article:tag" content="Athena">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/09/28/CV-SelfiSegmentation/pic/cv_beijing.png">
+<meta name="twitter:image" content="https://pic3.zhimg.com/80/v2-2f90ef909f950e2e83e5bd9aad4f5432_1440w.webp">
   
     <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
   
@@ -180,7 +183,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-CV-SelfiSegmentation" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-Federated_Learning" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -188,7 +191,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      计算机视觉人像抠图 SemanticSegmentation
+      联邦学习 Federated Learning
     </h1>
   
 
@@ -196,8 +199,8 @@
     
     <div class="article-meta">
       
-	<a href="/2022/09/28/CV-SelfiSegmentation/" class="article-date">
-	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
+	<a href="/2023/03/01/Federated_Learning/" class="article-date">
+	  <time datetime="2023-02-28T16:00:00.000Z" itemprop="datePublished">2023-03-01</time>
 	</a>
 
       
@@ -215,10 +218,39 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="pic/cv_beijing.png"></p>
-<h3 id="人像动态抠图-实现视频背景替换"><a href="#人像动态抠图-实现视频背景替换" class="headerlink" title="人像动态抠图 实现视频背景替换"></a>人像动态抠图 实现视频背景替换</h3><span id="more"></span>
+        <h4 id="联邦学习背景"><a href="#联邦学习背景" class="headerlink" title="联邦学习背景:"></a>联邦学习背景:</h4><p>近年来人工智能可谓风风火火，掀起一波又一波浪潮，从人脸识别、活体检验发现刑事案件报警到阿尔法狗大战人类围棋手李世石、再到无人驾驶、以及已被普遍应用的精准营销，AI逐步进入人们生活的方方面面。当然也不免出现部分过度吹捧，导致对AI的误解–AI无所不能，既然这么好用，为啥我不能拿来用一下？在追逐AI的同时却忽略了一点，AI是靠数据来喂的，而且是大量优质数据。</p>
+<p>现实生活中，除了少数巨头公司能够满足，绝大多数企业都存在数据量少，数据质量差的问题，不足以支撑人工智能技术的实现；同时国内外监管环境也在逐步加强数据保护，陆续出台相关政策，如欧盟最近引入 的新法案《通用数据保护条例》（GDPR），我国国家互联网信息办公室起草的《数据安全管理办法(征求意见稿)》，因此数据在安全合规的前提下自由流动，成了大势所趋；在用户和企业角度下，商业公司所拥有的数据往往都有巨大的潜在价值。两个公司甚至公司间的部门都要考虑利益的交换，往往这些机构不会提供各自数据与其他公司做与单的聚合，导致即使在同一个公司内，数据也往往以孤岛形式出现。</p>
+<p>基于以上不足以支撑实现、不允许粗暴交换、不愿意贡献价值三点，导致了现在大量存在的数据孤岛，以及隐私保护问题，联邦学习应运而生。</p>
+<span id="more"></span>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> cvzone</span><br><span class="line"><span class="keyword">from</span> cvzone.SelfiSegmentationModule <span class="keyword">import</span> SelfiSegmentation</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cap = cv2.VideoCapture(<span class="number">0</span>)</span><br><span class="line">cap.<span class="built_in">set</span>(<span class="number">3</span>, <span class="number">1280</span>)</span><br><span class="line">cap.<span class="built_in">set</span>(<span class="number">4</span>, <span class="number">720</span>)</span><br><span class="line"></span><br><span class="line">cap.<span class="built_in">set</span>(cv2.CAP_PROP_FPS, <span class="number">30</span>)</span><br><span class="line">segmentor = SelfiSegmentation()</span><br><span class="line">fpsReader = cvzone.FPS()</span><br><span class="line">saveVideoPath = <span class="string">&#x27;output.avi&#x27;</span></span><br><span class="line">fourcc = cv2.VideoWriter_fourcc(*<span class="string">&#x27;XVID&#x27;</span>)</span><br><span class="line">out = cv2.VideoWriter(saveVideoPath, fourcc, <span class="number">30.0</span>, (<span class="number">2560</span>, <span class="number">720</span>))</span><br><span class="line">ListImg = os.listdir(<span class="string">&quot;Images&quot;</span>)</span><br><span class="line">imgList = []</span><br><span class="line"><span class="keyword">for</span> imgPath <span class="keyword">in</span> ListImg:</span><br><span class="line">    img = cv2.imread(<span class="string">f&#x27;Images/<span class="subst">&#123;imgPath&#125;</span>&#x27;</span>)</span><br><span class="line">    imgList.append(img)</span><br><span class="line">indexImg = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    success, img = cap.read()</span><br><span class="line">    <span class="keyword">if</span> success == <span class="literal">True</span>:</span><br><span class="line">        imgOut = segmentor.removeBG(img, imgList[indexImg], threshold=<span class="number">0.80</span>)</span><br><span class="line">        imgStacked = cvzone.stackImages([img, imgOut], <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">        _, imgStacked = fpsReader.update(imgStacked, color=(<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>))</span><br><span class="line">        out.write(imgStacked)</span><br><span class="line">        cv2.imshow(<span class="string">&quot;Image&quot;</span>, imgStacked)</span><br><span class="line"></span><br><span class="line">        key = cv2.waitKey(<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> key == <span class="built_in">ord</span>(<span class="string">&#x27;a&#x27;</span>):</span><br><span class="line">            <span class="keyword">if</span> indexImg &gt; <span class="number">0</span>:</span><br><span class="line">                indexImg -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                indexImg = <span class="built_in">len</span>(imgList)-<span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> key == <span class="built_in">ord</span>(<span class="string">&#x27;d&#x27;</span>):</span><br><span class="line">            <span class="keyword">if</span> indexImg &lt; <span class="built_in">len</span>(imgList)-<span class="number">1</span>:</span><br><span class="line">                indexImg += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                indexImg = <span class="number">0</span></span><br><span class="line">        <span class="keyword">elif</span> key == <span class="built_in">ord</span>(<span class="string">&#x27;q&#x27;</span>):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Release everything if job is finished</span></span><br><span class="line">cap.release()</span><br><span class="line">out.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+<h4 id="联邦学习的概念"><a href="#联邦学习的概念" class="headerlink" title="联邦学习的概念"></a>联邦学习的概念</h4><p>本质：联邦学习本质上是一种分布式机器学习技术，或机器学习框架。</p>
+<p>目标：联邦学习的目标是在保证数据隐私安全及合法合规的基础上，实现共同建模，提升AI模型的效果。</p>
+<p>前身：联邦学习最早在 2016 年由谷歌提出，原本用于解决安卓手机终端用户在本地更新模型的问题；</p>
+<h4 id="联邦学习的分类"><a href="#联邦学习的分类" class="headerlink" title="联邦学习的分类"></a>联邦学习的分类</h4><p>我们把每个参与共同建模的企业称为参与方，根据多参与方之间数据分布的不同，把联邦学习分为三类：横向联邦学习、纵向联邦学习和联邦迁移学习。<br><img src="https://pic3.zhimg.com/80/v2-2f90ef909f950e2e83e5bd9aad4f5432_1440w.webp"></p>
+<h5 id="横向联邦学习"><a href="#横向联邦学习" class="headerlink" title="横向联邦学习"></a>横向联邦学习</h5><p>适用场景：<br>横向联邦学习的本质是样本的联合，适用于参与者间业态相同但触达客户不同，即特征重叠多，用户重叠少时的场景，比如不同地区的银行间，他们的业务相似（特征相似），但用户不同（样本不同）<br>学习过程：<br>step1：参与方各自从服务器A下载最新模型；</p>
+<p>step2：每个参与方利用本地数据训练模型，加密梯度上传给服务器A，服务器A聚合各用户的梯度更新模型参数；</p>
+<p>step3：服务器A返回更新后的模型给各参与方；</p>
+<p>step4：各参与方更新各自模型。</p>
+<p>步骤解读：在传统的机器学习建模中，通常是把模型训练需要的数据集合到一个数据中心然后再训练模型，之后预测。在横向联邦学习中，可以看作是基于样本的分布式模型训练，分发全部数据到不同的机器，每台机器从服务器下载模型，然后利用本地数据训练模型，之后返回给服务器需要更新的参数；服务器聚合各机器上的返回的参数，更新模型，再把最新的模型反馈到每台机器。</p>
+<p>在这个过程中，每台机器下都是相同且完整的模型，且机器之间不交流不依赖，在预测时每台机器也可以独立预测，可以把这个过程看作成基于样本的分布式模型训练。谷歌最初就是采用横向联邦的方式解决安卓手机终端用户在本地更新模型的问题的。</p>
+<h5 id="纵向联邦学习"><a href="#纵向联邦学习" class="headerlink" title="纵向联邦学习"></a>纵向联邦学习</h5><p>适用场景：<br>纵向联邦学习的本质是特征的联合，适用于用户重叠多，特征重叠少的场景，比如同一地区的商超和银行，他们触达的用户都为该地区的居民（样本相同），但业务不同（特征不同）。</p>
+<p>学习过程：<br>纵向联邦学习的本质是交叉用户在不同业态下的特征联合，比如商超A和银行B，在传统的机器学习建模过程中，需要将两部分数据集中到一个数据中心，然后再将每个用户的特征join成一条数据用来训练模型，所以就需要双方有用户交集（基于join结果建模），并有一方存在label。其学习步骤如上图所示，分为两大步：</p>
+<p>第一步：加密样本对齐。是在系统级做这件事，因此在企业感知层面不会暴露非交叉用户。</p>
+<p>第二步：对齐样本进行模型加密训练：</p>
+<p>step1：由第三方C向A和B发送公钥，用来加密需要传输的数据；</p>
+<p>step2：A和B分别计算和自己相关的特征中间结果，并加密交互，用来求得各自梯度和损失；</p>
+<p>step3：A和B分别计算各自加密后的梯度并添加掩码发送给C，同时B计算加密后的损失发送给C；</p>
+<p>step4：C解密梯度和损失后回传给A和B，A、B去除掩码并更新模型。</p>
+<p>共同建模的结果：</p>
+<p>双方均获得数据保护<br>共同提升模型效果<br>模型无损失</p>
+<h5 id="联邦迁移学习"><a href="#联邦迁移学习" class="headerlink" title="联邦迁移学习"></a>联邦迁移学习</h5><p>适用场景：</p>
+<p>当参与者间特征和样本重叠都很少时可以考虑使用联邦迁移学习，如不同地区的银行和商超间的联合。主要适用于以深度神经网络为基模型的场景。</p>
+<p>迁移学习介绍：</p>
+<p>迁移学习，是指利用数据、任务、或模型之间的相似性，将在源领域学习过的模型，应用于 目标领域的一种学习过程。</p>
+<p>其实我们人类对于迁移学习这种能力，是与生俱来的。比如，我们如果已经会打乒乓球，就可以类比着学习打网球。再比如，我们如果已经会下中国象棋，就可以类比着下国际象棋。因为这些活动之间，往往有着极高的相似性。生活中常用的“举一反三”、“照猫画虎”就很好地体现了迁移学习的思想。<br>迁移学习的核心是，找到源领域和目标领域之间的相似性，举一个杨强教授经常举的例子来说明：我们都知道在中国大陆开车时，驾驶员坐在左边，靠马路右侧行驶。这是基本的规则。然而，如果在英国、香港等地区开车，驾驶员是坐在右边，需要靠马路左侧行驶。那么，如果我们从中国大陆到了香港，应该如何快速地适应 他们的开车方式呢？诀窍就是找到这里的不变量：不论在哪个地区，驾驶员都是紧靠马路中间。这就是我们这个开车问题中的不变量。 找到相似性 (不变量)，是进行迁移学习的核心。</p>
+<p>学习过程：</p>
+<p>联邦迁移学习的步骤与纵向联邦学习相似，只是中间传递结果不同（实际上每个模型的中间传递结果都不同）。这里重点讲一下联邦迁移的思想：<br><img src="https://pic2.zhimg.com/80/v2-ee8292d033fc88148a030765dd18918d_1440w.webp"></p>
+
       
     </div>
     <footer class="article-footer">
@@ -246,7 +278,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2022/09/28/CV-SelfiSegmentation/" target="_blank" title="计算机视觉人像抠图 SemanticSegmentation">http://example.com/2022/09/28/CV-SelfiSegmentation/</a>
+          <a href="/2023/03/01/Federated_Learning/" target="_blank" title="联邦学习 Federated Learning">http://example.com/2023/03/01/Federated_Learning/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -286,7 +318,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CV/" rel="tag">CV</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Athena/" rel="tag">Athena</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/S3/" rel="tag">S3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sagemaker/" rel="tag">Sagemaker</a></li></ul>
 
       
 
@@ -296,19 +328,10 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2022/09/28/AWS_Sagemaker/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          AWS使用笔记 Sagemaker
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/09/28/CV-SemanticSegmentation/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/01/01/DataStructures&algorithms2/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">语义分割 semantic segmentation</div>
+      <div class="article-nav-title">数据结构和算法(二) Data Structures&amp; Algorothms</div>
     </a>
   
 </nav>
@@ -322,7 +345,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%BA%E5%83%8F%E5%8A%A8%E6%80%81%E6%8A%A0%E5%9B%BE-%E5%AE%9E%E7%8E%B0%E8%A7%86%E9%A2%91%E8%83%8C%E6%99%AF%E6%9B%BF%E6%8D%A2"><span class="nav-number">1.</span> <span class="nav-text">人像动态抠图 实现视频背景替换</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">联邦学习背景:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">联邦学习的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">3.</span> <span class="nav-text">联邦学习的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A8%AA%E5%90%91%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0"><span class="nav-number">3.1.</span> <span class="nav-text">横向联邦学习</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BA%B5%E5%90%91%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0"><span class="nav-number">3.2.</span> <span class="nav-text">纵向联邦学习</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%81%94%E9%82%A6%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0"><span class="nav-number">3.3.</span> <span class="nav-text">联邦迁移学习</span></a></li></ol></li></ol>
     
     </div>
   </aside>
