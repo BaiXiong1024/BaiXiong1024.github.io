@@ -3,20 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>tag: cv | HELLO WORLD</title>
+  <title>aws使用笔记 athena | HELLO WORLD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="AWSSagemakerPython" />
   
   
   
-  <meta name="description" content="Someone knock at the door.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HELLO WORLD">
-<meta property="og:url" content="http://example.com/tags/CV/index.html">
+  
+  <meta name="description" content="AWS 全称Amazon web service(亚马逊网络服务)，是亚马逊公司旗下云计算服务平台，为全世界各个国家和地区的客户提供一整套基础设施和云解决方案。AWS面向用户提供包括弹性计算、存储、数据库、物联网在内的一整套云计算服务，帮助企业降低IT投入和维护成本，轻松上云从概念是来看，AWS提供了一系列的托管产品，帮助我们在没有物理服务器的情况下，照样可以正常完成软件开发中的各种需求，也就是我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS使用笔记 Athena">
+<meta property="og:url" content="http://example.com/2022/09/28/AWS_Athena/index.html">
 <meta property="og:site_name" content="HELLO WORLD">
-<meta property="og:description" content="Someone knock at the door.">
+<meta property="og:description" content="AWS 全称Amazon web service(亚马逊网络服务)，是亚马逊公司旗下云计算服务平台，为全世界各个国家和地区的客户提供一整套基础设施和云解决方案。AWS面向用户提供包括弹性计算、存储、数据库、物联网在内的一整套云计算服务，帮助企业降低IT投入和维护成本，轻松上云从概念是来看，AWS提供了一系列的托管产品，帮助我们在没有物理服务器的情况下，照样可以正常完成软件开发中的各种需求，也就是我">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-09-28T07:09:12.000Z">
+<meta property="article:modified_time" content="2023-05-26T06:17:02.452Z">
 <meta property="article:author" content="Bai Xiong">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="Sagemaker">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
@@ -66,8 +73,6 @@
   
 
   
-    <link rel="stylesheet" href="/css/archive.css" >
-  
   
   
     <link rel="stylesheet" href="/css/vdonate.css" >
@@ -77,7 +82,7 @@
 
 
 
-  <body>
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
 
 
   
@@ -100,7 +105,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                 >
+                href="#" data-toggle="modal" data-target="#myModal" >
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -173,189 +178,163 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;">
-  
-  
-  
+          <section id="main" style="float:none;"><article id="post-AWS_Athena" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
     
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <h1><a href="/archives/2022" class="archive-year">2022</a></h1>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2022/09/28/CV-SelfiSegmentation/" class="archive-article-date">
-	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
-	</a>
-
-      
+      <header class="article-header">
+        
   
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/09/28/CV-SelfiSegmentation/">计算机视觉人像抠图 SemanticSegmentation</a>
+    <h1 class="thumb" class="article-title" itemprop="name">
+      AWS使用笔记 Athena
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+    <div class="article-meta">
       
-	<a href="/2022/09/28/CV-ObjectDetection/" class="archive-article-date">
-	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
+	<a href="/2022/09/28/AWS_Athena/" class="article-date">
+	  <time datetime="2022-09-28T07:09:12.000Z" itemprop="datePublished">2022-09-28</time>
 	</a>
 
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/09/28/CV-ObjectDetection/">目标检测 ObjectDetection</a>
-    </h1>
-  
+    <a class="article-category-link" href="/categories/Code/">Code</a>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
       
-	<a href="/2022/09/28/CV-SemanticSegmentation/" class="archive-article-date">
-	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
 	</a>
 
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/09/28/CV-SemanticSegmentation/">语义分割 semantic segmentation</a>
-    </h1>
-  
 
-    </header>
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>AWS 全称Amazon web service(亚马逊网络服务)，是亚马逊公司旗下云计算服务平台，为全世界各个国家和地区的客户提供一整套基础设施和云解决方案。<br>AWS面向用户提供包括弹性计算、存储、数据库、物联网在内的一整套云计算服务，帮助企业降低IT投入和维护成本，轻松上云<br>从概念是来看，AWS提供了一系列的托管产品，帮助我们在没有物理服务器的情况下，照样可以正常完成软件开发中的各种需求，也就是我们常说的云服务。</p>
+<span id="more"></span>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/athena/latest/ug/ddl-reference.html">athena官方文档地址</a></li>
+</ul>
+<h4 id="drop-table"><a href="#drop-table" class="headerlink" title="drop table"></a>drop table</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">删除名为 table_name 的表的元数据表定义。删除某个外部表时，底层数据将保持不变</span><br><span class="line">DROP TABLE [IF EXISTS] table_name</span><br><span class="line">DROP TABLE fulfilled_orders</span><br><span class="line">DROP TABLE IF EXISTS fulfilled_orders</span><br></pre></td></tr></table></figure>
+
+<h4 id="create-table"><a href="#create-table" class="headerlink" title="create table"></a>create table</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Athena函数合集"><a href="#Athena函数合集" class="headerlink" title="Athena函数合集"></a><a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/athena/latest/ug/functions.html">Athena函数合集</a></h4><ul>
+<li><a target="_blank" rel="noopener" href="https://trino.io/docs/current/functions/datetime.html">Athena日期函数</a></li>
+<li><a target="_blank" rel="noopener" href="https://trino.io/docs/current/functions/string.html">Athena字符串函数</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'css/images/zhifubao.jpg',
+  alipayImage: 'css/images/weixin.jpg'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>Bai Xiong</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2022/09/28/AWS_Athena/" target="_blank" title="AWS使用笔记 Athena">http://example.com/2022/09/28/AWS_Athena/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AWS/" rel="tag">AWS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sagemaker/" rel="tag">Sagemaker</a></li></ul>
+
+      
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/01/01/DataMining/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数据挖掘 DataMining
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/28/AWS_Sagemaker/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">AWS使用笔记 Sagemaker</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2022/09/28/CV-face/" class="archive-article-date">
-	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
-	</a>
 
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2022/09/28/CV-face/">计算机视觉人脸识别 Face Recognition</a>
-    </h1>
-  
+<!-- Table of Contents -->
 
-    </header>
-  </div>
-</article>
-  
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
     
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#drop-table"><span class="nav-number">1.</span> <span class="nav-text">drop table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#create-table"><span class="nav-number">2.</span> <span class="nav-text">create table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Athena%E5%87%BD%E6%95%B0%E5%90%88%E9%9B%86"><span class="nav-number">3.</span> <span class="nav-text">Athena函数合集</span></a></li></ol>
     
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <h1><a href="/archives/2021" class="archive-year">2021</a></h1>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2021/09/28/CV/" class="archive-article-date">
-	  <time datetime="2021-09-28T00:08:08.000Z" itemprop="datePublished">2021-09-28</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2021/09/28/CV/">计算机视觉 CV</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2021/08/28/CV-ObjectDetection-YoloV5/" class="archive-article-date">
-	  <time datetime="2021-08-28T00:08:08.000Z" itemprop="datePublished">2021-08-28</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2021/08/28/CV-ObjectDetection-YoloV5/">目标检测 YoloV5</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <h1><a href="/archives/2018" class="archive-year">2018</a></h1>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2018/09/18/Tools-LabelImg/" class="archive-article-date">
-	  <time datetime="2018-09-18T07:09:12.000Z" itemprop="datePublished">2018-09-18</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2018/09/18/Tools-LabelImg/">标注工具 LabelImg</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+    </div>
+  </aside>
 
 </section>
         
@@ -461,6 +440,10 @@
 
 
 
+  
+<script src="/js/dialog.js"></script>
+
+
 
 
 
@@ -544,6 +527,8 @@
   
   <a id="rocket" href="#top" class=""></a>
   <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
   
 </body>
 </html>
