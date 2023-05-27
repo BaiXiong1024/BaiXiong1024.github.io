@@ -347,10 +347,22 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <ol start="739">
-<li>每日温度<!-- 给定一个整数数组 temperatures ，表示每天的温度，返回一个数组 answer ，其中 answer[i] 是指对于第 i 天，下一个更高温度出现在几天后。如果气温在这之后都不会升高，请在该位置用 0 来代替。 -->
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def dailyTemperatures(self, temperatures: List[int]) -&gt; List[int]:</span><br><span class="line">        stack, res = [], [0]* len(temperatures)</span><br><span class="line">        for i , num in enumerate(temperatures):</span><br><span class="line">            while stack and temperatures[stack[-1]]&lt; num:</span><br><span class="line">                index = stack.pop()</span><br><span class="line">                res[index] = i - index</span><br><span class="line">            stack.append(i)</span><br><span class="line">        return res</span><br></pre></td></tr></table></figure></li>
-</ol>
+        <h4 id="116-填充每个节点的下一个右侧节点指针"><a href="#116-填充每个节点的下一个右侧节点指针" class="headerlink" title="116.填充每个节点的下一个右侧节点指针"></a>116.填充每个节点的下一个右侧节点指针</h4><p>给定一个 完美二叉树 ，其所有叶子节点都在同一层，每个父节点都有两个子节点。二叉树定义如下：<br>struct Node {<br>  int val;<br>  Node *left;<br>  Node *right;<br>  Node *next;<br>}<br>填充它的每个 next 指针，让这个指针指向其下一个右侧节点。如果找不到下一个右侧节点，则将 next 指针设置为 NULL。<br>初始状态下，所有 next 指针都被设置为 NULL</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def connect(self, root: &#x27;Node&#x27;) -&gt; &#x27;Node&#x27;:</span><br><span class="line">        if root == None:</span><br><span class="line">            return root</span><br><span class="line"></span><br><span class="line">        def BFS(oneLayer):</span><br><span class="line">            nextLayer = []   # 每一次都搞个空的列表，去建立nextLayer</span><br><span class="line">            for i in oneLayer:</span><br><span class="line">                if i.left:</span><br><span class="line">                    nextLayer.append(i.left)</span><br><span class="line">                if i.right:</span><br><span class="line">                    nextLayer.append(i.right)</span><br><span class="line"></span><br><span class="line">            if len(nextLayer) &gt; 1:  # 一共只有1个节点就没必要搞了。</span><br><span class="line">                for j in range(0, len(nextLayer) - 1):</span><br><span class="line">                    nextLayer[j].next = nextLayer[j + 1]  # 每个节点的next指向后面一个节点。</span><br><span class="line"></span><br><span class="line">            if nextLayer:  # nextLayer不是空的话就继续往下走。</span><br><span class="line">                BFS(nextLayer)</span><br><span class="line"></span><br><span class="line">        BFS([root])  # 最开始就是只有一层一个根节点。</span><br><span class="line">        return root</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="117-填充每个节点的下一个右侧节点指针-II"><a href="#117-填充每个节点的下一个右侧节点指针-II" class="headerlink" title="117.填充每个节点的下一个右侧节点指针 II"></a>117.填充每个节点的下一个右侧节点指针 II</h4><p>给定一个二叉树：<br>struct Node {<br>  int val;<br>  Node *left;<br>  Node *right;<br>  Node *next;<br>}<br>填充它的每个 next 指针，让这个指针指向其下一个右侧节点。如果找不到下一个右侧节点，则将 next 指针设置为 NULL 。<br>初始状态下，所有 next 指针都被设置为 NULL</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def connect(self, root: &#x27;Node&#x27;) -&gt; &#x27;Node&#x27;:</span><br><span class="line">        if root == None:</span><br><span class="line">            return root</span><br><span class="line"></span><br><span class="line">        def BFS(oneLayer):</span><br><span class="line">            nextLayer = []   # 每一次都搞个空的列表，去建立nextLayer</span><br><span class="line">            for i in oneLayer:</span><br><span class="line">                if i.left:</span><br><span class="line">                    nextLayer.append(i.left)</span><br><span class="line">                if i.right:</span><br><span class="line">                    nextLayer.append(i.right)</span><br><span class="line"></span><br><span class="line">            if len(nextLayer) &gt; 1:  # 一共只有1个节点就没必要搞了。</span><br><span class="line">                for j in range(0, len(nextLayer) - 1):</span><br><span class="line">                    nextLayer[j].next = nextLayer[j + 1]  # 每个节点的next指向后面一个节点。</span><br><span class="line"></span><br><span class="line">            if nextLayer:  # nextLayer不是空的话就继续往下走。</span><br><span class="line">                BFS(nextLayer)</span><br><span class="line"></span><br><span class="line">        BFS([root])  # 最开始就是只有一层一个根节点。</span><br><span class="line">        return root</span><br></pre></td></tr></table></figure>
+
+<h4 id="263-丑数"><a href="#263-丑数" class="headerlink" title="263.丑数"></a>263.丑数</h4><p>丑数 就是只包含质因数 2、3 和 5 的正整数。<br>给你一个整数 n ，请你判断 n 是否为 丑数 。如果是，返回 true ；否则，返回 false</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def isUgly(self, n: int) -&gt; bool:</span><br><span class="line">        if n &lt;=0:</span><br><span class="line">            return False</span><br><span class="line">        while n % 2 == 0 :</span><br><span class="line">            n //= 2</span><br><span class="line">        while n % 3 == 0 :</span><br><span class="line">            n //= 3</span><br><span class="line">        while n % 5 == 0 :</span><br><span class="line">            n //= 5</span><br><span class="line">        return n ==1</span><br></pre></td></tr></table></figure>
+
+<h4 id="547-省份数量"><a href="#547-省份数量" class="headerlink" title="547.省份数量"></a>547.省份数量</h4><p>有 n 个城市，其中一些彼此相连，另一些没有相连。如果城市 a 与城市 b 直接相连，且城市 b 与城市 c 直接相连，那么城市 a 与城市 c 间接相连。<br>省份 是一组直接或间接相连的城市，组内不含其他没有相连的城市。<br>给你一个 n x n 的矩阵 isConnected ，其中 isConnected[i][j] = 1 表示第 i 个城市和第 j 个城市直接相连，而 isConnected[i][j] = 0 表示二者不直接相连。<br>返回矩阵中 省份 的数量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def findCircleNum(self, isConnected: List[List[int]]) -&gt; int:</span><br><span class="line">        def dfs(i: int):</span><br><span class="line">            for j in range(cities):</span><br><span class="line">                if isConnected[i][j] == 1 and j not in visited:</span><br><span class="line">                    visited.add(j)</span><br><span class="line">                    dfs(j)</span><br><span class="line"></span><br><span class="line">        cities = len(isConnected)</span><br><span class="line">        visited = set()</span><br><span class="line">        provinces = 0</span><br><span class="line"></span><br><span class="line">        for i in range(cities):</span><br><span class="line">            if i not in visited:</span><br><span class="line">                dfs(i)</span><br><span class="line">                provinces += 1</span><br><span class="line"></span><br><span class="line">        return provinces</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="739-每日温度"><a href="#739-每日温度" class="headerlink" title="739.每日温度"></a>739.每日温度</h4><p>给定一个整数数组 temperatures ，表示每天的温度，返回一个数组 answer ，其中 answer[i] 是指对于第 i 天，下一个更高温度出现在几天后。如果气温在这之后都不会升高，请在该位置用 0 来代替</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def dailyTemperatures(self, temperatures: List[int]) -&gt; List[int]:</span><br><span class="line">        stack, res = [], [0]* len(temperatures)</span><br><span class="line">        for i , num in enumerate(temperatures):</span><br><span class="line">            while stack and temperatures[stack[-1]]&lt; num:</span><br><span class="line">                index = stack.pop()</span><br><span class="line">                res[index] = i - index</span><br><span class="line">            stack.append(i)</span><br><span class="line">        return res</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -510,6 +522,53 @@
 
 
   
+    <article id="post-AWS_Athena"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/09/28/AWS_Athena/">AWS使用笔记 Athena</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/09/28/AWS_Athena/" class="article-date">
+	  <time datetime="2022-09-28T07:09:12.000Z" itemprop="datePublished">2022-09-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Code/">Code</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>AWS 全称Amazon web service(亚马逊网络服务)，是亚马逊公司旗下云计算服务平台，为全世界各个国家和地区的客户提供一整套基础设施和云解决方案。<br>AWS面向用户提供包括弹性计算、存储、数据库、物联网在内的一整套云计算服务，帮助企业降低IT投入和维护成本，轻松上云<br>从概念是来看，AWS提供了一系列的托管产品，帮助我们在没有物理服务器的情况下，照样可以正常完成软件开发中的各种需求，也就是我们常说的云服务。</p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-AWS_S3"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -604,7 +663,7 @@
 
 
   
-    <article id="post-AWS_Athena"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-CV-SelfiSegmentation"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -612,7 +671,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/09/28/AWS_Athena/">AWS使用笔记 Athena</a>
+      <a class="article-title" href="/2022/09/28/CV-SelfiSegmentation/">计算机视觉人像抠图 SemanticSegmentation</a>
     </h1>
   
 
@@ -620,8 +679,8 @@
     
     <div class="article-meta">
       
-	<a href="/2022/09/28/AWS_Athena/" class="article-date">
-	  <time datetime="2022-09-28T07:09:12.000Z" itemprop="datePublished">2022-09-28</time>
+	<a href="/2022/09/28/CV-SelfiSegmentation/" class="article-date">
+	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
 	</a>
 
       
@@ -633,7 +692,56 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>AWS 全称Amazon web service(亚马逊网络服务)，是亚马逊公司旗下云计算服务平台，为全世界各个国家和地区的客户提供一整套基础设施和云解决方案。<br>AWS面向用户提供包括弹性计算、存储、数据库、物联网在内的一整套云计算服务，帮助企业降低IT投入和维护成本，轻松上云<br>从概念是来看，AWS提供了一系列的托管产品，帮助我们在没有物理服务器的情况下，照样可以正常完成软件开发中的各种需求，也就是我们常说的云服务。</p>
+        <p><img src="pic/cv_beijing.png"></p>
+<h3 id="人像动态抠图-实现视频背景替换"><a href="#人像动态抠图-实现视频背景替换" class="headerlink" title="人像动态抠图 实现视频背景替换"></a>人像动态抠图 实现视频背景替换</h3>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-CV-ObjectDetection"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/09/28/CV-ObjectDetection/">目标检测 ObjectDetection</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/09/28/CV-ObjectDetection/" class="article-date">
+	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>计算机视觉-目标检测</p>
+<h6 id="什么是目标检测"><a href="#什么是目标检测" class="headerlink" title="什么是目标检测"></a>什么是目标检测</h6><p>目标检测（Object Detection）的任务是找出图像中所有感兴趣的目标（物体），确定它们的类别和位置，是计算机视觉领域的核心问题之一。由于各类物体有不同的外观、形状和姿态，加上成像时光照、遮挡等因素的干扰，目标检测一直是计算机视觉领域最具有挑战性的问题。<br>计算机视觉中关于图像识别有四大类任务：<br>（1）分类-Classification：解决“是什么？”的问题，即给定一张图片或一段视频判断里面包含什么类别的目标。<br>（2）定位-Location：解决“在哪里？”的问题，即定位出这个目标的的位置。<br>（3）检测-Detection：解决“在哪里？是什么？”的问题，即定位出这个目标的位置并且知道目标物是什么。<br>（4）分割-Segmentation：分为实例的分割（Instance-level）和场景分割（Scene-level），解决“每一个像素属于哪个目标物或场景”的问题。<br>所以，目标检测是一个分类、回归问题的叠加。</p>
       
     </div>
     <footer class="article-footer">
@@ -728,102 +836,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>人脸识别并动态贴图 实现抖音动态小表情</p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-CV-ObjectDetection"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/09/28/CV-ObjectDetection/">目标检测 ObjectDetection</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/09/28/CV-ObjectDetection/" class="article-date">
-	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>计算机视觉-目标检测</p>
-<h6 id="什么是目标检测"><a href="#什么是目标检测" class="headerlink" title="什么是目标检测"></a>什么是目标检测</h6><p>目标检测（Object Detection）的任务是找出图像中所有感兴趣的目标（物体），确定它们的类别和位置，是计算机视觉领域的核心问题之一。由于各类物体有不同的外观、形状和姿态，加上成像时光照、遮挡等因素的干扰，目标检测一直是计算机视觉领域最具有挑战性的问题。<br>计算机视觉中关于图像识别有四大类任务：<br>（1）分类-Classification：解决“是什么？”的问题，即给定一张图片或一段视频判断里面包含什么类别的目标。<br>（2）定位-Location：解决“在哪里？”的问题，即定位出这个目标的的位置。<br>（3）检测-Detection：解决“在哪里？是什么？”的问题，即定位出这个目标的位置并且知道目标物是什么。<br>（4）分割-Segmentation：分为实例的分割（Instance-level）和场景分割（Scene-level），解决“每一个像素属于哪个目标物或场景”的问题。<br>所以，目标检测是一个分类、回归问题的叠加。</p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-CV-SelfiSegmentation"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/09/28/CV-SelfiSegmentation/">计算机视觉人像抠图 SemanticSegmentation</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/09/28/CV-SelfiSegmentation/" class="article-date">
-	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Code/">Code</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="pic/cv_beijing.png"></p>
-<h3 id="人像动态抠图-实现视频背景替换"><a href="#人像动态抠图-实现视频背景替换" class="headerlink" title="人像动态抠图 实现视频背景替换"></a>人像动态抠图 实现视频背景替换</h3>
       
     </div>
     <footer class="article-footer">
