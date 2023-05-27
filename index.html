@@ -290,7 +290,7 @@
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Code/">Code</a>
+    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
 
       
       
@@ -301,6 +301,57 @@
         <h4 id="联邦学习背景"><a href="#联邦学习背景" class="headerlink" title="联邦学习背景:"></a>联邦学习背景:</h4><p>近年来人工智能可谓风风火火，掀起一波又一波浪潮，从人脸识别、活体检验发现刑事案件报警到阿尔法狗大战人类围棋手李世石、再到无人驾驶、以及已被普遍应用的精准营销，AI逐步进入人们生活的方方面面。当然也不免出现部分过度吹捧，导致对AI的误解–AI无所不能，既然这么好用，为啥我不能拿来用一下？在追逐AI的同时却忽略了一点，AI是靠数据来喂的，而且是大量优质数据。</p>
 <p>现实生活中，除了少数巨头公司能够满足，绝大多数企业都存在数据量少，数据质量差的问题，不足以支撑人工智能技术的实现；同时国内外监管环境也在逐步加强数据保护，陆续出台相关政策，如欧盟最近引入 的新法案《通用数据保护条例》（GDPR），我国国家互联网信息办公室起草的《数据安全管理办法(征求意见稿)》，因此数据在安全合规的前提下自由流动，成了大势所趋；在用户和企业角度下，商业公司所拥有的数据往往都有巨大的潜在价值。两个公司甚至公司间的部门都要考虑利益的交换，往往这些机构不会提供各自数据与其他公司做与单的聚合，导致即使在同一个公司内，数据也往往以孤岛形式出现。</p>
 <p>基于以上不足以支撑实现、不允许粗暴交换、不愿意贡献价值三点，导致了现在大量存在的数据孤岛，以及隐私保护问题，联邦学习应运而生。</p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-DataStructures&amp;algorithms"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2023/01/01/DataStructures&algorithms/">数据结构和算法 Data Structures&amp; Algorothms</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2023/01/01/DataStructures&algorithms/" class="article-date">
+	  <time datetime="2023-01-01T08:10:12.000Z" itemprop="datePublished">2023-01-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Code/">Code</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol start="739">
+<li>每日温度<!-- 给定一个整数数组 temperatures ，表示每天的温度，返回一个数组 answer ，其中 answer[i] 是指对于第 i 天，下一个更高温度出现在几天后。如果气温在这之后都不会升高，请在该位置用 0 来代替。 -->
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def dailyTemperatures(self, temperatures: List[int]) -&gt; List[int]:</span><br><span class="line">        stack, res = [], [0]* len(temperatures)</span><br><span class="line">        for i , num in enumerate(temperatures):</span><br><span class="line">            while stack and temperatures[stack[-1]]&lt; num:</span><br><span class="line">                index = stack.pop()</span><br><span class="line">                res[index] = i - index</span><br><span class="line">            stack.append(i)</span><br><span class="line">        return res</span><br></pre></td></tr></table></figure></li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
@@ -459,53 +510,6 @@
 
 
   
-    <article id="post-AWS_Athena"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/09/28/AWS_Athena/">AWS使用笔记 Athena</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/09/28/AWS_Athena/" class="article-date">
-	  <time datetime="2022-09-28T07:09:12.000Z" itemprop="datePublished">2022-09-28</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Code/">Code</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>AWS 全称Amazon web service(亚马逊网络服务)，是亚马逊公司旗下云计算服务平台，为全世界各个国家和地区的客户提供一整套基础设施和云解决方案。<br>AWS面向用户提供包括弹性计算、存储、数据库、物联网在内的一整套云计算服务，帮助企业降低IT投入和维护成本，轻松上云<br>从概念是来看，AWS提供了一系列的托管产品，帮助我们在没有物理服务器的情况下，照样可以正常完成软件开发中的各种需求，也就是我们常说的云服务。</p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-AWS_S3"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -600,7 +604,7 @@
 
 
   
-    <article id="post-CV-SelfiSegmentation"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-AWS_Athena"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -608,7 +612,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/09/28/CV-SelfiSegmentation/">计算机视觉人像抠图 SemanticSegmentation</a>
+      <a class="article-title" href="/2022/09/28/AWS_Athena/">AWS使用笔记 Athena</a>
     </h1>
   
 
@@ -616,8 +620,8 @@
     
     <div class="article-meta">
       
-	<a href="/2022/09/28/CV-SelfiSegmentation/" class="article-date">
-	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
+	<a href="/2022/09/28/AWS_Athena/" class="article-date">
+	  <time datetime="2022-09-28T07:09:12.000Z" itemprop="datePublished">2022-09-28</time>
 	</a>
 
       
@@ -629,8 +633,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="pic/cv_beijing.png"></p>
-<h3 id="人像动态抠图-实现视频背景替换"><a href="#人像动态抠图-实现视频背景替换" class="headerlink" title="人像动态抠图 实现视频背景替换"></a>人像动态抠图 实现视频背景替换</h3>
+        <p>AWS 全称Amazon web service(亚马逊网络服务)，是亚马逊公司旗下云计算服务平台，为全世界各个国家和地区的客户提供一整套基础设施和云解决方案。<br>AWS面向用户提供包括弹性计算、存储、数据库、物联网在内的一整套云计算服务，帮助企业降低IT投入和维护成本，轻松上云<br>从概念是来看，AWS提供了一系列的托管产品，帮助我们在没有物理服务器的情况下，照样可以正常完成软件开发中的各种需求，也就是我们常说的云服务。</p>
       
     </div>
     <footer class="article-footer">
@@ -678,6 +681,53 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Mask-Rcnn</p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-CV-face"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/09/28/CV-face/">计算机视觉人脸识别 Face Recognition</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/09/28/CV-face/" class="article-date">
+	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Code/">Code</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>人脸识别并动态贴图 实现抖音动态小表情</p>
       
     </div>
     <footer class="article-footer">
@@ -743,7 +793,7 @@
 
 
   
-    <article id="post-CV-face"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-CV-SelfiSegmentation"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -751,7 +801,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/09/28/CV-face/">计算机视觉人脸识别 Face Recognition</a>
+      <a class="article-title" href="/2022/09/28/CV-SelfiSegmentation/">计算机视觉人像抠图 SemanticSegmentation</a>
     </h1>
   
 
@@ -759,7 +809,7 @@
     
     <div class="article-meta">
       
-	<a href="/2022/09/28/CV-face/" class="article-date">
+	<a href="/2022/09/28/CV-SelfiSegmentation/" class="article-date">
 	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
 	</a>
 
@@ -772,7 +822,8 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>人脸识别并动态贴图 实现抖音动态小表情</p>
+        <p><img src="pic/cv_beijing.png"></p>
+<h3 id="人像动态抠图-实现视频背景替换"><a href="#人像动态抠图-实现视频背景替换" class="headerlink" title="人像动态抠图 实现视频背景替换"></a>人像动态抠图 实现视频背景替换</h3>
       
     </div>
     <footer class="article-footer">
@@ -1149,53 +1200,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><h4 id="GPU环境配置"><a href="#GPU环境配置" class="headerlink" title="GPU环境配置"></a>GPU环境配置</h4><p><img src="https://images.unsplash.com/photo-1662981645170-b72211be374f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"></p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Recommendation"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/09/28/Recommendation/">推荐系统 Recommendation</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2020/09/28/Recommendation/" class="article-date">
-	  <time datetime="2020-09-28T00:08:08.000Z" itemprop="datePublished">2020-09-28</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>推荐系统是信息过载所采用的措施，面对海量的数据信息，从中快速推荐出符合用户特点的物品。解决一些人的“选择恐惧症”；面向没有明确需求的人。<br>解决如何从大量信息中找到自己感兴趣的信息<br>解决如何让自己生产的信息脱颖而出，受到大众的喜爱<br>总得来说：让用户更好更快获取到自己喜欢的内容，让内容更好更快地推送到喜欢它的用户手中，让网站（平台）更有效的保留用户资源。</p>
       
     </div>
     <footer class="article-footer">
