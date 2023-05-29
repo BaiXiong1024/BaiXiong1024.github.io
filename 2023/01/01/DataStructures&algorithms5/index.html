@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>数据结构和算法(五) data structures&amp; algorothms | HELLO WORLD</title>
+  <title>数据结构和算法-队列 queue | HELLO WORLD</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="PythonDataStructures&Algorothms" />
@@ -11,22 +11,21 @@
   
   
   
-  <meta name="description" content="栈栈（stack），有些地方称为堆栈，是一种容器，可存入数据元素、访问元素、删除元素，它的特点在于只能允许在容器的一端（称为栈顶端指标，英语：top）进行加入数据（英语：push）和输出数据（英语：pop）的运算。没有了位置概念，保证任何时候可以访问、删除的元素都是此前最后存入的那个元素，确定了一种默认的访问顺序。由于栈数据结构只允许在一端进行操作，因而按照后进先出（LIFO, Last In F">
+  <meta name="description" content="队列队列（queue）是只允许在一端进行插入操作，而在另一端进行删除操作的线性表。队列是一种先进先出的（First In First Out）的线性表，简称FIFO。允许插入的一端为队尾，允许删除的一端为队头。队列不允许在中间部位进行操作！假设队列是q&#x3D;（a1，a2，……，an），那么a1就是队头元素，而an是队尾元素。这样我们就可以删除时，总是从a1开始，而插入时，总是在队列最后。这也比较符合我">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构和算法(五) Data Structures&amp; Algorothms">
+<meta property="og:title" content="数据结构和算法-队列 Queue">
 <meta property="og:url" content="http://example.com/2023/01/01/DataStructures&algorithms5/index.html">
 <meta property="og:site_name" content="HELLO WORLD">
-<meta property="og:description" content="栈栈（stack），有些地方称为堆栈，是一种容器，可存入数据元素、访问元素、删除元素，它的特点在于只能允许在容器的一端（称为栈顶端指标，英语：top）进行加入数据（英语：push）和输出数据（英语：pop）的运算。没有了位置概念，保证任何时候可以访问、删除的元素都是此前最后存入的那个元素，确定了一种默认的访问顺序。由于栈数据结构只允许在一端进行操作，因而按照后进先出（LIFO, Last In F">
+<meta property="og:description" content="队列队列（queue）是只允许在一端进行插入操作，而在另一端进行删除操作的线性表。队列是一种先进先出的（First In First Out）的线性表，简称FIFO。允许插入的一端为队尾，允许删除的一端为队头。队列不允许在中间部位进行操作！假设队列是q&#x3D;（a1，a2，……，an），那么a1就是队头元素，而an是队尾元素。这样我们就可以删除时，总是从a1开始，而插入时，总是在队列最后。这也比较符合我">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2023/01/01/DataStructures&algorithms5/pic/%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84.png">
-<meta property="og:image" content="http://example.com/2023/01/01/DataStructures&algorithms5/pic/stack%E6%BC%94%E7%A4%BA.gif">
-<meta property="article:published_time" content="2023-01-01T07:09:12.000Z">
-<meta property="article:modified_time" content="2023-05-29T09:32:40.691Z">
+<meta property="og:image" content="http://example.com/2023/01/01/DataStructures&algorithms5/%E9%98%9F%E5%88%97%E6%A8%A1%E5%9E%8B.png">
+<meta property="article:published_time" content="2023-01-01T06:09:12.000Z">
+<meta property="article:modified_time" content="2023-05-29T10:10:14.080Z">
 <meta property="article:author" content="Bai Xiong">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="DataStructures&amp;Algorothms">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2023/01/01/DataStructures&algorithms5/pic/%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84.png">
+<meta name="twitter:image" content="http://example.com/2023/01/01/DataStructures&algorithms5/%E9%98%9F%E5%88%97%E6%A8%A1%E5%9E%8B.png">
   
     <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
   
@@ -188,7 +187,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      数据结构和算法(五) Data Structures&amp; Algorothms
+      数据结构和算法-队列 Queue
     </h1>
   
 
@@ -197,7 +196,7 @@
     <div class="article-meta">
       
 	<a href="/2023/01/01/DataStructures&algorithms5/" class="article-date">
-	  <time datetime="2023-01-01T07:09:12.000Z" itemprop="datePublished">2023-01-01</time>
+	  <time datetime="2023-01-01T06:09:12.000Z" itemprop="datePublished">2023-01-01</time>
 	</a>
 
       
@@ -215,18 +214,18 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>栈（stack），有些地方称为堆栈，是一种容器，可存入数据元素、访问元素、删除元素，它的特点在于只能允许在容器的一端（称为栈顶端指标，英语：top）进行加入数据（英语：push）和输出数据（英语：pop）的运算。没有了位置概念，保证任何时候可以访问、删除的元素都是此前最后存入的那个元素，确定了一种默认的访问顺序。<br>由于栈数据结构只允许在一端进行操作，因而按照后进先出（LIFO, Last In First Out）的原理运作。</p>
-<p><img src="pic/%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84.png"></p>
-<h4 id="栈结构实现"><a href="#栈结构实现" class="headerlink" title="栈结构实现"></a>栈结构实现</h4><p>栈可以用顺序表实现，也可以用链表实现。</p>
-<h5 id="栈的操作"><a href="#栈的操作" class="headerlink" title="栈的操作"></a>栈的操作</h5><ul>
-<li>Stack() 创建一个新的空栈</li>
-<li>push(item) 添加一个新的元素item到栈顶</li>
-<li>pop() 弹出栈顶元素</li>
-<li>peek() 返回栈顶元素</li>
-<li>is_empty() 判断栈是否为空</li>
-<li>size() 返回栈的元素个数<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class Stack(object):</span><br><span class="line">    &quot;&quot;&quot;栈&quot;&quot;&quot;</span><br><span class="line">    def __init__(self):</span><br><span class="line">         self.items = []</span><br><span class="line"></span><br><span class="line">    def is_empty(self):</span><br><span class="line">        &quot;&quot;&quot;判断是否为空&quot;&quot;&quot;</span><br><span class="line">        return self.items == []</span><br><span class="line"></span><br><span class="line">    def push(self, item):</span><br><span class="line">        &quot;&quot;&quot;加入元素&quot;&quot;&quot;</span><br><span class="line">        self.items.append(item)</span><br><span class="line"></span><br><span class="line">    def pop(self):</span><br><span class="line">        &quot;&quot;&quot;弹出元素&quot;&quot;&quot;</span><br><span class="line">        return self.items.pop()</span><br><span class="line"></span><br><span class="line">    def peek(self):</span><br><span class="line">        &quot;&quot;&quot;返回栈顶元素&quot;&quot;&quot;</span><br><span class="line">        return self.items[len(self.items)-1]</span><br><span class="line"></span><br><span class="line">    def size(self):</span><br><span class="line">        &quot;&quot;&quot;返回栈的大小&quot;&quot;&quot;</span><br><span class="line">        return len(self.items)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    stack = Stack()</span><br><span class="line">    stack.push(&quot;hello&quot;)</span><br><span class="line">    stack.push(&quot;world&quot;)</span><br><span class="line">    stack.push(&quot;itcast&quot;)</span><br><span class="line">    print stack.size()</span><br><span class="line">    print stack.peek()</span><br><span class="line">    print stack.pop()</span><br><span class="line">    print stack.pop()</span><br><span class="line">    print stack.pop()</span><br></pre></td></tr></table></figure></li>
+        <h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><p>队列（queue）是只允许在一端进行插入操作，而在另一端进行删除操作的线性表。<br>队列是一种先进先出的（First In First Out）的线性表，简称FIFO。允许插入的一端为队尾，允许删除的一端为队头。队列不允许在中间部位进行操作！假设队列是q=（a1，a2，……，an），那么a1就是队头元素，而an是队尾元素。这样我们就可以删除时，总是从a1开始，而插入时，总是在队列最后。这也比较符合我们通常生活中的习惯，排在第一个的优先出列，最后来的当然排在队伍最后。</p>
+<span id="more"></span>
+
+<p><img src="%E9%98%9F%E5%88%97%E6%A8%A1%E5%9E%8B.png"></p>
+<h4 id="队列的实现"><a href="#队列的实现" class="headerlink" title="队列的实现"></a>队列的实现</h4><p>同栈一样，队列也可以用顺序表或者链表实现。</p>
+<h4 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h4><ul>
+<li>Queue() 创建一个空的队列</li>
+<li>enqueue(item) 往队列中添加一个item元素</li>
+<li>dequeue() 从队列头部删除一个元素</li>
+<li>is_empty() 判断一个队列是否为空</li>
+<li>size() 返回队列的大小<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Queue(object):</span><br><span class="line">    &quot;&quot;&quot;队列&quot;&quot;&quot;</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.items = []</span><br><span class="line"></span><br><span class="line">    def is_empty(self):</span><br><span class="line">        return self.items == []</span><br><span class="line"></span><br><span class="line">    def enqueue(self, item):</span><br><span class="line">        &quot;&quot;&quot;进队列&quot;&quot;&quot;</span><br><span class="line">        self.items.insert(0,item)</span><br><span class="line"></span><br><span class="line">    def dequeue(self):</span><br><span class="line">        &quot;&quot;&quot;出队列&quot;&quot;&quot;</span><br><span class="line">        return self.items.pop()</span><br><span class="line"></span><br><span class="line">    def size(self):</span><br><span class="line">        &quot;&quot;&quot;返回大小&quot;&quot;&quot;</span><br><span class="line">        return len(self.items)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    q = Queue()</span><br><span class="line">    q.enqueue(&quot;hello&quot;)</span><br><span class="line">    q.enqueue(&quot;world&quot;)</span><br><span class="line">    q.enqueue(&quot;itcast&quot;)</span><br><span class="line">    print q.size()</span><br><span class="line">    print q.dequeue()</span><br><span class="line">    print q.dequeue()</span><br><span class="line">    print q.dequeue()</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>执行过程如下：<br><img src="pic/stack%E6%BC%94%E7%A4%BA.gif"></p>
 
       
     </div>
@@ -255,7 +254,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2023/01/01/DataStructures&algorithms5/" target="_blank" title="数据结构和算法(五) Data Structures&amp; Algorothms">http://example.com/2023/01/01/DataStructures&algorithms5/</a>
+          <a href="/2023/01/01/DataStructures&algorithms5/" target="_blank" title="数据结构和算法-队列 Queue">http://example.com/2023/01/01/DataStructures&algorithms5/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -305,19 +304,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2023/01/01/DataMining/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/01/01/DataStructures&algorithms4/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          数据挖掘 DataMining
+          数据结构和算法-栈 Stack
         
       </div>
     </a>
   
   
-    <a href="/2023/01/01/DataStructures&algorithms4/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/01/01/DataStructures&algorithms3/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">数据结构和算法(四) Data Structures&amp; Algorothms</div>
+      <div class="article-nav-title">数据结构和算法-链表 List</div>
     </a>
   
 </nav>
@@ -331,7 +330,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88"><span class="nav-number">1.</span> <span class="nav-text">栈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%88%E7%BB%93%E6%9E%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.1.</span> <span class="nav-text">栈结构实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%88%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.1.</span> <span class="nav-text">栈的操作</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%9F%E5%88%97"><span class="nav-number">1.</span> <span class="nav-text">队列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%9F%E5%88%97%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.1.</span> <span class="nav-text">队列的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">1.2.</span> <span class="nav-text">操作</span></a></li></ol></li></ol>
     
     </div>
   </aside>
