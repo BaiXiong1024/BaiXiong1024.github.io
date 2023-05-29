@@ -439,7 +439,172 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>如果将最终写好运行的程序比作战场，我们码农便是指挥作战的将军，而我们所写的代码便是士兵和武器。 那么数据结构和算法是什么？答曰：兵法！<br>我们可以不看兵法在战场上肉搏，如此，可能会胜利，可能会失败。即使胜利，可能也会付出巨大的代价。我们写程序亦然：没有看过数据结构和算法，有时面对问题可能会没有任何思路，不知如何下手去解决；<br>大部分时间可能解决了问题，可是对程序运行的效率和开销没有意识，性能低下；有时会借助别人开发的利器暂时解决了问题，可是遇到性能瓶颈的时候，又不知该如何进行针对性的优化。<br>如果我们常看兵法，便可做到胸有成竹，有时会事半功倍！同样，如果我们常看数据结构与算法，我们写程序时也能游刃有余、明察秋毫，遇到问题时亦能入木三分、迎刃而解。<br>故，数据结构和算法是一名程序开发人员的必备基本功，不是一朝一夕就能练成绝世高手的。冰冻三尺非一日之寒，需要我们平时不断的主动去学习积累。</p>
+        <h3 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h3><p>在程序中，经常需要将一组（通常是同为某个类型的）数据元素作为整体管理和使用，需要创建这种元素组，用变量记录它们，传进传出函数等。一组数据中包含的元素个数可能发生变化（可以增加或删除元素）。<br>对于这种需求，最简单的解决方案便是将这样一组元素看成一个序列，用元素在序列里的位置和顺序，表示实际应用中的某种有意义的信息，或者表示数据之间的某种关系。<br>这样的一组序列元素的组织形式，我们可以将其抽象为线性表。一个线性表是某类元素的一个集合，还记录着元素之间的一种顺序关系。线性表是最基本的数据结构之一，在实际程序中应用非常广泛，它还经常被用作更复杂的数据结构的实现基础。<br>根据线性表的实际存储方式，分为两种实现模型：</p>
+<ul>
+<li>顺序表，将元素顺序地存放在一块连续的存储区里，元素间的顺序关系由它们的存储顺序自然表示。</li>
+<li>链表，将元素存放在通过链接构造起来的一系列存储块中。</li>
+</ul>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-DataStructures&amp;algorithms5"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2023/01/01/DataStructures&algorithms5/">数据结构和算法(五) Data Structures&amp; Algorothms</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2023/01/01/DataStructures&algorithms5/" class="article-date">
+	  <time datetime="2023-01-01T08:09:12.000Z" itemprop="datePublished">2023-01-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>栈（stack），有些地方称为堆栈，是一种容器，可存入数据元素、访问元素、删除元素，它的特点在于只能允许在容器的一端（称为栈顶端指标，英语：top）进行加入数据（英语：push）和输出数据（英语：pop）的运算。没有了位置概念，保证任何时候可以访问、删除的元素都是此前最后存入的那个元素，确定了一种默认的访问顺序。<br>由于栈数据结构只允许在一端进行操作，因而按照后进先出（LIFO, Last In First Out）的原理运作。</p>
+<p><img src="pic/%E6%A0%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84.png"></p>
+<h4 id="栈结构实现"><a href="#栈结构实现" class="headerlink" title="栈结构实现"></a>栈结构实现</h4><p>栈可以用顺序表实现，也可以用链表实现。</p>
+<h5 id="栈的操作"><a href="#栈的操作" class="headerlink" title="栈的操作"></a>栈的操作</h5><ul>
+<li>Stack() 创建一个新的空栈</li>
+<li>push(item) 添加一个新的元素item到栈顶</li>
+<li>pop() 弹出栈顶元素</li>
+<li>peek() 返回栈顶元素</li>
+<li>is_empty() 判断栈是否为空</li>
+<li>size() 返回栈的元素个数<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class Stack(object):</span><br><span class="line">    &quot;&quot;&quot;栈&quot;&quot;&quot;</span><br><span class="line">    def __init__(self):</span><br><span class="line">         self.items = []</span><br><span class="line"></span><br><span class="line">    def is_empty(self):</span><br><span class="line">        &quot;&quot;&quot;判断是否为空&quot;&quot;&quot;</span><br><span class="line">        return self.items == []</span><br><span class="line"></span><br><span class="line">    def push(self, item):</span><br><span class="line">        &quot;&quot;&quot;加入元素&quot;&quot;&quot;</span><br><span class="line">        self.items.append(item)</span><br><span class="line"></span><br><span class="line">    def pop(self):</span><br><span class="line">        &quot;&quot;&quot;弹出元素&quot;&quot;&quot;</span><br><span class="line">        return self.items.pop()</span><br><span class="line"></span><br><span class="line">    def peek(self):</span><br><span class="line">        &quot;&quot;&quot;返回栈顶元素&quot;&quot;&quot;</span><br><span class="line">        return self.items[len(self.items)-1]</span><br><span class="line"></span><br><span class="line">    def size(self):</span><br><span class="line">        &quot;&quot;&quot;返回栈的大小&quot;&quot;&quot;</span><br><span class="line">        return len(self.items)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    stack = Stack()</span><br><span class="line">    stack.push(&quot;hello&quot;)</span><br><span class="line">    stack.push(&quot;world&quot;)</span><br><span class="line">    stack.push(&quot;itcast&quot;)</span><br><span class="line">    print stack.size()</span><br><span class="line">    print stack.peek()</span><br><span class="line">    print stack.pop()</span><br><span class="line">    print stack.pop()</span><br><span class="line">    print stack.pop()</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>执行过程如下：<br><img src="pic/stack%E6%BC%94%E7%A4%BA.gif"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-DataStructures&amp;algorithms6"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2023/01/01/DataStructures&algorithms6/">数据结构和算法(六) Data Structures&amp; Algorothms</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2023/01/01/DataStructures&algorithms6/" class="article-date">
+	  <time datetime="2023-01-01T08:09:12.000Z" itemprop="datePublished">2023-01-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="排序与搜索"><a href="#排序与搜索" class="headerlink" title="排序与搜索"></a>排序与搜索</h3><p>排序算法（英语：Sorting algorithm）是一种能将一串数据依照特定顺序进行排列的一种算法。</p>
+<h4 id="排序算法的稳定性"><a href="#排序算法的稳定性" class="headerlink" title="排序算法的稳定性"></a>排序算法的稳定性</h4><ul>
+<li>稳定性：稳定排序算法会让原本有相等键值的纪录维持相对次序。也就是如果一个排序算法是稳定的，当有两个相等键值的纪录R和S，且在原本的列表中R出现在S之前，在排序过的列表中R也将会是在S之前。<br>当相等的元素是无法分辨的，比如像是整数，稳定性并不是一个问题。然而，假设以下的数对将要以他们的第一个数字来排序。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(4, 1)  (3, 1)  (3, 7)（5, 6）</span><br></pre></td></tr></table></figure>
+<p>在这个状况下，有可能产生两种不同的结果，一个是让相等键值的纪录维持相对的次序，而另外一个则没有：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(3, 1)  (3, 7)  (4, 1)  (5, 6)  （维持次序）</span><br><span class="line">(3, 7)  (3, 1)  (4, 1)  (5, 6)  （次序被改变）</span><br></pre></td></tr></table></figure>
+<p>不稳定排序算法可能会在相等的键值中改变纪录的相对次序，但是稳定排序算法从来不会如此。不稳定排序算法可以被特别地实现为稳定。作这件事情的一个方式是人工扩充键值的比较，如此在其他方面相同键值的两个对象间之比较，（比如上面的比较中加入第二个标准：第二个键值的大小）就会被决定使用在原先数据次序中的条目，当作一个同分决赛。然而，要记住这种次序通常牵涉到额外的空间负担。</p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-DataStructures&amp;algorithms3"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2023/01/01/DataStructures&algorithms3/">数据结构和算法(三) Data Structures&amp; Algorothms</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2023/01/01/DataStructures&algorithms3/" class="article-date">
+	  <time datetime="2023-01-01T08:09:12.000Z" itemprop="datePublished">2023-01-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><h4 id="为什么需要链表"><a href="#为什么需要链表" class="headerlink" title="为什么需要链表"></a>为什么需要链表</h4><p>顺序表的构建需要预先知道数据大小来申请连续的存储空间，而在进行扩充时又需要进行数据的搬迁，所以使用起来并不是很灵活。<br>链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。</p>
+<h4 id="链表的定义"><a href="#链表的定义" class="headerlink" title="链表的定义"></a>链表的定义</h4><p>链表（Linked list）是一种常见的基础数据结构，是一种线性表，但是不像顺序表一样连续存储数据，而是在每一个节点（数据存储单元）里存放下一个节点的位置信息（即地址）<br><img src="pic/%E9%93%BE%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89.png"></p>
       
     </div>
     <footer class="article-footer">
@@ -504,6 +669,54 @@
 
 
   
+    <article id="post-DataStructures&amp;algorithms4"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2023/01/01/DataStructures&algorithms4/">数据结构和算法(四) Data Structures&amp; Algorothms</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2023/01/01/DataStructures&algorithms4/" class="article-date">
+	  <time datetime="2023-01-01T08:09:12.000Z" itemprop="datePublished">2023-01-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><h4 id="为什么需要链表"><a href="#为什么需要链表" class="headerlink" title="为什么需要链表"></a>为什么需要链表</h4><p>顺序表的构建需要预先知道数据大小来申请连续的存储空间，而在进行扩充时又需要进行数据的搬迁，所以使用起来并不是很灵活。<br>链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。</p>
+<h4 id="链表的定义"><a href="#链表的定义" class="headerlink" title="链表的定义"></a>链表的定义</h4><p>链表（Linked list）是一种常见的基础数据结构，是一种线性表，但是不像顺序表一样连续存储数据，而是在每一个节点（数据存储单元）里存放下一个节点的位置信息（即地址）<br><img src="pic/%E9%93%BE%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89.png"></p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-DataMining"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -551,7 +764,7 @@
 
 
   
-    <article id="post-AWS_Athena"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-AWS_S3"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -559,7 +772,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/09/28/AWS_Athena/">AWS使用笔记 Athena</a>
+      <a class="article-title" href="/2022/09/28/AWS_S3/">AWS使用笔记 S3</a>
     </h1>
   
 
@@ -567,7 +780,7 @@
     
     <div class="article-meta">
       
-	<a href="/2022/09/28/AWS_Athena/" class="article-date">
+	<a href="/2022/09/28/AWS_S3/" class="article-date">
 	  <time datetime="2022-09-28T07:09:12.000Z" itemprop="datePublished">2022-09-28</time>
 	</a>
 
@@ -598,7 +811,7 @@
 
 
   
-    <article id="post-AWS_S3"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-AWS_Athena"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -606,7 +819,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/09/28/AWS_S3/">AWS使用笔记 S3</a>
+      <a class="article-title" href="/2022/09/28/AWS_Athena/">AWS使用笔记 Athena</a>
     </h1>
   
 
@@ -614,7 +827,7 @@
     
     <div class="article-meta">
       
-	<a href="/2022/09/28/AWS_S3/" class="article-date">
+	<a href="/2022/09/28/AWS_Athena/" class="article-date">
 	  <time datetime="2022-09-28T07:09:12.000Z" itemprop="datePublished">2022-09-28</time>
 	</a>
 
@@ -692,54 +905,6 @@
 
 
   
-    <article id="post-CV-ObjectDetection"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/09/28/CV-ObjectDetection/">目标检测 ObjectDetection</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/09/28/CV-ObjectDetection/" class="article-date">
-	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>计算机视觉-目标检测</p>
-<h6 id="什么是目标检测"><a href="#什么是目标检测" class="headerlink" title="什么是目标检测"></a>什么是目标检测</h6><p>目标检测（Object Detection）的任务是找出图像中所有感兴趣的目标（物体），确定它们的类别和位置，是计算机视觉领域的核心问题之一。由于各类物体有不同的外观、形状和姿态，加上成像时光照、遮挡等因素的干扰，目标检测一直是计算机视觉领域最具有挑战性的问题。<br>计算机视觉中关于图像识别有四大类任务：<br>（1）分类-Classification：解决“是什么？”的问题，即给定一张图片或一段视频判断里面包含什么类别的目标。<br>（2）定位-Location：解决“在哪里？”的问题，即定位出这个目标的的位置。<br>（3）检测-Detection：解决“在哪里？是什么？”的问题，即定位出这个目标的位置并且知道目标物是什么。<br>（4）分割-Segmentation：分为实例的分割（Instance-level）和场景分割（Scene-level），解决“每一个像素属于哪个目标物或场景”的问题。<br>所以，目标检测是一个分类、回归问题的叠加。</p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-CV-SelfiSegmentation"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -788,53 +953,6 @@
 
 
   
-    <article id="post-CV-face"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2022/09/28/CV-face/">计算机视觉人脸识别 Face Recognition</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2022/09/28/CV-face/" class="article-date">
-	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Code/">Code</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>人脸识别并动态贴图 实现抖音动态小表情</p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-CV-SemanticSegmentation"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -865,6 +983,101 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Mask-Rcnn</p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-CV-ObjectDetection"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/09/28/CV-ObjectDetection/">目标检测 ObjectDetection</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/09/28/CV-ObjectDetection/" class="article-date">
+	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>计算机视觉-目标检测</p>
+<h6 id="什么是目标检测"><a href="#什么是目标检测" class="headerlink" title="什么是目标检测"></a>什么是目标检测</h6><p>目标检测（Object Detection）的任务是找出图像中所有感兴趣的目标（物体），确定它们的类别和位置，是计算机视觉领域的核心问题之一。由于各类物体有不同的外观、形状和姿态，加上成像时光照、遮挡等因素的干扰，目标检测一直是计算机视觉领域最具有挑战性的问题。<br>计算机视觉中关于图像识别有四大类任务：<br>（1）分类-Classification：解决“是什么？”的问题，即给定一张图片或一段视频判断里面包含什么类别的目标。<br>（2）定位-Location：解决“在哪里？”的问题，即定位出这个目标的的位置。<br>（3）检测-Detection：解决“在哪里？是什么？”的问题，即定位出这个目标的位置并且知道目标物是什么。<br>（4）分割-Segmentation：分为实例的分割（Instance-level）和场景分割（Scene-level），解决“每一个像素属于哪个目标物或场景”的问题。<br>所以，目标检测是一个分类、回归问题的叠加。</p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-CV-face"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/09/28/CV-face/">计算机视觉人脸识别 Face Recognition</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2022/09/28/CV-face/" class="article-date">
+	  <time datetime="2022-09-28T00:08:08.000Z" itemprop="datePublished">2022-09-28</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Code/">Code</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>人脸识别并动态贴图 实现抖音动态小表情</p>
       
     </div>
     <footer class="article-footer">
@@ -1053,194 +1266,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="https://images.unsplash.com/photo-1664465476383-7ac1e33b9b19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"><br>人工智能（Artificial Intelligence），英文缩写为AI。它是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术及应用系统的一门新的技术科学。<br>人工智能是计算机科学的一个分支，它企图了解智能的实质，并生产出一种新的能以人类智能相似的方式做出反应的智能机器，该领域的研究包括机器人、语言识别、图像识别、自然语言处理和专家系统等。<br>人工智能从诞生以来，理论和技术日益成熟，应用领域也不断扩大，可以设想，未来人工智能带来的科技产品，将会是人类智慧的“容器”。人工智能可以对人的意识、思维的信息过程的模拟。人工智能不是人的智能，但能像人那样思考、也可能超过人的智能。<br>人工智能是一门极富挑战性的科学，从事这项工作的人必须懂得计算机知识，心理学和哲学。人工智能是包括十分广泛的科学，它由不同的领域组成，如机器学习，计算机视觉等等，总的说来，人工智能研究的一个主要目标是使机器能够胜任一些通常需要人类智能才能完成的复杂工作。<br>但不同的时代、不同的人对这种“复杂工作”的理解是不同的。2017年12月，人工智能入选“2017年度中国媒体十大流行语”。2021年9月25日，为促进人工智能健康发展，《新一代人工智能伦理规范》发布。</p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-NLP"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2021/09/28/NLP/">自然语言 NLP</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2021/09/28/NLP/" class="article-date">
-	  <time datetime="2021-09-28T07:09:12.000Z" itemprop="datePublished">2021-09-28</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>《圣经》里有一个故事说巴比伦人想建造一座塔直通天堂。建塔的人都说着同一种语言，心意相通、齐心协力。上帝看到人类竟然敢做这种事情，就让他们的语言变得不一样。<br>因为人们听不懂对方在讲什么，于是大家整天吵吵闹闹，无法继续建塔。后来人们把这座塔叫作巴别塔，而“巴别”的意思就是“分歧”。<br>虽然巴别塔停建了，但一个梦想却始终萦绕在人们心中：人类什么时候才能拥有相通的语言，重建巴别塔呢？机器翻译被视为“重建巴别塔”的伟大创举。<br>假如能够实现不同语言之间的机器翻译，我们就可以理解世界上任何人说的话，与他们进行交流和沟通，再也不必为相互不能理解而困扰。</p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-CV"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2021/09/28/CV/">计算机视觉 CV</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2021/09/28/CV/" class="article-date">
-	  <time datetime="2021-09-28T00:08:08.000Z" itemprop="datePublished">2021-09-28</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>计算机视觉是一门研究如何使机器“看”的科学，更进一步的说，就是是指用摄影机和电脑代替人眼对目标进行识别、跟踪和测量等机器视觉，并进一步做图形处理，使电脑处理成为更适合人眼观察或传送给仪器检测的图像。<br>作为一个科学学科，计算机视觉研究相关的理论和技术，试图建立能够从图像或者多维数据中获取‘信息’的人工智能系统。<br>这里所指的信息指Shannon定义的，可以用来帮助做一个“决定”的信息。<br>因为感知可以看作是从感官信号中提 取信息，所以计算机视觉也可以看作是研究如何使人工系统从图像或多维数据中“感知”的科学。</p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-DL"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2021/09/22/DL/">深度学习 Deep Learning</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2021/09/22/DL/" class="article-date">
-	  <time datetime="2021-09-22T07:09:12.000Z" itemprop="datePublished">2021-09-22</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>人类大脑中，大约有1000亿个神经元，每个神经元与大约10万个神经元相连。从本质上说，这就是我们想要创造的，在某种程度上，这对机器来说是可行的。<br>深度学习的目的是模仿人类大脑的工作方式。这在神经元，轴突，树突等方面意味着什么？嗯，神经元有胞体，树突和轴突。来自一个神经元的信号沿着轴突传播并转移到下一个神经元的树突。传递信号的那个连接被称为突触。</p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-CV-ObjectDetection-YoloV5"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2021/08/28/CV-ObjectDetection-YoloV5/">目标检测 YoloV5</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2021/08/28/CV-ObjectDetection-YoloV5/" class="article-date">
-	  <time datetime="2021-08-28T00:08:08.000Z" itemprop="datePublished">2021-08-28</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Introduction/">Introduction</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><h4 id="GPU环境配置"><a href="#GPU环境配置" class="headerlink" title="GPU环境配置"></a>GPU环境配置</h4><p><img src="https://images.unsplash.com/photo-1662981645170-b72211be374f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"></p>
       
     </div>
     <footer class="article-footer">

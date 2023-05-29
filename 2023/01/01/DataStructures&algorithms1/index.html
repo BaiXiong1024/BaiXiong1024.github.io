@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://images.pexels.com/photos/3184451/pexels-photo-3184451.jpeg?cs=srgb&dl=pexels-fauxels-3184451.jpg&fm=jpg">
 <meta property="article:published_time" content="2023-01-01T08:09:12.000Z">
-<meta property="article:modified_time" content="2023-02-21T00:37:06.000Z">
+<meta property="article:modified_time" content="2023-05-29T08:14:52.894Z">
 <meta property="article:author" content="Bai Xiong">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="DataStructures&amp;Algorothms">
@@ -286,6 +286,18 @@
 </tbody></table>
 <p>注意，经常将log2n（以2为底的对数）简写成logn</p>
 <h4 id="所消耗的时间从小到大"><a href="#所消耗的时间从小到大" class="headerlink" title="所消耗的时间从小到大"></a>所消耗的时间从小到大</h4><p>O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O(n2) &lt; O(n3) &lt; O(2n) &lt; O(n!) &lt; O(nn)</p>
+<h4 id="Python内置类型性能分析"><a href="#Python内置类型性能分析" class="headerlink" title="Python内置类型性能分析"></a>Python内置类型性能分析</h4><ul>
+<li>timeit模块<br>timeit模块可以用来测试一小段Python代码的执行速度。</li>
+<li>class timeit.Timer(stmt=’pass’, setup=’pass’, timer=<timer function>)<br>Timer是测量小段代码执行速度的类。<br>stmt参数是要测试的代码语句（statment）；<br>setup参数是运行代码时需要的设置；<br>timer参数是一个定时器函数，与平台有关。</li>
+<li>timeit.Timer.timeit(number=1000000)<br>Timer类中测试语句执行速度的对象方法。number参数是测试代码时的测试次数，默认为1000000次。方法返回执行代码的平均耗时，一个float类型的秒数。</li>
+</ul>
+<h4 id="list的操作测试"><a href="#list的操作测试" class="headerlink" title="list的操作测试"></a>list的操作测试</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">def test1():</span><br><span class="line">   l = []</span><br><span class="line">   for i in range(1000):</span><br><span class="line">      l = l + [i]</span><br><span class="line">def test2():</span><br><span class="line">   l = []</span><br><span class="line">   for i in range(1000):</span><br><span class="line">      l.append(i)</span><br><span class="line">def test3():</span><br><span class="line">   l = [i for i in range(1000)]</span><br><span class="line">def test4():</span><br><span class="line">   l = list(range(1000))</span><br><span class="line"></span><br><span class="line">from timeit import Timer</span><br><span class="line"></span><br><span class="line">t1 = Timer(&quot;test1()&quot;, &quot;from __main__ import test1&quot;)</span><br><span class="line">print(&quot;concat &quot;,t1.timeit(number=1000), &quot;seconds&quot;)</span><br><span class="line">t2 = Timer(&quot;test2()&quot;, &quot;from __main__ import test2&quot;)</span><br><span class="line">print(&quot;append &quot;,t2.timeit(number=1000), &quot;seconds&quot;)</span><br><span class="line">t3 = Timer(&quot;test3()&quot;, &quot;from __main__ import test3&quot;)</span><br><span class="line">print(&quot;comprehension &quot;,t3.timeit(number=1000), &quot;seconds&quot;)</span><br><span class="line">t4 = Timer(&quot;test4()&quot;, &quot;from __main__ import test4&quot;)</span><br><span class="line">print(&quot;list range &quot;,t4.timeit(number=1000), &quot;seconds&quot;)</span><br><span class="line"></span><br><span class="line"># (&#x27;concat &#x27;, 1.7890608310699463, &#x27;seconds&#x27;)</span><br><span class="line"># (&#x27;append &#x27;, 0.13796091079711914, &#x27;seconds&#x27;)</span><br><span class="line"># (&#x27;comprehension &#x27;, 0.05671119689941406, &#x27;seconds&#x27;)</span><br><span class="line"># (&#x27;list range &#x27;, 0.014147043228149414, &#x27;seconds&#x27;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="pop操作测试"><a href="#pop操作测试" class="headerlink" title="pop操作测试"></a>pop操作测试</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = range(2000000)</span><br><span class="line">pop_zero = Timer(&quot;x.pop(0)&quot;,&quot;from __main__ import x&quot;)</span><br><span class="line">print(&quot;pop_zero &quot;,pop_zero.timeit(number=1000), &quot;seconds&quot;)</span><br><span class="line">x = range(2000000)</span><br><span class="line">pop_end = Timer(&quot;x.pop()&quot;,&quot;from __main__ import x&quot;)</span><br><span class="line">print(&quot;pop_end &quot;,pop_end.timeit(number=1000), &quot;seconds&quot;)</span><br><span class="line"></span><br><span class="line"># (&#x27;pop_zero &#x27;, 1.9101738929748535, &#x27;seconds&#x27;)</span><br><span class="line"># (&#x27;pop_end &#x27;, 0.00023603439331054688, &#x27;seconds&#x27;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试pop操作：从结果可以看出，pop最后一个元素的效率远远高于pop第一个元素</li>
+</ul>
 <h4 id="python-list内置操作的时间复杂度"><a href="#python-list内置操作的时间复杂度" class="headerlink" title="python list内置操作的时间复杂度"></a>python list内置操作的时间复杂度</h4><table>
 <thead>
 <tr>
@@ -356,6 +368,38 @@
 <tr>
 <td>multiply</td>
 <td align="center">O(nk)</td>
+</tr>
+</tbody></table>
+<h4 id="python-dict内置操作的时间复杂度"><a href="#python-dict内置操作的时间复杂度" class="headerlink" title="python dict内置操作的时间复杂度"></a>python dict内置操作的时间复杂度</h4><table>
+<thead>
+<tr>
+<th>Operation</th>
+<th align="center">Big-O Efficiency</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>copy</td>
+<td align="center">O(n)</td>
+</tr>
+<tr>
+<td>get_item</td>
+<td align="center">O(1)</td>
+</tr>
+<tr>
+<td>set_item</td>
+<td align="center">O(1)</td>
+</tr>
+<tr>
+<td>delete_item</td>
+<td align="center">O(1)</td>
+</tr>
+<tr>
+<td>contains(in)</td>
+<td align="center">O(1)</td>
+</tr>
+<tr>
+<td>Iteration</td>
+<td align="center">O(n)</td>
 </tr>
 </tbody></table>
 <h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>我们如何用Python中的类型来保存一个班的学生信息？ 如果想要快速的通过学生姓名获取其信息呢？<br>实际上当我们在思考这个问题的时候，我们已经用到了数据结构。列表和字典都可以存储一个班的学生信息，但是想要在列表中获取一名同学的信息时，就要遍历这个列表，其时间复杂度为O(n)，而使用字典存储时，可将学生姓名作为字典的键，学生信息作为值，进而查询时不需要遍历便可快速获取到学生信息，其时间复杂度为O(1)。<br>我们为了解决问题，需要将数据保存下来，然后根据数据的存储方式来设计算法实现进行处理，那么数据的存储方式不同就会导致需要不同的算法进行处理。我们希望算法解决问题的效率越快越好，于是我们就需要考虑数据究竟如何保存的问题，这就是数据结构。<br>在上面的问题中我们可以选择Python中的列表或字典来存储学生信息。列表和字典就是Python内建帮我们封装好的两种数据结构。</p>
@@ -757,19 +801,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2023/01/01/DataStructures&algorithms2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/01/01/DataStructures&algorithms3/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          数据结构和算法(二) Data Structures&amp; Algorothms
+          数据结构和算法(三) Data Structures&amp; Algorothms
         
       </div>
     </a>
   
   
-    <a href="/2023/01/01/DataMining/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/01/01/DataStructures&algorithms4/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">数据挖掘 DataMining</div>
+      <div class="article-nav-title">数据结构和算法(四) Data Structures&amp; Algorothms</div>
     </a>
   
 </nav>
@@ -783,7 +827,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">Contents</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">算法的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E4%BA%94%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">算法的五大特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4%E5%8F%8D%E5%BA%94%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87"><span class="nav-number">3.</span> <span class="nav-text">执行时间反应算法效率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E9%9D%A0%E6%97%B6%E9%97%B4%E5%80%BC%E7%BB%9D%E5%AF%B9%E5%8F%AF%E4%BF%A1%E5%90%97%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">单靠时间值绝对可信吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8E%E2%80%9C%E5%A4%A7O%E8%AE%B0%E6%B3%95%E2%80%9D"><span class="nav-number">5.</span> <span class="nav-text">时间复杂度与“大O记法”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E2%80%9C%E5%A4%A7O%E8%AE%B0%E6%B3%95%E2%80%9D"><span class="nav-number">6.</span> <span class="nav-text">如何理解“大O记法”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E5%9D%8F%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">7.</span> <span class="nav-text">最坏时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%9A%84%E5%87%A0%E6%9D%A1%E5%9F%BA%E6%9C%AC%E8%AE%A1%E7%AE%97%E8%A7%84%E5%88%99"><span class="nav-number">8.</span> <span class="nav-text">时间复杂度的几条基本计算规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">9.</span> <span class="nav-text">常见时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%80%E6%B6%88%E8%80%97%E7%9A%84%E6%97%B6%E9%97%B4%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7"><span class="nav-number">10.</span> <span class="nav-text">所消耗的时间从小到大</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python-list%E5%86%85%E7%BD%AE%E6%93%8D%E4%BD%9C%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">11.</span> <span class="nav-text">python list内置操作的时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">12.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">13.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">14.</span> <span class="nav-text">算法与数据结构的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-Abstract-Data-Type"><span class="nav-number">15.</span> <span class="nav-text">抽象数据类型(Abstract Data Type)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%99%84%E8%A1%A8-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AF%B9%E7%85%A7"><span class="nav-number">16.</span> <span class="nav-text">附表-数据结构和算法专业术语中英文对照</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">算法的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E4%BA%94%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">算法的五大特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4%E5%8F%8D%E5%BA%94%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87"><span class="nav-number">3.</span> <span class="nav-text">执行时间反应算法效率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E9%9D%A0%E6%97%B6%E9%97%B4%E5%80%BC%E7%BB%9D%E5%AF%B9%E5%8F%AF%E4%BF%A1%E5%90%97%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">单靠时间值绝对可信吗？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%B8%8E%E2%80%9C%E5%A4%A7O%E8%AE%B0%E6%B3%95%E2%80%9D"><span class="nav-number">5.</span> <span class="nav-text">时间复杂度与“大O记法”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E2%80%9C%E5%A4%A7O%E8%AE%B0%E6%B3%95%E2%80%9D"><span class="nav-number">6.</span> <span class="nav-text">如何理解“大O记法”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E5%9D%8F%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">7.</span> <span class="nav-text">最坏时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%9A%84%E5%87%A0%E6%9D%A1%E5%9F%BA%E6%9C%AC%E8%AE%A1%E7%AE%97%E8%A7%84%E5%88%99"><span class="nav-number">8.</span> <span class="nav-text">时间复杂度的几条基本计算规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">9.</span> <span class="nav-text">常见时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%80%E6%B6%88%E8%80%97%E7%9A%84%E6%97%B6%E9%97%B4%E4%BB%8E%E5%B0%8F%E5%88%B0%E5%A4%A7"><span class="nav-number">10.</span> <span class="nav-text">所消耗的时间从小到大</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90"><span class="nav-number">11.</span> <span class="nav-text">Python内置类型性能分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list%E7%9A%84%E6%93%8D%E4%BD%9C%E6%B5%8B%E8%AF%95"><span class="nav-number">12.</span> <span class="nav-text">list的操作测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pop%E6%93%8D%E4%BD%9C%E6%B5%8B%E8%AF%95"><span class="nav-number">13.</span> <span class="nav-text">pop操作测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python-list%E5%86%85%E7%BD%AE%E6%93%8D%E4%BD%9C%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">14.</span> <span class="nav-text">python list内置操作的时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python-dict%E5%86%85%E7%BD%AE%E6%93%8D%E4%BD%9C%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">15.</span> <span class="nav-text">python dict内置操作的时间复杂度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">16.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">17.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">18.</span> <span class="nav-text">算法与数据结构的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-Abstract-Data-Type"><span class="nav-number">19.</span> <span class="nav-text">抽象数据类型(Abstract Data Type)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%99%84%E8%A1%A8-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD%E4%B8%AD%E8%8B%B1%E6%96%87%E5%AF%B9%E7%85%A7"><span class="nav-number">20.</span> <span class="nav-text">附表-数据结构和算法专业术语中英文对照</span></a></li></ol>
     
     </div>
   </aside>
