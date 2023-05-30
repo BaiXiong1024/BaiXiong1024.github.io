@@ -18,15 +18,15 @@
 <meta property="og:site_name" content="HELLO WORLD">
 <meta property="og:description" content="栈（stack），有些地方称为堆栈，是一种容器，可存入数据元素、访问元素、删除元素，它的特点在于只能允许在容器的一端（称为栈顶端指标，英语：top）进行加入数据（英语：push）和输出数据（英语：pop）的运算。没有了位置概念，保证任何时候可以访问、删除的元素都是此前最后存入的那个元素，确定了一种默认的访问顺序。由于栈数据结构只允许在一端进行操作，因而按照后进先出（LIFO, Last In Fi">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2023/01/01/DataStructures&algorithms4/pic/stack.png">
-<meta property="og:image" content="http://example.com/2023/01/01/DataStructures&algorithms4/pic/stack_donghua.gif">
+<meta property="og:image" content="http://example.com/2023/01/01/DataStructures&algorithms4/stack.png">
+<meta property="og:image" content="http://example.com/2023/01/01/DataStructures&algorithms4/stack_donghua.gif">
 <meta property="article:published_time" content="2023-01-01T07:09:12.000Z">
-<meta property="article:modified_time" content="2023-05-30T02:47:25.021Z">
+<meta property="article:modified_time" content="2023-05-30T05:50:48.742Z">
 <meta property="article:author" content="Bai Xiong">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="DataStructures&amp;Algorothms">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2023/01/01/DataStructures&algorithms4/pic/stack.png">
+<meta name="twitter:image" content="http://example.com/2023/01/01/DataStructures&algorithms4/stack.png">
   
     <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
   
@@ -218,7 +218,7 @@
         <p>栈（stack），有些地方称为堆栈，是一种容器，可存入数据元素、访问元素、删除元素，它的特点在于只能允许在容器的一端（称为栈顶端指标，英语：top）进行加入数据（英语：push）和输出数据（英语：pop）的运算。没有了位置概念，保证任何时候可以访问、删除的元素都是此前最后存入的那个元素，确定了一种默认的访问顺序。<br>由于栈数据结构只允许在一端进行操作，因而按照后进先出（LIFO, Last In First Out）的原理运作。</p>
 <span id="more"></span>
 
-<p><img src="pic/stack.png"></p>
+<p><img src="/2023/01/01/DataStructures&algorithms4/stack.png"></p>
 <h4 id="栈结构实现"><a href="#栈结构实现" class="headerlink" title="栈结构实现"></a>栈结构实现</h4><p>栈可以用顺序表实现，也可以用链表实现。</p>
 <h5 id="栈的操作"><a href="#栈的操作" class="headerlink" title="栈的操作"></a>栈的操作</h5><ul>
 <li>Stack() 创建一个新的空栈</li>
@@ -228,7 +228,7 @@
 <li>is_empty() 判断栈是否为空</li>
 <li>size() 返回栈的元素个数<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class Stack(object):</span><br><span class="line">    &quot;&quot;&quot;栈&quot;&quot;&quot;</span><br><span class="line">    def __init__(self):</span><br><span class="line">         self.items = []</span><br><span class="line"></span><br><span class="line">    def is_empty(self):</span><br><span class="line">        &quot;&quot;&quot;判断是否为空&quot;&quot;&quot;</span><br><span class="line">        return self.items == []</span><br><span class="line"></span><br><span class="line">    def push(self, item):</span><br><span class="line">        &quot;&quot;&quot;加入元素&quot;&quot;&quot;</span><br><span class="line">        self.items.append(item)</span><br><span class="line"></span><br><span class="line">    def pop(self):</span><br><span class="line">        &quot;&quot;&quot;弹出元素&quot;&quot;&quot;</span><br><span class="line">        return self.items.pop()</span><br><span class="line"></span><br><span class="line">    def peek(self):</span><br><span class="line">        &quot;&quot;&quot;返回栈顶元素&quot;&quot;&quot;</span><br><span class="line">        return self.items[len(self.items)-1]</span><br><span class="line"></span><br><span class="line">    def size(self):</span><br><span class="line">        &quot;&quot;&quot;返回栈的大小&quot;&quot;&quot;</span><br><span class="line">        return len(self.items)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    stack = Stack()</span><br><span class="line">    stack.push(&quot;hello&quot;)</span><br><span class="line">    stack.push(&quot;world&quot;)</span><br><span class="line">    stack.push(&quot;itcast&quot;)</span><br><span class="line">    print stack.size()</span><br><span class="line">    print stack.peek()</span><br><span class="line">    print stack.pop()</span><br><span class="line">    print stack.pop()</span><br><span class="line">    print stack.pop()</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>执行过程如下：<br><img src="pic/stack_donghua.gif"></p>
+<p>执行过程如下：<br><img src="/2023/01/01/DataStructures&algorithms4/stack_donghua.gif"></p>
 
       
     </div>
