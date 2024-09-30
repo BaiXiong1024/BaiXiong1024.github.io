@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HELLO WORLD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="YoloV5训练图片增强 python代码Generate More Label – 生成配套的Label123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HELLO WORLD">
+<meta property="og:url" content="http://example.com/2024/09/30/CV-DataAugmentation/index.html">
+<meta property="og:site_name" content="HELLO WORLD">
+<meta property="og:description" content="YoloV5训练图片增强 python代码Generate More Label – 生成配套的Label123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-09-30T07:47:26.894Z">
+<meta property="article:modified_time" content="2024-09-30T07:47:41.399Z">
+<meta property="article:author" content="Bai Xiong">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="HELLO WORLD" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categories</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/collection">collection</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-CV-DataAugmentation" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+    <div class="article-meta">
+      
+	<a href="/2024/09/30/CV-DataAugmentation/" class="article-date">
+	  <time datetime="2024-09-30T07:47:26.894Z" itemprop="datePublished">2024-09-30</time>
+	</a>
+
+      
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		PV:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="YoloV5训练图片增强-python代码"><a href="#YoloV5训练图片增强-python代码" class="headerlink" title="YoloV5训练图片增强 python代码"></a>YoloV5训练图片增强 python代码</h1><h2 id="Generate-More-Label-–-生成配套的Label"><a href="#Generate-More-Label-–-生成配套的Label" class="headerlink" title="Generate More Label – 生成配套的Label"></a>Generate More Label – 生成配套的Label</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding=utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> xml.etree.ElementTree <span class="keyword">import</span> ElementTree, Element</span><br><span class="line"><span class="keyword">import</span> xml.etree.ElementTree <span class="keyword">as</span> ET</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">change_box</span>(<span class="params">update_path, save_path, filename, box_n, new_value</span>):</span><br><span class="line">    update_tree = ET.parse(update_path + filename)</span><br><span class="line">    root = update_tree.getroot()</span><br><span class="line">    size = root.find(<span class="string">&#x27;size&#x27;</span>)</span><br><span class="line">    <span class="built_in">object</span> = root.find(<span class="string">&#x27;object&#x27;</span>)</span><br><span class="line">    bndbox = <span class="built_in">object</span>.find(<span class="string">&quot;bndbox&quot;</span>)</span><br><span class="line">    _box_n = bndbox.find(box_n)</span><br><span class="line">    _box_n.text = new_value</span><br><span class="line">    update_tree.write(save_path + filename, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">change_name</span>(<span class="params">update_path, save_path, filename, new_name</span>):</span><br><span class="line">    update_tree = ET.parse(update_path + filename)</span><br><span class="line">    root = update_tree.getroot()</span><br><span class="line">    size = root.find(<span class="string">&#x27;size&#x27;</span>)</span><br><span class="line">    <span class="built_in">object</span> = root.find(<span class="string">&#x27;object&#x27;</span>)</span><br><span class="line">    filename = root.find(<span class="string">&quot;filename&quot;</span>)</span><br><span class="line">    filename.text = new_name</span><br><span class="line">    update_tree.write(save_path + new_name, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rotate_90</span>(<span class="params">update_path, save_path, filename, new_name</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;generate rotate 90° new label&quot;&quot;&quot;</span></span><br><span class="line">    update_tree = ET.parse(update_path + filename)</span><br><span class="line">    root = update_tree.getroot()</span><br><span class="line">    size = root.find(<span class="string">&#x27;size&#x27;</span>)</span><br><span class="line">    <span class="built_in">object</span> = root.find(<span class="string">&#x27;object&#x27;</span>)</span><br><span class="line">    bndbox = root.find(<span class="string">&#x27;object&#x27;</span>).find(<span class="string">&quot;bndbox&quot;</span>)</span><br><span class="line">    width = <span class="built_in">int</span>(size.find(<span class="string">&#x27;width&#x27;</span>).text)</span><br><span class="line">    height = <span class="built_in">int</span>(size.find(<span class="string">&#x27;height&#x27;</span>).text)</span><br><span class="line">    xmin, ymin, xmax, ymax = bndbox.find(<span class="string">&quot;xmin&quot;</span>), bndbox.find(<span class="string">&quot;ymin&quot;</span>), bndbox.find(</span><br><span class="line">        <span class="string">&quot;xmax&quot;</span>), bndbox.find(<span class="string">&quot;ymax&quot;</span>)</span><br><span class="line">    _xmin, _ymin, _xmax, _ymax = <span class="built_in">int</span>(xmin.text), <span class="built_in">int</span>(ymin.text), <span class="built_in">int</span>(xmax.text), <span class="built_in">int</span>(ymax.text)</span><br><span class="line">    xmin.text = <span class="built_in">str</span>(_ymin)</span><br><span class="line">    ymin.text = <span class="built_in">str</span>(width - _xmax)</span><br><span class="line">    xmax.text = <span class="built_in">str</span>(_ymax)</span><br><span class="line">    ymax.text = <span class="built_in">str</span>(height - _xmin)</span><br><span class="line">    update_tree.write(save_path + new_name, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rotate_180</span>(<span class="params">update_path, save_path, filename, new_name</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;generate rotate 180° new label&quot;&quot;&quot;</span></span><br><span class="line">    update_tree = ET.parse(update_path + filename)</span><br><span class="line">    root = update_tree.getroot()</span><br><span class="line">    size = root.find(<span class="string">&#x27;size&#x27;</span>)</span><br><span class="line">    bndbox = root.find(<span class="string">&#x27;object&#x27;</span>).find(<span class="string">&quot;bndbox&quot;</span>)</span><br><span class="line">    width = <span class="built_in">int</span>(size.find(<span class="string">&#x27;width&#x27;</span>).text)</span><br><span class="line">    height = <span class="built_in">int</span>(size.find(<span class="string">&#x27;height&#x27;</span>).text)</span><br><span class="line">    xmin, ymin, xmax, ymax = bndbox.find(<span class="string">&quot;xmin&quot;</span>), bndbox.find(<span class="string">&quot;ymin&quot;</span>), bndbox.find(</span><br><span class="line">        <span class="string">&quot;xmax&quot;</span>), bndbox.find(<span class="string">&quot;ymax&quot;</span>)</span><br><span class="line">    _xmin, _ymin, _xmax, _ymax = <span class="built_in">int</span>(xmin.text), <span class="built_in">int</span>(ymin.text), <span class="built_in">int</span>(xmax.text), <span class="built_in">int</span>(ymax.text)</span><br><span class="line">    xmin.text = <span class="built_in">str</span>(height - _xmax)</span><br><span class="line">    ymin.text = <span class="built_in">str</span>(width - _ymax)</span><br><span class="line">    xmax.text = <span class="built_in">str</span>(height - _xmin)</span><br><span class="line">    ymax.text = <span class="built_in">str</span>(width - _ymin)</span><br><span class="line">    update_tree.write(save_path + new_name, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_fli_label</span>(<span class="params">update_path, save_path, filename, new_name</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;generate fli new label&quot;&quot;&quot;</span></span><br><span class="line">    update_tree = ET.parse(update_path + filename)</span><br><span class="line">    root = update_tree.getroot()</span><br><span class="line">    size = root.find(<span class="string">&#x27;size&#x27;</span>)</span><br><span class="line">    bndbox = root.find(<span class="string">&#x27;object&#x27;</span>).find(<span class="string">&quot;bndbox&quot;</span>)</span><br><span class="line">    width = <span class="built_in">int</span>(size.find(<span class="string">&#x27;width&#x27;</span>).text)</span><br><span class="line">    height = <span class="built_in">int</span>(size.find(<span class="string">&#x27;height&#x27;</span>).text)</span><br><span class="line">    xmin, ymin, xmax, ymax = bndbox.find(<span class="string">&quot;xmin&quot;</span>), bndbox.find(<span class="string">&quot;ymin&quot;</span>), bndbox.find(<span class="string">&quot;xmax&quot;</span>), bndbox.find(<span class="string">&quot;ymax&quot;</span>)</span><br><span class="line">    _xmin, _ymin, _xmax, _ymax = <span class="built_in">int</span>(xmin.text), <span class="built_in">int</span>(ymin.text), <span class="built_in">int</span>(xmax.text), <span class="built_in">int</span>(ymax.text)</span><br><span class="line">    xmin.text = <span class="built_in">str</span>(width - _xmax)</span><br><span class="line">    ymin.text = <span class="built_in">str</span>(_ymin)</span><br><span class="line">    xmax.text = <span class="built_in">str</span>(height - _xmin)</span><br><span class="line">    ymax.text = <span class="built_in">str</span>(_ymax)</span><br><span class="line">    update_tree.write(save_path + new_name, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">modify_quality</span>(<span class="params">update_path, save_path, filename, new_name</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;generate rotate 180° new label&quot;&quot;&quot;</span></span><br><span class="line">    change_name(update_path, save_path, filename, new_name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_label_square</span>(<span class="params">update_path, save_path, filename</span>):</span><br><span class="line">    update_tree = ET.parse(update_path + filename)</span><br><span class="line">    root = update_tree.getroot()</span><br><span class="line">    bndbox = root.find(<span class="string">&#x27;object&#x27;</span>).find(<span class="string">&quot;bndbox&quot;</span>)</span><br><span class="line">    width = root.find(<span class="string">&#x27;size&#x27;</span>).find(<span class="string">&#x27;width&#x27;</span>)</span><br><span class="line">    height = root.find(<span class="string">&#x27;size&#x27;</span>).find(<span class="string">&#x27;height&#x27;</span>)</span><br><span class="line">    xmin, ymin, xmax, ymax = bndbox.find(<span class="string">&quot;xmin&quot;</span>), bndbox.find(<span class="string">&quot;ymin&quot;</span>), bndbox.find(<span class="string">&quot;xmax&quot;</span>), bndbox.find(<span class="string">&quot;ymax&quot;</span>)</span><br><span class="line">    _xmin, _ymin, _xmax, _ymax = <span class="built_in">int</span>(xmin.text), <span class="built_in">int</span>(ymin.text), <span class="built_in">int</span>(xmax.text), <span class="built_in">int</span>(ymax.text)</span><br><span class="line">    _width, _height = <span class="built_in">int</span>(width.text), <span class="built_in">int</span>(height.text)</span><br><span class="line">    max_w = <span class="built_in">max</span>(_width, _height)</span><br><span class="line">    width.text, height.text = <span class="built_in">str</span>(max_w), <span class="built_in">str</span>(max_w)</span><br><span class="line">    <span class="keyword">if</span> _height &gt; _width:</span><br><span class="line">        xmin.text = <span class="built_in">str</span>(_xmin + (_height - _width) // <span class="number">2</span>)</span><br><span class="line">        xmax.text = <span class="built_in">str</span>(_xmax + (_height - _width) // <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">elif</span> _width &gt; _height:</span><br><span class="line">        ymin.text = <span class="built_in">str</span>(_ymin + (_width - _height) // <span class="number">2</span>)</span><br><span class="line">        ymax.text = <span class="built_in">str</span>(_ymax + (_width - _height) // <span class="number">2</span>)</span><br><span class="line">    update_tree.write(save_path + filename, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_rotate_label</span>(<span class="params">update_path, save_path, filename</span>):</span><br><span class="line">    new_name_90 = filename.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>] + <span class="string">&quot;_r90&quot;</span> + <span class="string">&quot;.xml&quot;</span></span><br><span class="line">    new_name_180 = filename.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>] + <span class="string">&quot;_r180&quot;</span> + <span class="string">&quot;.xml&quot;</span></span><br><span class="line">    modify_fli = filename.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>] + <span class="string">&quot;_fli&quot;</span> + <span class="string">&quot;.xml&quot;</span></span><br><span class="line">    rotate_90(update_path, save_path, filename, new_name=new_name_90)</span><br><span class="line">    rotate_180(update_path, save_path, filename, new_name=new_name_180)</span><br><span class="line">    gen_fli_label(update_path, save_path, filename, new_name=modify_fli)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_modify_label</span>(<span class="params">update_path, save_path, filename</span>):</span><br><span class="line">    modify_blur = filename.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>] + <span class="string">&quot;_blur&quot;</span> + <span class="string">&quot;.xml&quot;</span></span><br><span class="line">    modify_brighter = filename.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>] + <span class="string">&quot;_brighter&quot;</span> + <span class="string">&quot;.xml&quot;</span></span><br><span class="line">    modify_darker = filename.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>] + <span class="string">&quot;_darker&quot;</span> + <span class="string">&quot;.xml&quot;</span></span><br><span class="line">    modify_nosie = filename.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>] + <span class="string">&quot;_nosie&quot;</span> + <span class="string">&quot;.xml&quot;</span></span><br><span class="line">    modify_quality(update_path, save_path, filename, new_name=modify_blur)</span><br><span class="line">    modify_quality(update_path, save_path, filename, new_name=modify_brighter)</span><br><span class="line">    modify_quality(update_path, save_path, filename, new_name=modify_darker)</span><br><span class="line">    modify_quality(update_path, save_path, filename, new_name=modify_nosie)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    update_path = <span class="string">&quot;../data/picture/label/&quot;</span></span><br><span class="line">    <span class="comment"># save_path = &quot;../yolov5/data/VOCdevkit/VOC2007/pic_train20221110/label/&quot;</span></span><br><span class="line">    <span class="keyword">for</span> label_name <span class="keyword">in</span> tqdm(os.listdir(update_path)):</span><br><span class="line">        update_tree = ET.parse(update_path + label_name)</span><br><span class="line">        root = update_tree.getroot()</span><br><span class="line">        bndbox = root.find(<span class="string">&#x27;object&#x27;</span>).find(<span class="string">&quot;bndbox&quot;</span>)</span><br><span class="line">        width = root.find(<span class="string">&#x27;size&#x27;</span>).find(<span class="string">&#x27;width&#x27;</span>)</span><br><span class="line">        height = root.find(<span class="string">&#x27;size&#x27;</span>).find(<span class="string">&#x27;height&#x27;</span>)</span><br><span class="line">        _width, _height = <span class="built_in">int</span>(width.text), <span class="built_in">int</span>(height.text)</span><br><span class="line">        <span class="keyword">if</span> _width != _height:</span><br><span class="line">            gen_label_square(update_path, update_path, label_name)</span><br><span class="line">    <span class="keyword">for</span> label_name <span class="keyword">in</span> tqdm(os.listdir(update_path)):</span><br><span class="line">        gen_rotate_label(update_path, update_path, label_name)</span><br><span class="line">    <span class="keyword">for</span> label_name <span class="keyword">in</span> tqdm(os.listdir(update_path)):</span><br><span class="line">        gen_modify_label(update_path, update_path, label_name)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Generate-More-Picture-–-生成增强图片"><a href="#Generate-More-Picture-–-生成增强图片" class="headerlink" title="Generate More Picture – 生成增强图片"></a>Generate More Picture – 生成增强图片</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> os.path</span><br><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">import</span> xml.etree.ElementTree <span class="keyword">as</span> ET</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">trans_square</span>(<span class="params">image, save_name</span>):</span><br><span class="line">    <span class="string">r&quot;&quot;&quot;Open the image using PIL.&quot;&quot;&quot;</span></span><br><span class="line">    image = image.convert(<span class="string">&#x27;RGB&#x27;</span>)</span><br><span class="line">    w, h = image.size</span><br><span class="line">    background = Image.new(<span class="string">&#x27;RGB&#x27;</span>, size=(<span class="built_in">max</span>(w, h), <span class="built_in">max</span>(w, h)), color=(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>))  <span class="comment"># 创建背景图，颜色值为127</span></span><br><span class="line">    length = <span class="built_in">int</span>(<span class="built_in">abs</span>(w - h) // <span class="number">2</span>)  <span class="comment"># 一侧需要填充的长度</span></span><br><span class="line">    box = (length, <span class="number">0</span>) <span class="keyword">if</span> w &lt; h <span class="keyword">else</span> (<span class="number">0</span>, length)  <span class="comment"># 粘贴的位置</span></span><br><span class="line">    background.paste(image, box)</span><br><span class="line">    <span class="built_in">print</span>(save_name)</span><br><span class="line">    background.save(save_name, quality=<span class="number">95</span>)</span><br><span class="line">    <span class="keyword">return</span> background</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">salt_and_pepper</span>(<span class="params">src, percetage</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;椒盐噪声&quot;&quot;&quot;</span></span><br><span class="line">    SP_NoiseImg = src.copy()</span><br><span class="line">    SP_NoiseNum = <span class="built_in">int</span>(percetage * src.shape[<span class="number">0</span>] * src.shape[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(SP_NoiseNum):</span><br><span class="line">        randR = np.random.randint(<span class="number">0</span>, src.shape[<span class="number">0</span>] - <span class="number">1</span>)</span><br><span class="line">        randG = np.random.randint(<span class="number">0</span>, src.shape[<span class="number">1</span>] - <span class="number">1</span>)</span><br><span class="line">        randB = np.random.randint(<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line">        <span class="keyword">if</span> np.random.randint(<span class="number">0</span>, <span class="number">1</span>) == <span class="number">0</span>:</span><br><span class="line">            SP_NoiseImg[randR, randG, randB] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            SP_NoiseImg[randR, randG, randB] = <span class="number">255</span></span><br><span class="line">    <span class="keyword">return</span> SP_NoiseImg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">addGaussianNoise</span>(<span class="params">image, percetage</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;给图片增加高斯噪声&quot;&quot;&quot;</span></span><br><span class="line">    G_Noiseimg = image.copy()</span><br><span class="line">    w = image.shape[<span class="number">1</span>]</span><br><span class="line">    h = image.shape[<span class="number">0</span>]</span><br><span class="line">    G_NoiseNum = <span class="built_in">int</span>(percetage * image.shape[<span class="number">0</span>] * image.shape[<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(G_NoiseNum):</span><br><span class="line">        temp_x = np.random.randint(<span class="number">0</span>, h)</span><br><span class="line">        temp_y = np.random.randint(<span class="number">0</span>, w)</span><br><span class="line">        G_Noiseimg[temp_x][temp_y][np.random.randint(<span class="number">3</span>)] = np.random.randn(<span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> G_Noiseimg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">darker</span>(<span class="params">image, percetage=<span class="number">0.9</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;降低图片亮度&quot;&quot;&quot;</span></span><br><span class="line">    image_copy = image.copy()</span><br><span class="line">    w = image.shape[<span class="number">1</span>]</span><br><span class="line">    h = image.shape[<span class="number">0</span>]</span><br><span class="line">    <span class="comment"># get darker</span></span><br><span class="line">    <span class="keyword">for</span> xi <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, w):</span><br><span class="line">        <span class="keyword">for</span> xj <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, h):</span><br><span class="line">            image_copy[xj, xi, <span class="number">0</span>] = <span class="built_in">int</span>(image[xj, xi, <span class="number">0</span>] * percetage)</span><br><span class="line">            image_copy[xj, xi, <span class="number">1</span>] = <span class="built_in">int</span>(image[xj, xi, <span class="number">1</span>] * percetage)</span><br><span class="line">            image_copy[xj, xi, <span class="number">2</span>] = <span class="built_in">int</span>(image[xj, xi, <span class="number">2</span>] * percetage)</span><br><span class="line">    <span class="keyword">return</span> image_copy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">brighter</span>(<span class="params">image, percetage=<span class="number">1.5</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;增加图片亮度&quot;&quot;&quot;</span></span><br><span class="line">    image_copy = image.copy()</span><br><span class="line">    w = image.shape[<span class="number">1</span>]</span><br><span class="line">    h = image.shape[<span class="number">0</span>]</span><br><span class="line">    <span class="comment"># get brighter</span></span><br><span class="line">    <span class="keyword">for</span> xi <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, w):</span><br><span class="line">        <span class="keyword">for</span> xj <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, h):</span><br><span class="line">            image_copy[xj, xi, <span class="number">0</span>] = np.clip(<span class="built_in">int</span>(image[xj, xi, <span class="number">0</span>] * percetage), a_max=<span class="number">255</span>, a_min=<span class="number">0</span>)</span><br><span class="line">            image_copy[xj, xi, <span class="number">1</span>] = np.clip(<span class="built_in">int</span>(image[xj, xi, <span class="number">1</span>] * percetage), a_max=<span class="number">255</span>, a_min=<span class="number">0</span>)</span><br><span class="line">            image_copy[xj, xi, <span class="number">2</span>] = np.clip(<span class="built_in">int</span>(image[xj, xi, <span class="number">2</span>] * percetage), a_max=<span class="number">255</span>, a_min=<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> image_copy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rotate</span>(<span class="params">image, angle, center=<span class="literal">None</span>, scale=<span class="number">1.0</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成旋转图片&quot;&quot;&quot;</span></span><br><span class="line">    (h, w) = image.shape[:<span class="number">2</span>]</span><br><span class="line">    <span class="comment"># If no rotation center is specified, the center of the image is set as the rotation center</span></span><br><span class="line">    <span class="keyword">if</span> center <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        center = (w / <span class="number">2</span>, h / <span class="number">2</span>)</span><br><span class="line">    m = cv2.getRotationMatrix2D(center, angle, scale)</span><br><span class="line">    rotated = cv2.warpAffine(image, m, (w, h))</span><br><span class="line">    <span class="keyword">return</span> rotated</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">flip</span>(<span class="params">image</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成翻转图片&quot;&quot;&quot;</span></span><br><span class="line">    flipped_image = np.fliplr(image)</span><br><span class="line">    <span class="keyword">return</span> flipped_image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">file_dir</span>):</span><br><span class="line">    <span class="comment"># # 图片文件夹路径</span></span><br><span class="line">    <span class="comment"># file_dir = &#x27;../data/meishigewen-img/&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> img_name <span class="keyword">in</span> tqdm(os.listdir(file_dir)):</span><br><span class="line">        image = Image.<span class="built_in">open</span>(file_dir + img_name)</span><br><span class="line">        <span class="keyword">if</span> image.size[<span class="number">0</span>] != image.size[<span class="number">1</span>]:</span><br><span class="line">            trans_square(image, file_dir + img_name)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> img_name <span class="keyword">in</span> tqdm(os.listdir(file_dir)):</span><br><span class="line">        img_path = file_dir + img_name</span><br><span class="line">        img = cv2.imread(img_path)</span><br><span class="line">        rotated_90 = rotate(img, <span class="number">90</span>)</span><br><span class="line">        cv2.imwrite(file_dir + img_name[<span class="number">0</span>:-<span class="number">4</span>] + <span class="string">&#x27;_r90.jpg&#x27;</span>, rotated_90)</span><br><span class="line"></span><br><span class="line">        rotated_180 = rotate(img, <span class="number">180</span>)</span><br><span class="line">        cv2.imwrite(file_dir + img_name[<span class="number">0</span>:-<span class="number">4</span>] + <span class="string">&#x27;_r180.jpg&#x27;</span>, rotated_180)</span><br><span class="line"></span><br><span class="line">        flipped_img = flip(img)</span><br><span class="line">        cv2.imwrite(file_dir + img_name[<span class="number">0</span>:-<span class="number">4</span>] + <span class="string">&#x27;_fli.jpg&#x27;</span>, flipped_img)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> img_name <span class="keyword">in</span> tqdm(os.listdir(file_dir)):</span><br><span class="line">        img_path = file_dir + img_name</span><br><span class="line">        img = cv2.imread(img_path)</span><br><span class="line"></span><br><span class="line">        img_gauss = addGaussianNoise(img, <span class="number">0.3</span>)</span><br><span class="line">        cv2.imwrite(file_dir + img_name[<span class="number">0</span>:-<span class="number">4</span>] + <span class="string">&#x27;_noise.jpg&#x27;</span>, img_gauss)</span><br><span class="line"></span><br><span class="line">        img_darker = darker(img)</span><br><span class="line">        cv2.imwrite(file_dir + img_name[<span class="number">0</span>:-<span class="number">4</span>] + <span class="string">&#x27;_darker.jpg&#x27;</span>, img_darker)</span><br><span class="line"></span><br><span class="line">        img_brighter = brighter(img)</span><br><span class="line">        cv2.imwrite(file_dir + img_name[<span class="number">0</span>:-<span class="number">4</span>] + <span class="string">&#x27;_brighter.jpg&#x27;</span>, img_brighter)</span><br><span class="line"></span><br><span class="line">        blur = cv2.GaussianBlur(img, (<span class="number">7</span>, <span class="number">7</span>), <span class="number">1.5</span>)</span><br><span class="line">        cv2.imwrite(file_dir + img_name[<span class="number">0</span>:-<span class="number">4</span>] + <span class="string">&#x27;_blur.jpg&#x27;</span>, blur)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    run(file_dir=<span class="string">&#x27;../data/picture/img/&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://easylink.cc/e53y50',
+  alipayImage: 'https://easylink.cc/fmyobu'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>Bai Xiong</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2024/09/30/CV-DataAugmentation/" target="_blank" title="">http://example.com/2024/09/30/CV-DataAugmentation/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+        
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/06/01/%E6%B1%BD%E8%BD%A6%E8%A1%8C%E4%B8%9A%E7%A0%94%E7%A9%B6-AutomotiveIndustryResearch/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">行业资讯「汽车」 IndustryResearch(Automotive)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#YoloV5%E8%AE%AD%E7%BB%83%E5%9B%BE%E7%89%87%E5%A2%9E%E5%BC%BA-python%E4%BB%A3%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">YoloV5训练图片增强 python代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Generate-More-Label-%E2%80%93-%E7%94%9F%E6%88%90%E9%85%8D%E5%A5%97%E7%9A%84Label"><span class="nav-number">1.1.</span> <span class="nav-text">Generate More Label – 生成配套的Label</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generate-More-Picture-%E2%80%93-%E7%94%9F%E6%88%90%E5%A2%9E%E5%BC%BA%E5%9B%BE%E7%89%87"><span class="nav-number">1.2.</span> <span class="nav-text">Generate More Picture – 生成增强图片</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2024 HELLO WORLD All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				UV : <span id="busuanzi_value_site_uv"></span> |  
+				PV : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/collection" class="mobile-nav-link">Collection</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            HELLO WORLD
+          </div>
+          <div class="panel-body">
+            Copyright © 2024 Bai Xiong All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+
+  <!--单击显示文字-->
+  <script type="text/javascript" src="/js/click_show_text.js"></script>
+
+  <!--动态线条背景-->
+  <script type="text/javascript"
+  color="220,220,220" opacity='0.5' zIndex="-1" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  </script>
+
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
